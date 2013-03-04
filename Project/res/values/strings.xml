@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="app_name">Sketch</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main_menu">MainMenu</string>
+    <string name="search">Quick search recipes</string>
+    <string name="advancedSearch">Use available ingredients only</string>
+    <string name="myRecipesButton">My Recipes</string>
+    <string name="myPantryButton">My Pantry</string>
+    <string name="addItem">Add New Item to Pantry</string>
+    <string name="user_name_email">Username/E-mail</string>
+    <string name="password">Password</string>
+
+</resources>
