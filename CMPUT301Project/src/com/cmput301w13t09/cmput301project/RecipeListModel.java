@@ -17,7 +17,7 @@ public class RecipeListModel {
 	 * Constructor TODO Fix this cause it won't work
 	 * 
 	 * @param recipe
-	 *            to be added to the list
+	 *            : The recipe to be added to the list
 	 */
 	public RecipeListModel(RecipeModel recipe) {
 		recipe_list.add(recipe);
@@ -26,7 +26,7 @@ public class RecipeListModel {
 	/**
 	 * Returns length of recipe list (RecipeListModel)
 	 * 
-	 * @return size of the recipe
+	 * @return size : The size of the list of recipes
 	 */
 	public int getLength() {
 		return recipe_list.size();
