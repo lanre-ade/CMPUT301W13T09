@@ -22,6 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.cmput301w13t09.cmput301project.MyPantryActivity"
+            android:label="@string/title_activity_my_pantry" >
+        </activity>
     </application>
 
 </manifest>

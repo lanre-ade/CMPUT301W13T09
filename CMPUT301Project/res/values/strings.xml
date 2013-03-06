@@ -8,6 +8,6 @@
     <string name="advancedSearchCheck">Only use available ingrediants</string>
     <string name="recipes">My Recipes</string>
     <string name="pantry">My Pantry</string>
-    
+    <string name="title_activity_my_pantry">MyPantryActivity</string>
 
 </resources>

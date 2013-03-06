@@ -1,23 +1,30 @@
 package com.cmput301w13t09.cmput301project;
 
-/* Class: RecipeModel
+/** Class: RecipeModel
  * RecipeModel is a class that holds recipes used in application. RecipeModel stores a 
- * name of the recipe (recipe_name), description of the recipe (recipe_desc), list of ingrediants
- * (IngrediantListModel), and list of photos (PhotoListModel). The constructor takes in name 
- * of the recipe (name), description of the recipe (desc), list of ingrediants
+ * name of the recipe (recipe_name), description of the recipe (recipe_desc), list of ingredients
+ * (ingredientListModel), and list of photos (PhotoListModel). The constructor takes in name 
+ * of the recipe (name), description of the recipe (desc), list of ingredients
  * (Ilist), and list of photos (Plist).Contains methods getRecipeDesc, getRecipeName, getIngredList,
  *  and getPhotoList.
+ *  
  */
 
 public class RecipeModel {
 
 	private String recipe_name;
 	private String recipe_desc;
-	private IngrediantListModel ingred_list;
+	private ingredientListModel ingred_list;
 	private PhotoListModel photo_list;
 
-	// Constructor
-	public RecipeModel(String name, String desc, IngrediantListModel Ilist,
+	/** Constructor
+	 * 
+	 * @param name :Name of the recipe
+	 * @param desc :Description of the recipe
+	 * @param Ilist :List of ingredients
+	 * @param Plist :List of photos
+	 */
+	public RecipeModel(String name, String desc, ingredientListModel Ilist,
 			PhotoListModel Plist) {
 		recipe_desc = desc;
 		recipe_name = name;
@@ -25,22 +32,34 @@ public class RecipeModel {
 		photo_list = Plist;
 	}
 
-	// Returns the description of a recipe (RecipeModel)
+	/** Returns the description of a recipe (RecipeModel)
+	 * 
+	 * @return description of a recipe
+	 */
 	public String getRecipeDesc() {
 		return recipe_desc;
 	}
 
-	// Returns the name of a recipe (RecipeModel)
+	/** Returns the name of a recipe (RecipeModel)
+	 * 
+	 * @return name of the recipe
+	 */
 	public String getRecipeName() {
 		return recipe_name;
 	}
 
-	// Returns ingrediant list of a recipe (RecipeModel)
-	public IngrediantListModel getIngredList() {
+	/** Returns ingredient list of a recipe (RecipeModel)
+	 * 
+	 * @return a list of required ingredients
+	 */
+	public ingredientListModel getIngredList() {
 		return ingred_list;
 	}
 
-	// Returns photo list of a recipe (RecipeModel)
+	/** Returns photo list of a recipe (RecipeModel)
+	 * 
+	 * @return list of photos attached to recipe
+	 */
 	public PhotoListModel getPhotoList() {
 		return photo_list;
 	}
