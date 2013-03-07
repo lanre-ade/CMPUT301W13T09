@@ -1,17 +1,13 @@
 package com.cmput301w13t09.cmput301project;
 
 
-	import java.io.Serializable;
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 	/**
 	 * A class that represents a recipe. Every recipe has a creator, and is to be
 	 * fulfilled by a recipe member.
-	 * 
-	 * @author Katherine Jasniewski
-	 * @author Jeanine Bonot
-	 * 
 	 */
 	public class Recipe implements Serializable {
 
