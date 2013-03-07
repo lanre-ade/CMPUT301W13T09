@@ -41,7 +41,6 @@ public class RecipeDBAdapter {
 
 	private static final String TABLE_PHOTOS = "photos";
 	private static final String TABLE_RECIPES = "recipes";
-	private static final String TABLE_MEMBERS = "members";
 	private static final String TABLE_USERS = "users";
 	private static final String TABLE_INGREDIENTS = "ingredients";
 

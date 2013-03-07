@@ -2,8 +2,8 @@ package com.cmput301w13t09.cmput301project;
 
 
 	import java.io.Serializable;
-	import java.text.SimpleDateFormat;
-	import java.util.*;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 	/**
 	 * A class that represents a recipe. Every recipe has a creator, and is to be
@@ -94,6 +94,10 @@ package com.cmput301w13t09.cmput301project;
 			_photos = new ArrayList<byte[]>();
 			_photos.addAll(photos);
 		}
+		public void setIngredients(ArrayList<String[]> ingredients){
+            _ingredients = new ArrayList<String[]>();
+            _ingredients.addAll(ingredients);
+        }
 
 		// Getters
 		public String getCreator() {
@@ -124,7 +128,7 @@ package com.cmput301w13t09.cmput301project;
 		public ArrayList<byte[]> getPhotos(){
 			return _photos;
 		}
-		public ArrayList<String[]> getTextReqs(){
+		public ArrayList<String[]> getIngredients(){
 	            return _ingredients;
 	        }
 
