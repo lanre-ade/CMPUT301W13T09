@@ -31,7 +31,7 @@ public class ingredientModel {
 	 * 
 	 * @return Name of the ingredient
 	 */
-	public String getingredientName() {
+	public String getIngredientName() {
 		return ingredient_desc;
 	}
 
@@ -40,7 +40,7 @@ public class ingredientModel {
 	 * 
 	 * @return Description of the ingredient
 	 */
-	public String getingredientDesc() {
+	public String getIngredientDesc() {
 		return ingredient_name;
 	}
 }

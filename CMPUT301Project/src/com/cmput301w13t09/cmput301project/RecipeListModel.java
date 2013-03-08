@@ -11,16 +11,14 @@ import java.util.ArrayList;
  */
 
 public class RecipeListModel {
-	private ArrayList<RecipeModel> recipe_list = new ArrayList<RecipeModel>();
+	private ArrayList<RecipeModel> recipe_list;
 
 	/**
-	 * Constructor TODO Fix this cause it won't work
+	 * Constructor 
 	 * 
-	 * @param recipe
-	 *            : The recipe to be added to the list
 	 */
-	public RecipeListModel(RecipeModel recipe) {
-		recipe_list.add(recipe);
+	public RecipeListModel() {
+		this.recipe_list = new ArrayList<RecipeModel>();
 	}
 
 	/**

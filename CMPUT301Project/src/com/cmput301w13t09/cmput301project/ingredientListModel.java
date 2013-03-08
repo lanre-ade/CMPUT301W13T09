@@ -10,16 +10,14 @@ import java.util.ArrayList;
  * has methods getLength, getingredientListDesc, getingredientListName.
  */
 public class ingredientListModel {
-	private ArrayList<ingredientModel> ingred_list = new ArrayList<ingredientModel>();
+	private ArrayList<ingredientModel> ingred_list;
 
 	/**
-	 * Constructor? TODO Fix this cause it won't work
+	 * Constructor
 	 * 
-	 * @param ingred
-	 *            : ....???
 	 */
-	public ingredientListModel(ingredientModel ingred) {
-		ingred_list.add(ingred);
+	public ingredientListModel() {
+		 this.ingred_list = new ArrayList<ingredientModel>();
 	}
 
 	/**
@@ -39,8 +37,8 @@ public class ingredientListModel {
 	 *            : Position of recipe in the list
 	 * @return Description of ingredient
 	 */
-	public String getingredientListDesc(int i) {
-		return ingred_list.get(i).getingredientDesc();
+	public String getIngredientListDesc(int i) {
+		return ingred_list.get(i).getIngredientDesc();
 	}
 
 	/**
@@ -51,8 +49,8 @@ public class ingredientListModel {
 	 *            : Position of recipe in the list
 	 * @return Name of the ingredient
 	 */
-	public String getingredientListName(int i) {
-		return ingred_list.get(i).getingredientName();
+	public String getIngredientListName(int i) {
+		return ingred_list.get(i).getIngredientName();
 	}
 
 }
