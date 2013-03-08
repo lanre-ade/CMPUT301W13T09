@@ -4,8 +4,9 @@
     <string name="app_name">CMPUT301Project</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-    <string name="searchText">Quick search recipes</string>
-    <string name="advancedSearchCheck">Only use available ingrediants</string>
+    <string name="searchText">Quick search recipes(NOT IMPLIMENTED)</string>
+    <string name="inPantrySearchCheck">Only use available ingrediants(NOT IMPLIMENTED)</string>
+    <string name="localSearchText">Only search in My Recipes (NOT IMPLIMENTED)</string>
     <string name="recipes">My Recipes</string>
     <string name="pantry">My Pantry</string>
     <string name="title_activity_my_pantry">MyPantryActivity</string>
