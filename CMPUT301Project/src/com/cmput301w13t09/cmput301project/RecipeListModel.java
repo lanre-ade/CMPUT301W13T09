@@ -61,7 +61,7 @@ public class RecipeListModel {
 	 *            : Position of recipe in the list
 	 * @return List of ingredient that go into this recipe
 	 */
-	public ingredientListModel getRecipeingredientList(int i) {
+	public IngredientListModel getRecipeingredientList(int i) {
 		return recipe_list.get(i).getIngredList();
 	}
 

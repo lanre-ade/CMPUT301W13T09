@@ -15,7 +15,7 @@ public class RecipeModel {
 
 	private String recipe_name;
 	private String recipe_desc;
-	private ingredientListModel ingred_list;
+	private IngredientListModel ingred_list;
 	private PhotoListModel photo_list;
 
 	/**
@@ -30,7 +30,7 @@ public class RecipeModel {
 	 * @param Plist
 	 *            : List of photos
 	 */
-	public RecipeModel(String name, String desc, ingredientListModel Ilist,
+	public RecipeModel(String name, String desc, IngredientListModel Ilist,
 			PhotoListModel Plist) {
 		recipe_desc = desc;
 		recipe_name = name;
@@ -61,7 +61,7 @@ public class RecipeModel {
 	 * 
 	 * @return A list of required ingredients
 	 */
-	public ingredientListModel getIngredList() {
+	public IngredientListModel getIngredList() {
 		return ingred_list;
 	}
 

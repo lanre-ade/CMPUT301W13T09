@@ -3,12 +3,13 @@
 
     <string name="app_name">CMPUT301Project</string>
     <string name="menu_settings">Settings</string>
-    <string name="searchText">Quick search recipes (NI)</string>
-    <string name="inPantrySearchCheck">Only use available ingrediants (NI)</string>
-    <string name="localSearchText">Only search in My Recipes (NI)</string>
+    <string name="search_text">Quick search recipes (NI)</string>
+    <string name="in_pantry_search_check">Only use available ingrediants (NI)</string>
+    <string name="local_search_text">Only search in My Recipes (NI)</string>
     <string name="recipes">My Recipes</string>
     <string name="pantry">My Pantry</string>
     <string name="title_activity_my_pantry_view">My Pantry</string>
     <string name="title_activity_my_recipes_view">My Recipes</string>
+    <string name="my_pantry_add_button">Add Ingredient</string>
 
 </resources>
