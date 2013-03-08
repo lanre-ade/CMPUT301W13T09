@@ -1,11 +1,5 @@
 package com.cmput301w13t09.cmput301project;
 
-import java.util.List;
-
-
-
-import com.cmput301w13t09.cmput301project.DBModel;
-import com.cmput301w13t09.cmput301project.Recipe;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;

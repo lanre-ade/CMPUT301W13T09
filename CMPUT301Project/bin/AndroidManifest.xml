@@ -11,15 +11,34 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.cmput301w13t09.cmput301project.MainMenuView"
+            android:name="com.cmput301w13t09.cmput301project.activities.MainMenuView"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.cmput301w13t09.cmput301project.activities.MyPantryView"
+            android:exported="false"
+            android:label="@string/title_activity_my_pantry_view" >
+            <intent-filter>
+                <action android:name="activities.MyPantry" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.cmput301w13t09.cmput301project.activities.MyRecipesView"
+            android:exported="false"
+            android:label="@string/title_activity_my_recipes_view" >
+            <intent-filter >
+                <action android:name="activities.MyRecipes"/>
+                
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>

@@ -11,8 +11,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
-        android:ems="10" 
-        android:hint="@string/searchText">
+        android:ems="10"
+        android:hint="@string/searchText" >
 
         <requestFocus />
     </EditText>
@@ -25,15 +25,6 @@
         android:layout_below="@+id/searchEditText"
         android:layout_marginTop="21dp"
         android:text="@string/inPantrySearchCheck" />
-    
-    <Button
-        android:id="@+id/Button01"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button1"
-        android:layout_below="@+id/button1"
-        android:layout_marginTop="20dp"
-        android:text="@string/pantry" />
 
     <CheckBox
         android:id="@+id/localSearchOnly"
@@ -45,12 +36,20 @@
         android:text="@string/localSearchText" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/myRecipes"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/searchEditText"
         android:layout_below="@+id/localSearchOnly"
-        android:layout_marginTop="62dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
         android:text="@string/recipes" />
+
+    <Button
+        android:id="@+id/myPantry"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/myRecipes"
+        android:layout_centerHorizontal="true"
+        android:text="@string/pantry" />
 
 </RelativeLayout>
