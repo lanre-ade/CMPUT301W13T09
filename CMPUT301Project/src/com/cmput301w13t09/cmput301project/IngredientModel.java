@@ -12,6 +12,8 @@ package com.cmput301w13t09.cmput301project;
 public class IngredientModel {
 	private String ingredient_desc;
 	private String ingredient_name;
+	private float ingredient_quantity;
+	private String ingredient_quantity_unit;
 
 	/**
 	 * Constructor
@@ -24,6 +26,7 @@ public class IngredientModel {
 	public IngredientModel(String name, String desc) {
 		this.ingredient_name = name;
 		this.ingredient_desc = desc;
+
 	}
 
 	/**
@@ -32,7 +35,7 @@ public class IngredientModel {
 	 * @return Name of the ingredient
 	 */
 	public String getIngredientName() {
-		return this.ingredient_desc;
+		return this.ingredient_name;
 	}
 
 	/**
@@ -41,9 +44,9 @@ public class IngredientModel {
 	 * @return Description of the ingredient
 	 */
 	public String getIngredientDesc() {
-		return this.ingredient_name;
+		return this.ingredient_desc;
 	}
-	
+
 	/**
 	 * When anything tries to read this object as a string it will output the
 	 * name of the ingredient
@@ -51,4 +54,11 @@ public class IngredientModel {
 	public String toString() {
 		return this.ingredient_name;
 	}
+
+	public String toDialogString() {
+		String output = "Quantity: " + ingredient_quantity + " "
+				+ ingredient_quantity_unit + "\n\n" + ingredient_desc;
+		return output;
+	}
+
 }

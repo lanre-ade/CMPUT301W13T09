@@ -20,6 +20,10 @@ public class IngredientListModel {
 		 this.ingred_list = new ArrayList<IngredientModel>();
 	}
 	
+	/**
+	 * 
+	 * @param newIngredient : The Ingredient to be added to the list
+	 */
 	public void add(IngredientModel newIngredient) {
 		ingred_list.add(newIngredient);
 	}
@@ -64,4 +68,20 @@ public class IngredientListModel {
 		return ingred_list.get(i).getIngredientName();
 	}
 
+	/**
+	 * 
+	 * @param i : The position in the list of the ingredient desired
+	 * @return The ingredient desired
+	 */
+	public IngredientModel getIngredient(int i) {
+		return ingred_list.get(i);
+	}
+	
+	/**
+	 * Removes item from the list at index i
+	 * @param i : index of item to be removed
+	 */
+	public void remove(int i) {
+		this.ingred_list.remove(i);
+	}
 }
