@@ -11,5 +11,6 @@
     <string name="title_activity_my_pantry_view">My Pantry</string>
     <string name="title_activity_my_recipes_view">My Recipes</string>
     <string name="my_pantry_add_button">Add Ingredient</string>
+    <string name="create_recipe">Create New Recipe</string>
 
 </resources>

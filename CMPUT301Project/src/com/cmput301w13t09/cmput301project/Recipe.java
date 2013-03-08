@@ -31,14 +31,6 @@ import java.util.*;
 		 * 
 		 * @param creator
 		 *            The recipe creator.
-		 */
-
-
-		/**
-		 * Creates a new instance of the RecipeElement class.
-		 * 
-		 * @param creator
-		 *            The recipe creator.
 		 * @param name
 		 *            The recipe name.
 		 * @param date
@@ -46,8 +38,7 @@ import java.util.*;
 		 * @param description
 		 *            A description of the recipe.
 		 */
-		public Recipe(String creator, String name, String description,
-				boolean requiresText, boolean requiresPhoto) {
+		public Recipe(String creator, String name, String description) {
 
 			_creationDate = new SimpleDateFormat("MMM dd, yyyy | HH:mm")
 					.format(Calendar.getInstance().getTime());
@@ -127,13 +118,12 @@ import java.util.*;
 		public ArrayList<String[]> getIngredients(){
 	            return _ingredients;
 	        }
-
-		/** Gets the string summary for CrowdSourcer */
+/*
 		public String getSummary() {
 			return "<Recipe>" + _name + "<Creator>" + _creator + "<Date>"
 					+ _creationDate + "<Description>"
 					+ _description;
 
 		}
-
+*/
 }

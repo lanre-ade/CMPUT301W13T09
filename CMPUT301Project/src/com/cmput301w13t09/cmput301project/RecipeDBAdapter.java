@@ -269,13 +269,13 @@ public class RecipeDBAdapter {
 	
 
 	/**
-	 * Get the list of text fulfillments of a recipe.
+	 * Get the list of text ingredients of a recipe.
 	 * 
 	 * @param recipeID
 	 *            the hexadecimal string ID of a recipe.
 	 * @return a cursor over the list of ingredients for a recipe
 	 */
-	public Cursor fetchFulfillment(String recipeID) {
+	public Cursor ingredient(String recipeID) {
 
 		return mDb.query(TABLE_INGREDIENTS, new String[] { ID, RECIPE_ID, DATE,
 				USER, PROCEDURE }, RECIPE_ID + "='" + recipeID + "'", null, null, null,

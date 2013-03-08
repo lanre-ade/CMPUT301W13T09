@@ -5,4 +5,22 @@
     android:background="@color/background"
     tools:context=".MyRecipesView" >
 
+    <Button
+        android:id="@+id/createRecipeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/create_recipe" />
+
+    <ListView
+        android:id="@+id/myRecipesList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/createRecipeButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+
+    </ListView>
+
 </RelativeLayout>

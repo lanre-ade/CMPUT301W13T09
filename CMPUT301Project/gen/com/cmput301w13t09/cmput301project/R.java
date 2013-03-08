@@ -19,19 +19,24 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
+        public static final int createRecipeButton=0x7f080007;
         public static final int inPantrySearch=0x7f080001;
         public static final int localSearchOnly=0x7f080002;
-        public static final int menu_settings=0x7f080007;
+        public static final int menu_settings=0x7f08000b;
         public static final int myPantry=0x7f080003;
         public static final int myPantryAddIngredientButton=0x7f080006;
         public static final int myPantryIngredientList=0x7f080005;
         public static final int myRecipes=0x7f080004;
+        public static final int myRecipesList=0x7f080008;
+        public static final int recipe_desc=0x7f08000a;
+        public static final int recipe_name=0x7f080009;
         public static final int searchEditText=0x7f080000;
     }
     public static final class layout {
         public static final int activity_main_menu_view=0x7f030000;
         public static final int activity_my_pantry_view=0x7f030001;
         public static final int activity_my_recipes_view=0x7f030002;
+        public static final int recipe_list_row=0x7f030003;
     }
     public static final class menu {
         public static final int activity_main_menu_view=0x7f070000;
@@ -40,6 +45,7 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f050000;
+        public static final int create_recipe=0x7f05000a;
         public static final int in_pantry_search_check=0x7f050003;
         public static final int local_search_text=0x7f050004;
         public static final int menu_settings=0x7f050001;
