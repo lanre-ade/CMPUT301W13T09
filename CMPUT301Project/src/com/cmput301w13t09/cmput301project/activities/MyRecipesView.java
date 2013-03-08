@@ -2,7 +2,6 @@ package com.cmput301w13t09.cmput301project.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
 
 import com.cmput301w13t09.cmput301project.R;
 

@@ -9,17 +9,28 @@ import java.util.ArrayList;
  * appends it to a blank ingredient List (ingred_list). The ingredientListModel
  * has methods getLength, getingredientListDesc, getingredientListName.
  */
-public class ingredientListModel {
-	private ArrayList<ingredientModel> ingred_list;
+public class IngredientListModel {
+	private ArrayList<IngredientModel> ingred_list;
 
 	/**
 	 * Constructor
 	 * 
 	 */
-	public ingredientListModel() {
-		 this.ingred_list = new ArrayList<ingredientModel>();
+	public IngredientListModel() {
+		 this.ingred_list = new ArrayList<IngredientModel>();
 	}
-
+	
+	public void add(IngredientModel newIngredient) {
+		ingred_list.add(newIngredient);
+	}
+	
+	/**
+	 * 
+	 * @return the ingredient list
+	 */
+	public ArrayList<IngredientModel> getIngredientList(){
+		return this.ingred_list;
+	}
 	/**
 	 * Returns the length of ingred_list (ingredient List)
 	 * 

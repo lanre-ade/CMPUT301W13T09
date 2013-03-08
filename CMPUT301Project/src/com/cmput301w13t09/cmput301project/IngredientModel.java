@@ -9,7 +9,7 @@ package com.cmput301w13t09.cmput301project;
  * getingredientDesc().
  */
 
-public class ingredientModel {
+public class IngredientModel {
 	private String ingredient_desc;
 	private String ingredient_name;
 
@@ -21,9 +21,9 @@ public class ingredientModel {
 	 * @param desc
 	 *            : Description of ingredient
 	 */
-	public ingredientModel(String name, String desc) {
-		ingredient_name = name;
-		ingredient_desc = desc;
+	public IngredientModel(String name, String desc) {
+		this.ingredient_name = name;
+		this.ingredient_desc = desc;
 	}
 
 	/**
@@ -32,7 +32,7 @@ public class ingredientModel {
 	 * @return Name of the ingredient
 	 */
 	public String getIngredientName() {
-		return ingredient_desc;
+		return this.ingredient_desc;
 	}
 
 	/**
@@ -41,6 +41,14 @@ public class ingredientModel {
 	 * @return Description of the ingredient
 	 */
 	public String getIngredientDesc() {
-		return ingredient_name;
+		return this.ingredient_name;
+	}
+	
+	/**
+	 * When anything tries to read this object as a string it will output the
+	 * name of the ingredient
+	 */
+	public String toString() {
+		return this.ingredient_name;
 	}
 }
