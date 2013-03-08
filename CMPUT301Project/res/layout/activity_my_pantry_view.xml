@@ -5,12 +5,23 @@
     android:background="@color/background"
     tools:context=".MyPantryView" >
 
+    <ListView
+        android:id="@+id/myPantryIngredientList"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/myPantryAddIngredientButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+
+    </ListView>
+
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/myPantryAddIngredientButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
         android:text="@string/my_pantry_add_button" />
 
 </RelativeLayout>

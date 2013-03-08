@@ -13,6 +13,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
         android:ems="10"
+        android:inputType="textMultiLine"
         android:hint="@string/search_text"
         android:textColor="@color/textColour" >
 
@@ -55,5 +56,6 @@
         android:layout_below="@+id/localSearchOnly"
         android:layout_marginTop="65dp"
         android:text="@string/recipes" />
+
 
 </RelativeLayout>
