@@ -89,10 +89,9 @@ public class RecipeDBAdapter {
 	 */
 	public long createPhoto(String date, String recipeID, byte[] photo) {
 		ContentValues initialValues = new ContentValues();
-
+		initialValues.put(RECIPE_ID, recipeID);
 		initialValues.put(DATE, date);
 		initialValues.put(PHOTO, photo);
-		initialValues.put(RECIPE_ID, recipeID);
 
 		return mDb.insert(TABLE_PHOTOS, null, initialValues);
 	}
@@ -118,7 +117,6 @@ public class RecipeDBAdapter {
 		return mDb.insert(TABLE_RECIPES, null, initialValues);
 	}
 
-	
 
 	/**
 	 * Create a new entry using the information provided. If the entry is
@@ -263,7 +261,7 @@ public class RecipeDBAdapter {
 	 * @return Cursor over all folders
 	 */
 	public Cursor fetchAllRecipes() {
-		return mDb.query(TABLE_RECIPES, new String[] { ID, RECIPE, USER, DATE },
+		return mDb.query(TABLE_RECIPES, new String[] { ID, RECIPE, DATE, USER, PROCEDURE },
 				null, null, null, null, null);
 	}
 	
@@ -278,7 +276,7 @@ public class RecipeDBAdapter {
 	public Cursor ingredient(String recipeID) {
 
 		return mDb.query(TABLE_INGREDIENTS, new String[] { ID, RECIPE_ID, DATE,
-				USER, PROCEDURE }, RECIPE_ID + "='" + recipeID + "'", null, null, null,
+				INGREDIENT }, RECIPE_ID + "='" + recipeID + "'", null, null, null,
 				null, null);
 	}
 

@@ -25,10 +25,10 @@ public class DBModel {
 			+ "email TEXT, "
 			+ "password TEXT);";
 
-	private static final String RECIPES = "CREATE TABLE recipes (_id TEXT NOT NULL primary key, "
-			+ "user TEXT NOT NULL, "
+	private static final String RECIPES = "CREATE TABLE recipes (_id INTEGER NOT NULL primary key autoincrement, "
 			+ "recipe TEXT NOT NULL, "
 			+ "date TEXT NOT NULL, "
+			+ "user TEXT NOT NULL, "
 			+ "procedure TEXT NOT NULL);";
 
 	private static final String INGREDIENTS = "CREATE TABLE ingredients(_id INTEGER primary key autoincrement,  "
@@ -38,7 +38,6 @@ public class DBModel {
 
 	private static final String PHOTOS = "CREATE TABLE photos(_id INTEGER primary key autoincrement,  "
 			+ "recipe_id INTEGER, "
-			+ "user TEXT NOT NULL, "
 			+ "date TEXT NOT NULL, " + "photo BLOB NOT NULL);";
 
 	public static final String[] CREATE_TABLES = new String[] {//

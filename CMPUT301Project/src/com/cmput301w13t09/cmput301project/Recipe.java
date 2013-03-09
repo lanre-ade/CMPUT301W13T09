@@ -6,8 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 	/**
-	 * A class that represents a recipe. Every recipe has a creator, and is to be
-	 * fulfilled by a recipe member.
+	 * A class that represents a recipe. Every recipe has a creator.
 	 */
 	public class Recipe implements Serializable {
 
