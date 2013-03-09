@@ -38,7 +38,6 @@
             <intent-filter>
                 <action android:name="activities.MyRecipes" />
 
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -48,7 +47,6 @@
             android:label="@string/title_activity_create_recipe_view" >
             <intent-filter>
                 <action android:name="activities.CreateRecipe" />
-
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

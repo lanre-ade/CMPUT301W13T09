@@ -19,11 +19,12 @@ import java.util.*;
 		private String _id;
 		private String _name;
 		private String _creationDate;
-		private String _description;
+
 		private ArrayList<byte[]> _photos; 
 		private ArrayList<String[]> _ingredients;
 		// SQL ids
 		private String _creatorID;
+		private String _procedure;
 
 		/**
 		 * Creates a new instance of the RecipeElement class.
@@ -37,16 +38,17 @@ import java.util.*;
 		 * @param description
 		 *            A description of the recipe.
 		 */
-		public Recipe(String creator, String name, String description) {
+		public Recipe(String creator, String name, String procedure) {
 
+			_name = name;
 			_creationDate = new SimpleDateFormat("MMM dd, yyyy | HH:mm")
 					.format(Calendar.getInstance().getTime());
 
 			_creator = creator;
-			_name = name;
-			_photos = new ArrayList<byte[]>();
-			_ingredients = new ArrayList<String[]>();
-			_description = description;
+
+//			_photos = new ArrayList<byte[]>();
+//			_ingredients = new ArrayList<String[]>();
+			_procedure = procedure;
 		}
 
 		// Setters
@@ -71,8 +73,8 @@ import java.util.*;
 			_creationDate = value;
 		}
 
-		public void setDescription(String value) {
-			_description = value;
+		public void setProcedure(String value) {
+			_procedure = value;
 		}
 
 		
@@ -107,8 +109,8 @@ import java.util.*;
 			return _creationDate;
 		}
 
-		public String getDescription() {
-			return _description;
+		public String getProcedure() {
+			return _procedure;
 		}
 
 		public ArrayList<byte[]> getPhotos(){

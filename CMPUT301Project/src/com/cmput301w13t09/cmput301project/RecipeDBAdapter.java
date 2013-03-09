@@ -111,7 +111,7 @@ public class RecipeDBAdapter {
 		initialValues.put(RECIPE, recipe.getName());
 		initialValues.put(DATE, recipe.getDateCreated());
 		initialValues.put(USER, recipe.getCreator());
-		initialValues.put(PROCEDURE, recipe.getDescription());
+		initialValues.put(PROCEDURE, recipe.getProcedure());
 
 
 		return mDb.insert(TABLE_RECIPES, null, initialValues);
