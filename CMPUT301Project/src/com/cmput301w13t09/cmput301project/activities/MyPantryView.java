@@ -2,14 +2,14 @@ package com.cmput301w13t09.cmput301project.activities;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -23,6 +23,7 @@ public class MyPantryView extends Activity {
 	private ListView ingredientListView;
 	private int dialogNumber;
 	private IngredientListModel ingredientList;
+	private Button addIngredientButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +85,19 @@ public class MyPantryView extends Activity {
 
 				AlertDialog dialog = builder.create();
 				dialog.show();
+			}
+		});
+		
+		addIngredientButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				try { 
+				Intent addIngredient = new Intent("activities.AddIngredient");
+				startActivity(addIngredient);
+				} catch(Throwable e) {
+					e.printStackTrace();
+				}
 			}
 		});
 

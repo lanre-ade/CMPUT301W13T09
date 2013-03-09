@@ -19,18 +19,26 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int createRecipeButton=0x7f080007;
-        public static final int inPantrySearch=0x7f080001;
-        public static final int localSearchOnly=0x7f080002;
-        public static final int menu_settings=0x7f08000b;
-        public static final int myPantry=0x7f080003;
-        public static final int myPantryAddIngredientButton=0x7f080006;
-        public static final int myPantryIngredientList=0x7f080005;
-        public static final int myRecipes=0x7f080004;
-        public static final int myRecipesList=0x7f080008;
-        public static final int recipe_desc=0x7f08000a;
-        public static final int recipe_name=0x7f080009;
-        public static final int searchEditText=0x7f080000;
+        public static final int addNewIngredient=0x7f080007;
+        public static final int addNewIngredientEditTextDescription=0x7f080005;
+        public static final int addNewIngredientEditTextName=0x7f080000;
+        public static final int addNewIngredientEditTextQuantity=0x7f080004;
+        public static final int addNewIngredientSpinnerQuantity=0x7f080002;
+        public static final int addNewIngredientStringDescription=0x7f080006;
+        public static final int addNewIngredientStringName=0x7f080001;
+        public static final int addNewIngredientStringQuantity=0x7f080003;
+        public static final int createRecipeButton=0x7f08000f;
+        public static final int inPantrySearch=0x7f080009;
+        public static final int localSearchOnly=0x7f08000a;
+        public static final int menu_settings=0x7f080013;
+        public static final int myPantry=0x7f08000b;
+        public static final int myPantryAddIngredientButton=0x7f08000e;
+        public static final int myPantryIngredientList=0x7f08000d;
+        public static final int myRecipes=0x7f08000c;
+        public static final int myRecipesList=0x7f080010;
+        public static final int recipe_desc=0x7f080012;
+        public static final int recipe_name=0x7f080011;
+        public static final int searchEditText=0x7f080008;
     }
     public static final class layout {
         public static final int activity_add_new_ingredient=0x7f030000;
@@ -46,9 +54,12 @@ public final class R {
         public static final int activity_my_recipes_view=0x7f070003;
     }
     public static final class string {
+        public static final int addNewIngredientButtonString=0x7f05000f;
+        public static final int addNewIngredientStringDescription=0x7f05000e;
+        public static final int addNewIngredientStringName=0x7f05000c;
+        public static final int addNewIngredientStringQuantity=0x7f05000d;
         public static final int app_name=0x7f050000;
         public static final int create_recipe=0x7f05000a;
-        public static final int hello_world=0x7f05000b;
         public static final int in_pantry_search_check=0x7f050003;
         public static final int local_search_text=0x7f050004;
         public static final int menu_settings=0x7f050001;
@@ -56,7 +67,7 @@ public final class R {
         public static final int pantry=0x7f050006;
         public static final int recipes=0x7f050005;
         public static final int search_text=0x7f050002;
-        public static final int title_activity_add_new_ingredient=0x7f05000c;
+        public static final int title_activity_add_new_ingredient=0x7f05000b;
         public static final int title_activity_my_pantry_view=0x7f050007;
         public static final int title_activity_my_recipes_view=0x7f050008;
     }
