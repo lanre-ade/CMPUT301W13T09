@@ -38,6 +38,7 @@
             <intent-filter>
                 <action android:name="activities.MyRecipes" />
 
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -48,7 +49,18 @@
             <intent-filter>
                 <action android:name="activities.CreateRecipe" />
 
+
                 <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.cmput301w13t09.cmput301project.activities.AddNewIngredient"
+            android:exported="false"
+            android:label="@string/title_activity_add_new_ingredient" >
+            <intent-filter>
+                <action android:name="activities.AddIngredient"/>
+                
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
     </application>
