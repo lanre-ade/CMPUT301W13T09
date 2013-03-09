@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddNewIngredient" >
+
+    <EditText
+        android:id="@+id/addNewIngredientEditTextName"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/addNewIngredientStringName"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <Spinner
+        android:id="@+id/addNewIngredientSpinnerQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/addNewIngredientStringQuantity"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/addNewIngredientEditTextQuantity" />
+
+    <EditText
+        android:id="@+id/addNewIngredientEditTextQuantity"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/addNewIngredientEditTextName"
+        android:layout_alignTop="@+id/addNewIngredientStringQuantity"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/addNewIngredientStringQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/addNewIngredientEditTextName"
+        android:layout_marginTop="29dp"
+        android:text="@string/addNewIngredientStringQuantity"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/textColour" />
+
+    <TextView
+        android:id="@+id/addNewIngredientStringName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
+        android:text="@string/addNewIngredientStringName"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/textColour" />
+
+    <EditText
+        android:id="@+id/addNewIngredientEditTextDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/addNewIngredientStringDescription"
+        android:layout_alignLeft="@+id/addNewIngredientEditTextQuantity"
+        android:ems="10"
+        android:inputType="textMultiLine" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/addNewIngredientStringDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/addNewIngredientSpinnerQuantity"
+        android:layout_marginTop="22dp"
+        android:text="@string/addNewIngredientStringDescription"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/textColour" />
+
+    <Button
+        android:id="@+id/addNewIngredient"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="22dp"
+        android:text="@string/addNewIngredientButtonString" />
+
+</RelativeLayout>
