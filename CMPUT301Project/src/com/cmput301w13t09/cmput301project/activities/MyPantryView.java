@@ -31,7 +31,7 @@ public class MyPantryView extends Activity {
 		setContentView(R.layout.activity_my_pantry_view);
 		ingredientList = new IngredientListModel();
 
-		// TODO Remove this stuff it's garbage
+//		 TODO Remove this stuff it's garbage
 		ingredientList.add(new IngredientModel("Cat", "Smells bad"));
 		ingredientList.add(new IngredientModel("Fish", "Eats fish"));
 		ingredientList.add(new IngredientModel("CatFish",

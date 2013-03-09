@@ -35,8 +35,8 @@ public class MainMenuView extends Activity {
 			@Override
 			public void onClick(View v) {
 				try {
-					Intent viewMyPantry = new Intent("activities.MyRecipes");
-					startActivity(viewMyPantry);
+					Intent viewMyRecipes = new Intent("activities.MyRecipes");
+					startActivity(viewMyRecipes);
 				} catch(Throwable e) {
 					e.printStackTrace();
 				}				
