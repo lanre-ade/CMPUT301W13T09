@@ -18,15 +18,16 @@
     <string name="addNewIngredientStringQuantity">Quantity</string>
     <string name="addNewIngredientStringDescription">Description</string>
     <string name="addNewIngredientButtonString">Done</string>
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_add_new_recipe_view">Add Recipe</string>
     <string name="CreateNewRecipe_Name">Name:</string>
-	<string name="CreateNewRecipe_Desc">Description:</string>
-	<string name="CreateNewRecipe_IngList">Ingredients Added</string>
-	<string name="CreateRecipeViewAddNewIngredient">Add New Ingredient</string>
-	<string name="CreateRecipeViewDeleteIngredient">Delete Ingredient</string>
-	<string name="CreateRecipeViewSubmit">Submit</string>
-	
-    
+    <string name="CreateNewRecipe_Desc">Description:</string>
+    <string name="CreateNewRecipe_IngList">Ingredients Added</string>
+    <string name="CreateRecipeViewAddNewIngredient">Add New Ingredient</string>
+    <string name="CreateRecipeViewDeleteIngredient">Delete Ingredient</string>
+    <string name="CreateRecipeViewSubmit">Submit</string>
+    <string name="createNewRecipe_title_section3">Instructions</string>
+    <string name="createNewRecipe_title_section2">Ingredients</string>
+    <string name="createNewRecipe_title_section1">Description</string>
+    <string name="title_activity_create_new_recipe_view">CreateNewRecipeView</string>
 
 </resources>

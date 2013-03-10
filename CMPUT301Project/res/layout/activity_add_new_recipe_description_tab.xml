@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/CreateNewRecipeDescriptionTab"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/addNewRecipeDescriptionString"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/addNewRecipeNameEditText"
+        android:layout_marginTop="36dp"
+        android:text="@string/addNewIngredientStringDescription"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/textColour" />
+
+    <TextView
+        android:id="@+id/addNewRecipeNameString"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="35dp"
+        android:text="@string/addNewIngredientStringName"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/textColour" />
+
+    <AutoCompleteTextView
+        android:id="@+id/addNewRecipeNameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/addNewRecipeNameString"
+        android:layout_toRightOf="@+id/addNewRecipeDescriptionString"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/addNewRecipeDescriptionEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/addNewRecipeNameEditText"
+        android:layout_alignTop="@+id/addNewRecipeDescriptionString"
+        android:ems="10"
+        android:inputType="textLongMessage|textMultiLine"
+        android:lines="6"
+        android:singleLine="false" >
+
+        <requestFocus />
+    </EditText>
+
+</RelativeLayout>

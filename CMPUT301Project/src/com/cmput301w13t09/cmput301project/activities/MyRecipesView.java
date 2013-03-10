@@ -103,7 +103,7 @@ public class MyRecipesView extends Activity {
 			public void onClick(View v) {
 				try {
 					Intent addNewRecipe = new Intent(
-							"activities.CreateRecipe");
+							"activities.CreateNewRecipe");
 					startActivity(addNewRecipe);
 				} catch (Throwable e) {
 					e.printStackTrace();

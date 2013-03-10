@@ -35,11 +35,11 @@ public class MyPantryView extends Activity {
 
 		addIngredientButton = (Button) findViewById(R.id.myPantryAddIngredientButton);
 
-		// TODO Remove this stuff it's garbage
-		// ingredientController.add(new IngredientModel("Cat", "Smells bad"));
-		// ingredientController.add(new IngredientModel("Fish", "Eats fish"));
-		// ingredientController.add(new IngredientModel("CatFish",
-		// "Smells bad and eats fish"));
+//		 TODO Remove this stuff it's garbage
+		 ingredientController.add(new IngredientModel("Cat", "Smells bad"));
+		 ingredientController.add(new IngredientModel("Fish", "Eats fish"));
+		 ingredientController.add(new IngredientModel("CatFish",
+		 "Smells bad and eats fish"));
 		ingredientController.saveToFile();
 
 		ingredientListView = (ListView) findViewById(R.id.myPantryIngredientList);
