@@ -11,14 +11,14 @@ import java.util.ArrayList;
  */
 
 public class RecipeController {
-	private ArrayList<RecipeModel> recipe_list;
+	private RecipeListModel recipe_list;
 
 	/**
 	 * Constructor 
 	 * 
 	 */
 	public RecipeController() {
-		this.recipe_list = new ArrayList<RecipeModel>();
+		this.recipe_list = new RecipeListModel();
 	}
 
 	/**
@@ -75,5 +75,12 @@ public class RecipeController {
 	 */
 	public PhotoListModel getRecipePhotoList(int i) {
 		return recipe_list.get(i).getPhotoList();
+	}
+	/**
+	 * 
+	 * @return the List of recipes
+	 */
+	public RecipeListModel getRecipeList(){
+		return this.recipe_list;
 	}
 }

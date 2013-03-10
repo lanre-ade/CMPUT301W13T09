@@ -29,6 +29,7 @@ public class MyPantryView extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_pantry_view);
+		
 		ingredientList = new IngredientController();
 
 //		 TODO Remove this stuff it's garbage
