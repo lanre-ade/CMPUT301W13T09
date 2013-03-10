@@ -2,18 +2,20 @@ package com.cmput301w13t09.cmput301project.activities;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.ListView;
 
 import com.cmput301w13t09.cmput301project.R;
 
@@ -190,7 +192,9 @@ public class CreateNewRecipeView extends FragmentActivity implements
 		 * fragment.
 		 */
 		public static final String ARG_SECTION_NUMBER = "section_number";
-
+		public Button addIngredientButton;
+		public ListView ingredientList;
+		
 		public IngredientSectionFragment() {
 		}
 
@@ -200,6 +204,43 @@ public class CreateNewRecipeView extends FragmentActivity implements
 			// Create a new TextView and set its text to the fragment's section
 			// number argument value.
 			View tabView = inflater.inflate(R.layout.activity_my_pantry_view, container, false);
+			addIngredientButton = (Button) tabView.findViewById(R.id.myPantryAddIngredientButton);
+			addIngredientButton.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					try {
+						Intent addIngredient = new Intent("activities.AddIngredient");
+						startActivity(addIngredient);
+					}catch (Throwable e){
+						e.printStackTrace();
+					}
+				}
+			});
+			
+			return tabView;
+		}
+	}
+	/**
+	 * A dummy fragment representing a section of the app, but that simply
+	 * displays dummy text.
+	 */
+	public static class InstructionSectionFragment extends Fragment {
+		/**
+		 * The fragment argument representing the section number for this
+		 * fragment.
+		 */
+		public static final String ARG_SECTION_NUMBER = "section_number";
+
+		public InstructionSectionFragment() {
+		}
+
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+				Bundle savedInstanceState) {
+			// Create a new TextView and set its text to the fragment's section
+			// number argument value.
+			View tabView = inflater.inflate(R.layout.activity_add_new_recipe_instruction_tab, container, false);
 			return tabView;
 		}
 	}
