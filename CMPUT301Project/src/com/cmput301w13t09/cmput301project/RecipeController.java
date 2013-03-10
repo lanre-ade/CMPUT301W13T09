@@ -1,11 +1,13 @@
 package com.cmput301w13t09.cmput301project;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ResourceBundle.Control;
 
 import android.content.Context;
 
@@ -19,13 +21,15 @@ import android.content.Context;
 
 public class RecipeController {
 	private RecipeListModel recipe_list;
-
+	private Context ctx;
 	/**
 	 * Constructor 
 	 * 
 	 */
-	public RecipeController() {
-		this.recipe_list = new RecipeListModel();
+	public RecipeController(Context tctx) {
+		ctx = tctx;
+		this.loadFromFile();
+		
 	}
 	
 	/**
@@ -112,7 +116,7 @@ public class RecipeController {
 	 * 
 	 * @param ctx Context of call location. Usually use 'this'
 	 */
-	public void SaveToFile(Context ctx) {
+	public void loadFromFile() {
 		try {
 			FileInputStream fileIn = ctx.openFileInput("Recipe.data");
 			ObjectInputStream objectInStream = new ObjectInputStream(fileIn);
@@ -149,5 +153,17 @@ public class RecipeController {
 			e.printStackTrace();
 		}
 
+	}
+	public void saveToFile() {
+		try {
+			new File("Pantry.data").delete();
+			FileOutputStream fileOut = ctx.openFileOutput("Recipe.data",
+					Context.MODE_PRIVATE);
+			ObjectOutputStream objectOutStream = new ObjectOutputStream(fileOut);
+			objectOutStream.writeObject(recipe_list);
+			objectOutStream.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

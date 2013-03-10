@@ -32,7 +32,7 @@ public class MyRecipesView extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_recipes_view);
 
-		recipeController = new RecipeController();
+		recipeController = new RecipeController(this);
 
 		recipeController.addRecipe(new RecipeModel("Cat Stew",
 				"Cat + stewpot + water", new IngredientController(this).add(
