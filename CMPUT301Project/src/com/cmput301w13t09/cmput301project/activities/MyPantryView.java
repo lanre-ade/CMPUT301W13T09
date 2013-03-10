@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import com.cmput301w13t09.cmput301project.IngredientListModel;
+import com.cmput301w13t09.cmput301project.IngredientController;
 import com.cmput301w13t09.cmput301project.IngredientModel;
 import com.cmput301w13t09.cmput301project.R;
 
@@ -22,14 +22,14 @@ public class MyPantryView extends Activity {
 	private ListAdapter ingredientListAdapter;
 	private ListView ingredientListView;
 	private int dialogNumber;
-	private IngredientListModel ingredientList;
+	private IngredientController ingredientList;
 	private Button addIngredientButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_pantry_view);
-		ingredientList = new IngredientListModel();
+		ingredientList = new IngredientController();
 
 //		 TODO Remove this stuff it's garbage
 		ingredientList.add(new IngredientModel("Cat", "Smells bad"));

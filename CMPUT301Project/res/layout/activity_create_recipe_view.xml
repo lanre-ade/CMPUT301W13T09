@@ -64,7 +64,7 @@
         android:textSize="20sp" />
 
     <Button
-        android:id="@+id//CreateRecipeViewAddNewIngredient"
+        android:id="@+id/CreateRecipeViewAddNewIngredient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/CreateRecipeViewIngListActual"
@@ -84,7 +84,7 @@
         android:id="@+id/CreateRecipeViewDeleteIngredient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id//CreateRecipeViewAddNewIngredient"
+        android:layout_below="@+id/CreateRecipeViewAddNewIngredient"
         android:layout_centerHorizontal="true"
         android:text="@string/CreateRecipeViewDeleteIngredient" />
 
