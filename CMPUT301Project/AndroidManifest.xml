@@ -56,10 +56,18 @@
             android:exported="false"
             android:label="@string/title_activity_add_new_ingredient" >
             <intent-filter>
-                <action android:name="activities.AddIngredient"/>
-                
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="activities.AddIngredient" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.cmput301w13t09.cmput301project.CreateRecipeView"
+            android:label="@string/title_activity_create_recipe_view" >
+        </activity>
+        <activity
+            android:name="com.cmput301w13t09.cmput301project.AddNewRecipeView"
+            android:label="@string/title_activity_add_new_recipe_view" >
         </activity>
     </application>
 
