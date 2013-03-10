@@ -1,6 +1,14 @@
 package com.cmput301w13t09.cmput301project;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+
+import android.content.Context;
 
 /**
  * Class: RecipeListModel RecipeList is a class that stores a list of recipes.
@@ -90,5 +98,47 @@ public class RecipeController {
 	 */
 	public void remove(int i) {
 		this.recipe_list.remove(i);
+	}
+	/**
+	 * 
+	 * @param ctx Context of call location. Usually use 'this'
+	 */
+	public void UploadRecipeList(Context ctx) {
+		try {
+			FileInputStream fileIn = ctx.openFileInput("Recipe.data");
+			ObjectInputStream objectInStream = new ObjectInputStream(fileIn);
+			recipe_list = (RecipeListModel) objectInStream
+					.readObject();
+			objectInStream.close();
+		} catch (FileNotFoundException FNE) {
+			try {
+				FileOutputStream temp = ctx.openFileOutput("Recipe.data",
+						Context.MODE_PRIVATE);
+				ObjectOutputStream objectOutStream = new ObjectOutputStream(
+						temp);
+				objectOutStream.writeObject(null);
+				objectOutStream.close();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} catch (NullPointerException NPE) {
+			try {
+				FileOutputStream temp = ctx.openFileOutput("Recipe.data",
+						Context.MODE_PRIVATE);
+				ObjectOutputStream objectOutStream = new ObjectOutputStream(
+						temp);
+				objectOutStream.writeObject(null);
+				objectOutStream.close();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} catch (ClassNotFoundException cnfe) {
+			cnfe.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 	}
 }
