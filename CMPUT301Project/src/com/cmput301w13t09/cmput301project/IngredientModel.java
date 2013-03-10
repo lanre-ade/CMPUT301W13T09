@@ -56,9 +56,9 @@ public class IngredientModel {
 	}
 
 	public String toDialogString() {
-		String output = "Quantity: " + ingredient_quantity + " "
+		return "Quantity: " + ingredient_quantity + " "
 				+ ingredient_quantity_unit + "\n\n" + ingredient_desc;
-		return output;
+
 	}
 
 }
