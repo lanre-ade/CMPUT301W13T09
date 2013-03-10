@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import com.cmput301w13t09.cmput301project.IngredientListModel;
+import com.cmput301w13t09.cmput301project.IngredientController;
 import com.cmput301w13t09.cmput301project.IngredientModel;
 import com.cmput301w13t09.cmput301project.R;
 
@@ -22,14 +22,14 @@ public class MyPantryView extends Activity {
 	public ListAdapter ingredientListAdapter;
 	public ListView ingredientListView;
 	public int dialogNumber;
-	public IngredientListModel ingredientList;
+	public IngredientController ingredientList;
 	public Button addIngredientButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_pantry_view);
-		ingredientList = new IngredientListModel();
+		ingredientList = new IngredientController();
 		addIngredientButton = (Button) findViewById(R.id.myPantryAddIngredientButton);
 		
 		
