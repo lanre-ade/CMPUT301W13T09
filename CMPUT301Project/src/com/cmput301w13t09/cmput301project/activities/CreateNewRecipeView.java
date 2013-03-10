@@ -16,8 +16,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
+import com.cmput301w13t09.cmput301project.IngredientListModel;
 import com.cmput301w13t09.cmput301project.R;
 
 public class CreateNewRecipeView extends FragmentActivity implements
@@ -87,6 +89,10 @@ public class CreateNewRecipeView extends FragmentActivity implements
 	}
 	public boolean onOptionsItemSelected(MenuItem item){
 		//TODO Grab all the data and make a recipe
+		DescriptionSectionFragment desc_Fragment = (DescriptionSectionFragment) mSectionsPagerAdapter.getItem(0);
+		IngredientSectionFragment ingr_Fragment = (IngredientSectionFragment) mSectionsPagerAdapter.getItem(1);
+		IngredientSectionFragment inst_Fragment = (IngredientSectionFragment) mSectionsPagerAdapter.getItem(2);
+		
 		return true;
 	}
 
@@ -174,6 +180,8 @@ public class CreateNewRecipeView extends FragmentActivity implements
 		 * fragment.
 		 */
 		public static final String ARG_SECTION_NUMBER = "section_number";
+		public EditText nameEditText, descriptionEditText;
+		
 
 		public DescriptionSectionFragment() {
 		}
@@ -184,7 +192,15 @@ public class CreateNewRecipeView extends FragmentActivity implements
 			// Create a new TextView and set its text to the fragment's section
 			// number argument value.
 			View tabView = inflater.inflate(R.layout.activity_add_new_recipe_description_tab, container, false);
+			nameEditText = (EditText) tabView.findViewById(R.id.addNewRecipeNameEditText);
+			descriptionEditText = (EditText) tabView.findViewById(R.id.addNewRecipeDescriptionEditText);
 			return tabView;
+		}
+		public String getName(){
+			return nameEditText.getText().toString();
+		}
+		public String getDescription(){
+			return descriptionEditText.getText().toString();
 		}
 	}
 	/**
@@ -199,6 +215,7 @@ public class CreateNewRecipeView extends FragmentActivity implements
 		public static final String ARG_SECTION_NUMBER = "section_number";
 		public Button addIngredientButton;
 		public ListView ingredientList;
+		public IngredientListModel ingredientListModel;
 		
 		public IngredientSectionFragment() {
 		}
@@ -215,8 +232,7 @@ public class CreateNewRecipeView extends FragmentActivity implements
 				@Override
 				public void onClick(View v) {
 					try {
-						Intent addIngredient = new Intent("activities.AddIngredient");
-						startActivity(addIngredient);
+						
 					}catch (Throwable e){
 						e.printStackTrace();
 					}
@@ -246,6 +262,8 @@ public class CreateNewRecipeView extends FragmentActivity implements
 			// Create a new TextView and set its text to the fragment's section
 			// number argument value.
 			View tabView = inflater.inflate(R.layout.activity_add_new_recipe_instruction_tab, container, false);
+			
+			
 			return tabView;
 		}
 	}

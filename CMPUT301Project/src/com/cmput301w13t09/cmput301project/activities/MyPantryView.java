@@ -105,6 +105,7 @@ public class MyPantryView extends Activity {
 				try {
 					Intent addIngredient = new Intent(
 							"activities.AddIngredient");
+					ingredientController.saveToFile();
 					startActivity(addIngredient);
 				} catch (Throwable e) {
 					e.printStackTrace();
