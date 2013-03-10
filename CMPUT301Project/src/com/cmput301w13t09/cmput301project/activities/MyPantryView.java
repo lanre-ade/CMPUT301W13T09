@@ -31,15 +31,14 @@ public class MyPantryView extends Activity {
 		setContentView(R.layout.activity_my_pantry_view);
 
 		ingredientController = new IngredientController(this);
-		ingredientController.loadFromFile();
 
 		addIngredientButton = (Button) findViewById(R.id.myPantryAddIngredientButton);
 
-//		 TODO Remove this stuff it's garbage
-		 ingredientController.add(new IngredientModel("Cat", "Smells bad"));
-		 ingredientController.add(new IngredientModel("Fish", "Eats fish"));
-		 ingredientController.add(new IngredientModel("CatFish",
-		 "Smells bad and eats fish"));
+		// TODO Remove this stuff it's garbage
+		ingredientController.add(new IngredientModel("Cat", "Smells bad"));
+		ingredientController.add(new IngredientModel("Fish", "Eats fish"));
+		ingredientController.add(new IngredientModel("CatFish",
+				"Smells bad and eats fish"));
 		ingredientController.saveToFile();
 
 		ingredientListView = (ListView) findViewById(R.id.myPantryIngredientList);
