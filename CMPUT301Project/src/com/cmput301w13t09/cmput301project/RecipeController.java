@@ -6,7 +6,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 
 import android.content.Context;
 
@@ -28,7 +27,16 @@ public class RecipeController {
 	public RecipeController() {
 		this.recipe_list = new RecipeListModel();
 	}
-
+	
+	/**
+	 * 
+	 * @param recipe : The Recipe to be appended to the list
+	 * @return this so that chain adding can happen.
+	 */
+	public RecipeController addRecipe(RecipeModel recipe){
+		recipe_list.add(recipe);
+		return this;
+	}
 	/**
 	 * Returns length of recipe list (RecipeListModel)
 	 * 

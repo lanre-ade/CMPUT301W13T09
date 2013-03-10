@@ -10,29 +10,31 @@ import java.util.ArrayList;
  * has methods getLength, getingredientListDesc, getingredientListName.
  */
 public class IngredientController {
-	private ArrayList<IngredientModel> ingred_list;
+	private IngredientListModel ingred_list;
 
 	/**
 	 * Constructor
 	 * 
 	 */
 	public IngredientController() {
-		 this.ingred_list = new ArrayList<IngredientModel>();
+		 this.ingred_list = new IngredientListModel();
 	}
 	
 	/**
 	 * 
 	 * @param newIngredient : The Ingredient to be added to the list
+	 * @return this so that chain adding can happen.
 	 */
-	public void add(IngredientModel newIngredient) {
+	public IngredientController add(IngredientModel newIngredient) {
 		ingred_list.add(newIngredient);
+		return this;
 	}
 	
 	/**
 	 * 
 	 * @return the ingredient list
 	 */
-	public ArrayList<IngredientModel> getIngredientList(){
+	public IngredientListModel getIngredientList(){
 		return this.ingred_list;
 	}
 	/**

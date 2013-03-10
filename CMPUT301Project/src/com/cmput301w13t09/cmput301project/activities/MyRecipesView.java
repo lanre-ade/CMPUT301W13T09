@@ -33,26 +33,29 @@ public class MyRecipesView extends Activity {
 		setContentView(R.layout.activity_my_recipes_view);
 
 		recipeController = new RecipeController();
-		
-		recipeController.addRecipe(new RecipeModel("Cat Stew", "Cat + stewpot + water", 
-				new IngredientController().add(new IngredientModel("cat", "Eats Fish")).getIngredientList()));
+
+		recipeController.addRecipe(new RecipeModel("Cat Stew",
+				"Cat + stewpot + water", new IngredientController().add(
+						new IngredientModel("cat", "Eats Fish"))
+						.getIngredientList()));
 
 		recipeListView = (ListView) findViewById(R.id.myRecipesList);
 		recipeListAdapter = new ArrayAdapter<RecipeModel>(this,
 				android.R.layout.simple_list_item_1,
 				recipeController.getRecipeList());
-		
+
 		recipeListView.setAdapter(recipeListAdapter);
-		
+
 		addRecipeButton = (Button) findViewById(R.id.createRecipeButton);
-		
+
 		recipeListView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				dialogNumber = position;
-				AlertDialog.Builder builder = new AlertDialog.Builder(MyRecipesView.this);
+				AlertDialog.Builder builder = new AlertDialog.Builder(
+						MyRecipesView.this);
 				String title = recipeController.getRecipeListName(position);
-				String message = "Needs to be fixed ";//recipeController.getRecipe(position).toDialogString();
+				String message = "Needs to be fixed ";// recipeController.getRecipe(position).toDialogString();
 				builder.setMessage(message);
 				builder.setTitle(title);
 
@@ -60,7 +63,8 @@ public class MyRecipesView extends Activity {
 						new DialogInterface.OnClickListener() {
 
 							@Override
-							public void onClick(DialogInterface dialog, int which) {
+							public void onClick(DialogInterface dialog,
+									int which) {
 								dialog.dismiss();
 
 							}
@@ -69,7 +73,8 @@ public class MyRecipesView extends Activity {
 						new DialogInterface.OnClickListener() {
 
 							@Override
-							public void onClick(DialogInterface dialog, int which) {
+							public void onClick(DialogInterface dialog,
+									int which) {
 								dialog.dismiss();
 
 							}
@@ -78,7 +83,8 @@ public class MyRecipesView extends Activity {
 						new DialogInterface.OnClickListener() {
 
 							@Override
-							public void onClick(DialogInterface dialog, int which) {
+							public void onClick(DialogInterface dialog,
+									int which) {
 								recipeController.remove(dialogNumber);
 								dialog.dismiss();
 								updateList();
@@ -90,21 +96,22 @@ public class MyRecipesView extends Activity {
 				dialog.show();
 			}
 		});
-		
+
 		addRecipeButton.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				try {
-					Intent addNewRecipe = new Intent("activities.CreateNewRecipe"); 
+					Intent addNewRecipe = new Intent(
+							"activities.CreateNewRecipe");
 					startActivity(addNewRecipe);
-				} catch (Throwable e){
+				} catch (Throwable e) {
 					e.printStackTrace();
 				}
-				
+
 			}
 		});
-		
+
 	}
 
 	protected void updateList() {
