@@ -29,8 +29,7 @@
         android:layout_alignBottom="@+id/CreateRecipeViewName"
         android:layout_alignTop="@+id/CreateRecipeViewName"
         android:layout_toRightOf="@+id/CreateRecipeViewName"
-        android:ems="10" 
-        android:inputMethod="">
+        android:ems="10" >
 
         <requestFocus />
     </EditText>

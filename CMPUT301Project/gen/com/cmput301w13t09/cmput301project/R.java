@@ -54,13 +54,12 @@ public final class R {
         public static final int searchEditText=0x7f090012;
     }
     public static final class layout {
-        public static final int activity_add_new_ingredient=0x7f030000;
-        public static final int activity_add_new_ingredient_view=0x7f030001;
-        public static final int activity_create_recipe_view=0x7f030002;
-        public static final int activity_main_menu_view=0x7f030003;
-        public static final int activity_my_pantry_view=0x7f030004;
-        public static final int activity_my_recipes_view=0x7f030005;
-        public static final int recipe_list_row=0x7f030006;
+        public static final int activity_add_new_ingredient_view=0x7f030000;
+        public static final int activity_create_recipe_view=0x7f030001;
+        public static final int activity_main_menu_view=0x7f030002;
+        public static final int activity_my_pantry_view=0x7f030003;
+        public static final int activity_my_recipes_view=0x7f030004;
+        public static final int recipe_list_row=0x7f030005;
     }
     public static final class menu {
         public static final int activity_add_new_ingredient=0x7f080000;

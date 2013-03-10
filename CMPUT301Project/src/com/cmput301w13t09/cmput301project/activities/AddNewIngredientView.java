@@ -18,7 +18,7 @@ public class AddNewIngredientView extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_add_new_ingredient);
+		setContentView(R.layout.activity_add_new_ingredient_view);
 		
 		nameText = (EditText)findViewById(R.id.addNewIngredientEditTextName);
 		quantityText = (EditText) findViewById(R.id.addNewIngredientEditTextQuantity);
