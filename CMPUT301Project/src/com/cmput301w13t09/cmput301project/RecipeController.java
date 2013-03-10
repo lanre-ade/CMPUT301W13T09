@@ -112,7 +112,7 @@ public class RecipeController {
 	 * 
 	 * @param ctx Context of call location. Usually use 'this'
 	 */
-	public void UploadRecipeList(Context ctx) {
+	public void SaveToFile(Context ctx) {
 		try {
 			FileInputStream fileIn = ctx.openFileInput("Recipe.data");
 			ObjectInputStream objectInStream = new ObjectInputStream(fileIn);
