@@ -13,12 +13,12 @@ public class AddNewIngredientView extends Activity {
 	public Button doneButton;
 	public EditText nameText, quantityText, descriptionText;
 	public Spinner unitSelectorSpinner;
-	ArrayAdapter<CharSequence> unitSelectorAdapter;
+	public ArrayAdapter<CharSequence> unitSelectorAdapter;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_add_new_ingredient);
+		setContentView(R.layout.activity_add_new_ingredient_view);
 		
 		nameText = (EditText)findViewById(R.id.addNewIngredientEditTextName);
 		quantityText = (EditText) findViewById(R.id.addNewIngredientEditTextQuantity);

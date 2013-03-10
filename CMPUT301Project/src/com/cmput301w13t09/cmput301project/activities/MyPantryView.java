@@ -19,19 +19,21 @@ import com.cmput301w13t09.cmput301project.R;
 
 public class MyPantryView extends Activity {
 
-	private ListAdapter ingredientListAdapter;
-	private ListView ingredientListView;
-	private int dialogNumber;
-	private IngredientListModel ingredientList;
-	private Button addIngredientButton;
+	public ListAdapter ingredientListAdapter;
+	public ListView ingredientListView;
+	public int dialogNumber;
+	public IngredientListModel ingredientList;
+	public Button addIngredientButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_pantry_view);
 		ingredientList = new IngredientListModel();
-
-//		 TODO Remove this stuff it's garbage
+		addIngredientButton = (Button) findViewById(R.id.myPantryAddIngredientButton);
+		
+		
+		// TODO Remove this stuff it's garbage
 		ingredientList.add(new IngredientModel("Cat", "Smells bad"));
 		ingredientList.add(new IngredientModel("Fish", "Eats fish"));
 		ingredientList.add(new IngredientModel("CatFish",
@@ -47,9 +49,11 @@ public class MyPantryView extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				dialogNumber = position;
-				AlertDialog.Builder builder = new AlertDialog.Builder(MyPantryView.this);
+				AlertDialog.Builder builder = new AlertDialog.Builder(
+						MyPantryView.this);
 				String title = ingredientList.getIngredientListName(position);
-				String message = ingredientList.getIngredient(position).toDialogString();
+				String message = ingredientList.getIngredient(position)
+						.toDialogString();
 				builder.setMessage(message);
 				builder.setTitle(title);
 
@@ -57,7 +61,8 @@ public class MyPantryView extends Activity {
 						new DialogInterface.OnClickListener() {
 
 							@Override
-							public void onClick(DialogInterface dialog, int which) {
+							public void onClick(DialogInterface dialog,
+									int which) {
 								dialog.dismiss();
 
 							}
@@ -66,7 +71,8 @@ public class MyPantryView extends Activity {
 						new DialogInterface.OnClickListener() {
 
 							@Override
-							public void onClick(DialogInterface dialog, int which) {
+							public void onClick(DialogInterface dialog,
+									int which) {
 								dialog.dismiss();
 
 							}
@@ -75,7 +81,8 @@ public class MyPantryView extends Activity {
 						new DialogInterface.OnClickListener() {
 
 							@Override
-							public void onClick(DialogInterface dialog, int which) {
+							public void onClick(DialogInterface dialog,
+									int which) {
 								ingredientList.remove(dialogNumber);
 								dialog.dismiss();
 								updateList();
@@ -87,15 +94,16 @@ public class MyPantryView extends Activity {
 				dialog.show();
 			}
 		});
-		
+
 		addIngredientButton.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				try { 
-				Intent addIngredient = new Intent("activities.AddIngredient");
-				startActivity(addIngredient);
-				} catch(Throwable e) {
+				try {
+					Intent addIngredient = new Intent(
+							"activities.AddIngredient");
+					startActivity(addIngredient);
+				} catch (Throwable e) {
 					e.printStackTrace();
 				}
 			}

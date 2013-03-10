@@ -49,7 +49,7 @@ public final class R {
         public static final int textView2=0x7f09000a;
     }
     public static final class layout {
-        public static final int activity_add_new_ingredient=0x7f030000;
+        public static final int activity_add_new_ingredient_view=0x7f030000;
         public static final int activity_create_recipe_view=0x7f030001;
         public static final int activity_main_menu_view=0x7f030002;
         public static final int activity_my_pantry_view=0x7f030003;

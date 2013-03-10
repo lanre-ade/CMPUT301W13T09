@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="UnitsArrayList">
-        <item>Unit</item>
+        <item>Units</item>
         <item>Kg</item>
         <item>g</item>
         <item>L</item>
