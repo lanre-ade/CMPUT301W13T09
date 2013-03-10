@@ -12,7 +12,7 @@ public class DataChecker {
 		ctx = tctx;
 	}
 	
-	public void checkIfRecipeDataExists(){
+	public void checkIfRecipeDataExists() {
 		File file = ctx.getFileStreamPath("Recipe.data");
 		if(file.exists())
 			return;
@@ -23,7 +23,6 @@ public class DataChecker {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 			return;
 		}
 	}
@@ -39,6 +38,7 @@ public class DataChecker {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			return;
 		}
 	}
 	

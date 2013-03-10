@@ -25,8 +25,9 @@ public class IngredientController {
 	 * 
 	 */
 	public IngredientController(Context tcxt) {
-		 this.ctx = tcxt;
-		 this.loadFromFile();
+		ingred_list = new IngredientListModel();
+		this.ctx = tcxt;
+		this.loadFromFile();
 	}
 	
 	/**

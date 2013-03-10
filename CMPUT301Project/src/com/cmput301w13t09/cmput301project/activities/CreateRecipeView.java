@@ -14,18 +14,20 @@ import android.widget.TextView;
 import com.cmput301w13t09.cmput301project.R;
 
 public class CreateRecipeView extends Activity {
-
+	private EditText createRecipe_Name, createRecipe_Desc;
+	private Button createRecipe_Submit, createRecipe_DeleteIng, createRecipe_AddIng;
+	private ListView createRecipelist;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_recipe_view);
 		// Widgets Setup
-		final EditText CreateRecipe_Name = (EditText) findViewById(R.id.CreateRecipeViewNameForm);
-		final EditText CreateRecipe_Desc = (EditText) findViewById(R.id.CreateRecipeViewDescForm);
-		Button CreateRecipe_Submit = (Button) findViewById(R.id.CreateRecipeViewSubmit);
-		Button CreateRecipe_DeleteIng = (Button) findViewById(R.id.CreateRecipeViewDeleteIngredient);
-		Button CreateRecipe_AddIng = (Button) findViewById(R.id.CreateRecipeViewAddNewIngredient);
-		final ListView CreateRecipelist = (ListView) findViewById(R.id.CreateRecipeViewIngListActual);
+		createRecipe_Name = (EditText) findViewById(R.id.CreateRecipeViewNameForm);
+		createRecipe_Desc = (EditText) findViewById(R.id.CreateRecipeViewDescForm);
+		createRecipe_Submit = (Button) findViewById(R.id.CreateRecipeViewSubmit);
+		createRecipe_DeleteIng = (Button) findViewById(R.id.CreateRecipeViewDeleteIngredient);
+		createRecipe_AddIng = (Button) findViewById(R.id.CreateRecipeViewAddNewIngredient);
+		createRecipelist = (ListView) findViewById(R.id.CreateRecipeViewIngListActual);
 		final TextView message = (TextView) findViewById(R.id.CreateRecipeUserMessage);
 		
 		//ListView Setup
@@ -36,17 +38,17 @@ public class CreateRecipeView extends Activity {
 		listArray.add("hiiii4");
 		final ArrayAdapter<String> adapter;
 		adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, listArray);
-		CreateRecipelist.setAdapter(adapter);
+		createRecipelist.setAdapter(adapter);
 		
 		
-		CreateRecipe_AddIng.setOnClickListener(new View.OnClickListener() {
+		createRecipe_AddIng.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				;
 			}
 		});
-		CreateRecipe_DeleteIng.setOnClickListener(new View.OnClickListener() {
+		createRecipe_DeleteIng.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -54,7 +56,7 @@ public class CreateRecipeView extends Activity {
 				;
 			}
 		});
-		CreateRecipe_Submit.setOnClickListener(new View.OnClickListener() {
+		createRecipe_Submit.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {

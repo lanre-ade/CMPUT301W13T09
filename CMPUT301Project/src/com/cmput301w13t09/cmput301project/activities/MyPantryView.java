@@ -104,7 +104,6 @@ public class MyPantryView extends Activity {
 			@Override
 			public void onClick(View v) {
 				try {
-					ingredientController.saveToFile();
 					Intent addIngredient = new Intent(
 							"activities.AddIngredient");
 					startActivity(addIngredient);

@@ -7,7 +7,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.ResourceBundle.Control;
 
 import android.content.Context;
 
@@ -27,11 +26,12 @@ public class RecipeController {
 	 * 
 	 */
 	public RecipeController(Context tctx) {
+		recipe_list = new RecipeListModel();
 		ctx = tctx;
 		this.loadFromFile();
 		
 	}
-	
+
 	/**
 	 * 
 	 * @param recipe : The Recipe to be appended to the list
@@ -123,6 +123,7 @@ public class RecipeController {
 			recipe_list = (RecipeListModel) objectInStream
 					.readObject();
 			objectInStream.close();
+			return;
 		} catch (FileNotFoundException FNE) {
 			try {
 				FileOutputStream temp = ctx.openFileOutput("Recipe.data",
@@ -156,7 +157,7 @@ public class RecipeController {
 	}
 	public void saveToFile() {
 		try {
-			new File("Pantry.data").delete();
+			new File("Recipe.data").delete();
 			FileOutputStream fileOut = ctx.openFileOutput("Recipe.data",
 					Context.MODE_PRIVATE);
 			ObjectOutputStream objectOutStream = new ObjectOutputStream(fileOut);
