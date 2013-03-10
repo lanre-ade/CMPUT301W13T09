@@ -83,4 +83,12 @@ public class RecipeController {
 	public RecipeListModel getRecipeList(){
 		return this.recipe_list;
 	}
+
+	/**
+	 * 
+	 * @param i The index of the recipe to be removed
+	 */
+	public void remove(int i) {
+		this.recipe_list.remove(i);
+	}
 }

@@ -1,5 +1,7 @@
 package com.cmput301w13t09.cmput301project;
 
+import java.io.Serializable;
+
 /**
  * Class: RecipeModel RecipeModel is a class that holds recipes used in
  * application. RecipeModel stores a name of the recipe (recipe_name),
@@ -11,8 +13,12 @@ package com.cmput301w13t09.cmput301project;
  * 
  */
 
-public class RecipeModel {
+public class RecipeModel implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String recipe_name;
 	private String recipe_desc;
 	private IngredientListModel ingred_list;

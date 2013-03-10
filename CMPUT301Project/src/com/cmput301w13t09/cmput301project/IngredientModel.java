@@ -1,5 +1,7 @@
 package com.cmput301w13t09.cmput301project;
 
+import java.io.Serializable;
+
 /**
  * Class: ingredientModel ingredientModel is a class that stores information
  * about a ingredient used in recipes. ingredientModel stores the name
@@ -9,7 +11,11 @@ package com.cmput301w13t09.cmput301project;
  * getingredientDesc().
  */
 
-public class IngredientModel {
+public class IngredientModel implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String ingredient_desc;
 	private String ingredient_name;
 	private float ingredient_quantity;

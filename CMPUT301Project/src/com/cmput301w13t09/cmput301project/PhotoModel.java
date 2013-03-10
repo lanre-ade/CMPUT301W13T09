@@ -1,5 +1,7 @@
 package com.cmput301w13t09.cmput301project;
 
+import java.io.Serializable;
+
 /** Class: PhotoModel
  * PhotoModel is a class that stores information about a photo used 
  * in recipes. PhotoModel stores the name (photo_name) and description
@@ -9,7 +11,11 @@ package com.cmput301w13t09.cmput301project;
  */
 
 
-public class PhotoModel {
+public class PhotoModel implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String photo_name;
 	private String photo_desc;
 	

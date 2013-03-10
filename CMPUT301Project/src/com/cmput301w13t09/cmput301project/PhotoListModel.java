@@ -1,5 +1,6 @@
 package com.cmput301w13t09.cmput301project;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -9,7 +10,11 @@ import java.util.ArrayList;
  * (photo_list). The PhotoListModel has methods getLength, getPhotoListDesc,
  * getPhotoListName.
  */
-public class PhotoListModel {
+public class PhotoListModel implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ArrayList<PhotoModel> photo_list = new ArrayList<PhotoModel>();
 
 	/**
