@@ -26,6 +26,7 @@
         android:id="@+id/CreateRecipeViewNameForm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="2dp"
         android:layout_alignBottom="@+id/CreateRecipeViewName"
         android:layout_alignTop="@+id/CreateRecipeViewName"
         android:layout_toRightOf="@+id/CreateRecipeViewName"
@@ -48,6 +49,7 @@
         android:id="@+id/CreateRecipeViewDescForm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="2dp"
         android:layout_alignBottom="@+id/CreateRecipeViewDesc"
         android:layout_alignRight="@+id/CreateRecipeViewNameForm"
         android:layout_alignTop="@+id/CreateRecipeViewDesc"
@@ -95,5 +97,14 @@
         android:layout_below="@+id/CreateRecipeViewDeleteIngredient"
         android:layout_centerHorizontal="true"
         android:text="@string/CreateRecipeViewSubmit" />
+
+    <TextView
+        android:id="@+id/CreateRecipeUserMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/CreateRecipeViewDeleteIngredient"
+        android:layout_alignRight="@+id/CreateRecipeViewDeleteIngredient"
+        android:layout_below="@+id/CreateRecipeViewSubmit"
+        android:text="" />
 
 </RelativeLayout>

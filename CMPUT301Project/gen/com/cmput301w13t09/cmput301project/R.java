@@ -22,6 +22,7 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
+        public static final int CreateRecipeUserMessage=0x7f080012;
         public static final int CreateRecipeView=0x7f080008;
         public static final int CreateRecipeViewAddNewIngredient=0x7f08000e;
         public static final int CreateRecipeViewDeleteIngredient=0x7f080010;
@@ -40,17 +41,17 @@ public final class R {
         public static final int addNewIngredientStringDescription=0x7f080006;
         public static final int addNewIngredientStringName=0x7f080001;
         public static final int addNewIngredientStringQuantity=0x7f080003;
-        public static final int createRecipeButton=0x7f080019;
-        public static final int inPantrySearch=0x7f080013;
-        public static final int localSearchOnly=0x7f080014;
-        public static final int myPantry=0x7f080015;
-        public static final int myPantryAddIngredientButton=0x7f080018;
-        public static final int myPantryIngredientList=0x7f080017;
-        public static final int myRecipes=0x7f080016;
-        public static final int myRecipesList=0x7f08001a;
-        public static final int recipe_desc=0x7f08001c;
-        public static final int recipe_name=0x7f08001b;
-        public static final int searchEditText=0x7f080012;
+        public static final int createRecipeButton=0x7f08001a;
+        public static final int inPantrySearch=0x7f080014;
+        public static final int localSearchOnly=0x7f080015;
+        public static final int myPantry=0x7f080016;
+        public static final int myPantryAddIngredientButton=0x7f080019;
+        public static final int myPantryIngredientList=0x7f080018;
+        public static final int myRecipes=0x7f080017;
+        public static final int myRecipesList=0x7f08001b;
+        public static final int recipe_desc=0x7f08001d;
+        public static final int recipe_name=0x7f08001c;
+        public static final int searchEditText=0x7f080013;
     }
     public static final class layout {
         public static final int activity_add_new_ingredient_view=0x7f030000;
@@ -86,7 +87,6 @@ public final class R {
         public static final int title_activity_create_recipe_view=0x7f06000b;
         public static final int title_activity_my_pantry_view=0x7f060007;
         public static final int title_activity_my_recipes_view=0x7f060008;
-        public static final int title_activity_splash_screen_view=0x7f060019;
     }
     public static final class style {
         /** 
