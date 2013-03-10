@@ -99,6 +99,7 @@ public class RecipeController {
 	public void remove(int i) {
 		this.recipe_list.remove(i);
 	}
+	
 	/**
 	 * 
 	 * @param ctx Context of call location. Usually use 'this'

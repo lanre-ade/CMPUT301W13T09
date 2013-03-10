@@ -31,7 +31,8 @@ public class MyRecipesView extends Activity {
 		setContentView(R.layout.activity_my_recipes_view);
 
 		recipeController = new RecipeController();
-
+		
+		
 		recipeListView = (ListView) findViewById(R.id.myRecipesList);
 		recipeListAdapter = new ArrayAdapter<RecipeModel>(this,
 				android.R.layout.simple_list_item_1,
@@ -83,6 +84,7 @@ public class MyRecipesView extends Activity {
 				dialog.show();
 			}
 		});
+		
 	}
 	protected void updateList() {
 		recipeListAdapter = new ArrayAdapter<RecipeModel>(this,
