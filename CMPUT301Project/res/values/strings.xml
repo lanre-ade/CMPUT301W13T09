@@ -21,12 +21,11 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_add_new_recipe_view">Add Recipe</string>
     <string name="CreateNewRecipe_Name">Name:</string>
-	<string name="CreateNewRecipe_Desc">Description:</string>
-	<string name="CreateNewRecipe_IngList">Ingredients</string>
-	<string name="CreateRecipeViewAddNewIngredient">Add New Ingredient</string>
-	<string name="CreateRecipeViewDeleteIngredient">Delete Ingredient</string>
-	<string name="CreateRecipeViewSubmit">Submit</string>
-	
-    
+    <string name="CreateNewRecipe_Desc">Description:</string>
+    <string name="CreateNewRecipe_IngList">Ingredients</string>
+    <string name="CreateRecipeViewAddNewIngredient">Add New Ingredient</string>
+    <string name="CreateRecipeViewDeleteIngredient">Delete Ingredient</string>
+    <string name="CreateRecipeViewSubmit">Submit</string>
+    <string name="title_activity_splash_screen_view">SplashScreenView</string>
 
 </resources>

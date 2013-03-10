@@ -1,12 +1,9 @@
 package com.cmput301w13t09.cmput301project.activities;
 
-import com.cmput301w13t09.cmput301project.R;
-import com.cmput301w13t09.cmput301project.R.layout;
-import com.cmput301w13t09.cmput301project.R.menu;
-
-import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
+import android.os.Bundle;
+
+import com.cmput301w13t09.cmput301project.R;
 
 public class CreateRecipeView extends Activity {
 

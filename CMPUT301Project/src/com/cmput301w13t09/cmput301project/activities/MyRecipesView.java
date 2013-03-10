@@ -35,7 +35,7 @@ public class MyRecipesView extends Activity {
 		recipeController = new RecipeController();
 
 		recipeController.addRecipe(new RecipeModel("Cat Stew",
-				"Cat + stewpot + water", new IngredientController().add(
+				"Cat + stewpot + water", new IngredientController(this).add(
 						new IngredientModel("cat", "Eats Fish"))
 						.getIngredientList()));
 

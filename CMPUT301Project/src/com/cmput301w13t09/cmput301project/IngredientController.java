@@ -1,6 +1,14 @@
 package com.cmput301w13t09.cmput301project;
 
-import java.util.ArrayList;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+import android.content.Context;
 
 /**
  * Class: ingredientListModel ingredientListModel is a class that stores a list
@@ -11,13 +19,15 @@ import java.util.ArrayList;
  */
 public class IngredientController {
 	private IngredientListModel ingred_list;
-
+	private Context ctx;
 	/**
 	 * Constructor
 	 * 
 	 */
-	public IngredientController() {
+	public IngredientController(Context tcxt) {
 		 this.ingred_list = new IngredientListModel();
+		 this.ctx = tcxt;
+		 this.loadFromFile();
 	}
 	
 	/**
@@ -85,5 +95,59 @@ public class IngredientController {
 	 */
 	public void remove(int i) {
 		this.ingred_list.remove(i);
+	}
+	
+	/**
+	 * 
+	 * @param ctx Context of call location. Usually use 'this'
+	 */
+	public void loadFromFile() {
+		try {
+			FileInputStream fileIn = ctx.openFileInput("Pantry.data");
+			ObjectInputStream objectInStream = new ObjectInputStream(fileIn);
+			ingred_list = (IngredientListModel) objectInStream
+					.readObject();
+			objectInStream.close();
+		} catch (FileNotFoundException FNE) {
+			try {
+				FileOutputStream temp = ctx.openFileOutput("Pantry.data",
+						Context.MODE_PRIVATE);
+				ObjectOutputStream objectOutStream = new ObjectOutputStream(
+						temp);
+				objectOutStream.writeObject(null);
+				objectOutStream.close();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} catch (NullPointerException NPE) {
+			try {
+				FileOutputStream temp = ctx.openFileOutput("Pantry.data",
+						Context.MODE_PRIVATE);
+				ObjectOutputStream objectOutStream = new ObjectOutputStream(
+						temp);
+				objectOutStream.writeObject(null);
+				objectOutStream.close();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} catch (ClassNotFoundException cnfe) {
+			cnfe.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public void saveToFile() {
+		try {
+			new File("Pantry.data").delete();
+			FileOutputStream fileOut = ctx.openFileOutput("Pantry.data",
+					Context.MODE_PRIVATE);
+			ObjectOutputStream objectOutStream = new ObjectOutputStream(fileOut);
+			objectOutStream.writeObject(ingred_list);
+			objectOutStream.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

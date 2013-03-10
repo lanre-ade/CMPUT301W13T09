@@ -6,14 +6,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.cmput301w13t09.cmput301project.DataChecker;
 import com.cmput301w13t09.cmput301project.R;
 
 public class MainMenuView extends Activity {
 	public Button myPantryButton, myRecipesButton;
+	private DataChecker checker;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_menu_view);
+		
+		checker = new DataChecker(this);
+		checker.checkIfPantryDataExists();
+		checker.checkIfRecipeDataExists();
+		
 		myPantryButton = (Button) findViewById(R.id.myPantry);
 		myRecipesButton = (Button) findViewById(R.id.myRecipes);
 		
