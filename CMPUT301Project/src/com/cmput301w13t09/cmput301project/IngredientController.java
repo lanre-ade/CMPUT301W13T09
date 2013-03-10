@@ -103,6 +103,7 @@ public class IngredientController {
 	 */
 	public void loadFromFile() {
 		try {
+			
 			FileInputStream fileIn = ctx.openFileInput("Pantry.data");
 			ObjectInputStream objectInStream = new ObjectInputStream(fileIn);
 			ingred_list = (IngredientListModel) objectInStream
