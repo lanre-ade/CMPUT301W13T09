@@ -31,6 +31,8 @@ public class MyPantryView extends Activity {
 		setContentView(R.layout.activity_my_pantry_view);
 		
 		ingredientList = new IngredientController();
+		
+		addIngredientButton = (Button) findViewById(R.id.myPantryAddIngredientButton);
 
 //		 TODO Remove this stuff it's garbage
 		ingredientList.add(new IngredientModel("Cat", "Smells bad"));
