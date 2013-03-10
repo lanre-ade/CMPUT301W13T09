@@ -85,4 +85,10 @@ public class RecipeModel implements Serializable{
 	public PhotoListModel getPhotoList() {
 		return photo_list;
 	}
+	/**
+	 * 
+	 */
+	public String toString(){
+		return recipe_name;
+	}
 }
