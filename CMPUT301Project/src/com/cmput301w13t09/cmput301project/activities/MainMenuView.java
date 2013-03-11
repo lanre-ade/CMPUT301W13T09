@@ -9,6 +9,13 @@ import android.widget.Button;
 import com.cmput301w13t09.cmput301project.DataChecker;
 import com.cmput301w13t09.cmput301project.R;
 
+/**
+ * @author Kyle, Marcus, and Landre
+ * Class: MainMenuView
+ * MainMenuView is a class thats extends Activity. MainMenuView is used for basic navigation around
+ * application it is also a view to fill in information to search for a recipe it will then communicate 
+ * with the RecipeController and return the correct Recipe from the RecipeList. 
+ */
 public class MainMenuView extends Activity {
 	public Button myPantryButton, myRecipesButton;
 	private DataChecker checker;

@@ -22,6 +22,13 @@ import android.widget.ListView;
 import com.cmput301w13t09.cmput301project.IngredientListModel;
 import com.cmput301w13t09.cmput301project.R;
 
+/**
+ *  @author Kyle, Marcus, and Landre
+ * Class: CreateNewRecipeView
+ * CreateNewRecipe is that extends FragmentActivity and acts a way to gather input data for Recipes.
+ * CreateNewRecipe provides a top menu used for inputing different types of data. CreateNewRecipe will then
+ * use RecipeController in order to add the recipe to a recipelist and save that to recipe.data. 
+ */
 public class CreateNewRecipeView extends FragmentActivity implements
 		ActionBar.TabListener {
 

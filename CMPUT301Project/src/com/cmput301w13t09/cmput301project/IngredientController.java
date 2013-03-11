@@ -11,11 +11,13 @@ import java.io.ObjectOutputStream;
 import android.content.Context;
 
 /**
- * Class: ingredientListModel ingredientListModel is a class that stores a list
+ * @author Kyle, Marcus, and Landre
+ * Class: ingredientListController is a class that stores a list
  * of ingredients. These ingredients are from ingredientModel class and stored
  * in a ArrayList class. The constructor takes in a single ingredient and
  * appends it to a blank ingredient List (ingred_list). The ingredientListModel
- * has methods getLength, getingredientListDesc, getingredientListName.
+ * has methods getLength, getingredientListDesc, getingredientListName, add, remove,
+ * saveToFile, and LoadFromFile.
  */
 public class IngredientController {
 	private IngredientListModel ingred_list;
@@ -139,6 +141,9 @@ public class IngredientController {
 			e.printStackTrace();
 		}
 	}
+	/**
+	 *  Saves IngredientListModel ingred_list to file Pantry.data
+	 */
 	public void saveToFile() {
 		try {
 			new File("Pantry.data").delete();

@@ -14,6 +14,8 @@ import android.widget.GridView;
 import android.widget.ImageView;
 
 /**
+ * 
+ * Class: PhotoAdapter
  * A class that contains an array list of bitmaps and returns them to
  * the grid view of photo picker layout.
  * 

@@ -17,6 +17,14 @@ import com.cmput301w13t09.cmput301project.IngredientController;
 import com.cmput301w13t09.cmput301project.IngredientModel;
 import com.cmput301w13t09.cmput301project.R;
 
+/**
+ * @author Kyle, Marcus, and Landre
+ * Class: MyPantryView
+ * MyPantryView is class that extends an Activity. This class shows all the ingredients stored in the
+ * Pantry.data file and loads this with the IngredientController and displays it in a ListView. Also, My
+ * PantryView provides a button of getting into AddNewIngredientView where you can add ingredients to MyPantry
+ * 
+ */
 public class MyPantryView extends Activity {
 
 	private ListAdapter ingredientListAdapter;

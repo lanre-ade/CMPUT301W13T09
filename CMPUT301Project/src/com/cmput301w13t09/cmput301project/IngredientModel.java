@@ -3,6 +3,7 @@ package com.cmput301w13t09.cmput301project;
 import java.io.Serializable;
 
 /**
+ * @author Kyle,Marcus,Landre
  * Class: ingredientModel ingredientModel is a class that stores information
  * about a ingredient used in recipes. ingredientModel stores the name
  * (ingredient_name) and description (ingredient_desc) of an ingredient.
@@ -60,6 +61,10 @@ public class IngredientModel implements Serializable{
 	public String toString() {
 		return this.ingredient_name;
 	}
+	/**
+	 * 
+	 * @return String formated for Dialog
+	 */
 
 	public String toDialogString() {
 		return "Quantity: " + ingredient_quantity + " "

@@ -9,6 +9,13 @@ import android.widget.Spinner;
 
 import com.cmput301w13t09.cmput301project.R;
 
+/**
+ * @author Kyle, Marcus, and Landre
+ * Class: AddNewIngredientView
+ * AddNewIngredient is a class that extends an activity. Therefore acts as an activity and is a view for
+ * adding ingredients into myPantry. AddNewIngredient provides fields for entering information for ingredients
+ * and then classes IngredientController and this will stores the Ingredient in Pantry.data
+ */
 public class AddNewIngredientView extends Activity {
 	public Button doneButton;
 	public EditText nameText, quantityText, descriptionText;
