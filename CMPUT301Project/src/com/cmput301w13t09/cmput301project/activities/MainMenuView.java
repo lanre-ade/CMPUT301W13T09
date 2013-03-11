@@ -8,6 +8,8 @@ import android.widget.Button;
 
 import com.cmput301w13t09.cmput301project.DataChecker;
 import com.cmput301w13t09.cmput301project.R;
+import com.cmput301w13t09.cmput301project.R.id;
+import com.cmput301w13t09.cmput301project.R.layout;
 
 /**
  * @author Kyle, Marcus, and Landre

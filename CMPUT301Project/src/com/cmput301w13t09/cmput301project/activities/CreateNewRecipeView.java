@@ -21,6 +21,10 @@ import android.widget.ListView;
 
 import com.cmput301w13t09.cmput301project.IngredientListModel;
 import com.cmput301w13t09.cmput301project.R;
+import com.cmput301w13t09.cmput301project.R.id;
+import com.cmput301w13t09.cmput301project.R.layout;
+import com.cmput301w13t09.cmput301project.R.menu;
+import com.cmput301w13t09.cmput301project.R.string;
 
 /**
  *  @author Kyle, Marcus, and Landre

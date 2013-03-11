@@ -18,9 +18,12 @@ import com.cmput301w13t09.cmput301project.IngredientModel;
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
 import com.cmput301w13t09.cmput301project.RecipeModel;
+import com.cmput301w13t09.cmput301project.R.id;
+import com.cmput301w13t09.cmput301project.R.layout;
 
 /**
  * @author Kyle, Marcus, and Landre
+ * 
  * Class: MyRecipesView
  * MyRecipesView is class that extends an Activity. This class shows all the recipes stored in the
  * Recipe.data file and loads this with the RecipeController and displays it in a ListView. Also, My

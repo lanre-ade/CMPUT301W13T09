@@ -8,6 +8,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.cmput301w13t09.cmput301project.R;
+import com.cmput301w13t09.cmput301project.R.array;
+import com.cmput301w13t09.cmput301project.R.id;
+import com.cmput301w13t09.cmput301project.R.layout;
 
 /**
  * @author Kyle, Marcus, and Landre

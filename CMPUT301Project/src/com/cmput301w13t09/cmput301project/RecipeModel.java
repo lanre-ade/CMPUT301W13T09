@@ -2,6 +2,7 @@ package com.cmput301w13t09.cmput301project;
 
 import java.io.Serializable;
 
+
 /**
  * @author Kyle, Marcus, and Landre
  * Class: RecipeModel 
