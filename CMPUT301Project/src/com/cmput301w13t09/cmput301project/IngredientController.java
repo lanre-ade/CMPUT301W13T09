@@ -90,7 +90,17 @@ public class IngredientController {
 	public IngredientModel getIngredient(int i) {
 		return ingred_list.get(i);
 	}
-	
+	/**
+	 * Edits the ingredient based on the position give and sets new value of ingredient
+	 * @param i
+	 * @param tname
+	 * @param tDescription
+	 * @param tQuantity
+	 * @param tUnit
+	 */
+	public void editIngredient(int i, String tname, String tDescription,float tQuantity, String tUnit){
+		ingred_list.set(i, new IngredientModel(tname, tDescription, tQuantity, tUnit));
+	}
 	/**
 	 * Removes item from the list at index i
 	 * @param i : index of item to be removed

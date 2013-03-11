@@ -84,17 +84,17 @@ public class MyPantryView extends Activity {
 								final Dialog dialog2 = new Dialog(
 										MyPantryView.this);
 								dialog2.setContentView(R.layout.activity_add_new_ingredient_view);
-								EditText dialognameText = (EditText) dialog2
+								final EditText dialognameText = (EditText) dialog2
 										.findViewById(R.id.addNewIngredientEditTextName);
-								EditText dialogquantityText = (EditText) dialog2
+								final EditText dialogquantityText = (EditText) dialog2
 										.findViewById(R.id.addNewIngredientEditTextQuantity);
 								Button dialogdone = (Button) dialog2.findViewById(R.id.addNewIngredient);
 								Button dialogcancel = (Button) dialog2.findViewById(R.id.andNewIngredientCancelButton);
-								EditText dialogdescriptionText = (EditText) dialog2
+								final EditText dialogdescriptionText = (EditText) dialog2
 										.findViewById(R.id.addNewIngredientEditTextDescription);
 								dialognameText.setText(ingredientController
 										.getIngredientListName(dialogNumber));
-								Spinner unitSelectorSpinner = (Spinner) dialog2
+								final Spinner unitSelectorSpinner = (Spinner) dialog2
 										.findViewById(R.id.addNewIngredientSpinnerQuantity);
 								ArrayAdapter<CharSequence> unitSelectorAdapter = ArrayAdapter
 										.createFromResource(
@@ -110,9 +110,30 @@ public class MyPantryView extends Activity {
 										.valueOf(ingredientController
 												.getIngredient(dialogNumber)
 												.getIngredientquantity()));
+								dialogcancel.setOnClickListener(new View.OnClickListener() {
+									
+									@Override
+									public void onClick(View v) {
+										// TODO Auto-generated method stub
+										dialog2.cancel();
+									}
+								});
+								dialogdone.setOnClickListener(new View.OnClickListener() {
+									
+									@Override
+									public void onClick(View v) {
+										// TODO Auto-generated method stub
+										ingredientController.editIngredient(dialogNumber,dialognameText.getText()
+												.toString(), dialogdescriptionText.getText().toString(),
+												Float.parseFloat(dialogquantityText.getText().toString()),
+												unitSelectorSpinner.getSelectedItem().toString());
+										ingredientController.saveToFile();
+										dialog2.dismiss();
+										updateList();
+									}
+								});
 								
 								dialog2.show();
-
 							}
 						});
 				builder.setPositiveButton("Delete",
