@@ -3,6 +3,7 @@ package com.cmput301w13t09.cmput301project;
 import java.io.Serializable;
 
 /** Class: PhotoModel
+ * @author Kyle,Marcus,Landre
  * PhotoModel is a class that stores information about a photo used 
  * in recipes. PhotoModel stores the name (photo_name) and description
  * (photo_desc) of a recipe. PhotoModels constructor takes in a name and 

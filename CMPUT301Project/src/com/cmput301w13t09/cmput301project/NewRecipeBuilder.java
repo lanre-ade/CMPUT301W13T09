@@ -9,7 +9,7 @@ public class NewRecipeBuilder {
 	public NewRecipeBuilder(){
 		ingr_list = new IngredientListModel();
 		inst_list = new InstructionListModel();
-		photo_list = new PhotoListModel(null);
+		photo_list = new PhotoListModel();
 	}
 
 }

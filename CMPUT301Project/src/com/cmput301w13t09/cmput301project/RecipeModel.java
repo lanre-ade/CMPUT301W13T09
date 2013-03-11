@@ -2,8 +2,11 @@ package com.cmput301w13t09.cmput301project;
 
 import java.io.Serializable;
 
+
 /**
- * Class: RecipeModel RecipeModel is a class that holds recipes used in
+ * @author Kyle, Marcus, and Landre
+ * Class: RecipeModel 
+ * RecipeModel is a class that holds recipes used in
  * application. RecipeModel stores a name of the recipe (recipe_name),
  * description of the recipe (recipe_desc), list of ingredients
  * (ingredientListModel), and list of photos (PhotoListModel). The constructor
@@ -41,7 +44,7 @@ public class RecipeModel implements Serializable{
 		recipe_desc = desc;
 		recipe_name = name;
 		ingred_list = Ilist;
-		photo_list = new PhotoListModel(null);
+		photo_list = new PhotoListModel();
 	}
 	public RecipeModel(String name, String desc, IngredientListModel Ilist,
 			PhotoListModel Plist) {

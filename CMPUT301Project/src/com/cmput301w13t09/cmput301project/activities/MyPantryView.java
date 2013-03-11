@@ -16,7 +16,17 @@ import android.widget.ListView;
 import com.cmput301w13t09.cmput301project.IngredientController;
 import com.cmput301w13t09.cmput301project.IngredientModel;
 import com.cmput301w13t09.cmput301project.R;
+import com.cmput301w13t09.cmput301project.R.id;
+import com.cmput301w13t09.cmput301project.R.layout;
 
+/**
+ * @author Kyle, Marcus, and Landre
+ * Class: MyPantryView
+ * MyPantryView is class that extends an Activity. This class shows all the ingredients stored in the
+ * Pantry.data file and loads this with the IngredientController and displays it in a ListView. Also, My
+ * PantryView provides a button of getting into AddNewIngredientView where you can add ingredients to MyPantry
+ * 
+ */
 public class MyPantryView extends Activity {
 
 	private ListAdapter ingredientListAdapter;
@@ -35,10 +45,6 @@ public class MyPantryView extends Activity {
 		addIngredientButton = (Button) findViewById(R.id.myPantryAddIngredientButton);
 
 		// TODO Remove this stuff it's garbage
-		ingredientController.add(new IngredientModel("Cat", "Smells bad"));
-		ingredientController.add(new IngredientModel("Fish", "Eats fish"));
-		ingredientController.add(new IngredientModel("CatFish",
-				"Smells bad and eats fish"));
 		ingredientController.saveToFile();
 
 		ingredientListView = (ListView) findViewById(R.id.myPantryIngredientList);
@@ -60,7 +66,7 @@ public class MyPantryView extends Activity {
 				builder.setMessage(message);
 				builder.setTitle(title);
 
-				builder.setNegativeButton("Cancle",
+				builder.setNegativeButton("Cancel",
 						new DialogInterface.OnClickListener() {
 
 							@Override
@@ -107,6 +113,7 @@ public class MyPantryView extends Activity {
 							"activities.AddIngredient");
 					ingredientController.saveToFile();
 					startActivity(addIngredient);
+					
 				} catch (Throwable e) {
 					e.printStackTrace();
 				}

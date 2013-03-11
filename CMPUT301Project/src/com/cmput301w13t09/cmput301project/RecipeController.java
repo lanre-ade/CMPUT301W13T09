@@ -8,9 +8,11 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+
 import android.content.Context;
 
 /**
+ * @author Kyle,Marcus,Landre
  * Class: RecipeListModel RecipeList is a class that stores a list of recipes.
  * These recipes are from RecipeModel and are stored in ArrayList class. The
  * constructor takes in a single recipe (RecipeModel)and appends it to a blank
@@ -152,6 +154,9 @@ public class RecipeController {
 		}
 
 	}
+	/**
+	 * Saves RecipeListModel ingred_list to file Recipe.data
+	 */
 	public void saveToFile() {
 		try {
 			new File("Recipe.data").delete();
