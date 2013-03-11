@@ -24,8 +24,8 @@ public final class R {
     public static final class id {
         public static final int CreateNewRecipeDescriptionTab=0x7f090009;
         public static final int RelativeLayout1=0x7f09000e;
-        public static final int addNewIngredient=0x7f090006;
-        public static final int addNewIngredientEditTextDescription=0x7f090007;
+        public static final int addNewIngredient=0x7f090007;
+        public static final int addNewIngredientEditTextDescription=0x7f090006;
         public static final int addNewIngredientEditTextName=0x7f090000;
         public static final int addNewIngredientEditTextQuantity=0x7f090004;
         public static final int addNewIngredientSpinnerQuantity=0x7f090002;

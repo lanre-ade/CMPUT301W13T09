@@ -36,6 +36,7 @@ public class AddNewIngredientView extends Activity {
 		nameText = (EditText) findViewById(R.id.addNewIngredientEditTextName);
 		quantityText = (EditText) findViewById(R.id.addNewIngredientEditTextQuantity);
 		descriptionText = (EditText) findViewById(R.id.addNewIngredientEditTextDescription);
+		
 
 		unitSelectorSpinner = (Spinner) findViewById(R.id.addNewIngredientSpinnerQuantity);
 		unitSelectorAdapter = ArrayAdapter.createFromResource(this,

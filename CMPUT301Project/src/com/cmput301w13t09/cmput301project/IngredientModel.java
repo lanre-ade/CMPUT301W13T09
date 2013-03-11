@@ -62,6 +62,14 @@ public class IngredientModel implements Serializable{
 	}
 
 	/**
+	 * Returns the Quantity of the ingredient
+	 * 
+	 * @return Quantity of the ingredient
+	 */
+	public float getIngredientquantity(){
+		return this.ingredient_quantity;
+	}
+	/**
 	 * When anything tries to read this object as a string it will output the
 	 * name of the ingredient
 	 */

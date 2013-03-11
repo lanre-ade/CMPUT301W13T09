@@ -1,6 +1,7 @@
 package com.cmput301w13t09.cmput301project.activities;
 
 import android.app.ActionBar;
+import android.app.Dialog;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,20 +15,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import com.cmput301w13t09.cmput301project.IngredientListModel;
+import com.cmput301w13t09.cmput301project.IngredientModel;
 import com.cmput301w13t09.cmput301project.NewRecipeBuilder;
 import com.cmput301w13t09.cmput301project.R;
 
 /**
- *  @author Kyle, Marcus, and Landre
- * Class: CreateNewRecipeView
- * CreateNewRecipe is that extends FragmentActivity and acts a way to gather input data for Recipes.
- * CreateNewRecipe provides a top menu used for inputing different types of data. CreateNewRecipe will then
- * use RecipeController in order to add the recipe to a recipelist and save that to recipe.data. 
+ * @author Kyle, Marcus, and Landre Class: CreateNewRecipeView CreateNewRecipe
+ *         is that extends FragmentActivity and acts a way to gather input data
+ *         for Recipes. CreateNewRecipe provides a top menu used for inputing
+ *         different types of data. CreateNewRecipe will then use
+ *         RecipeController in order to add the recipe to a recipelist and save
+ *         that to recipe.data.
  */
 public class CreateNewRecipeView extends FragmentActivity implements
 		ActionBar.TabListener {
@@ -46,7 +51,7 @@ public class CreateNewRecipeView extends FragmentActivity implements
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
-	
+
 	private NewRecipeBuilder rBuilder;
 
 	@Override
@@ -252,17 +257,56 @@ public class CreateNewRecipeView extends FragmentActivity implements
 				@Override
 				public void onClick(View v) {
 					try {
-						
+						final Dialog addIngredientDialog = new Dialog(
+								getActivity());
+						addIngredientDialog
+								.setContentView(R.layout.activity_add_new_ingredient_view);
+						addIngredientDialog.setTitle("New Ingredient");
+
+						Button addIngredientDialogButtonConfirm = (Button) addIngredientDialog
+								.findViewById(R.id.addNewIngredient);
+						Button addIngredientDialogButtonCancel = (Button) addIngredientDialog
+								.findViewById(R.id.andNewIngredientCancelButton);
+
+						final EditText addIngredientDialodEditTextName = (EditText) addIngredientDialog
+								.findViewById(R.id.addNewIngredientEditTextName);
+						final EditText addIngredientDialodEditTextDescription = (EditText) addIngredientDialog
+								.findViewById(R.id.addNewIngredientEditTextDescription);
+						final EditText addIngredientDialodEditTextQuantity = (EditText) addIngredientDialog
+								.findViewById(R.id.addNewIngredientEditTextQuantity);
+						final Spinner addIngredientDialodSpinnerQuantity = (Spinner) addIngredientDialog
+								.findViewById(R.id.addNewIngredientSpinnerQuantity);
+						ArrayAdapter<CharSequence> addIngredientDialodSpinnerArrayAdapterQuantity = ArrayAdapter
+								.createFromResource(
+										getActivity(),
+										R.array.UnitsArrayList,
+										android.R.layout.simple_spinner_dropdown_item);
+						addIngredientDialodSpinnerQuantity.setAdapter(addIngredientDialodSpinnerArrayAdapterQuantity);
+						addIngredientDialogButtonConfirm
+								.setOnClickListener(new OnClickListener() {
+									@Override
+									public void onClick(View v) {
+										builder.addIngredient(new IngredientModel(addIngredientDialodEditTextName.getText().toString(), addIngredientDialodEditTextDescription.getText().toString()));
+									}
+								});
+						addIngredientDialogButtonCancel
+								.setOnClickListener(new OnClickListener() {
+									@Override
+									public void onClick(View v) {
+										addIngredientDialog.dismiss();
+									}
+								});
+						addIngredientDialog.show();
 					} catch (Throwable e) {
 						e.printStackTrace();
 					}
 				}
 			});
-			
 
 			return tabView;
 		}
-		public IngredientListModel getList(){
+
+		public IngredientListModel getList() {
 			return builder.getIngr_list();
 		}
 	}
