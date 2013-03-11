@@ -11,9 +11,6 @@ import android.widget.Spinner;
 import com.cmput301w13t09.cmput301project.IngredientController;
 import com.cmput301w13t09.cmput301project.IngredientModel;
 import com.cmput301w13t09.cmput301project.R;
-import com.cmput301w13t09.cmput301project.R.array;
-import com.cmput301w13t09.cmput301project.R.id;
-import com.cmput301w13t09.cmput301project.R.layout;
 
 /**
  * @author Kyle, Marcus, and Landre Class: AddNewIngredientView AddNewIngredient
@@ -27,7 +24,9 @@ public class AddNewIngredientView extends Activity {
 	public Button doneButton;
 	public EditText nameText, quantityText, descriptionText;
 	public Spinner unitSelectorSpinner;
-	ArrayAdapter<CharSequence> unitSelectorAdapter;
+	public ArrayAdapter<CharSequence> unitSelectorAdapter;
+	public IngredientController ingredController;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +44,7 @@ public class AddNewIngredientView extends Activity {
 		unitSelectorSpinner.setAdapter(unitSelectorAdapter);
 
 		doneButton = (Button) findViewById(R.id.addNewIngredient);
-		final IngredientController ingredController = new IngredientController(this);
+		ingredController = new IngredientController(this);
 		doneButton.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -57,7 +56,11 @@ public class AddNewIngredientView extends Activity {
 						unitSelectorSpinner.getSelectedItem().toString());	
 				ingredController.add(ingred);
 				ingredController.saveToFile();
+				end();
 			}
 		});
+	}
+	protected void end(){
+		finish();
 	}
 }
