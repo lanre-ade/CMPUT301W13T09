@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.cmput301w13t09.cmput301project.IngredientListModel;
+import com.cmput301w13t09.cmput301project.NewRecipeBuilder;
 import com.cmput301w13t09.cmput301project.R;
 
 public class CreateNewRecipeView extends FragmentActivity implements
@@ -39,6 +40,8 @@ public class CreateNewRecipeView extends FragmentActivity implements
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
+	
+	private NewRecipeBuilder rBuilder;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -87,12 +90,16 @@ public class CreateNewRecipeView extends FragmentActivity implements
 		getMenuInflater().inflate(R.menu.activity_create_new_recipe_view, menu);
 		return true;
 	}
-	public boolean onOptionsItemSelected(MenuItem item){
-		//TODO Grab all the data and make a recipe
-		DescriptionSectionFragment desc_Fragment = (DescriptionSectionFragment) mSectionsPagerAdapter.getItem(0);
-		IngredientSectionFragment ingr_Fragment = (IngredientSectionFragment) mSectionsPagerAdapter.getItem(1);
-		IngredientSectionFragment inst_Fragment = (IngredientSectionFragment) mSectionsPagerAdapter.getItem(2);
-		
+
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Grab all the data and make a recipe
+		DescriptionSectionFragment desc_Fragment = (DescriptionSectionFragment) mSectionsPagerAdapter
+				.getItem(0);
+		IngredientSectionFragment ingr_Fragment = (IngredientSectionFragment) mSectionsPagerAdapter
+				.getItem(1);
+		IngredientSectionFragment inst_Fragment = (IngredientSectionFragment) mSectionsPagerAdapter
+				.getItem(2);
+
 		return true;
 	}
 
@@ -129,25 +136,31 @@ public class CreateNewRecipeView extends FragmentActivity implements
 			// getItem is called to instantiate the fragment for the given page.
 			// Return a DummySectionFragment (defined as a static inner class
 			// below) with the page number as its lone argument.
-			switch (position){
+			switch (position) {
 			case 0:
 				Fragment descriptionFragment = new DescriptionSectionFragment();
 				Bundle desriptionArgs = new Bundle();
-				desriptionArgs.putInt(DescriptionSectionFragment.ARG_SECTION_NUMBER, position + 1);
+				desriptionArgs.putInt(
+						DescriptionSectionFragment.ARG_SECTION_NUMBER,
+						position + 1);
 				descriptionFragment.setArguments(desriptionArgs);
-				return descriptionFragment; 
+				return descriptionFragment;
 			case 1:
 				Fragment ingredientFragment = new IngredientSectionFragment();
 				Bundle ingredientArgs = new Bundle();
-				ingredientArgs.putInt(DescriptionSectionFragment.ARG_SECTION_NUMBER, position + 1);
-				ingredientFragment .setArguments(ingredientArgs);
-				return ingredientFragment ;
+				ingredientArgs.putInt(
+						DescriptionSectionFragment.ARG_SECTION_NUMBER,
+						position + 1);
+				ingredientFragment.setArguments(ingredientArgs);
+				return ingredientFragment;
 			case 2:
 				Fragment instructionFragment = new IngredientSectionFragment();
 				Bundle instructoinArgs = new Bundle();
-				instructoinArgs.putInt(DescriptionSectionFragment.ARG_SECTION_NUMBER, position + 1);
-				instructionFragment .setArguments(instructoinArgs);
-				return instructionFragment ;
+				instructoinArgs.putInt(
+						DescriptionSectionFragment.ARG_SECTION_NUMBER,
+						position + 1);
+				instructionFragment.setArguments(instructoinArgs);
+				return instructionFragment;
 			}
 			return new Fragment();
 		}
@@ -162,22 +175,25 @@ public class CreateNewRecipeView extends FragmentActivity implements
 		public CharSequence getPageTitle(int position) {
 			switch (position) {
 			case 0:
-				return getString(R.string.createNewRecipe_title_section1).toUpperCase();
+				return getString(R.string.createNewRecipe_title_section1)
+						.toUpperCase();
 			case 1:
-				return getString(R.string.createNewRecipe_title_section2).toUpperCase();
+				return getString(R.string.createNewRecipe_title_section2)
+						.toUpperCase();
 			case 2:
-				return getString(R.string.createNewRecipe_title_section3).toUpperCase();
+				return getString(R.string.createNewRecipe_title_section3)
+						.toUpperCase();
 			}
 			return null;
 		}
 	}
+
 	/**
-	 * A  fragment representing the display section of the create new recipe.
+	 * A fragment representing the display section of the create new recipe.
 	 */
 	public static class DescriptionSectionFragment extends Fragment {
 		public static final String ARG_SECTION_NUMBER = "section_number";
 		public EditText nameEditText, descriptionEditText;
-		
 
 		public DescriptionSectionFragment() {
 		}
@@ -187,25 +203,31 @@ public class CreateNewRecipeView extends FragmentActivity implements
 				Bundle savedInstanceState) {
 			// Create a new TextView and set its text to the fragment's section
 			// number argument value.
-			View tabView = inflater.inflate(R.layout.activity_add_new_recipe_description_tab, container, false);
-			nameEditText = (EditText) tabView.findViewById(R.id.addNewRecipeNameEditText);
-			descriptionEditText = (EditText) tabView.findViewById(R.id.addNewRecipeDescriptionEditText);
+			View tabView = inflater.inflate(
+					R.layout.activity_add_new_recipe_description_tab,
+					container, false);
+			nameEditText = (EditText) tabView
+					.findViewById(R.id.addNewRecipeNameEditText);
+			descriptionEditText = (EditText) tabView
+					.findViewById(R.id.addNewRecipeDescriptionEditText);
 			return tabView;
 		}
-		public String getName(){
+
+		public String getName() {
 			return nameEditText.getText().toString();
 		}
-		public String getDescription(){
+
+		public String getDescription() {
 			return descriptionEditText.getText().toString();
 		}
 	}
-	
+
 	public static class IngredientSectionFragment extends Fragment {
 		public static final String ARG_SECTION_NUMBER = "section_number";
 		public Button addIngredientButton;
 		public ListView ingredientList;
 		public IngredientListModel ingredientListModel;
-		
+
 		public IngredientSectionFragment() {
 		}
 
@@ -214,20 +236,24 @@ public class CreateNewRecipeView extends FragmentActivity implements
 				Bundle savedInstanceState) {
 			// Create a new TextView and set its text to the fragment's section
 			// number argument value.
-			View tabView = inflater.inflate(R.layout.activity_my_pantry_view, container, false);
-			addIngredientButton = (Button) tabView.findViewById(R.id.myPantryAddIngredientButton);
+			View tabView = inflater.inflate(R.layout.activity_my_pantry_view,
+					container, false);
+			addIngredientButton = (Button) tabView
+					.findViewById(R.id.myPantryAddIngredientButton);
+			ingredientListModel = new IngredientListModel();
 			addIngredientButton.setOnClickListener(new OnClickListener() {
-				
+
 				@Override
 				public void onClick(View v) {
 					try {
-						
-					}catch (Throwable e){
+
+					} catch (Throwable e) {
 						e.printStackTrace();
 					}
 				}
 			});
 			
+
 			return tabView;
 		}
 	}
@@ -244,9 +270,10 @@ public class CreateNewRecipeView extends FragmentActivity implements
 				Bundle savedInstanceState) {
 			// Create a new TextView and set its text to the fragment's section
 			// number argument value.
-			View tabView = inflater.inflate(R.layout.activity_add_new_recipe_instruction_tab, container, false);
-			
-			
+			View tabView = inflater.inflate(
+					R.layout.activity_add_new_recipe_instruction_tab,
+					container, false);
+
 			return tabView;
 		}
 	}

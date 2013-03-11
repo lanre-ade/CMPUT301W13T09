@@ -22,6 +22,7 @@ public class RecipeModel implements Serializable{
 	private String recipe_name;
 	private String recipe_desc;
 	private IngredientListModel ingred_list;
+	private InstructionListModel instuc_list;
 	private PhotoListModel photo_list;
 
 	/**
