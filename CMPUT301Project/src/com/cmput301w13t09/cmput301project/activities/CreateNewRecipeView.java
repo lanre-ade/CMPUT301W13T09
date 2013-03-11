@@ -1,5 +1,7 @@
 package com.cmput301w13t09.cmput301project.activities;
 
+import org.xml.sax.Parser;
+
 import android.app.ActionBar;
 import android.app.Dialog;
 import android.app.FragmentTransaction;
@@ -281,12 +283,22 @@ public class CreateNewRecipeView extends FragmentActivity implements
 										getActivity(),
 										R.array.UnitsArrayList,
 										android.R.layout.simple_spinner_dropdown_item);
-						addIngredientDialodSpinnerQuantity.setAdapter(addIngredientDialodSpinnerArrayAdapterQuantity);
+						addIngredientDialodSpinnerQuantity
+								.setAdapter(addIngredientDialodSpinnerArrayAdapterQuantity);
 						addIngredientDialogButtonConfirm
 								.setOnClickListener(new OnClickListener() {
 									@Override
 									public void onClick(View v) {
-										builder.addIngredient(new IngredientModel(addIngredientDialodEditTextName.getText().toString(), addIngredientDialodEditTextDescription.getText().toString()));
+										builder.addIngredient(new IngredientModel(
+												addIngredientDialodEditTextName
+														.getText().toString(),
+												addIngredientDialodEditTextDescription
+														.getText().toString(),
+												Float.parseFloat(addIngredientDialodEditTextQuantity
+														.getText().toString()),
+												addIngredientDialodSpinnerQuantity
+														.getSelectedItem()
+														.toString()));
 									}
 								});
 						addIngredientDialogButtonCancel
