@@ -41,6 +41,7 @@ public class MyPantryView extends Activity {
 
 		ingredientController = new IngredientController(this);
 		addIngredientButton = (Button) findViewById(R.id.myPantryAddIngredientButton);
+		
 		ingredientListView = (ListView) findViewById(R.id.myPantryIngredientList);
 		ingredientListAdapter = new ArrayAdapter<IngredientModel>(this,
 				android.R.layout.simple_list_item_1,
@@ -119,7 +120,7 @@ public class MyPantryView extends Activity {
 				}
 			}
 		});
-
+		
 	}
 	protected void onPause(){
 		super.onPause();
