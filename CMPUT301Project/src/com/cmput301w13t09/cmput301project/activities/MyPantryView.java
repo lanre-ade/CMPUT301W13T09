@@ -45,10 +45,6 @@ public class MyPantryView extends Activity {
 		addIngredientButton = (Button) findViewById(R.id.myPantryAddIngredientButton);
 
 		// TODO Remove this stuff it's garbage
-		ingredientController.add(new IngredientModel("Cat", "Smells bad"));
-		ingredientController.add(new IngredientModel("Fish", "Eats fish"));
-		ingredientController.add(new IngredientModel("CatFish",
-				"Smells bad and eats fish"));
 		ingredientController.saveToFile();
 
 		ingredientListView = (ListView) findViewById(R.id.myPantryIngredientList);
@@ -70,7 +66,7 @@ public class MyPantryView extends Activity {
 				builder.setMessage(message);
 				builder.setTitle(title);
 
-				builder.setNegativeButton("Cancle",
+				builder.setNegativeButton("Cancel",
 						new DialogInterface.OnClickListener() {
 
 							@Override
@@ -117,6 +113,7 @@ public class MyPantryView extends Activity {
 							"activities.AddIngredient");
 					ingredientController.saveToFile();
 					startActivity(addIngredient);
+					
 				} catch (Throwable e) {
 					e.printStackTrace();
 				}

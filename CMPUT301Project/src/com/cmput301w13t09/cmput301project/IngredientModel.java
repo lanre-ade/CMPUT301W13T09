@@ -30,10 +30,17 @@ public class IngredientModel implements Serializable{
 	 * @param desc
 	 *            : Description of ingredient
 	 */
-	public IngredientModel(String name, String desc) {
+	public IngredientModel(String name, String desc, float quantity, String unit) {
 		this.ingredient_name = name;
 		this.ingredient_desc = desc;
-
+		this.ingredient_quantity = quantity;
+		this.ingredient_quantity_unit = unit;
+	}
+	public IngredientModel(String name, String desc){
+		this.ingredient_name = name;
+		this.ingredient_desc = desc;
+		this.ingredient_quantity = 10;
+		this.ingredient_quantity_unit = "g";
 	}
 
 	/**

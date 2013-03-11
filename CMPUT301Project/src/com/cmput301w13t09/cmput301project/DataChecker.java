@@ -4,15 +4,13 @@ import java.io.File;
 import java.io.IOException;
 
 import android.content.Context;
+
 /**
- * 
- * @author Kyle,Marcus,Landre
+ * @author Kyle, Marcus, Landre
  * Class: DataChecker
  * DataChecker is a class that takes in the context of an activity and checks whether or not a file
  * has been created or not. If a file doesnt exist it creates it
- *
  */
-
 public class DataChecker {
 	private Context ctx;
 	

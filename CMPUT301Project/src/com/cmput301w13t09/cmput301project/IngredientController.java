@@ -108,8 +108,7 @@ public class IngredientController {
 			
 			FileInputStream fileIn = ctx.openFileInput("Pantry.data");
 			ObjectInputStream objectInStream = new ObjectInputStream(fileIn);
-			ingred_list = (IngredientListModel) objectInStream
-					.readObject();
+			ingred_list = (IngredientListModel) objectInStream.readObject();
 			objectInStream.close();
 		} catch (FileNotFoundException FNE) {
 			try {
