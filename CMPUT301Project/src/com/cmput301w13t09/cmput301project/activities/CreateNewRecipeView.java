@@ -175,10 +175,6 @@ public class CreateNewRecipeView extends FragmentActivity implements
 	 * A  fragment representing the display section of the create new recipe.
 	 */
 	public static class DescriptionSectionFragment extends Fragment {
-		/**
-		 * The fragment argument representing the section number for this
-		 * fragment.
-		 */
 		public static final String ARG_SECTION_NUMBER = "section_number";
 		public EditText nameEditText, descriptionEditText;
 		
@@ -203,15 +199,8 @@ public class CreateNewRecipeView extends FragmentActivity implements
 			return descriptionEditText.getText().toString();
 		}
 	}
-	/**
-	 * A dummy fragment representing a section of the app, but that simply
-	 * displays dummy text.
-	 */
+	
 	public static class IngredientSectionFragment extends Fragment {
-		/**
-		 * The fragment argument representing the section number for this
-		 * fragment.
-		 */
 		public static final String ARG_SECTION_NUMBER = "section_number";
 		public Button addIngredientButton;
 		public ListView ingredientList;
@@ -242,15 +231,9 @@ public class CreateNewRecipeView extends FragmentActivity implements
 			return tabView;
 		}
 	}
-	/**
-	 * A dummy fragment representing a section of the app, but that simply
-	 * displays dummy text.
-	 */
+
 	public static class InstructionSectionFragment extends Fragment {
-		/**
-		 * The fragment argument representing the section number for this
-		 * fragment.
-		 */
+
 		public static final String ARG_SECTION_NUMBER = "section_number";
 
 		public InstructionSectionFragment() {

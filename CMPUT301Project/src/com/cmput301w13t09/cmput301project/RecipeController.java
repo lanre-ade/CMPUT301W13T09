@@ -22,8 +22,8 @@ public class RecipeController {
 	private RecipeListModel recipe_list;
 	private Context ctx;
 	/**
-	 * Constructor 
 	 * 
+	 * @param tctx Context of the activity running the controller
 	 */
 	public RecipeController(Context tctx) {
 		recipe_list = new RecipeListModel();
@@ -112,10 +112,7 @@ public class RecipeController {
 		this.recipe_list.remove(i);
 	}
 	
-	/**
-	 * 
-	 * @param ctx Context of call location. Usually use 'this'
-	 */
+	
 	public void loadFromFile() {
 		try {
 			FileInputStream fileIn = ctx.openFileInput("Recipe.data");
