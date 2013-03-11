@@ -21,7 +21,7 @@ import com.cmput301w13t09.cmput301project.R;
  *         Pantry.data
  */
 public class AddNewIngredientView extends Activity {
-	public Button doneButton;
+	public Button doneButton, cancelButton;
 	public EditText nameText, quantityText, descriptionText;
 	public Spinner unitSelectorSpinner;
 	public ArrayAdapter<CharSequence> unitSelectorAdapter;
@@ -44,7 +44,9 @@ public class AddNewIngredientView extends Activity {
 		unitSelectorSpinner.setAdapter(unitSelectorAdapter);
 
 		doneButton = (Button) findViewById(R.id.addNewIngredient);
+		cancelButton = (Button) findViewById(R.id.andNewIngredientCancelButton);
 		ingredController = new IngredientController(this);
+		
 		doneButton.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -57,6 +59,14 @@ public class AddNewIngredientView extends Activity {
 				ingredController.add(ingred);
 				ingredController.saveToFile();
 				end();
+			}
+		});
+		cancelButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
 			}
 		});
 	}

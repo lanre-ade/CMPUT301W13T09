@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -40,6 +41,7 @@ public class MyPantryView extends Activity {
 
 		ingredientController = new IngredientController(this);
 		addIngredientButton = (Button) findViewById(R.id.myPantryAddIngredientButton);
+		
 		ingredientListView = (ListView) findViewById(R.id.myPantryIngredientList);
 		ingredientListAdapter = new ArrayAdapter<IngredientModel>(this,
 				android.R.layout.simple_list_item_1,
@@ -75,7 +77,14 @@ public class MyPantryView extends Activity {
 							@Override
 							public void onClick(DialogInterface dialog,
 									int which) {
-								dialog.dismiss();
+								AlertDialog.Builder builder2 = new AlertDialog.Builder(MyPantryView.this);
+								builder2.setTitle("Hi");
+								LayoutInflater inflater = MyPantryView.this.getLayoutInflater();
+								builder2.setView(inflater.inflate(R.layout.activity_add_new_ingredient_view,null));
+								
+								
+								AlertDialog dialog2 = builder2.create();
+								dialog2.show();
 
 							}
 						});
@@ -111,7 +120,7 @@ public class MyPantryView extends Activity {
 				}
 			}
 		});
-
+		
 	}
 	protected void onPause(){
 		super.onPause();

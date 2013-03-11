@@ -69,6 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/addNewIngredient"
+        android:gravity="top"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/addNewIngredientStringDescription"
         android:layout_marginBottom="46dp"
