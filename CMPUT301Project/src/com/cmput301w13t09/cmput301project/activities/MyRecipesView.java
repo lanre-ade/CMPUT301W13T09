@@ -70,7 +70,7 @@ public class MyRecipesView extends Activity {
 				builder.setMessage(message);
 				builder.setTitle(title);
 
-				builder.setNegativeButton("Cancle",
+				builder.setNegativeButton("Cancel",
 						new DialogInterface.OnClickListener() {
 
 							@Override
