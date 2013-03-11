@@ -30,5 +30,6 @@
     <string name="createNewRecipe_title_section1">Description</string>
     <string name="title_activity_create_new_recipe_view">CreateNewRecipeView</string>
     <string name="addNewRecipeInstructionAddButton">Add</string>
+    <string name="cancelButton">Cancel</string>
 
 </resources>
