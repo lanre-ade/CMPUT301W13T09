@@ -2,6 +2,7 @@ package com.cmput301w13t09.cmput301project.activities;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,19 +12,22 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import com.cmput301w13t09.cmput301project.IngredientController;
 import com.cmput301w13t09.cmput301project.IngredientModel;
 import com.cmput301w13t09.cmput301project.R;
 
 /**
- * @author Kyle, Marcus, and Landre
- * Class: MyPantryView
- * MyPantryView is class that extends an Activity. This class shows all the ingredients stored in the
- * Pantry.data file and loads this with the IngredientController and displays it in a ListView. Also, My
- * PantryView provides a button of getting into AddNewIngredientView where you can add ingredients to MyPantry
+ * @author Kyle, Marcus, and Landre Class: MyPantryView MyPantryView is class
+ *         that extends an Activity. This class shows all the ingredients stored
+ *         in the Pantry.data file and loads this with the IngredientController
+ *         and displays it in a ListView. Also, My PantryView provides a button
+ *         of getting into AddNewIngredientView where you can add ingredients to
+ *         MyPantry
  * 
  */
 public class MyPantryView extends Activity {
@@ -32,7 +36,7 @@ public class MyPantryView extends Activity {
 	private ListView ingredientListView;
 	private int dialogNumber;
 	private IngredientController ingredientController;
-	private Button addIngredientButton;
+	private Button addIngredientButton, DialogButtonAdd;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +45,7 @@ public class MyPantryView extends Activity {
 
 		ingredientController = new IngredientController(this);
 		addIngredientButton = (Button) findViewById(R.id.myPantryAddIngredientButton);
-		
+
 		ingredientListView = (ListView) findViewById(R.id.myPantryIngredientList);
 		ingredientListAdapter = new ArrayAdapter<IngredientModel>(this,
 				android.R.layout.simple_list_item_1,
@@ -77,13 +81,36 @@ public class MyPantryView extends Activity {
 							@Override
 							public void onClick(DialogInterface dialog,
 									int which) {
-								AlertDialog.Builder builder2 = new AlertDialog.Builder(MyPantryView.this);
-								builder2.setTitle("Hi");
-								LayoutInflater inflater = MyPantryView.this.getLayoutInflater();
-								builder2.setView(inflater.inflate(R.layout.activity_add_new_ingredient_view,null));
+								final Dialog dialog2 = new Dialog(
+										MyPantryView.this);
+								dialog2.setContentView(R.layout.activity_add_new_ingredient_view);
+								EditText dialognameText = (EditText) dialog2
+										.findViewById(R.id.addNewIngredientEditTextName);
+								EditText dialogquantityText = (EditText) dialog2
+										.findViewById(R.id.addNewIngredientEditTextQuantity);
+								Button dialogdone = (Button) dialog2.findViewById(R.id.addNewIngredient);
+								Button dialogcancel = (Button) dialog2.findViewById(R.id.andNewIngredientCancelButton);
+								EditText dialogdescriptionText = (EditText) dialog2
+										.findViewById(R.id.addNewIngredientEditTextDescription);
+								dialognameText.setText(ingredientController
+										.getIngredientListName(dialogNumber));
+								Spinner unitSelectorSpinner = (Spinner) dialog2
+										.findViewById(R.id.addNewIngredientSpinnerQuantity);
+								ArrayAdapter<CharSequence> unitSelectorAdapter = ArrayAdapter
+										.createFromResource(
+												MyPantryView.this,
+												R.array.UnitsArrayList,
+												android.R.layout.simple_spinner_dropdown_item);
+								unitSelectorSpinner
+										.setAdapter(unitSelectorAdapter);
 								
+								dialogdescriptionText.setText(ingredientController
+										.getIngredientListDesc(dialogNumber));
+								dialogquantityText.setText(String
+										.valueOf(ingredientController
+												.getIngredient(dialogNumber)
+												.getIngredientquantity()));
 								
-								AlertDialog dialog2 = builder2.create();
 								dialog2.show();
 
 							}
@@ -114,23 +141,26 @@ public class MyPantryView extends Activity {
 				try {
 					Intent addIngredient = new Intent(
 							"activities.AddIngredient");
-					startActivity(addIngredient);					
+					startActivity(addIngredient);
 				} catch (Throwable e) {
 					e.printStackTrace();
 				}
 			}
 		});
-		
+
 	}
-	protected void onPause(){
+
+	protected void onPause() {
 		super.onPause();
 		ingredientController.saveToFile();
 	}
-	protected void onResume(){
+
+	protected void onResume() {
 		super.onResume();
 		ingredientController.loadFromFile();
 		updateList();
 	}
+
 	protected void updateList() {
 		ingredientController.loadFromFile();
 		ingredientListAdapter = new ArrayAdapter<IngredientModel>(this,
