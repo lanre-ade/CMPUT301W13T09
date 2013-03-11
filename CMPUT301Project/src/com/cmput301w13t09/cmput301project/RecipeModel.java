@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 
 /**
- * @author Kyle, Marcus, and Landre
+ * @author Kyle, Marcus, and Lanre
  * Class: RecipeModel 
  * RecipeModel is a class that holds recipes used in
  * application. RecipeModel stores a name of the recipe (recipe_name),
