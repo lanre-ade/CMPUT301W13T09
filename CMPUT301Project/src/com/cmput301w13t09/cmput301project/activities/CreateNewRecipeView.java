@@ -2,7 +2,6 @@ package com.cmput301w13t09.cmput301project.activities;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -22,10 +21,6 @@ import android.widget.ListView;
 import com.cmput301w13t09.cmput301project.IngredientListModel;
 import com.cmput301w13t09.cmput301project.NewRecipeBuilder;
 import com.cmput301w13t09.cmput301project.R;
-import com.cmput301w13t09.cmput301project.R.id;
-import com.cmput301w13t09.cmput301project.R.layout;
-import com.cmput301w13t09.cmput301project.R.menu;
-import com.cmput301w13t09.cmput301project.R.string;
 
 /**
  *  @author Kyle, Marcus, and Landre
@@ -237,7 +232,7 @@ public class CreateNewRecipeView extends FragmentActivity implements
 		public static final String ARG_SECTION_NUMBER = "section_number";
 		public Button addIngredientButton;
 		public ListView ingredientList;
-		public IngredientListModel ingredientListModel;
+		public NewRecipeBuilder builder;
 
 		public IngredientSectionFragment() {
 		}
@@ -251,13 +246,13 @@ public class CreateNewRecipeView extends FragmentActivity implements
 					container, false);
 			addIngredientButton = (Button) tabView
 					.findViewById(R.id.myPantryAddIngredientButton);
-			ingredientListModel = new IngredientListModel();
+			builder = new NewRecipeBuilder();
 			addIngredientButton.setOnClickListener(new OnClickListener() {
 
 				@Override
 				public void onClick(View v) {
 					try {
-
+						
 					} catch (Throwable e) {
 						e.printStackTrace();
 					}
@@ -266,6 +261,9 @@ public class CreateNewRecipeView extends FragmentActivity implements
 			
 
 			return tabView;
+		}
+		public IngredientListModel getList(){
+			return builder.getIngr_list();
 		}
 	}
 

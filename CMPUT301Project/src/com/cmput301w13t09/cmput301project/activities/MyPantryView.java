@@ -16,8 +16,6 @@ import android.widget.ListView;
 import com.cmput301w13t09.cmput301project.IngredientController;
 import com.cmput301w13t09.cmput301project.IngredientModel;
 import com.cmput301w13t09.cmput301project.R;
-import com.cmput301w13t09.cmput301project.R.id;
-import com.cmput301w13t09.cmput301project.R.layout;
 
 /**
  * @author Kyle, Marcus, and Landre
@@ -41,12 +39,7 @@ public class MyPantryView extends Activity {
 		setContentView(R.layout.activity_my_pantry_view);
 
 		ingredientController = new IngredientController(this);
-
 		addIngredientButton = (Button) findViewById(R.id.myPantryAddIngredientButton);
-
-		// TODO Remove this stuff it's garbage
-		ingredientController.saveToFile();
-
 		ingredientListView = (ListView) findViewById(R.id.myPantryIngredientList);
 		ingredientListAdapter = new ArrayAdapter<IngredientModel>(this,
 				android.R.layout.simple_list_item_1,
@@ -93,6 +86,7 @@ public class MyPantryView extends Activity {
 							public void onClick(DialogInterface dialog,
 									int which) {
 								ingredientController.remove(dialogNumber);
+								ingredientController.saveToFile();
 								dialog.dismiss();
 								updateList();
 
@@ -111,9 +105,7 @@ public class MyPantryView extends Activity {
 				try {
 					Intent addIngredient = new Intent(
 							"activities.AddIngredient");
-					ingredientController.saveToFile();
-					startActivity(addIngredient);
-					
+					startActivity(addIngredient);					
 				} catch (Throwable e) {
 					e.printStackTrace();
 				}
@@ -121,8 +113,17 @@ public class MyPantryView extends Activity {
 		});
 
 	}
-
+	protected void onPause(){
+		super.onPause();
+		ingredientController.saveToFile();
+	}
+	protected void onResume(){
+		super.onResume();
+		ingredientController.loadFromFile();
+		updateList();
+	}
 	protected void updateList() {
+		ingredientController.loadFromFile();
 		ingredientListAdapter = new ArrayAdapter<IngredientModel>(this,
 				android.R.layout.simple_list_item_1,
 				ingredientController.getIngredientList());
