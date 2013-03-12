@@ -1,6 +1,6 @@
 package com.cmput301w13t09.cmput301project.tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 import junit.framework.Assert;
 
 import org.junit.Test;
@@ -10,9 +10,7 @@ import android.content.Context;
 import com.cmput301w13t09.cmput301project.IngredientListModel;
 import com.cmput301w13t09.cmput301project.InstructionListModel;
 import com.cmput301w13t09.cmput301project.PhotoListModel;
-import com.cmput301w13t09.cmput301project.PhotoModel;
 import com.cmput301w13t09.cmput301project.RecipeController;
-import com.cmput301w13t09.cmput301project.RecipeListModel;
 import com.cmput301w13t09.cmput301project.RecipeModel;
 
 public class RecipeControllerTest {

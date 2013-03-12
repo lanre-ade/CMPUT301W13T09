@@ -109,20 +109,19 @@ public class CreateNewRecipeView extends FragmentActivity implements
 
 	public boolean onOptionsItemSelected(MenuItem item, int LENGTH_LONG) {
 		// TODO Grab all the data and make a recipe
-		DescriptionSectionFragment desc_Fragment = (DescriptionSectionFragment) mSectionsPagerAdapter
-				.getItem(0);
-		IngredientSectionFragment ingr_Fragment = (IngredientSectionFragment) mSectionsPagerAdapter
-				.getItem(1);
-		IngredientSectionFragment inst_Fragment = (IngredientSectionFragment) mSectionsPagerAdapter
-				.getItem(2);
+//		DescriptionSectionFragment desc_Fragment = (DescriptionSectionFragment) mSectionsPagerAdapter
+//				.getItem(0);
+//		IngredientSectionFragment ingr_Fragment = (IngredientSectionFragment) mSectionsPagerAdapter
+//				.getItem(1);
+//		IngredientSectionFragment inst_Fragment = (IngredientSectionFragment) mSectionsPagerAdapter
+//				.getItem(2);
 //		rBuilder.setName(desc_Fragment.getName());
 //		rBuilder.setDescription(desc_Fragment.getDescription());
 //		rBuilder.setIngredientList(ingr_Fragment.getList());
 //		
 //		rController.addRecipe(rBuilder.createRecipe());
-		Toast t = Toast.makeText(this, "It's ALIVE!!", LENGTH_LONG);
-		t.show();
-		return false;
+		finish();
+		return true;
 		
 	}
 
