@@ -1,8 +1,11 @@
 package com.cmput301w13t09.cmput301project.activities;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -15,14 +18,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.cmput301w13t09.cmput301project.IngredientListModel;
 import com.cmput301w13t09.cmput301project.IngredientModel;
 import com.cmput301w13t09.cmput301project.NewRecipeBuilder;
 import com.cmput301w13t09.cmput301project.R;
@@ -96,7 +101,7 @@ public class CreateNewRecipeView extends FragmentActivity implements
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
-		
+
 		rController = new RecipeController(this);
 	}
 
@@ -104,25 +109,27 @@ public class CreateNewRecipeView extends FragmentActivity implements
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_create_new_recipe_view, menu);
-		return true;
+		return super.onCreateOptionsMenu(menu);
 	}
 
-	public boolean onOptionsItemSelected(MenuItem item, int LENGTH_LONG) {
-		// TODO Grab all the data and make a recipe
-//		DescriptionSectionFragment desc_Fragment = (DescriptionSectionFragment) mSectionsPagerAdapter
-//				.getItem(0);
-//		IngredientSectionFragment ingr_Fragment = (IngredientSectionFragment) mSectionsPagerAdapter
-//				.getItem(1);
-//		IngredientSectionFragment inst_Fragment = (IngredientSectionFragment) mSectionsPagerAdapter
-//				.getItem(2);
-//		rBuilder.setName(desc_Fragment.getName());
-//		rBuilder.setDescription(desc_Fragment.getDescription());
-//		rBuilder.setIngredientList(ingr_Fragment.getList());
-//		
-//		rController.addRecipe(rBuilder.createRecipe());
-		finish();
-		return true;
-		
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.addNewRecipeDoneButton:
+
+			// rBuilder.setName(desc_Fragment.getName());
+			// rBuilder.setDescription(desc_Fragment.getDescription());
+			// rBuilder.setIngredientList(ingr_Fragment.getList());
+
+			// rController.loadFromFile();
+			// rController.addRecipe(rBuilder.createRecipe());
+			// rController.saveToFile();
+			return true;
+		default:
+			// TODO Grab all the data and make a recipe
+			//
+			return super.onOptionsItemSelected(item);
+		}
+
 	}
 
 	@Override
@@ -161,27 +168,12 @@ public class CreateNewRecipeView extends FragmentActivity implements
 			switch (position) {
 			case 0:
 				Fragment descriptionFragment = new DescriptionSectionFragment();
-				Bundle desriptionArgs = new Bundle();
-				desriptionArgs.putInt(
-						DescriptionSectionFragment.ARG_SECTION_NUMBER,
-						position + 1);
-				descriptionFragment.setArguments(desriptionArgs);
 				return descriptionFragment;
 			case 1:
 				Fragment ingredientFragment = new IngredientSectionFragment();
-				Bundle ingredientArgs = new Bundle();
-				ingredientArgs.putInt(
-						DescriptionSectionFragment.ARG_SECTION_NUMBER,
-						position + 1);
-				ingredientFragment.setArguments(ingredientArgs);
 				return ingredientFragment;
 			case 2:
 				Fragment instructionFragment = new IngredientSectionFragment();
-				Bundle instructoinArgs = new Bundle();
-				instructoinArgs.putInt(
-						DescriptionSectionFragment.ARG_SECTION_NUMBER,
-						position + 1);
-				instructionFragment.setArguments(instructoinArgs);
 				return instructionFragment;
 			}
 			return new Fragment();
@@ -214,8 +206,9 @@ public class CreateNewRecipeView extends FragmentActivity implements
 	 * A fragment representing the display section of the create new recipe.
 	 */
 	public static class DescriptionSectionFragment extends Fragment {
-		public static final String ARG_SECTION_NUMBER = "section_number";
 		public EditText nameEditText, descriptionEditText;
+		private NewRecipeBuilder builder;
+//		private OnItemSelectedListener listener;
 
 		public DescriptionSectionFragment() {
 		}
@@ -235,20 +228,38 @@ public class CreateNewRecipeView extends FragmentActivity implements
 			return tabView;
 		}
 
-		public String getName() {
-			return nameEditText.getText().toString();
-		}
-
-		public String getDescription() {
-			return descriptionEditText.getText().toString();
-		}
+		// public interface OnItemSelectedListener {
+		// public void passDataItemSelected(int i, NewRecipeBuilder builder);
+		// }
+		//
+		// @Override
+		// public void onAttach(Activity activity) {
+		// super.onAttach(activity);
+		// if (activity instanceof OnItemSelectedListener) {
+		// listener = (OnItemSelectedListener) activity;
+		// } else {
+		// throw new ClassCastException(activity.toString()
+		// + " must implemenet MyListFragment.OnItemSelectedListener");
+		// }
+		// }
+		//
+		// @Override
+		// public void onDetach() {
+		// super.onDetach();
+		// listener = null;
+		// }
+		// public void updateDetail(){
+		// listener.passDataItemSelected(0, builder);
+		// }
 	}
 
 	public static class IngredientSectionFragment extends Fragment {
-		public static final String ARG_SECTION_NUMBER = "section_number";
-		public Button addIngredientButton;
-		public ListView ingredientList;
-		public NewRecipeBuilder builder;
+		private Button addIngredientButton;
+		private ListView ingredientListView;
+		private ListAdapter ingredientListAdapter;
+		private NewRecipeBuilder builder;
+//		private OnItemSelectedListener listener;
+		private int dialogNumber;
 
 		public IngredientSectionFragment() {
 		}
@@ -308,6 +319,9 @@ public class CreateNewRecipeView extends FragmentActivity implements
 												addIngredientDialodSpinnerQuantity
 														.getSelectedItem()
 														.toString()));
+										updateList();
+										addIngredientDialog.dismiss();
+
 									}
 								});
 						addIngredientDialogButtonCancel
@@ -324,17 +338,185 @@ public class CreateNewRecipeView extends FragmentActivity implements
 				}
 			});
 
+			ingredientListView = (ListView) tabView
+					.findViewById(R.id.myPantryIngredientList);
+			ingredientListAdapter = new ArrayAdapter<IngredientModel>(
+					getActivity(), android.R.layout.simple_list_item_1,
+					builder.getIngredientList());
+			ingredientListView.setAdapter(ingredientListAdapter);
+
+			ingredientListView
+					.setOnItemClickListener(new OnItemClickListener() {
+						public void onItemClick(AdapterView<?> parent,
+								View view, int position, long id) {
+							dialogNumber = position;
+							AlertDialog.Builder ingredientDialogBuilder = new AlertDialog.Builder(
+									getActivity());
+							String title = builder
+									.getIngredientListName(position);
+							String message = builder.getIngredient(position)
+									.toDialogString();
+							ingredientDialogBuilder.setMessage(message);
+							ingredientDialogBuilder.setTitle(title);
+
+							ingredientDialogBuilder.setNegativeButton("Cancel",
+									new DialogInterface.OnClickListener() {
+
+										@Override
+										public void onClick(
+												DialogInterface dialog,
+												int which) {
+											dialog.dismiss();
+
+										}
+									});
+							ingredientDialogBuilder.setNeutralButton("Edit",
+									new DialogInterface.OnClickListener() {
+
+										@Override
+										public void onClick(
+												DialogInterface dialog,
+												int which) {
+											final Dialog dialog2 = new Dialog(
+													getActivity());
+											dialog2.setContentView(R.layout.activity_add_new_ingredient_view);
+											final EditText dialognameText = (EditText) dialog2
+													.findViewById(R.id.addNewIngredientEditTextName);
+											final EditText dialogquantityText = (EditText) dialog2
+													.findViewById(R.id.addNewIngredientEditTextQuantity);
+											Button dialogdone = (Button) dialog2
+													.findViewById(R.id.addNewIngredient);
+											Button dialogcancel = (Button) dialog2
+													.findViewById(R.id.andNewIngredientCancelButton);
+											final EditText dialogdescriptionText = (EditText) dialog2
+													.findViewById(R.id.addNewIngredientEditTextDescription);
+											dialognameText.setText(builder
+													.getIngredientListName(dialogNumber));
+											final Spinner unitSelectorSpinner = (Spinner) dialog2
+													.findViewById(R.id.addNewIngredientSpinnerQuantity);
+											ArrayAdapter<CharSequence> unitSelectorAdapter = ArrayAdapter
+													.createFromResource(
+															getActivity(),
+															R.array.UnitsArrayList,
+															android.R.layout.simple_spinner_dropdown_item);
+											unitSelectorSpinner
+													.setAdapter(unitSelectorAdapter);
+											unitSelectorSpinner
+													.setSelection(checkPositionInArray(builder
+															.getIngredient(
+																	dialogNumber)
+															.getIngredientquantityunit()));
+											dialogdescriptionText.setText(builder
+													.getIngredientListDesc(dialogNumber));
+											dialogquantityText.setText(String
+													.valueOf(builder
+															.getIngredient(
+																	dialogNumber)
+															.getIngredientquantity()));
+											dialogcancel
+													.setOnClickListener(new View.OnClickListener() {
+
+														@Override
+														public void onClick(
+																View v) {
+															dialog2.cancel();
+														}
+													});
+											dialogdone
+													.setOnClickListener(new View.OnClickListener() {
+
+														@Override
+														public void onClick(
+																View v) {
+															builder.editIngredient(
+																	dialogNumber,
+																	dialognameText
+																			.getText()
+																			.toString(),
+																	dialogdescriptionText
+																			.getText()
+																			.toString(),
+																	Float.parseFloat(dialogquantityText
+																			.getText()
+																			.toString()),
+																	unitSelectorSpinner
+																			.getSelectedItem()
+																			.toString());
+															dialog2.dismiss();
+															updateList();
+														}
+													});
+
+											dialog2.show();
+										}
+									});
+							ingredientDialogBuilder.setPositiveButton("Delete",
+									new DialogInterface.OnClickListener() {
+
+										@Override
+										public void onClick(
+												DialogInterface dialog,
+												int which) {
+											builder.removeIngredient(dialogNumber);
+											dialog.dismiss();
+											updateList();
+
+										}
+									});
+
+							AlertDialog dialog = ingredientDialogBuilder
+									.create();
+							dialog.show();
+						}
+					});
 			return tabView;
 		}
 
-		public IngredientListModel getList() {
-			return builder.getIngr_list();
+		//
+		// public interface OnItemSelectedListener {
+		// public void passDataItemSelected(int i, NewRecipeBuilder builder);
+		// }
+		//
+		// @Override
+		// public void onAttach(Activity activity) {
+		// super.onAttach(activity);
+		// if (activity instanceof OnItemSelectedListener) {
+		// listener = (OnItemSelectedListener) activity;
+		// } else {
+		// throw new ClassCastException(activity.toString()
+		// + " must implemenet MyListFragment.OnItemSelectedListener");
+		// }
+		// }
+		//
+		// @Override
+		// public void onDetach() {
+		// super.onDetach();
+		// listener = null;
+		// }
+		// public void updateDetail(){
+		// listener.passDataItemSelected(1, builder);
+		// }
+		protected void updateList() {
+			ingredientListAdapter = new ArrayAdapter<IngredientModel>(
+					getActivity(), android.R.layout.simple_list_item_1,
+					builder.getIngredientList());
+			ingredientListView.setAdapter(ingredientListAdapter);
+		}
+
+		public int checkPositionInArray(String s) {
+			int j = 0;
+			for (String str : getResources().getStringArray(
+					R.array.UnitsArrayList)) {
+				if (s.equals(str))
+					return j;
+				else
+					j++;
+			}
+			return 0;
 		}
 	}
 
 	public static class InstructionSectionFragment extends Fragment {
-
-		public static final String ARG_SECTION_NUMBER = "section_number";
 
 		public InstructionSectionFragment() {
 		}
@@ -351,5 +533,4 @@ public class CreateNewRecipeView extends FragmentActivity implements
 			return tabView;
 		}
 	}
-
 }

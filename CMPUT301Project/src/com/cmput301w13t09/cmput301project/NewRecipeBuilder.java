@@ -3,7 +3,7 @@ package com.cmput301w13t09.cmput301project;
 public class NewRecipeBuilder {
 	private IngredientListModel ingr_list;
 	private InstructionListModel inst_list;
-	private String name, description;
+	public String name, description;
 //	private PhotoListModel photo_list;
 
 	public NewRecipeBuilder() {
@@ -44,7 +44,7 @@ public class NewRecipeBuilder {
 		this.description = description;
 	}
 
-	public IngredientListModel getIngr_list() {
+	public IngredientListModel getIngredientList() {
 		return ingr_list;
 	}
 
@@ -52,7 +52,7 @@ public class NewRecipeBuilder {
 		this.ingr_list = ingr_list;
 	}
 
-	public InstructionListModel getInst_list() {
+	public InstructionListModel getInstructionList() {
 		return inst_list;
 	}
 
@@ -61,6 +61,18 @@ public class NewRecipeBuilder {
 	}
 	public RecipeModel createRecipe(){
 		return new RecipeModel(this.name, this.description, this.ingr_list, this.inst_list);
+	}
+	public String getIngredientListName(int i){
+		return ingr_list.get(i).getIngredientName();
+	}
+	public IngredientModel getIngredient(int i){
+		return ingr_list.get(i);
+	}
+	public String getIngredientListDesc(int i){
+		return ingr_list.get(i).getIngredientDesc();
+	}
+	public void editIngredient(int i, String tname, String tDescription,float tQuantity, String tUnit){
+		ingr_list.set(i, new IngredientModel(tname, tDescription, tQuantity, tUnit));
 	}
 	
 }
