@@ -15,11 +15,10 @@ import android.widget.ListView;
 
 import com.cmput301w13t09.cmput301project.IngredientController;
 import com.cmput301w13t09.cmput301project.IngredientModel;
+import com.cmput301w13t09.cmput301project.InstructionListModel;
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
 import com.cmput301w13t09.cmput301project.RecipeModel;
-import com.cmput301w13t09.cmput301project.R.id;
-import com.cmput301w13t09.cmput301project.R.layout;
 
 /**
  * @author Kyle, Marcus, and Landre
@@ -48,7 +47,7 @@ public class MyRecipesView extends Activity {
 		recipeController.addRecipe(new RecipeModel("Cat Stew",
 				"Cat + stewpot + water", new IngredientController(this).add(
 						new IngredientModel("cat", "Eats Fish"))
-						.getIngredientList()));
+						.getIngredientList(), new InstructionListModel()));
 
 		recipeListView = (ListView) findViewById(R.id.myRecipesList);
 		recipeListAdapter = new ArrayAdapter<RecipeModel>(this,

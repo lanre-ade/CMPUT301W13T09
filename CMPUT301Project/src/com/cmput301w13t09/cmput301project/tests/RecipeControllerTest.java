@@ -8,6 +8,7 @@ import org.junit.Test;
 import android.content.Context;
 
 import com.cmput301w13t09.cmput301project.IngredientListModel;
+import com.cmput301w13t09.cmput301project.InstructionListModel;
 import com.cmput301w13t09.cmput301project.PhotoListModel;
 import com.cmput301w13t09.cmput301project.PhotoModel;
 import com.cmput301w13t09.cmput301project.RecipeController;
@@ -33,7 +34,7 @@ public class RecipeControllerTest {
 		//no photos or ingredients
 		RecipeModel recipe1 = new RecipeModel ("Italian Food", "Use fancy sounding ingredients", null, null);
 		//no recipe name
-		RecipeModel recipe2 = new RecipeModel (null, "Stir for 15 minutes", new IngredientListModel(), new PhotoListModel());
+		RecipeModel recipe2 = new RecipeModel (null, "Stir for 15 minutes", new IngredientListModel(), new InstructionListModel(), new PhotoListModel());
 		//
 
 		

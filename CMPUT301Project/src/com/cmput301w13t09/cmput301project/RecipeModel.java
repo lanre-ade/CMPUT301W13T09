@@ -40,18 +40,21 @@ public class RecipeModel implements Serializable{
 	 * @param Plist
 	 *            : List of photos
 	 */
-	public RecipeModel(String name, String desc, IngredientListModel Ilist) {
+	public RecipeModel(String name, String desc, IngredientListModel Ilist, 
+			 InstructionListModel InsList) {
 		recipe_desc = desc;
 		recipe_name = name;
 		ingred_list = Ilist;
+		instuc_list = InsList;
 		photo_list = new PhotoListModel();
 	}
 	public RecipeModel(String name, String desc, IngredientListModel Ilist,
-			PhotoListModel Plist) {
+			 InstructionListModel InsList, PhotoListModel Plist) {
 		recipe_desc = desc;
 		recipe_name = name;
 		ingred_list = Ilist;
 		photo_list = Plist;
+		instuc_list = InsList;
 	}
 
 	/**

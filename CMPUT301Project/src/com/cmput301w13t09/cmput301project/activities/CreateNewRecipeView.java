@@ -1,7 +1,5 @@
 package com.cmput301w13t09.cmput301project.activities;
 
-import org.xml.sax.Parser;
-
 import android.app.ActionBar;
 import android.app.Dialog;
 import android.app.FragmentTransaction;
@@ -22,11 +20,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.cmput301w13t09.cmput301project.IngredientListModel;
 import com.cmput301w13t09.cmput301project.IngredientModel;
 import com.cmput301w13t09.cmput301project.NewRecipeBuilder;
 import com.cmput301w13t09.cmput301project.R;
+import com.cmput301w13t09.cmput301project.RecipeController;
 
 /**
  * @author Kyle, Marcus, and Landre Class: CreateNewRecipeView CreateNewRecipe
@@ -55,6 +55,7 @@ public class CreateNewRecipeView extends FragmentActivity implements
 	ViewPager mViewPager;
 
 	private NewRecipeBuilder rBuilder;
+	private RecipeController rController;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +96,8 @@ public class CreateNewRecipeView extends FragmentActivity implements
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
+		
+		rController = new RecipeController(this);
 	}
 
 	@Override
@@ -104,7 +107,7 @@ public class CreateNewRecipeView extends FragmentActivity implements
 		return true;
 	}
 
-	public boolean onOptionsItemSelected(MenuItem item) {
+	public boolean onOptionsItemSelected(MenuItem item, int LENGTH_LONG) {
 		// TODO Grab all the data and make a recipe
 		DescriptionSectionFragment desc_Fragment = (DescriptionSectionFragment) mSectionsPagerAdapter
 				.getItem(0);
@@ -112,8 +115,15 @@ public class CreateNewRecipeView extends FragmentActivity implements
 				.getItem(1);
 		IngredientSectionFragment inst_Fragment = (IngredientSectionFragment) mSectionsPagerAdapter
 				.getItem(2);
-
-		return true;
+//		rBuilder.setName(desc_Fragment.getName());
+//		rBuilder.setDescription(desc_Fragment.getDescription());
+//		rBuilder.setIngredientList(ingr_Fragment.getList());
+//		
+//		rController.addRecipe(rBuilder.createRecipe());
+		Toast t = Toast.makeText(this, "It's ALIVE!!", LENGTH_LONG);
+		t.show();
+		return false;
+		
 	}
 
 	@Override

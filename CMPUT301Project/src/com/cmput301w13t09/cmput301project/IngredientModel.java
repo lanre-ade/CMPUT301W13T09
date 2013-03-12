@@ -70,6 +70,13 @@ public class IngredientModel implements Serializable{
 		return this.ingredient_quantity;
 	}
 	/**
+	 * Returns the Quantity unit of the ingredientss
+	 * @return Quantity unit of the ingredient
+	 */
+	public String getIngredientquantityunit(){
+		return this.ingredient_quantity_unit;
+	}
+	/**
 	 * When anything tries to read this object as a string it will output the
 	 * name of the ingredient
 	 */
@@ -86,5 +93,32 @@ public class IngredientModel implements Serializable{
 				+ ingredient_quantity_unit + "\n\n" + ingredient_desc;
 
 	}
-
+	/**
+	 * Sets the name to new value
+	 * @param name
+	 */
+	public void setIngredientName(String name) {
+		this.ingredient_name = name;
+	}
+	/**
+	 * Sets the description to new value
+	 * @param description
+	 */
+	public void setIngredientDescription(String description){
+		this.ingredient_desc = description;
+	}
+	/**
+	 * Sets the quantity to new value
+	 * @param quantity
+	 */
+	public void setQuantity(float quantity){
+		this.ingredient_quantity = quantity;
+	}
+	/**
+	 * Sets the unit to a new value
+	 * @param unit
+	 */
+	public void setUnit(String unit){
+		this.ingredient_quantity_unit = unit;
+	}
 }

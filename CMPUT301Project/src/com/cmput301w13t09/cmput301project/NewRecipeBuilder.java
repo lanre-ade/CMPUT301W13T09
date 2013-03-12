@@ -7,8 +7,8 @@ public class NewRecipeBuilder {
 //	private PhotoListModel photo_list;
 
 	public NewRecipeBuilder() {
-		setIngr_list(new IngredientListModel());
-		setInst_list(new InstructionListModel());
+		this.setIngredientList(new IngredientListModel());
+		this.setInstructionList(new InstructionListModel());
 //		photo_list = new PhotoListModel();
 	}
 
@@ -48,7 +48,7 @@ public class NewRecipeBuilder {
 		return ingr_list;
 	}
 
-	public void setIngr_list(IngredientListModel ingr_list) {
+	public void setIngredientList(IngredientListModel ingr_list) {
 		this.ingr_list = ingr_list;
 	}
 
@@ -56,8 +56,11 @@ public class NewRecipeBuilder {
 		return inst_list;
 	}
 
-	public void setInst_list(InstructionListModel inst_list) {
+	public void setInstructionList(InstructionListModel inst_list) {
 		this.inst_list = inst_list;
+	}
+	public RecipeModel createRecipe(){
+		return new RecipeModel(this.name, this.description, this.ingr_list, this.inst_list);
 	}
 	
 }
