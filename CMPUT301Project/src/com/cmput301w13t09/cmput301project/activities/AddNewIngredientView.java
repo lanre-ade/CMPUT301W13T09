@@ -1,12 +1,14 @@
 package com.cmput301w13t09.cmput301project.activities;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.cmput301w13t09.cmput301project.IngredientController;
 import com.cmput301w13t09.cmput301project.IngredientModel;
@@ -26,6 +28,7 @@ public class AddNewIngredientView extends Activity {
 	public Spinner unitSelectorSpinner;
 	public ArrayAdapter<CharSequence> unitSelectorAdapter;
 	public IngredientController ingredController;
+	public TextView message;
 
 
 	@Override
@@ -46,6 +49,8 @@ public class AddNewIngredientView extends Activity {
 
 		doneButton = (Button) findViewById(R.id.addNewIngredient);
 		cancelButton = (Button) findViewById(R.id.andNewIngredientCancelButton);
+		
+		message = (TextView) findViewById(R.id.addNewIngredientMessage);
 		ingredController = new IngredientController(this);
 		
 		doneButton.setOnClickListener(new View.OnClickListener() {
@@ -53,13 +58,20 @@ public class AddNewIngredientView extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				IngredientModel ingred = new IngredientModel(nameText.getText()
-						.toString(), descriptionText.getText().toString(),
-						Float.parseFloat(quantityText.getText().toString()),
-						unitSelectorSpinner.getSelectedItem().toString());	
-				ingredController.add(ingred);
-				ingredController.saveToFile();
-				end();
+				if(!nameText.getText().toString().isEmpty() && !descriptionText.getText().toString().isEmpty()){
+					IngredientModel ingred = new IngredientModel(nameText.getText()
+							.toString(), descriptionText.getText().toString(),
+							Float.parseFloat(quantityText.getText().toString()),
+							unitSelectorSpinner.getSelectedItem().toString());	
+					ingredController.add(ingred);
+					ingredController.saveToFile();
+					end();
+				}
+				else{
+					message.setTextColor(Color.RED);
+					message.setText("Invalid Input Cannot have blank fields for Name and Quantity");
+				}
+				
 			}
 		});
 		cancelButton.setOnClickListener(new View.OnClickListener() {

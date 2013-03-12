@@ -125,6 +125,7 @@ public class MyPantryView extends Activity {
 									@Override
 									public void onClick(View v) {
 										// TODO Auto-generated method stub
+										if(!dialognameText.getText().toString().isEmpty() && !dialogquantityText.getText().toString().isEmpty()){
 										ingredientController.editIngredient(dialogNumber,dialognameText.getText()
 												.toString(), dialogdescriptionText.getText().toString(),
 												Float.parseFloat(dialogquantityText.getText().toString()),
@@ -132,6 +133,7 @@ public class MyPantryView extends Activity {
 										ingredientController.saveToFile();
 										dialog2.dismiss();
 										updateList();
+										}
 									}
 								});
 								
