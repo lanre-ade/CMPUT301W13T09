@@ -1,12 +1,14 @@
 package com.cmput301w13t09.cmput301project.tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import junit.framework.Assert;
-import org.junit.*;
+
+import org.junit.Test;
 
 import com.cmput301w13t09.cmput301project.IngredientListModel;
 import com.cmput301w13t09.cmput301project.InstructionListModel;
-import com.cmput301w13t09.cmput301project.InstructionModel;
 import com.cmput301w13t09.cmput301project.PhotoListModel;
 import com.cmput301w13t09.cmput301project.RecipeModel;
 
@@ -19,7 +21,6 @@ public class RecipeModelTest {
 		IngredientListModel ingred_list = null;
 		RecipeModel recipe = null;
 		InstructionListModel instr_list = null;
-		InstructionModel instruction = null;
 		
 		recipe = new RecipeModel(recipe_name, recipe_desc, ingred_list, instr_list);
 		//If a recipe is constructed using null, null, null it should be null
@@ -45,7 +46,6 @@ public class RecipeModelTest {
 		RecipeModel recipe = null;
 		PhotoListModel photo_list = null;
 		InstructionListModel instr_list = null;
-		InstructionModel instruction = null;
 		
 		recipe = new RecipeModel(recipe_name, recipe_desc, ingred_list, instr_list, photo_list);
 		//If a recipe is constructed using null, null, null, null it should be null
@@ -56,7 +56,6 @@ public class RecipeModelTest {
 		ingred_list = new IngredientListModel();
 		photo_list = new PhotoListModel();
 		instr_list = new InstructionListModel();
-		instruction = new InstructionModel();
 		
 		recipe = new RecipeModel(recipe_name, recipe_desc, ingred_list, instr_list, photo_list);
 		//If a recipe is constructed using String, String, IngredientListModel, PhototListModel it should no longer be null

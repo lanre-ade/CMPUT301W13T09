@@ -1,14 +1,11 @@
 package com.cmput301w13t09.cmput301project.activities;
 
-import org.junit.runners.ParentRunner;
-
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -23,7 +20,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,9 +29,9 @@ import android.widget.Spinner;
 
 import com.cmput301w13t09.cmput301project.IngredientModel;
 import com.cmput301w13t09.cmput301project.NewRecipeBuilder;
+import com.cmput301w13t09.cmput301project.OnUpdateSelectedListener;
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
-import com.cmput301w13t09.cmput301project.OnUpdateSelectedListener;
 
 /**
  * @author Kyle, Marcus, and Landre Class: CreateNewRecipeView CreateNewRecipe
@@ -204,14 +200,11 @@ public class CreateNewRecipeView extends FragmentActivity implements
 		public CharSequence getPageTitle(int position) {
 			switch (position) {
 			case 0:
-				return getString(R.string.createNewRecipe_title_section1)
-						.toUpperCase();
+				return getString(R.string.createNewRecipe_title_section1);
 			case 1:
-				return getString(R.string.createNewRecipe_title_section2)
-						.toUpperCase();
+				return getString(R.string.createNewRecipe_title_section2);
 			case 2:
-				return getString(R.string.createNewRecipe_title_section3)
-						.toUpperCase();
+				return getString(R.string.createNewRecipe_title_section3);
 			}
 			return null;
 		}
@@ -469,7 +462,7 @@ public class CreateNewRecipeView extends FragmentActivity implements
 					getActivity(), android.R.layout.simple_list_item_1,
 					builder.getIngredientList());
 			ingredientListView.setAdapter(ingredientListAdapter);
-			mCallback.onUpdateSelected(1, builder);
+			mCallback.onUpdateSelected(1, this.builder);
 //			((CreateNewRecipeView) getActivity()).addToBuilder(1, builder);
 		}
 

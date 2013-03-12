@@ -45,7 +45,7 @@ public class RecipeModel implements Serializable{
 		recipe_desc = desc;
 		recipe_name = name;
 		ingred_list = Ilist;
-		instuc_list = InsList;
+		setInstucuctionListModel(InsList);
 		photo_list = new PhotoListModel();
 	}
 	public RecipeModel(String name, String desc, IngredientListModel Ilist,
@@ -54,7 +54,7 @@ public class RecipeModel implements Serializable{
 		recipe_name = name;
 		ingred_list = Ilist;
 		photo_list = Plist;
-		instuc_list = InsList;
+		setInstucuctionListModel(InsList);
 	}
 
 	/**
@@ -97,5 +97,11 @@ public class RecipeModel implements Serializable{
 	 */
 	public String toString(){
 		return recipe_name;
+	}
+	public InstructionListModel getInstucuctionListModel() {
+		return instuc_list;
+	}
+	public void setInstucuctionListModel(InstructionListModel instuc_list) {
+		this.instuc_list = instuc_list;
 	}
 }
