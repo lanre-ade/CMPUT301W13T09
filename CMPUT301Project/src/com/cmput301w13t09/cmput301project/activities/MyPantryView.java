@@ -1,11 +1,14 @@
 package com.cmput301w13t09.cmput301project.activities;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -35,7 +38,7 @@ public class MyPantryView extends Activity {
 	private ListView ingredientListView;
 	private int dialogNumber;
 	private IngredientController ingredientController;
-	private Button addIngredientButton;
+	private Button addIngredientButton, DialogButtonAdd;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
