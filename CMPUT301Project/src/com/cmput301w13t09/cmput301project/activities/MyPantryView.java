@@ -1,5 +1,7 @@
 package com.cmput301w13t09.cmput301project.activities;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -103,7 +105,7 @@ public class MyPantryView extends Activity {
 												android.R.layout.simple_spinner_dropdown_item);
 								unitSelectorSpinner
 										.setAdapter(unitSelectorAdapter);
-								
+								unitSelectorSpinner.setSelection(MyPantryView.this.checkPositionInArray(ingredientController.getIngredient(dialogNumber).getIngredientquantityunit()));
 								dialogdescriptionText.setText(ingredientController
 										.getIngredientListDesc(dialogNumber));
 								dialogquantityText.setText(String
@@ -188,5 +190,15 @@ public class MyPantryView extends Activity {
 				android.R.layout.simple_list_item_1,
 				ingredientController.getIngredientList());
 		ingredientListView.setAdapter(ingredientListAdapter);
+	}
+	public int checkPositionInArray(String s){
+		int j = 0;
+		for (String str: getResources().getStringArray(R.array.UnitsArrayList)){
+			if (s.equals(str))
+				return j;
+			else
+				j++;
+		}
+		return 0;
 	}
 }
