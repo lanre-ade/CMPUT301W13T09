@@ -1,6 +1,9 @@
 package com.cmput301w13t09.cmput301project.activities;
 
+import org.junit.runners.ParentRunner;
+
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.FragmentTransaction;
@@ -32,6 +35,7 @@ import com.cmput301w13t09.cmput301project.IngredientModel;
 import com.cmput301w13t09.cmput301project.NewRecipeBuilder;
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
+import com.cmput301w13t09.cmput301project.OnUpdateSelectedListener;
 
 /**
  * @author Kyle, Marcus, and Landre Class: CreateNewRecipeView CreateNewRecipe
@@ -42,7 +46,7 @@ import com.cmput301w13t09.cmput301project.RecipeController;
  *         that to recipe.data.
  */
 public class CreateNewRecipeView extends FragmentActivity implements
-		ActionBar.TabListener {
+		ActionBar.TabListener,  OnUpdateSelectedListener {
 
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -53,7 +57,7 @@ public class CreateNewRecipeView extends FragmentActivity implements
 	 * {@link android.support.v4.app.FragmentStatePagerAdapter}.
 	 */
 	SectionsPagerAdapter mSectionsPagerAdapter;
-
+	OnUpdateSelectedListener mOnUpdateSelectedListener;
 	/**
 	 * The {@link ViewPager} that will host the section contents.
 	 */
@@ -115,7 +119,6 @@ public class CreateNewRecipeView extends FragmentActivity implements
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.addNewRecipeDoneButton:
-
 			// rBuilder.setName(desc_Fragment.getName());
 			// rBuilder.setDescription(desc_Fragment.getDescription());
 			// rBuilder.setIngredientList(ingr_Fragment.getList());
@@ -130,6 +133,18 @@ public class CreateNewRecipeView extends FragmentActivity implements
 			return super.onOptionsItemSelected(item);
 		}
 
+	}
+	public void onUpdateSelected(int i, NewRecipeBuilder build){
+		switch(i){
+			case 0:
+				rBuilder.setName(build.getName());
+				rBuilder.setDescription(build.getDescription());
+			case 1:
+				rBuilder.setIngredientList(build.getIngredientList());
+			case 2:
+				rBuilder.setInstructionList(build.getInstructionList());
+		}
+		
 	}
 
 	@Override
@@ -173,7 +188,7 @@ public class CreateNewRecipeView extends FragmentActivity implements
 				Fragment ingredientFragment = new IngredientSectionFragment();
 				return ingredientFragment;
 			case 2:
-				Fragment instructionFragment = new IngredientSectionFragment();
+				Fragment instructionFragment = new InstructionSectionFragment();
 				return instructionFragment;
 			}
 			return new Fragment();
@@ -228,29 +243,6 @@ public class CreateNewRecipeView extends FragmentActivity implements
 			return tabView;
 		}
 
-		// public interface OnItemSelectedListener {
-		// public void passDataItemSelected(int i, NewRecipeBuilder builder);
-		// }
-		//
-		// @Override
-		// public void onAttach(Activity activity) {
-		// super.onAttach(activity);
-		// if (activity instanceof OnItemSelectedListener) {
-		// listener = (OnItemSelectedListener) activity;
-		// } else {
-		// throw new ClassCastException(activity.toString()
-		// + " must implemenet MyListFragment.OnItemSelectedListener");
-		// }
-		// }
-		//
-		// @Override
-		// public void onDetach() {
-		// super.onDetach();
-		// listener = null;
-		// }
-		// public void updateDetail(){
-		// listener.passDataItemSelected(0, builder);
-		// }
 	}
 
 	public static class IngredientSectionFragment extends Fragment {
@@ -258,9 +250,9 @@ public class CreateNewRecipeView extends FragmentActivity implements
 		private ListView ingredientListView;
 		private ListAdapter ingredientListAdapter;
 		private NewRecipeBuilder builder;
-//		private OnItemSelectedListener listener;
 		private int dialogNumber;
-
+		OnUpdateSelectedListener mCallback;
+		
 		public IngredientSectionFragment() {
 		}
 
@@ -472,36 +464,30 @@ public class CreateNewRecipeView extends FragmentActivity implements
 			return tabView;
 		}
 
-		//
-		// public interface OnItemSelectedListener {
-		// public void passDataItemSelected(int i, NewRecipeBuilder builder);
-		// }
-		//
-		// @Override
-		// public void onAttach(Activity activity) {
-		// super.onAttach(activity);
-		// if (activity instanceof OnItemSelectedListener) {
-		// listener = (OnItemSelectedListener) activity;
-		// } else {
-		// throw new ClassCastException(activity.toString()
-		// + " must implemenet MyListFragment.OnItemSelectedListener");
-		// }
-		// }
-		//
-		// @Override
-		// public void onDetach() {
-		// super.onDetach();
-		// listener = null;
-		// }
-		// public void updateDetail(){
-		// listener.passDataItemSelected(1, builder);
-		// }
 		protected void updateList() {
 			ingredientListAdapter = new ArrayAdapter<IngredientModel>(
 					getActivity(), android.R.layout.simple_list_item_1,
 					builder.getIngredientList());
 			ingredientListView.setAdapter(ingredientListAdapter);
+			mCallback.onUpdateSelected(1, builder);
+//			((CreateNewRecipeView) getActivity()).addToBuilder(1, builder);
 		}
+
+
+	    @Override
+	    public void onAttach(Activity activity) {
+	        super.onAttach(activity);
+	        
+	        // This makes sure that the container activity has implemented
+	        // the callback interface. If not, it throws an exception
+	        try {
+	            mCallback = (OnUpdateSelectedListener) activity;
+	        } catch (ClassCastException e) {
+	            throw new ClassCastException(activity.toString()
+	                    + " must implement OnUpdateSelectedListener");
+	        }
+	    }
+
 
 		public int checkPositionInArray(String s) {
 			int j = 0;
@@ -517,7 +503,7 @@ public class CreateNewRecipeView extends FragmentActivity implements
 	}
 
 	public static class InstructionSectionFragment extends Fragment {
-
+		private NewRecipeBuilder builder;
 		public InstructionSectionFragment() {
 		}
 
