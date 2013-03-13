@@ -82,10 +82,7 @@ public class MyRecipesView extends Activity {
 									int which) {
 								try{
 									Intent viewRecipe = new Intent("activities.ViewRecipe");
-									Bundle bundle = new Bundle();
-									bundle.putInt("RECIPE_POSITION", dialogNumber);
-									viewRecipe.setClass(getBaseContext(), RecipeView.class);
-									viewRecipe.putExtras(bundle);
+									viewRecipe.putExtra("RECIPE_POSITION", dialogNumber);
 									startActivity(viewRecipe);
 								} catch (Throwable throwable){
 									throwable.printStackTrace();
