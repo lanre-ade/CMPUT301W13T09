@@ -22,7 +22,7 @@ import com.cmput301w13t09.cmput301project.IngredientModel;
 import com.cmput301w13t09.cmput301project.NewRecipeBuilder;
 import com.cmput301w13t09.cmput301project.R;
 
-public class IngredientSectionFragment extends Fragment {
+public class RecipeViewIngredientSectionFragment extends Fragment {
 
 	private Button addIngredientButton;
 	private ListView ingredientListView;
@@ -30,7 +30,7 @@ public class IngredientSectionFragment extends Fragment {
 	private NewRecipeBuilder builder;
 	private int dialogNumber;
 
-	public IngredientSectionFragment() {
+	public RecipeViewIngredientSectionFragment() {
 	}
 
 	@Override

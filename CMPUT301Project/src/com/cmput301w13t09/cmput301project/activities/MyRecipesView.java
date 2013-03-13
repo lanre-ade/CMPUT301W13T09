@@ -120,9 +120,21 @@ public class MyRecipesView extends Activity {
 	}
 
 	protected void updateList() {
+		recipeController.loadFromFile();
 		recipeListAdapter = new ArrayAdapter<RecipeModel>(this,
 				android.R.layout.simple_list_item_1,
 				recipeController.getRecipeList());
 		recipeListView.setAdapter(recipeListAdapter);
 	}
+	protected void onPause() {
+		super.onPause();
+		recipeController.saveToFile();
+	}
+
+	protected void onResume() {
+		super.onResume();
+		recipeController.loadFromFile();
+		updateList();
+	}
+
 }

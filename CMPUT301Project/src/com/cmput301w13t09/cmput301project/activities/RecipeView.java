@@ -16,14 +16,9 @@ import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
 
 /**
- * @author Kyle, Marcus, and Landre Class: CreateNewRecipeView CreateNewRecipe
- *         is that extends FragmentActivity and acts a way to gather input data
- *         for Recipes. CreateNewRecipe provides a top menu used for inputing
- *         different types of data. CreateNewRecipe will then use
- *         RecipeController in order to add the recipe to a recipelist and save
- *         that to recipe.data.
+ * @author Kyle, Marcus, and Landre Class: 
  */
-public class CreateNewRecipeView extends FragmentActivity implements
+public class RecipeView extends FragmentActivity implements
 		ActionBar.TabListener {
 
 	/**
@@ -40,7 +35,6 @@ public class CreateNewRecipeView extends FragmentActivity implements
 	 */
 	ViewPager mViewPager;
 
-	private NewRecipeBuilder rBuilder;
 	private RecipeController rController;
 
 	@Override
@@ -82,30 +76,17 @@ public class CreateNewRecipeView extends FragmentActivity implements
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
-		rBuilder = new NewRecipeBuilder(this);
-		rBuilder.saveNewToFile();
 		rController = new RecipeController(this);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_create_new_recipe_view, menu);
 		return super.onCreateOptionsMenu(menu);
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.addNewRecipeDoneButton:
-			rBuilder.loadFromFile();
-			rController.addRecipe(rBuilder.getRecipe());
-			rController.saveToFile();
-			finish();
-			return true;
-		default:
-			return super.onOptionsItemSelected(item);
-		}
-
+		return super.onOptionsItemSelected(item);
 	}
 
 	@Override
@@ -144,7 +125,7 @@ public class CreateNewRecipeView extends FragmentActivity implements
 			// below) with the page number as its lone argument.
 			switch (position) {
 			case 0:
-				Fragment descriptionFragment = new CreateNewRecipeDescriptionSectionFragment();
+				Fragment descriptionFragment = new RecipeViewDescriptionSectionFragment();
 				return descriptionFragment;
 			case 1:
 				Fragment ingredientFragment = new CreateNewRecipeIngredientSectionFragment();

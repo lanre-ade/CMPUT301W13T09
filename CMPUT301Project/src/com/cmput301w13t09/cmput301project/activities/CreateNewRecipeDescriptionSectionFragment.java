@@ -16,12 +16,12 @@ import com.cmput301w13t09.cmput301project.R;
 /**
  * A fragment representing the display section of the create new recipe.
  */
-public class DescriptionSectionFragment extends Fragment {
+public class CreateNewRecipeDescriptionSectionFragment extends Fragment {
 	public EditText nameEditText, descriptionEditText;
 	private NewRecipeBuilder builder;
 	private Button descriptionSetButton;
 
-	public DescriptionSectionFragment() {
+	public CreateNewRecipeDescriptionSectionFragment() {
 	}
 
 	@Override
