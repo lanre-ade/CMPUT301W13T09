@@ -15,13 +15,13 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.cmput301w13t09.cmput301project.InstructionModel;
-import com.cmput301w13t09.cmput301project.NewRecipeBuilder;
+import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
 import com.cmput301w13t09.cmput301project.R;
 
 public class CreateNewRecipeInstructionSectionFragment extends Fragment {
 	private ListView instructionListView;
 	private ListAdapter instructionListAdapter;
-	private NewRecipeBuilder builder;
+	private RecipeViewAssistant builder;
 	private int dialogNumber;
 	private Button addInstructionButton;
 
@@ -36,7 +36,7 @@ public class CreateNewRecipeInstructionSectionFragment extends Fragment {
 		View tabView = inflater.inflate(
 				R.layout.activity_add_new_recipe_instruction_tab, container,
 				false);
-		builder = new NewRecipeBuilder(getActivity());
+		builder = new RecipeViewAssistant(getActivity());
 		instructionListView = (ListView) tabView
 				.findViewById(R.id.addNewRecipeInstructionAddList);
 		instructionListAdapter = new ArrayAdapter<InstructionModel>(

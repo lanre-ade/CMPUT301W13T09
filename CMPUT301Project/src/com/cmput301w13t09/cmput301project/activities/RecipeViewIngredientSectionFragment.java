@@ -19,7 +19,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 
 import com.cmput301w13t09.cmput301project.IngredientModel;
-import com.cmput301w13t09.cmput301project.NewRecipeBuilder;
+import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
 import com.cmput301w13t09.cmput301project.R;
 
 public class RecipeViewIngredientSectionFragment extends Fragment {
@@ -27,7 +27,7 @@ public class RecipeViewIngredientSectionFragment extends Fragment {
 	private Button addIngredientButton;
 	private ListView ingredientListView;
 	private ListAdapter ingredientListAdapter;
-	private NewRecipeBuilder builder;
+	private RecipeViewAssistant builder;
 	private int dialogNumber;
 
 	public RecipeViewIngredientSectionFragment() {
@@ -42,7 +42,7 @@ public class RecipeViewIngredientSectionFragment extends Fragment {
 				container, false);
 		addIngredientButton = (Button) tabView
 				.findViewById(R.id.myPantryAddIngredientButton);
-		builder = new NewRecipeBuilder(getActivity());
+		builder = new RecipeViewAssistant(getActivity());
 		addIngredientButton.setOnClickListener(new OnClickListener() {
 
 			@Override

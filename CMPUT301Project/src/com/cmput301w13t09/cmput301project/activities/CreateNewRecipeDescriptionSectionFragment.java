@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.cmput301w13t09.cmput301project.NewRecipeBuilder;
+import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
 import com.cmput301w13t09.cmput301project.R;
 
 /**
@@ -18,7 +18,7 @@ import com.cmput301w13t09.cmput301project.R;
  */
 public class CreateNewRecipeDescriptionSectionFragment extends Fragment {
 	public EditText nameEditText, descriptionEditText;
-	private NewRecipeBuilder builder;
+	private RecipeViewAssistant builder;
 	private Button descriptionSetButton;
 
 	public CreateNewRecipeDescriptionSectionFragment() {
@@ -32,7 +32,7 @@ public class CreateNewRecipeDescriptionSectionFragment extends Fragment {
 		View tabView = inflater.inflate(
 				R.layout.activity_add_new_recipe_description_tab,
 				container, false);
-		builder = new NewRecipeBuilder(getActivity());
+		builder = new RecipeViewAssistant(getActivity());
 		nameEditText = (EditText) tabView
 				.findViewById(R.id.addNewRecipeNameEditText);
 		descriptionEditText = (EditText) tabView

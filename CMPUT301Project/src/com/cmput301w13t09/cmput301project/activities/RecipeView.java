@@ -11,9 +11,10 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.cmput301w13t09.cmput301project.NewRecipeBuilder;
+import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
+import com.cmput301w13t09.cmput301project.RecipeModel;
 
 /**
  * @author Kyle, Marcus, and Landre Class: 
@@ -34,7 +35,8 @@ public class RecipeView extends FragmentActivity implements
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
-
+	private RecipeModel recipe;
+	private int recipePosition;
 	private RecipeController rController;
 
 	@Override
@@ -77,6 +79,10 @@ public class RecipeView extends FragmentActivity implements
 					.setTabListener(this));
 		}
 		rController = new RecipeController(this);
+		Bundle bundle = getIntent().getExtras();
+		recipePosition = bundle.getInt("RECIPE_POSITION");
+		recipe = rController.getRecipe(recipePosition);
+		
 	}
 
 	@Override
@@ -128,10 +134,10 @@ public class RecipeView extends FragmentActivity implements
 				Fragment descriptionFragment = new RecipeViewDescriptionSectionFragment();
 				return descriptionFragment;
 			case 1:
-				Fragment ingredientFragment = new CreateNewRecipeIngredientSectionFragment();
+				Fragment ingredientFragment = new RecipeViewIngredientSectionFragment();
 				return ingredientFragment;
 			case 2:
-				Fragment instructionFragment = new CreateNewRecipeInstructionSectionFragment();
+				Fragment instructionFragment = new RecipeViewInstructionSectionFragment();
 				return instructionFragment;
 			}
 			return new Fragment();

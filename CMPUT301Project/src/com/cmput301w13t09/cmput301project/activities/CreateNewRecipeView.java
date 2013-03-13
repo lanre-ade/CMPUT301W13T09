@@ -11,7 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.cmput301w13t09.cmput301project.NewRecipeBuilder;
+import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
 
@@ -40,7 +40,7 @@ public class CreateNewRecipeView extends FragmentActivity implements
 	 */
 	ViewPager mViewPager;
 
-	private NewRecipeBuilder rBuilder;
+	private RecipeViewAssistant rBuilder;
 	private RecipeController rController;
 
 	@Override
@@ -82,7 +82,7 @@ public class CreateNewRecipeView extends FragmentActivity implements
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
-		rBuilder = new NewRecipeBuilder(this);
+		rBuilder = new RecipeViewAssistant(this);
 		rBuilder.saveNewToFile();
 		rController = new RecipeController(this);
 	}

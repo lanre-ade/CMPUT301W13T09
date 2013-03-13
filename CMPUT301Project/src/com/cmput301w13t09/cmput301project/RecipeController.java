@@ -169,4 +169,8 @@ public class RecipeController {
 			e.printStackTrace();
 		}
 	}
+
+	public RecipeModel getRecipe(int position) {
+		return recipe_list.get(position);
+	}
 }

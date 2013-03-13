@@ -10,7 +10,7 @@ import java.io.ObjectOutputStream;
 
 import android.content.Context;
 
-public class NewRecipeBuilder {
+public class RecipeViewAssistant {
 	private Context ctx;
 	private IngredientListModel ingr_list;
 	private InstructionListModel inst_list;
@@ -19,7 +19,7 @@ public class NewRecipeBuilder {
 
 	// private PhotoListModel photo_list;
 
-	public NewRecipeBuilder(Context ctx) {
+	public RecipeViewAssistant(Context ctx) {
 		this.setIngredientList(new IngredientListModel());
 		this.setInstructionList(new InstructionListModel());
 		this.ctx = ctx;
