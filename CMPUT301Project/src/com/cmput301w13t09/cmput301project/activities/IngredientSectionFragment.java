@@ -43,12 +43,12 @@ public class IngredientSectionFragment extends Fragment {
 		addIngredientButton = (Button) tabView
 				.findViewById(R.id.myPantryAddIngredientButton);
 		builder = new NewRecipeBuilder(getActivity());
-		builder.loadFromFile();
 		addIngredientButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				try {
+					builder.loadFromFile();
 					final Dialog addIngredientDialog = new Dialog(getActivity());
 					addIngredientDialog
 							.setContentView(R.layout.activity_add_new_ingredient_view);

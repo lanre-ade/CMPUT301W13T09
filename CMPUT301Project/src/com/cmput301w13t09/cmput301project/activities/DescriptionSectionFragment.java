@@ -33,7 +33,6 @@ public class DescriptionSectionFragment extends Fragment {
 				R.layout.activity_add_new_recipe_description_tab,
 				container, false);
 		builder = new NewRecipeBuilder(getActivity());
-		builder.loadFromFile();
 		nameEditText = (EditText) tabView
 				.findViewById(R.id.addNewRecipeNameEditText);
 		descriptionEditText = (EditText) tabView
@@ -44,6 +43,7 @@ public class DescriptionSectionFragment extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
+				builder.loadFromFile();
 				Toast t = Toast.makeText(getActivity(), "Name and Description set", Toast.LENGTH_SHORT);
 				t.show();
 				builder.setName(nameEditText.getText().toString());

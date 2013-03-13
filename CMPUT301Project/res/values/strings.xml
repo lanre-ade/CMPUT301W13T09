@@ -28,8 +28,9 @@
     <string name="createNewRecipe_title_section3">Instructions</string>
     <string name="createNewRecipe_title_section2">Ingredients</string>
     <string name="createNewRecipe_title_section1">Description</string>
-    <string name="title_activity_create_new_recipe_view">CreateNewRecipeView</string>
+    <string name="title_activity_create_new_recipe_view">Create New Recipe</string>
     <string name="addNewRecipeInstructionAddButton">Add Instruction</string>
     <string name="cancelButton">Cancel</string>
+    <string name="addNewRecipeInstructionDialogString">Add New Instruction</string>
 
 </resources>

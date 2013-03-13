@@ -178,4 +178,9 @@ public class NewRecipeBuilder {
 	public RecipeModel getRecipe() {
 		return recipe;
 	}
+
+
+	public InstructionModel getInstruction(int position) {
+		return inst_list.get(position);
+	}
 }
