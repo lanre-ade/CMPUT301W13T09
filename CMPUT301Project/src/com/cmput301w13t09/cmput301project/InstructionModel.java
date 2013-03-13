@@ -3,6 +3,10 @@ package com.cmput301w13t09.cmput301project;
 public class InstructionModel {
 	private String instruction;
 	
+	public void setInstruction(String instruction) {
+		this.instruction = instruction;
+	}
+
 	public InstructionModel(){
 		this.instruction = new String();
 	}
