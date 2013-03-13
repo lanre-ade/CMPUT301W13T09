@@ -66,7 +66,7 @@ public class MyRecipesView extends Activity {
 				AlertDialog.Builder builder = new AlertDialog.Builder(
 						MyRecipesView.this);
 				String title = recipeController.getRecipeListName(position);
-				String message = "Needs to be fixed ";// recipeController.getRecipe(position).toDialogString();
+				String message = recipeController.getRecipeList().get(position).getRecipeDesc();
 				builder.setMessage(message);
 				builder.setTitle(title);
 
