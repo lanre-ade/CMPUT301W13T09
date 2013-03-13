@@ -63,6 +63,16 @@
             </intent-filter>
             
         </activity>
+        <activity 
+            android:name="com.cmput301w13t09.cmput301project.activities.RecipeView"
+            android:exported="false"
+            android:label="">
+            <intent-filter >
+                <action android:name="activities.ViewRecipe"/>
+                
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

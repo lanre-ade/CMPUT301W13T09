@@ -183,4 +183,8 @@ public class RecipeViewAssistant {
 	public InstructionModel getInstruction(int position) {
 		return inst_list.get(position);
 	}
+
+	public void setRecipe(RecipeModel recipe) {
+		this.recipe = recipe;		
+	}
 }

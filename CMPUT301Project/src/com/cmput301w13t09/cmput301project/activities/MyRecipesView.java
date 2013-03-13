@@ -74,12 +74,22 @@ public class MyRecipesView extends Activity {
 
 							}
 						});
-				builder.setNeutralButton("Edit",
+				builder.setNeutralButton("View",
 						new DialogInterface.OnClickListener() {
 
 							@Override
 							public void onClick(DialogInterface dialog,
 									int which) {
+								try{
+									Intent viewRecipe = new Intent("activities.ViewRecipe");
+									Bundle bundle = new Bundle();
+									bundle.putInt("RECIPE_POSITION", dialogNumber);
+									viewRecipe.setClass(getBaseContext(), RecipeView.class);
+									viewRecipe.putExtras(bundle);
+									startActivity(viewRecipe);
+								} catch (Throwable throwable){
+									throwable.printStackTrace();
+								}
 								dialog.dismiss();
 
 							}

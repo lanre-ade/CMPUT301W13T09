@@ -6,7 +6,7 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/addNewRecipeNameEditText"
+        android:id="@+id/recipeViewNameEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -14,24 +14,22 @@
         android:layout_marginTop="48dp"
         android:ems="10"
         android:height="40dp"
-        android:hint="@string/addNewIngredientStringName"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
         android:textSize="30sp" />
 
     <TextView
-        android:id="@+id/addNewRecipeDescriptionEditText"
+        android:id="@+id/recipeViewDescriptionEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/addNewRecipeNameEditText"
+        android:layout_below="@+id/recipeViewNameEditText"
         android:layout_marginTop="48dp"
         android:ems="10"
         android:height="250dp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:hint="@string/addNewIngredientStringDescription"
         android:lines="6"
         android:singleLine="false"
         android:textSize="30sp" />

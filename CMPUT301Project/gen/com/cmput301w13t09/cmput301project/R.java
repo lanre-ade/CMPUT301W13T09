@@ -62,6 +62,8 @@ public final class R {
         public static final int myRecipes=0x7f090024;
         public static final int myRecipesList=0x7f090028;
         public static final int pager=0x7f09001f;
+        public static final int recipeViewDescriptionEditText=0x7f09002c;
+        public static final int recipeViewNameEditText=0x7f09002b;
         public static final int recipe_desc=0x7f09002a;
         public static final int recipe_name=0x7f090029;
         public static final int searchEditText=0x7f090020;
@@ -79,7 +81,7 @@ public final class R {
         public static final int activity_my_recipes_view=0x7f030009;
         public static final int recipe_list_row=0x7f03000a;
         public static final int view_recipe_description_tab=0x7f03000b;
-        public static final int view_recipe_instruction_tab=0x7f03000c;
+        public static final int view_recipe_instruction_or_ingredient_tab=0x7f03000c;
     }
     public static final class menu {
         public static final int activity_create_new_recipe_view=0x7f080000;

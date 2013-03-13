@@ -38,6 +38,7 @@ public class RecipeView extends FragmentActivity implements
 	private RecipeModel recipe;
 	private int recipePosition;
 	private RecipeController rController;
+	private RecipeViewAssistant rAssitant;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +83,9 @@ public class RecipeView extends FragmentActivity implements
 		Bundle bundle = getIntent().getExtras();
 		recipePosition = bundle.getInt("RECIPE_POSITION");
 		recipe = rController.getRecipe(recipePosition);
-		
+		rAssitant.saveNewToFile();
+		rAssitant.setRecipe(recipe);
+		rAssitant.saveToFile();
 	}
 
 	@Override
