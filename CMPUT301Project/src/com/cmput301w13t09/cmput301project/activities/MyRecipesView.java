@@ -15,10 +15,11 @@ import android.widget.ListView;
 
 import com.cmput301w13t09.cmput301project.IngredientController;
 import com.cmput301w13t09.cmput301project.IngredientModel;
-import com.cmput301w13t09.cmput301project.InstructionListModel;
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
 import com.cmput301w13t09.cmput301project.RecipeModel;
+import com.cmput301w13t09.cmput301project.R.id;
+import com.cmput301w13t09.cmput301project.R.layout;
 
 /**
  * @author Kyle, Marcus, and Landre
@@ -43,12 +44,6 @@ public class MyRecipesView extends Activity {
 		setContentView(R.layout.activity_my_recipes_view);
 
 		recipeController = new RecipeController(this);
-
-		recipeController.addRecipe(new RecipeModel("Cat Stew",
-				"Cat + stewpot + water", new IngredientController(this).add(
-						new IngredientModel("cat", "Eats Fish"))
-						.getIngredientList(), new InstructionListModel()));
-
 		recipeListView = (ListView) findViewById(R.id.myRecipesList);
 		recipeListAdapter = new ArrayAdapter<RecipeModel>(this,
 				android.R.layout.simple_list_item_1,
@@ -65,7 +60,7 @@ public class MyRecipesView extends Activity {
 				AlertDialog.Builder builder = new AlertDialog.Builder(
 						MyRecipesView.this);
 				String title = recipeController.getRecipeListName(position);
-				String message = "Needs to be fixed ";// recipeController.getRecipe(position).toDialogString();
+				String message = recipeController.getRecipeList().get(position).getRecipeDesc();
 				builder.setMessage(message);
 				builder.setTitle(title);
 
@@ -97,7 +92,6 @@ public class MyRecipesView extends Activity {
 									int which) {
 								recipeController.remove(dialogNumber);
 								dialog.dismiss();
-								recipeController.saveToFile();
 								updateList();
 
 							}
@@ -126,19 +120,9 @@ public class MyRecipesView extends Activity {
 	}
 
 	protected void updateList() {
-		recipeController.loadFromFile();
 		recipeListAdapter = new ArrayAdapter<RecipeModel>(this,
 				android.R.layout.simple_list_item_1,
 				recipeController.getRecipeList());
 		recipeListView.setAdapter(recipeListAdapter);
-	}
-	protected void onPause() {
-		super.onPause();
-		recipeController.saveToFile();
-	}
-
-	protected void onResume() {
-		super.onResume();
-		updateList();
 	}
 }
