@@ -1,15 +1,29 @@
 package com.cmput301w13t09.cmput301project;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+import android.content.Context;
+
 public class NewRecipeBuilder {
+	private Context ctx;
 	private IngredientListModel ingr_list;
 	private InstructionListModel inst_list;
-	public String name, description;
-//	private PhotoListModel photo_list;
+	private String name, description;
+	private RecipeModel recipe;
 
-	public NewRecipeBuilder() {
+	// private PhotoListModel photo_list;
+
+	public NewRecipeBuilder(Context ctx) {
 		this.setIngredientList(new IngredientListModel());
 		this.setInstructionList(new InstructionListModel());
-//		photo_list = new PhotoListModel();
+		this.ctx = ctx;
+		// photo_list = new PhotoListModel();
 	}
 
 	public void addIngredient(IngredientModel ing) {
@@ -59,20 +73,109 @@ public class NewRecipeBuilder {
 	public void setInstructionList(InstructionListModel inst_list) {
 		this.inst_list = inst_list;
 	}
-	public RecipeModel createRecipe(){
-		return new RecipeModel(this.name, this.description, this.ingr_list, this.inst_list);
+
+	public RecipeModel createRecipe() {
+		return new RecipeModel(this.name, this.description, this.ingr_list,
+				this.inst_list);
 	}
-	public String getIngredientListName(int i){
+
+	public void updateRecipe() {
+		this.recipe = this.createRecipe();
+		this.saveToFile();
+	}
+
+	public String getIngredientListName(int i) {
 		return ingr_list.get(i).getIngredientName();
 	}
-	public IngredientModel getIngredient(int i){
+
+	public IngredientModel getIngredient(int i) {
 		return ingr_list.get(i);
 	}
-	public String getIngredientListDesc(int i){
+
+	public String getIngredientListDesc(int i) {
 		return ingr_list.get(i).getIngredientDesc();
 	}
-	public void editIngredient(int i, String tname, String tDescription,float tQuantity, String tUnit){
-		ingr_list.set(i, new IngredientModel(tname, tDescription, tQuantity, tUnit));
+
+	public void editIngredient(int i, String tname, String tDescription,
+			float tQuantity, String tUnit) {
+		ingr_list.set(i, new IngredientModel(tname, tDescription, tQuantity,
+				tUnit));
 	}
-	
+
+	public void loadFromFile() {
+		try {
+			FileInputStream fileIn = ctx.openFileInput("Recipe.cache");
+			ObjectInputStream objectInStream = new ObjectInputStream(fileIn);
+			recipe = (RecipeModel) objectInStream.readObject();
+			objectInStream.close();
+			name = recipe.getRecipeName();
+			description = recipe.getRecipeDesc();
+			ingr_list = recipe.getIngredList();
+			inst_list = recipe.getInstucuctionListModel();
+			return;
+		} catch (FileNotFoundException FNE) {
+			try {
+				FileOutputStream temp = ctx.openFileOutput("Recipe.cache",
+						Context.MODE_PRIVATE);
+				ObjectOutputStream objectOutStream = new ObjectOutputStream(
+						temp);
+				objectOutStream.writeObject(null);
+				objectOutStream.close();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} catch (NullPointerException NPE) {
+			try {
+				FileOutputStream temp = ctx.openFileOutput("Recipe.cache",
+						Context.MODE_PRIVATE);
+				ObjectOutputStream objectOutStream = new ObjectOutputStream(
+						temp);
+				objectOutStream.writeObject(null);
+				objectOutStream.close();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} catch (ClassNotFoundException cnfe) {
+			cnfe.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	/**
+	 * Saves RecipeListModel ingred_list to file Recipe.data
+	 */
+	public void saveToFile() {
+		try {
+			new File("Recipe.cache").delete();
+			FileOutputStream fileOut = ctx.openFileOutput("Recipe.cache",
+					Context.MODE_PRIVATE);
+			ObjectOutputStream objectOutStream = new ObjectOutputStream(fileOut);
+			objectOutStream.writeObject(recipe);
+			objectOutStream.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void saveNewToFile() {
+		try {
+			new File("Recipe.cache").delete();
+			FileOutputStream fileOut = ctx.openFileOutput("Recipe.cache",
+					Context.MODE_PRIVATE);
+			ObjectOutputStream objectOutStream = new ObjectOutputStream(fileOut);
+			objectOutStream.writeObject(new RecipeModel("", "",
+					new IngredientListModel(), new InstructionListModel()));
+			objectOutStream.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public RecipeModel getRecipe() {
+		return recipe;
+	}
 }

@@ -24,7 +24,7 @@ import com.cmput301w13t09.cmput301project.RecipeController;
  *         that to recipe.data.
  */
 public class CreateNewRecipeView extends FragmentActivity implements
-		ActionBar.TabListener,  IngredientSectionFragment.OnUpdateSelectedListener {
+		ActionBar.TabListener {
 
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -35,7 +35,6 @@ public class CreateNewRecipeView extends FragmentActivity implements
 	 * {@link android.support.v4.app.FragmentStatePagerAdapter}.
 	 */
 	SectionsPagerAdapter mSectionsPagerAdapter;
-	OnUpdateSelectedListener mOnUpdateSelectedListener;
 	/**
 	 * The {@link ViewPager} that will host the section contents.
 	 */
@@ -83,7 +82,8 @@ public class CreateNewRecipeView extends FragmentActivity implements
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
-
+		rBuilder = new NewRecipeBuilder(this);
+		rBuilder.saveNewToFile();
 		rController = new RecipeController(this);
 	}
 
@@ -97,32 +97,15 @@ public class CreateNewRecipeView extends FragmentActivity implements
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.addNewRecipeDoneButton:
-			// rBuilder.setName(desc_Fragment.getName());
-			// rBuilder.setDescription(desc_Fragment.getDescription());
-			// rBuilder.setIngredientList(ingr_Fragment.getList());
-
-			// rController.loadFromFile();
-			// rController.addRecipe(rBuilder.createRecipe());
-			// rController.saveToFile();
+			rBuilder.loadFromFile();
+			rController.addRecipe(rBuilder.getRecipe());
+			rController.saveToFile();
+			finish();
 			return true;
 		default:
-			// TODO Grab all the data and make a recipe
-			//
 			return super.onOptionsItemSelected(item);
 		}
 
-	}
-	public void onUpdateSelected(int i, NewRecipeBuilder build){
-		switch(i){
-			case 0:
-				rBuilder.setName(build.getName());
-				rBuilder.setDescription(build.getDescription());
-			case 1:
-				rBuilder.setIngredientList(build.getIngredientList());
-			case 2:
-				rBuilder.setInstructionList(build.getInstructionList());
-		}
-		
 	}
 
 	@Override
@@ -142,6 +125,7 @@ public class CreateNewRecipeView extends FragmentActivity implements
 	public void onTabReselected(ActionBar.Tab tab,
 			FragmentTransaction fragmentTransaction) {
 	}
+	
 
 	/**
 	 * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -191,5 +175,6 @@ public class CreateNewRecipeView extends FragmentActivity implements
 			return null;
 		}
 	}
+
 
 }

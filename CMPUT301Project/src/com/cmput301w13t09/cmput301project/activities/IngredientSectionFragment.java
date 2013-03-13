@@ -1,6 +1,5 @@
 package com.cmput301w13t09.cmput301project.activities;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -24,16 +23,12 @@ import com.cmput301w13t09.cmput301project.NewRecipeBuilder;
 import com.cmput301w13t09.cmput301project.R;
 
 public class IngredientSectionFragment extends Fragment {
-	public interface OnUpdateSelectedListener {
-		void onUpdateSelected(int i, NewRecipeBuilder builder);
-	}
 
 	private Button addIngredientButton;
 	private ListView ingredientListView;
 	private ListAdapter ingredientListAdapter;
 	private NewRecipeBuilder builder;
 	private int dialogNumber;
-	OnUpdateSelectedListener mCallback;
 
 	public IngredientSectionFragment() {
 	}
@@ -47,7 +42,8 @@ public class IngredientSectionFragment extends Fragment {
 				container, false);
 		addIngredientButton = (Button) tabView
 				.findViewById(R.id.myPantryAddIngredientButton);
-		builder = new NewRecipeBuilder();
+		builder = new NewRecipeBuilder(getActivity());
+		builder.loadFromFile();
 		addIngredientButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -235,25 +231,11 @@ public class IngredientSectionFragment extends Fragment {
 	}
 
 	protected void updateList() {
+		builder.updateRecipe();
 		ingredientListAdapter = new ArrayAdapter<IngredientModel>(
 				getActivity(), android.R.layout.simple_list_item_1,
 				builder.getIngredientList());
 		ingredientListView.setAdapter(ingredientListAdapter);
-		mCallback.onUpdateSelected(1, this.builder);
-	}
-
-	@Override
-	public void onAttach(Activity activity) {
-		super.onAttach(activity);
-
-		// This makes sure that the container activity has implemented
-		// the callback interface. If not, it throws an exception
-		try {
-			mCallback = (OnUpdateSelectedListener) activity;
-		} catch (ClassCastException e) {
-			throw new ClassCastException(activity.toString()
-					+ " must implement OnUpdateSelectedListener");
-		}
 	}
 
 	public int checkPositionInArray(String s) {

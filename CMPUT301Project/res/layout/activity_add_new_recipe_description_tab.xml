@@ -43,9 +43,19 @@
         android:layout_alignLeft="@+id/addNewRecipeNameEditText"
         android:layout_alignTop="@+id/addNewRecipeDescriptionString"
         android:ems="10"
-        android:inputType="textLongMessage|textMultiLine"
-        android:lines="6"
+        android:inputType="textLongMessage|textMultiLine|textAutoComplete|textAutoCorrect|textCapSentences"
+        android:lines="12"
         android:singleLine="false" >
+
     </EditText>
+
+    <Button
+        android:id="@+id/addNewRecipeDescriptionButtonSet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addNewRecipeDescriptionEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="Set" />
 
 </RelativeLayout>
