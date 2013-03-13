@@ -91,6 +91,7 @@ public class MyRecipesView extends Activity {
 							public void onClick(DialogInterface dialog,
 									int which) {
 								recipeController.remove(dialogNumber);
+								recipeController.saveToFile();
 								dialog.dismiss();
 								updateList();
 
@@ -133,7 +134,6 @@ public class MyRecipesView extends Activity {
 
 	protected void onResume() {
 		super.onResume();
-		recipeController.loadFromFile();
 		updateList();
 	}
 
