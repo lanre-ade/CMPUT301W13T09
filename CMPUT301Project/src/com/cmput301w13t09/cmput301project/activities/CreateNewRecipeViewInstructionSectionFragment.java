@@ -18,14 +18,14 @@ import com.cmput301w13t09.cmput301project.InstructionModel;
 import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
 import com.cmput301w13t09.cmput301project.R;
 
-public class CreateNewRecipeInstructionSectionFragment extends Fragment {
+public class CreateNewRecipeViewInstructionSectionFragment extends Fragment {
 	private ListView instructionListView;
 	private ListAdapter instructionListAdapter;
 	private RecipeViewAssistant builder;
 	private int dialogNumber;
 	private Button addInstructionButton;
 
-	public CreateNewRecipeInstructionSectionFragment() {
+	public CreateNewRecipeViewInstructionSectionFragment() {
 	}
 
 	@Override
@@ -47,6 +47,7 @@ public class CreateNewRecipeInstructionSectionFragment extends Fragment {
 		instructionListView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
+				builder.loadFromFile();
 				dialogNumber = position;
 				final Dialog instructionDialogBuilder = new Dialog(
 						getActivity());
@@ -128,7 +129,6 @@ public class CreateNewRecipeInstructionSectionFragment extends Fragment {
 								builder.addInstruction(new InstructionModel(
 										addInstructionDialogEditTextInstruction
 												.getText().toString()));
-								builder.saveToFile();
 								addinstructionDialogBuilder.dismiss();
 								updateList();
 							}
