@@ -13,13 +13,9 @@ import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import com.cmput301w13t09.cmput301project.IngredientController;
-import com.cmput301w13t09.cmput301project.IngredientModel;
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
 import com.cmput301w13t09.cmput301project.RecipeModel;
-import com.cmput301w13t09.cmput301project.R.id;
-import com.cmput301w13t09.cmput301project.R.layout;
 
 /**
  * @author Kyle, Marcus, and Landre

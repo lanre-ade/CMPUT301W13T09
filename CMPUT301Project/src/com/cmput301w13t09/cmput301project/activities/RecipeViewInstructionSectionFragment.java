@@ -50,7 +50,7 @@ public class RecipeViewInstructionSectionFragment extends Fragment {
 					int position, long id) {
 				dialogNumber = position;
 				Builder instructionDialogBuilder = new AlertDialog.Builder(getActivity());
-//				instructionDialogBuilder.setTitle(position);
+				instructionDialogBuilder.setTitle("Step:"+(position+1));
 				instructionDialogBuilder.setMessage(assistant.getInstruction(dialogNumber).toString());
 				instructionDialogBuilder.setNeutralButton("Done", new DialogInterface.OnClickListener() {
 					

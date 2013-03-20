@@ -8,30 +8,31 @@
     <MultiAutoCompleteTextView
         android:id="@+id/addNewRecipeInstructionDialogTwoEditText"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_marginBottom="20dp"
-        android:layout_margin="5dp"
-        android:gravity="top"
-        android:layout_above="@+id/addNewRecipeInstructionDialogLeft"
+        android:layout_height="75dp"
+        android:layout_above="@+id/addNewRecipeInstructionDialogRight"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:ems="10" >
+        android:layout_margin="5dp"
+        android:ems="10"
+        android:gravity="top"
+        android:inputType="textMultiLine|textCapSentences" >
 
-        <requestFocus />
     </MultiAutoCompleteTextView>
-
-    <Button
-        android:id="@+id/addNewRecipeInstructionDialogLeft"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true" />
 
     <Button
         android:id="@+id/addNewRecipeInstructionDialogRight"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/addNewRecipeInstructionDialogTwoEditText" />
+        android:layout_alignBaseline="@+id/addNewRecipeInstructionDialogLeft"
+        android:layout_alignBottom="@+id/addNewRecipeInstructionDialogLeft"
+        android:layout_toRightOf="@+id/addNewRecipeInstructionDialogLeft" />
+
+    <Button
+        android:id="@+id/addNewRecipeInstructionDialogLeft"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/addNewRecipeInstructionDialogTwoEditText"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="118dp" />
 
 </RelativeLayout>

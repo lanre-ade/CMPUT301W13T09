@@ -35,7 +35,8 @@
         android:layout_alignTop="@+id/addNewRecipeNameString"
         android:layout_toLeftOf="@+id/addNewRecipeDescriptionButtonSet"
         android:layout_toRightOf="@+id/addNewRecipeDescriptionString"
-        android:ems="10" />
+        android:ems="10"
+        android:inputType="textCapWords" />
 
     <EditText
         android:id="@+id/addNewRecipeDescriptionEditText"
@@ -45,7 +46,7 @@
         android:layout_alignTop="@+id/addNewRecipeDescriptionString"
         android:ems="10"
         android:gravity="top"
-        android:inputType="textLongMessage|textMultiLine|textAutoComplete|textAutoCorrect|textCapSentences"
+        android:inputType="textMultiLine|textCapSentences"
         android:lines="12"
         android:singleLine="false" >
 
