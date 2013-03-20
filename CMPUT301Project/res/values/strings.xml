@@ -8,8 +8,6 @@
     <string name="local_search_text">Only search in My Recipes (NI)</string>
     <string name="recipes">My Recipes</string>
     <string name="pantry">My Pantry</string>
-    <string name="title_activity_my_pantry_view">My Pantry</string>
-    <string name="title_activity_my_recipes_view">My Recipes</string>
     <string name="my_pantry_add_button">Add Ingredient</string>
     <string name="create_recipe">Create New Recipe</string>
     <string name="title_activity_create_recipe_view">Create Recipe</string>
@@ -29,11 +27,11 @@
     <string name="createNewRecipe_title_section2">Ingredients</string>
     <string name="createNewRecipe_title_section1">Description</string>
     <string name="title_activity_create_new_recipe_view">Create New Recipe</string>
-    <string name="addNewRecipeInstructionAddButton">Add Instruction</string>
     <string name="cancelButton">Cancel</string>
     <string name="addNewRecipeInstructionDialogString">Add New Instruction</string>
     <string name="buttonDelete">Delete</string>
     <string name="addNewInstructionButtonString">Add Instruction</string>
-     <string name="MainMenuSearchButtonString">Search Recipe</string>
+    <string name="MainMenuSearchButtonString">Search Recipe</string>
+    <string name="set">Set</string>
 
 </resources>

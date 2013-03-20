@@ -24,7 +24,7 @@
         <activity
             android:name="com.cmput301w13t09.cmput301project.activities.MyPantryView"
             android:exported="false"
-            android:label="@string/title_activity_my_pantry_view" >
+            android:label="@string/pantry" >
             <intent-filter>
                 <action android:name="activities.MyPantry" />
 
@@ -34,7 +34,7 @@
         <activity
             android:name="com.cmput301w13t09.cmput301project.activities.MyRecipesView"
             android:exported="false"
-            android:label="@string/title_activity_my_recipes_view" >
+            android:label="@string/recipes" >
             <intent-filter>
                 <action android:name="activities.MyRecipes" />
 

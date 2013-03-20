@@ -3,7 +3,8 @@
     android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@color/background" >
 
     <Button
         android:id="@+id/addNewRecipeInstructionAddButton"
@@ -11,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="@string/addNewRecipeInstructionAddButton" />
+        android:text="@string/addNewInstructionButtonString" />
 
     <ListView
         android:id="@+id/addNewRecipeInstructionAddList"
@@ -20,8 +21,7 @@
         android:layout_above="@+id/addNewRecipeInstructionAddButton"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_centerHorizontal="true"
-        android:background="@color/background" >
+        android:layout_centerHorizontal="true" >
 
     </ListView>
 

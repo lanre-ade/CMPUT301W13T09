@@ -35,8 +35,10 @@ public class CreateNewRecipeViewDescriptionSectionFragment extends Fragment {
 		builder = new RecipeViewAssistant(getActivity());
 		nameEditText = (EditText) tabView
 				.findViewById(R.id.addNewRecipeNameEditText);
+		nameEditText.setText(builder.getName());//
 		descriptionEditText = (EditText) tabView
 				.findViewById(R.id.addNewRecipeDescriptionEditText);
+		descriptionEditText.setText(builder.getDescription());//
 		descriptionSetButton = (Button) tabView
 				.findViewById(R.id.addNewRecipeDescriptionButtonSet);
 		descriptionSetButton.setOnClickListener(new OnClickListener() {

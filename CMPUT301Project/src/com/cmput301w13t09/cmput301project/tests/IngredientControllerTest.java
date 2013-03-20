@@ -1,14 +1,10 @@
 package com.cmput301w13t09.cmput301project.tests;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
-import android.content.Context;
 import android.test.ActivityInstrumentationTestCase2;
 
 import com.cmput301w13t09.cmput301project.IngredientController;
-import com.cmput301w13t09.cmput301project.IngredientListModel;
 import com.cmput301w13t09.cmput301project.IngredientModel;
 import com.cmput301w13t09.cmput301project.activities.CreateNewRecipeView;
 
