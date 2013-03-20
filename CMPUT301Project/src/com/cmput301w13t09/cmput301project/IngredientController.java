@@ -31,7 +31,6 @@ public class IngredientController {
 		this.ctx = tcxt;
 		this.loadFromFile();
 	}
-	
 	/**
 	 * 
 	 * @param newIngredient : The Ingredient to be added to the list

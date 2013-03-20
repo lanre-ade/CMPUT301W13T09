@@ -70,8 +70,8 @@ public class RecipeViewAssistant {
 		return inst_list;
 	}
 
-	public void setInstructionList(InstructionListModel inst_list) {
-		this.inst_list = inst_list;
+	public void setInstructionList(InstructionListModel inst_lis) {
+		this.inst_list = inst_lis;
 	}
 
 	public RecipeModel createRecipe() {

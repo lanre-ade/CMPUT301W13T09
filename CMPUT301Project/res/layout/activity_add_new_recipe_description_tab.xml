@@ -44,6 +44,7 @@
         android:layout_alignLeft="@+id/addNewRecipeNameEditText"
         android:layout_alignTop="@+id/addNewRecipeDescriptionString"
         android:ems="10"
+        android:gravity="top"
         android:inputType="textLongMessage|textMultiLine|textAutoComplete|textAutoCorrect|textCapSentences"
         android:lines="12"
         android:singleLine="false" >

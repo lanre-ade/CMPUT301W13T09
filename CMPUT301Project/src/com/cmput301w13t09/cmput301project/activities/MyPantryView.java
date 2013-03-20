@@ -1,7 +1,5 @@
 package com.cmput301w13t09.cmput301project.activities;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -37,7 +35,7 @@ public class MyPantryView extends Activity {
 	private ListView ingredientListView;
 	private int dialogNumber;
 	private IngredientController ingredientController;
-	private Button addIngredientButton, DialogButtonAdd;
+	private Button addIngredientButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -115,7 +113,6 @@ public class MyPantryView extends Activity {
 									
 									@Override
 									public void onClick(View v) {
-										// TODO Auto-generated method stub
 										dialog2.cancel();
 									}
 								});

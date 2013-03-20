@@ -34,5 +34,6 @@
     <string name="addNewRecipeInstructionDialogString">Add New Instruction</string>
     <string name="buttonDelete">Delete</string>
     <string name="addNewInstructionButtonString">Add Instruction</string>
+     <string name="MainMenuSearchButtonString">Search Recipe</string>
 
 </resources>

@@ -10,6 +10,7 @@
         android:layout_height="fill_parent"
         android:layout_marginBottom="20dp"
         android:layout_margin="5dp"
+        android:gravity="top"
         android:layout_above="@+id/addNewRecipeInstructionDialogDelete"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"

@@ -8,41 +8,46 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-
+import android.annotation.SuppressLint;
 import android.content.Context;
 
 /**
- * @author Kyle,Marcus,Landre
- * Class: RecipeListModel RecipeList is a class that stores a list of recipes.
- * These recipes are from RecipeModel and are stored in ArrayList class. The
- * constructor takes in a single recipe (RecipeModel)and appends it to a blank
- * recipe list. RecipeLists methods are getLength, getRecipeListName,
- * getRecipeListDesc7 getRecipeingredientList, and getRecipePhotoList.
+ * @author Kyle,Marcus,Landre Class: RecipeListModel RecipeList is a class that
+ *         stores a list of recipes. These recipes are from RecipeModel and are
+ *         stored in ArrayList class. The constructor takes in a single recipe
+ *         (RecipeModel)and appends it to a blank recipe list. RecipeLists
+ *         methods are getLength, getRecipeListName, getRecipeListDesc7
+ *         getRecipeingredientList, and getRecipePhotoList.
  */
 
+@SuppressLint("DefaultLocale")
 public class RecipeController {
 	private RecipeListModel recipe_list;
 	private Context ctx;
+
 	/**
 	 * 
-	 * @param tctx Context of the activity running the controller
+	 * @param tctx
+	 *            Context of the activity running the controller
 	 */
 	public RecipeController(Context tctx) {
 		recipe_list = new RecipeListModel();
 		ctx = tctx;
 		this.loadFromFile();
-		
+
 	}
 
 	/**
 	 * 
-	 * @param recipe : The Recipe to be appended to the list
+	 * @param recipe
+	 *            : The Recipe to be appended to the list
 	 * @return this so that chain adding can happen.
 	 */
-	public RecipeController addRecipe(RecipeModel recipe){
+	public RecipeController addRecipe(RecipeModel recipe) {
 		recipe_list.add(recipe);
 		return this;
 	}
+
 	/**
 	 * Returns length of recipe list (RecipeListModel)
 	 * 
@@ -98,29 +103,29 @@ public class RecipeController {
 	public PhotoListModel getRecipePhotoList(int i) {
 		return recipe_list.get(i).getPhotoList();
 	}
+
 	/**
 	 * 
 	 * @return the List of recipes
 	 */
-	public RecipeListModel getRecipeList(){
+	public RecipeListModel getRecipeList() {
 		return this.recipe_list;
 	}
 
 	/**
 	 * 
-	 * @param i The index of the recipe to be removed
+	 * @param i
+	 *            The index of the recipe to be removed
 	 */
 	public void remove(int i) {
 		this.recipe_list.remove(i);
 	}
-	
-	
+
 	public void loadFromFile() {
 		try {
 			FileInputStream fileIn = ctx.openFileInput("Recipe.data");
 			ObjectInputStream objectInStream = new ObjectInputStream(fileIn);
-			recipe_list = (RecipeListModel) objectInStream
-					.readObject();
+			recipe_list = (RecipeListModel) objectInStream.readObject();
 			objectInStream.close();
 			return;
 		} catch (FileNotFoundException FNE) {
@@ -154,6 +159,7 @@ public class RecipeController {
 		}
 
 	}
+
 	/**
 	 * Saves RecipeListModel ingred_list to file Recipe.data
 	 */
@@ -172,5 +178,62 @@ public class RecipeController {
 
 	public RecipeModel getRecipe(int position) {
 		return recipe_list.get(position);
+	}
+
+	/**
+	 * Searches for fname in RecipeList and returns the position in list.
+	 * 
+	 * @param fname
+	 * @return Returns position of name found in RecipeList if not found returns
+	 *         -1
+	 */
+	@SuppressLint("DefaultLocale")
+	public int findRecipe(String fname) {
+		int position = -1;
+		for (int i = 0; i < this.recipe_list.size(); i++) {
+			if (fname
+					.trim()
+					.toLowerCase()
+					.equals(this.recipe_list.get(i).getRecipeName().trim()
+							.toLowerCase())) {
+				position = i;
+			}
+		}
+		return position;
+	}
+	/**
+	 * Returns position of name found in RecipeList if ingredients are in MyPantry otherwise return -1
+	 * @param position
+	 * @param ingredController
+	 * @return returns position of name found in RecipeList if ingredients are in MyPantry otherwise return -1
+	 */
+	public int checkRecipeHasIngredients(int position,
+			IngredientController ingredController) {
+		// If no recipe is found
+		if (position == -1) {
+			return position;
+		}
+		int count = 0;
+		for (int i = 0; i < this.recipe_list.get(position).getIngredList()
+				.size(); i++) {
+			for (int j = 0; j < ingredController.getIngredientList().size(); j++) {
+				if (recipe_list
+						.get(position)
+						.getIngredList()
+						.get(i)
+						.getIngredientName()
+						.trim()
+						.toLowerCase()
+						.equals(ingredController.getIngredient(j)
+								.getIngredientName().trim().toLowerCase())) {
+					count++;
+				}
+			}
+		}
+		if (count == this.recipe_list.get(position).getIngredList().size()) {
+			return position;
+		} else {
+			return -1;
+		}
 	}
 }

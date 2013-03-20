@@ -20,26 +20,6 @@
         <requestFocus />
     </EditText>
 
-    <CheckBox
-        android:id="@+id/inPantrySearch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/searchEditText"
-        android:layout_below="@+id/searchEditText"
-        android:layout_marginTop="21dp"
-        android:text="@string/in_pantry_search_check"
-        android:textColor="@color/textColour" />
-
-    <CheckBox
-        android:id="@+id/localSearchOnly"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/inPantrySearch"
-        android:layout_below="@+id/inPantrySearch"
-        android:layout_marginTop="16dp"
-        android:text="@string/local_search_text"
-        android:textColor="@color/textColour" />
-
     <Button
         android:id="@+id/myPantry"
         android:layout_width="200dp"
@@ -53,9 +33,25 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/myPantry"
-        android:layout_below="@+id/localSearchOnly"
+        android:layout_below="@+id/inPantrySearch"
         android:layout_marginTop="65dp"
         android:text="@string/recipes" />
 
+    <CheckBox
+        android:id="@+id/inPantrySearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mainMenuSearchButton"
+        android:layout_centerHorizontal="true"
+        android:text="@string/in_pantry_search_check"
+        android:textColor="@color/textColour" />
+
+    <Button
+        android:id="@+id/mainMenuSearchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/searchEditText"
+        android:layout_centerHorizontal="true"
+        android:text="@string/MainMenuSearchButtonString" />
 
 </RelativeLayout>

@@ -72,8 +72,9 @@ public class CreateNewRecipeViewInstructionSectionFragment extends Fragment {
 							public void onClick(View v) {
 								builder.getInstruction(dialogNumber).setInstruction(instructionDialogEditTextInstruction.getText().toString());
 								builder.saveToFile();
-								instructionDialogBuilder.dismiss();
 								updateList();
+								instructionDialogBuilder.dismiss();
+								
 							}
 						});
 
@@ -129,8 +130,9 @@ public class CreateNewRecipeViewInstructionSectionFragment extends Fragment {
 								builder.addInstruction(new InstructionModel(
 										addInstructionDialogEditTextInstruction
 												.getText().toString()));
-								addinstructionDialogBuilder.dismiss();
 								updateList();
+								addinstructionDialogBuilder.dismiss();
+								
 							}
 						});
 

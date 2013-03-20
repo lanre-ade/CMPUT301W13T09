@@ -24,6 +24,7 @@ public final class R {
     public static final class id {
         public static final int CreateNewRecipeDescriptionTab=0x7f09000a;
         public static final int R_layout_activity_create_new_instruction_view_two=0x7f09001b;
+        public static final int RecipeViewList=0x7f09002d;
         public static final int RelativeLayout1=0x7f090010;
         public static final int addNewIngredient=0x7f090007;
         public static final int addNewIngredientEditTextDescription=0x7f090006;
@@ -54,12 +55,12 @@ public final class R {
         public static final int addNewRecipeTitletitle=0x7f090015;
         public static final int andNewIngredientCancelButton=0x7f090008;
         public static final int createRecipeButton=0x7f090027;
-        public static final int inPantrySearch=0x7f090021;
-        public static final int localSearchOnly=0x7f090022;
-        public static final int myPantry=0x7f090023;
+        public static final int inPantrySearch=0x7f090023;
+        public static final int mainMenuSearchButton=0x7f090024;
+        public static final int myPantry=0x7f090021;
         public static final int myPantryAddIngredientButton=0x7f090026;
         public static final int myPantryIngredientList=0x7f090025;
-        public static final int myRecipes=0x7f090024;
+        public static final int myRecipes=0x7f090022;
         public static final int myRecipesList=0x7f090028;
         public static final int pager=0x7f09001f;
         public static final int recipeViewDescriptionEditText=0x7f09002c;
@@ -93,6 +94,7 @@ public final class R {
         public static final int CreateRecipeViewAddNewIngredient=0x7f060015;
         public static final int CreateRecipeViewDeleteIngredient=0x7f060016;
         public static final int CreateRecipeViewSubmit=0x7f060017;
+        public static final int MainMenuSearchButtonString=0x7f060021;
         public static final int addNewIngredientButtonString=0x7f060010;
         public static final int addNewIngredientStringDescription=0x7f06000f;
         public static final int addNewIngredientStringName=0x7f06000d;

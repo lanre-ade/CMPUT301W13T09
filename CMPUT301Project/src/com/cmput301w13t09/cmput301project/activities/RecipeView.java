@@ -79,6 +79,7 @@ public class RecipeView extends FragmentActivity implements
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
+		rAssitant = new RecipeViewAssistant(this);
 		rController = new RecipeController(this);
 		Bundle bundle = getIntent().getExtras();
 		recipePosition = bundle.getInt("RECIPE_POSITION");
