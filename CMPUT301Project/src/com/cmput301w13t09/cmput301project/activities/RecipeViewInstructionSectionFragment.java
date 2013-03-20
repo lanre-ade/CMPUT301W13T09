@@ -37,6 +37,7 @@ public class RecipeViewInstructionSectionFragment extends Fragment {
 				R.layout.view_recipe_instruction_or_ingredient_tab, container,
 				false);
 		assistant = new RecipeViewAssistant(getActivity());
+		assistant.loadFromFile();
 		instructionListView = (ListView) tabView
 				.findViewById(R.id.RecipeViewList);
 		instructionListAdapter = new ArrayAdapter<InstructionModel>(
@@ -49,7 +50,7 @@ public class RecipeViewInstructionSectionFragment extends Fragment {
 					int position, long id) {
 				dialogNumber = position;
 				Builder instructionDialogBuilder = new AlertDialog.Builder(getActivity());
-				instructionDialogBuilder.setTitle(position);
+//				instructionDialogBuilder.setTitle(position);
 				instructionDialogBuilder.setMessage(assistant.getInstruction(dialogNumber).toString());
 				instructionDialogBuilder.setNeutralButton("Done", new DialogInterface.OnClickListener() {
 					

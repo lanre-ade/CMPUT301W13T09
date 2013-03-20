@@ -34,6 +34,7 @@ public class RecipeViewIngredientSectionFragment extends Fragment {
 		View tabView = inflater.inflate(R.layout.view_recipe_instruction_or_ingredient_tab,
 				container, false);
 		assistant = new RecipeViewAssistant(getActivity());
+		assistant.loadFromFile();
 		ingredientListView = (ListView) tabView
 				.findViewById(R.id.RecipeViewList);
 		ingredientListAdapter = new ArrayAdapter<IngredientModel>(

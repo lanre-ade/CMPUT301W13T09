@@ -34,6 +34,7 @@ public class RecipeViewDescriptionSectionFragment extends Fragment {
 				R.layout.view_recipe_description_tab,
 				container, false);
 		assistant = new RecipeViewAssistant(getActivity());
+		assistant.loadFromFile();
 		textViewName = (TextView) tabView.findViewById(R.id.recipeViewNameEditText);
 		textViewDescription = (TextView) tabView.findViewById(R.id.recipeViewDescriptionEditText);
 		textViewName.setText(assistant.getName());

@@ -185,6 +185,10 @@ public class RecipeViewAssistant {
 	}
 
 	public void setRecipe(RecipeModel recipe) {
-		this.recipe = recipe;		
+		this.recipe = recipe;
+		this.name = recipe.getRecipeName();
+		this.description = recipe.getRecipeDesc();
+		this.ingr_list = recipe.getIngredList();
+		this.inst_list = recipe.getInstucuctionListModel();
 	}
 }
