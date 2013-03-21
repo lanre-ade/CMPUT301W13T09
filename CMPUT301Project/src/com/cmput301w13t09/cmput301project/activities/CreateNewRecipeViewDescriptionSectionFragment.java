@@ -33,6 +33,7 @@ public class CreateNewRecipeViewDescriptionSectionFragment extends Fragment {
 				R.layout.activity_add_new_recipe_description_tab,
 				container, false);
 		builder = new RecipeViewAssistant(getActivity());
+		builder.loadFromFile();
 		nameEditText = (EditText) tabView
 				.findViewById(R.id.addNewRecipeNameEditText);
 		nameEditText.setText(builder.getName());//
@@ -56,22 +57,4 @@ public class CreateNewRecipeViewDescriptionSectionFragment extends Fragment {
 		});
 		return tabView;
 	}
-	public void OnDetach(){
-		Toast t = Toast.makeText(getActivity(), "Called On Detach", Toast.LENGTH_LONG);
-		t.show();
-		builder.setName(nameEditText.getText().toString());
-		builder.setDescription(descriptionEditText.getText().toString());
-		builder.updateRecipe();
-		builder.saveToFile();
-	}
-	
-	public void OnStop(){
-		Toast t = Toast.makeText(getActivity(), "Called On Destroy", Toast.LENGTH_LONG);
-		t.show();
-		builder.setName(nameEditText.getText().toString());
-		builder.setDescription(descriptionEditText.getText().toString());
-		builder.updateRecipe();
-		builder.saveToFile();
-	}
-
 }

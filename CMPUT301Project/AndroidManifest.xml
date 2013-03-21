@@ -66,9 +66,19 @@
         <activity 
             android:name="com.cmput301w13t09.cmput301project.activities.RecipeView"
             android:exported="false"
-            android:label="">
+            android:label="@string/title_activity_view_recipe_view">
             <intent-filter >
                 <action android:name="activities.ViewRecipe"/>
+                
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.cmput301w13t09.cmput301project.activities.EditRecipeView"
+            android:exported="false"
+            android:label="@string/title_activity_edit_recipe_view">
+            <intent-filter >
+                <action android:name="activities.EditRecipe"/>
                 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>

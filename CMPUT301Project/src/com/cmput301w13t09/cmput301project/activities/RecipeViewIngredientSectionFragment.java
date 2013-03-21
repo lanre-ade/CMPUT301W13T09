@@ -69,4 +69,11 @@ public class RecipeViewIngredientSectionFragment extends Fragment {
 		});
 		return tabView;
 	}
+	public void onResumeFragment(){
+		assistant.loadFromFile();
+		ingredientListAdapter = new ArrayAdapter<IngredientModel>(
+				getActivity(), android.R.layout.simple_list_item_1,
+				assistant.getIngredientList());
+		ingredientListView.setAdapter(ingredientListAdapter);
+	}
 }

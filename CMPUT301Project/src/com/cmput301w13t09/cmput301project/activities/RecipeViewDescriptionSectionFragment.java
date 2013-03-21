@@ -38,4 +38,9 @@ public class RecipeViewDescriptionSectionFragment extends Fragment {
 		
 		return tabView;
 	}
+	public void onResumeFragment(){
+		assistant.loadFromFile();
+		textViewName.setText(assistant.getName());
+		textViewDescription.setText(assistant.getDescription());
+	}
 }

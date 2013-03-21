@@ -43,6 +43,7 @@ public class CreateNewRecipeViewIngredientSectionFragment extends Fragment {
 		addIngredientButton = (Button) tabView
 				.findViewById(R.id.myPantryAddIngredientButton);
 		builder = new RecipeViewAssistant(getActivity());
+		builder.loadFromFile();
 		addIngredientButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -229,6 +230,7 @@ public class CreateNewRecipeViewIngredientSectionFragment extends Fragment {
 		});
 		return tabView;
 	}
+	
 
 	protected void updateList() {
 		builder.updateRecipe();

@@ -26,8 +26,8 @@ public final class R {
         public static final int R_layout_activity_create_new_instruction_view_two=0x7f090017;
         public static final int RecipeViewList=0x7f090029;
         public static final int RelativeLayout1=0x7f090010;
-        public static final int ViewRecipeViewDelete=0x7f09002e;
-        public static final int ViewRecipeViewEdit=0x7f09002d;
+        public static final int ViewRecipeViewDelete=0x7f09002f;
+        public static final int ViewRecipeViewEdit=0x7f09002e;
         public static final int addNewIngredient=0x7f090007;
         public static final int addNewIngredientEditTextDescription=0x7f090006;
         public static final int addNewIngredientEditTextName=0x7f090000;
@@ -63,6 +63,7 @@ public final class R {
         public static final int myPantryIngredientList=0x7f090020;
         public static final int myRecipes=0x7f09001d;
         public static final int myRecipesList=0x7f090023;
+        public static final int options=0x7f09002d;
         public static final int pager=0x7f090026;
         public static final int recipeViewDescriptionEditText=0x7f090028;
         public static final int recipeViewNameEditText=0x7f090027;
@@ -113,6 +114,7 @@ public final class R {
         public static final int in_pantry_search_check=0x7f060003;
         public static final int local_search_text=0x7f060004;
         public static final int menu_settings=0x7f060001;
+        public static final int modify=0x7f060020;
         public static final int my_pantry_add_button=0x7f060007;
         public static final int pantry=0x7f060006;
         public static final int recipes=0x7f060005;
@@ -122,6 +124,8 @@ public final class R {
         public static final int title_activity_add_new_recipe_view=0x7f06000f;
         public static final int title_activity_create_new_recipe_view=0x7f060019;
         public static final int title_activity_create_recipe_view=0x7f060009;
+        public static final int title_activity_edit_recipe_view=0x7f060022;
+        public static final int title_activity_view_recipe_view=0x7f060021;
     }
     public static final class style {
         /** 

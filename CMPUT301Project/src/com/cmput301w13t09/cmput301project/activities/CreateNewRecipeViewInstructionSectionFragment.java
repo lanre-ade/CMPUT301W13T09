@@ -37,6 +37,7 @@ public class CreateNewRecipeViewInstructionSectionFragment extends Fragment {
 				R.layout.activity_add_new_recipe_instruction_tab, container,
 				false);
 		builder = new RecipeViewAssistant(getActivity());
+		builder.loadFromFile();
 		instructionListView = (ListView) tabView
 				.findViewById(R.id.addNewRecipeInstructionAddList);
 		instructionListAdapter = new ArrayAdapter<InstructionModel>(

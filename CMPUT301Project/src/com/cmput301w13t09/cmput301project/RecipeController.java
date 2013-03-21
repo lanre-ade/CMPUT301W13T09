@@ -47,7 +47,9 @@ public class RecipeController {
 		recipe_list.add(recipe);
 		return this;
 	}
-
+	public void replaceRecipe(int i, RecipeModel recipe){
+		recipe_list.set(i, recipe);
+	}
 	/**
 	 * Returns length of recipe list (RecipeListModel)
 	 * 

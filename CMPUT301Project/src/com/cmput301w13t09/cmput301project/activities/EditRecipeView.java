@@ -2,7 +2,6 @@ package com.cmput301w13t09.cmput301project.activities;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -12,15 +11,19 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
-import com.cmput301w13t09.cmput301project.RecipeModel;
-import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
 
 /**
- * @author Kyle, Marcus, and Landre Class:
+ * @author Kyle, Marcus, and Landre Class: EditRecipeView
+ *         is that extends FragmentActivity and acts a way to gather input data
+ *         for Recipes. CreateNewRecipe provides a top menu used for inputing
+ *         different types of data. CreateNewRecipe will then use
+ *         RecipeController in order to add the recipe to a recipelist and save
+ *         that to recipe.data.
  */
-public class RecipeView extends FragmentActivity implements
+public class EditRecipeView extends FragmentActivity implements
 		ActionBar.TabListener {
 
 	/**
@@ -36,15 +39,24 @@ public class RecipeView extends FragmentActivity implements
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
-	private RecipeModel recipe;
-	private int recipePosition;
+
+	private RecipeViewAssistant rAssistant;
 	private RecipeController rController;
-	private RecipeViewAssistant rAssitant;
+	private int recipePosition;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.recipe_view);
+		
+		
+		Bundle bundle = getIntent().getExtras();
+		recipePosition = bundle.getInt("RECIPE_POSITION");
+		rAssistant = new RecipeViewAssistant(this);
+		rAssistant.saveNewToFile();
+		rController = new RecipeController(this);
+		rAssistant.setRecipe(rController.getRecipe(recipePosition));
+		rAssistant.saveToFile();
 
 		// Set up the action bar.
 		final ActionBar actionBar = getActionBar();
@@ -80,42 +92,28 @@ public class RecipeView extends FragmentActivity implements
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
-		rAssitant = new RecipeViewAssistant(this);
-		rController = new RecipeController(this);
-		Bundle bundle = getIntent().getExtras();
-		recipePosition = bundle.getInt("RECIPE_POSITION");
-		recipe = rController.getRecipe(recipePosition);
-		rAssitant.saveNewToFile();
-		rAssitant.setRecipe(recipe);
-		rAssitant.saveToFile();
+		
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.view_recipe_view_menu, menu);
+		getMenuInflater().inflate(R.menu.create_new_recipe_view_menu, menu);
 		return super.onCreateOptionsMenu(menu);
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case R.id.ViewRecipeViewEdit:
-			try {
-				Intent editRecipe = new Intent("activities.EditRecipe");
-				editRecipe.putExtra("RECIPE_POSITION", recipePosition);
-				startActivity(editRecipe);
-			} catch (Throwable e) {
-				e.printStackTrace();
-			}
-			return super.onOptionsItemSelected(item);
-		case R.id.ViewRecipeViewDelete:
-			rController.remove(recipePosition);
+		case R.id.addNewRecipeDoneButton:
+			rAssistant.loadFromFile();
+			rController.replaceRecipe(recipePosition, rAssistant.getRecipe());
 			rController.saveToFile();
 			finish();
-			return super.onOptionsItemSelected(item);
+			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}
+
 	}
 
 	@Override
@@ -135,12 +133,7 @@ public class RecipeView extends FragmentActivity implements
 	public void onTabReselected(ActionBar.Tab tab,
 			FragmentTransaction fragmentTransaction) {
 	}
-	protected void onResumeFragment(){
-		rController.loadFromFile();
-		rAssitant.setRecipe(rController.getRecipe(recipePosition));
-		rAssitant.saveToFile();
-		this.onResume();
-	}
+	
 
 	/**
 	 * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -159,13 +152,13 @@ public class RecipeView extends FragmentActivity implements
 			// below) with the page number as its lone argument.
 			switch (position) {
 			case 0:
-				Fragment descriptionFragment = new RecipeViewDescriptionSectionFragment();
+				Fragment descriptionFragment = new CreateNewRecipeViewDescriptionSectionFragment();
 				return descriptionFragment;
 			case 1:
-				Fragment ingredientFragment = new RecipeViewIngredientSectionFragment();
+				Fragment ingredientFragment = new CreateNewRecipeViewIngredientSectionFragment();
 				return ingredientFragment;
 			case 2:
-				Fragment instructionFragment = new RecipeViewInstructionSectionFragment();
+				Fragment instructionFragment = new CreateNewRecipeViewInstructionSectionFragment();
 				return instructionFragment;
 			}
 			return new Fragment();

@@ -33,5 +33,8 @@
     <string name="addNewInstructionButtonString">Add Instruction</string>
     <string name="MainMenuSearchButtonString">Search Recipe</string>
     <string name="set">Set</string>
+    <string name="modify">Edit</string>
+    <string name="title_activity_view_recipe_view">Recipe</string>
+    <string name="title_activity_edit_recipe_view">Edit Recipe</string>
 
 </resources>

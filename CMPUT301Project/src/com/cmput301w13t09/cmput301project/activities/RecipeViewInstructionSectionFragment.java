@@ -66,4 +66,11 @@ public class RecipeViewInstructionSectionFragment extends Fragment {
 
 				return tabView;
 	}
+	public void onResumeFragment(){
+		assistant.loadFromFile();
+		instructionListAdapter = new ArrayAdapter<InstructionModel>(
+				getActivity(), android.R.layout.simple_list_item_1,
+				assistant.getInstructionList());
+		instructionListView.setAdapter(instructionListAdapter);
+	}
 }
