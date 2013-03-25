@@ -16,6 +16,7 @@ public class RecipeViewAssistant {
 	private InstructionListModel inst_list;
 	private String name, description;
 	private RecipeModel recipe;
+	private PhotoListModel photo_list;
 
 	// private PhotoListModel photo_list;
 
@@ -40,6 +41,13 @@ public class RecipeViewAssistant {
 
 	public void removeInstruction(int i) {
 		inst_list.remove(i);
+	}
+	public void addPhoto(PhotoModel photoModel) {
+		// TODO Auto-generated method stub
+		photo_list.add(photoModel);
+	}
+	public void removePhoto(int i){
+		photo_list.remove(i);
 	}
 
 	public String getName() {
@@ -72,6 +80,14 @@ public class RecipeViewAssistant {
 
 	public void setInstructionList(InstructionListModel inst_lis) {
 		this.inst_list = inst_lis;
+	}
+	
+	public PhotoListModel getPhotoListModel(){
+		return photo_list;
+	}
+	
+	public void setPhotoList(PhotoListModel p_list){
+		this.photo_list = p_list;
 	}
 
 	public RecipeModel createRecipe() {
@@ -191,4 +207,6 @@ public class RecipeViewAssistant {
 		this.ingr_list = recipe.getIngredList();
 		this.inst_list = recipe.getInstucuctionListModel();
 	}
+
+
 }

@@ -125,7 +125,6 @@ public class CreateNewRecipeView extends FragmentActivity implements
 	public void onTabReselected(ActionBar.Tab tab,
 			FragmentTransaction fragmentTransaction) {
 	}
-	
 
 	/**
 	 * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -152,6 +151,10 @@ public class CreateNewRecipeView extends FragmentActivity implements
 			case 2:
 				Fragment instructionFragment = new CreateNewRecipeViewInstructionSectionFragment();
 				return instructionFragment;
+
+			case 3:
+				Fragment photoFragment = new CreateNewRecipeViewPictureSectionFragment();
+				return photoFragment;
 			}
 			return new Fragment();
 		}
@@ -159,7 +162,7 @@ public class CreateNewRecipeView extends FragmentActivity implements
 		@Override
 		public int getCount() {
 			// Show 3 total pages.
-			return 3;
+			return 4;
 		}
 
 		@Override
@@ -171,6 +174,8 @@ public class CreateNewRecipeView extends FragmentActivity implements
 				return getString(R.string.createNewRecipe_title_section2);
 			case 2:
 				return getString(R.string.createNewRecipe_title_section3);
+			case 3:
+				return ("Pictures");
 			}
 			return null;
 		}

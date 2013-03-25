@@ -2,6 +2,8 @@ package com.cmput301w13t09.cmput301project;
 
 import java.io.Serializable;
 
+import android.graphics.Bitmap;
+
 /** Class: PhotoModel
  * @author Kyle,Marcus,Landre
  * PhotoModel is a class that stores information about a photo used 
@@ -17,32 +19,22 @@ public class PhotoModel implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String photo_name;
-	private String photo_desc;
+	private Bitmap photo;
 	
 	/** Constructor
 	 * 
 	 * @param name : Name attached to the photo
 	 * @param desc : Description attached to the photo
 	 */
-	public PhotoModel(String name, String desc){
-		photo_name = name;
-		photo_desc = desc;
+	public PhotoModel(Bitmap p){
+		photo = p;
 	}
 	
 	/** Returns the name of the photo
 	 * 
 	 * @return Name of the photo
 	 */
-	public String getPhotoName() {
-		return photo_desc;
-	}
-
-	/** Returns the description of the photo
-	 * 
-	 * @return Description of the photo
-	 */
-	public String getPhotoDesc() {
-		return photo_name;
+	public Bitmap getPhoto() {
+		return photo;
 	}
 }
