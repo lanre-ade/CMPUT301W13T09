@@ -7,6 +7,7 @@
     <uses-sdk
         android:minSdkVersion="15"
         android:targetSdkVersion="17" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -41,7 +42,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.cmput301w13t09.cmput301project.activities.AddNewIngredientView"
             android:exported="false"
@@ -56,32 +56,62 @@
             android:name="com.cmput301w13t09.cmput301project.activities.CreateNewRecipeView"
             android:exported="false"
             android:label="@string/title_activity_create_new_recipe_view" >
-            <intent-filter >
-                <action android:name="activities.CreateNewRecipe"/>
-                
-                <category android:name="android.intent.category.DEFAULT"/>
+            <intent-filter>
+                <action android:name="activities.CreateNewRecipe" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            
         </activity>
-        <activity 
+        <activity
             android:name="com.cmput301w13t09.cmput301project.activities.RecipeView"
             android:exported="false"
-            android:label="@string/title_activity_view_recipe_view">
-            <intent-filter >
-                <action android:name="activities.ViewRecipe"/>
-                
-                <category android:name="android.intent.category.DEFAULT"/>
+            android:label="@string/title_activity_view_recipe_view" >
+            <intent-filter>
+                <action android:name="activities.ViewRecipe" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
             android:name="com.cmput301w13t09.cmput301project.activities.EditRecipeView"
             android:exported="false"
-            android:label="@string/title_activity_edit_recipe_view">
-            <intent-filter >
-                <action android:name="activities.EditRecipe"/>
-                
-                <category android:name="android.intent.category.DEFAULT"/>
+            android:label="@string/title_activity_edit_recipe_view" >
+            <intent-filter>
+                <action android:name="activities.EditRecipe" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.cmput301w13t09.cmput301project.activities.MySharingView"
+            android:exported="false"
+            android:label="@string/title_activity_my_sharing_view" >
+            <intent-filter>
+                <action android:name="activities.MySharing" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.cmput301w13t09.cmput301project.activities.PublishRecipeView"
+            android:exported="false"
+            android:label="@string/title_activity_publish_recipe_view" >
+            <intent-filter>
+                <action android:name="activities.PublishRecipe" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.cmput301w13t09.cmput301project.activities.RecipesOnWebView"
+            android:exported="false"
+            android:label="@string/title_activity_recipes_on_web_view" >
+            <intent-filter>
+                <action android:name="activities.RecipesOnWeb" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>            
+                   
         </activity>
     </application>
 

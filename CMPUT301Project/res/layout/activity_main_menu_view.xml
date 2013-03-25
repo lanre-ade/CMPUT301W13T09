@@ -54,4 +54,13 @@
         android:layout_centerHorizontal="true"
         android:text="@string/MainMenuSearchButtonString" />
 
+    <Button
+        android:id="@+id/mySharingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/myPantry"
+        android:layout_alignRight="@+id/myPantry"
+        android:layout_below="@+id/myPantry"
+        android:text="@string/mySharing" />
+
 </RelativeLayout>

@@ -23,7 +23,7 @@ import com.cmput301w13t09.cmput301project.RecipeController;
  * with the RecipeController and return the correct Recipe from the RecipeList. 
  */
 public class MainMenuView extends Activity {
-	public Button myPantryButton, myRecipesButton, searchButton;
+	public Button myPantryButton, myRecipesButton, searchButton, mySharingButton;
 	public CheckBox fromMyPantry;
 	private RecipeController recipeController;
 	private DataChecker checker;
@@ -48,8 +48,22 @@ public class MainMenuView extends Activity {
 		myPantryButton = (Button) findViewById(R.id.myPantry);
 		myRecipesButton = (Button) findViewById(R.id.myRecipes);
 		searchButton = (Button) findViewById(R.id.mainMenuSearchButton);
+		mySharingButton = (Button) findViewById(R.id.mySharingButton);
 		
 		fromMyPantry = (CheckBox) findViewById(R.id.inPantrySearch);
+		
+		mySharingButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				try{
+					Intent viewMySharing = new Intent("activities.MySharing");
+					startActivity(viewMySharing);
+				} catch(Throwable e){
+					e.printStackTrace();
+				}
+			}
+		});
 		
 		myPantryButton.setOnClickListener(new View.OnClickListener() {
 			
