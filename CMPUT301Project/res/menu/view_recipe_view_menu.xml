@@ -2,10 +2,18 @@
 
     <item
         android:id="@+id/options"
-        android:showAsAction="always"
         android:icon="@android:drawable/ic_menu_more"
+        android:showAsAction="always"
         android:title="">
         <menu>
+            <item
+                android:id="@+id/ViewRecipeViewEmail"
+                android:showAsAction="always"
+                android:title="@string/email"/>
+            <item
+                android:id="@+id/ViewRecipeViewUpload"
+                android:showAsAction="always"
+                android:title="@string/upload"/>
             <item
                 android:id="@+id/ViewRecipeViewEdit"
                 android:showAsAction="always"

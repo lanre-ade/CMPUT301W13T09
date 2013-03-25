@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
@@ -113,6 +114,16 @@ public class RecipeView extends FragmentActivity implements
 			rController.saveToFile();
 			finish();
 			return super.onOptionsItemSelected(item);
+		case R.id.ViewRecipeViewEmail:
+			Intent email = new Intent(Intent.ACTION_SEND);
+			email.setType("message/rfc822");
+			email.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name)+" Recipe: "+rAssitant.getName());
+			email.putExtra(Intent.EXTRA_TEXT   , "Open the attached file with "+getString(R.string.app_name));
+			try {
+			    startActivity(Intent.createChooser(email, "Send mail..."));
+			} catch (android.content.ActivityNotFoundException ex) {
+			    Toast.makeText(this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+			}
 		default:
 			return super.onOptionsItemSelected(item);
 		}
