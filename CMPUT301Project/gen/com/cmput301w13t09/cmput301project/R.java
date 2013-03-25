@@ -23,11 +23,11 @@ public final class R {
     }
     public static final class id {
         public static final int CreateNewRecipeDescriptionTab=0x7f09000a;
-        public static final int R_layout_activity_create_new_instruction_view_two=0x7f090017;
-        public static final int RecipeViewList=0x7f090029;
+        public static final int R_layout_activity_create_new_instruction_view_two=0x7f09001b;
+        public static final int RecipeViewList=0x7f090032;
         public static final int RelativeLayout1=0x7f090010;
-        public static final int ViewRecipeViewDelete=0x7f09002f;
-        public static final int ViewRecipeViewEdit=0x7f09002e;
+        public static final int ViewRecipeViewDelete=0x7f090039;
+        public static final int ViewRecipeViewEdit=0x7f090038;
         public static final int addNewIngredient=0x7f090007;
         public static final int addNewIngredientEditTextDescription=0x7f090006;
         public static final int addNewIngredientEditTextName=0x7f090000;
@@ -40,55 +40,72 @@ public final class R {
         public static final int addNewRecipeDescriptionButtonSet=0x7f09000e;
         public static final int addNewRecipeDescriptionEditText=0x7f09000f;
         public static final int addNewRecipeDescriptionString=0x7f09000b;
-        public static final int addNewRecipeDoneButton=0x7f09002a;
+        public static final int addNewRecipeDoneButton=0x7f090034;
         public static final int addNewRecipeInstructionAddButton=0x7f090011;
         public static final int addNewRecipeInstructionAddList=0x7f090012;
-        public static final int addNewRecipeInstructionDialogCancel=0x7f090014;
-        public static final int addNewRecipeInstructionDialogConfirm=0x7f090016;
-        public static final int addNewRecipeInstructionDialogDelete=0x7f090015;
-        public static final int addNewRecipeInstructionDialogEditText=0x7f090013;
-        public static final int addNewRecipeInstructionDialogLeft=0x7f09001a;
-        public static final int addNewRecipeInstructionDialogRight=0x7f090019;
-        public static final int addNewRecipeInstructionDialogTwoEditText=0x7f090018;
+        public static final int addNewRecipeInstructionDialogCancel=0x7f090018;
+        public static final int addNewRecipeInstructionDialogConfirm=0x7f09001a;
+        public static final int addNewRecipeInstructionDialogDelete=0x7f090019;
+        public static final int addNewRecipeInstructionDialogEditText=0x7f090017;
+        public static final int addNewRecipeInstructionDialogLeft=0x7f09001e;
+        public static final int addNewRecipeInstructionDialogRight=0x7f09001d;
+        public static final int addNewRecipeInstructionDialogTwoEditText=0x7f09001c;
         public static final int addNewRecipeNameEditText=0x7f09000c;
         public static final int addNewRecipeNameString=0x7f09000d;
         public static final int andNewIngredientCancelButton=0x7f090008;
-        public static final int createRecipeButton=0x7f090022;
-        public static final int editRecipeViewCancel=0x7f09002c;
-        public static final int editRecipeViewDone=0x7f09002b;
-        public static final int inPantrySearch=0x7f09001e;
-        public static final int mainMenuSearchButton=0x7f09001f;
-        public static final int myPantry=0x7f09001c;
-        public static final int myPantryAddIngredientButton=0x7f090021;
-        public static final int myPantryIngredientList=0x7f090020;
-        public static final int myRecipes=0x7f09001d;
-        public static final int myRecipesList=0x7f090023;
-        public static final int options=0x7f09002d;
-        public static final int pager=0x7f090026;
-        public static final int recipeViewDescriptionEditText=0x7f090028;
-        public static final int recipeViewNameEditText=0x7f090027;
-        public static final int recipe_desc=0x7f090025;
-        public static final int recipe_name=0x7f090024;
-        public static final int searchEditText=0x7f09001b;
+        public static final int button1=0x7f090016;
+        public static final int createRecipeButton=0x7f090027;
+        public static final int editRecipeViewCancel=0x7f090036;
+        public static final int editRecipeViewDone=0x7f090035;
+        public static final int editText1=0x7f09002c;
+        public static final int inPantrySearch=0x7f090022;
+        public static final int mainMenuSearchButton=0x7f090023;
+        public static final int menu_settings=0x7f090033;
+        public static final int myPantry=0x7f090020;
+        public static final int myPantryAddIngredientButton=0x7f090026;
+        public static final int myPantryIngredientList=0x7f090025;
+        public static final int myRecipes=0x7f090021;
+        public static final int myRecipesList=0x7f090028;
+        public static final int mySharingButton=0x7f090024;
+        public static final int options=0x7f090037;
+        public static final int pager=0x7f09002f;
+        public static final int publishRecipe=0x7f090029;
+        public static final int recipeImage=0x7f090013;
+        public static final int recipeViewDescriptionEditText=0x7f090031;
+        public static final int recipeViewNameEditText=0x7f090030;
+        public static final int recipe_desc=0x7f09002e;
+        public static final int recipe_name=0x7f09002d;
+        public static final int recipesListForPublish=0x7f09002b;
+        public static final int searchEditText=0x7f09001f;
+        public static final int selectNewPicButton=0x7f090015;
+        public static final int takeNewPicButton=0x7f090014;
+        public static final int viewRecipesonWebButton=0x7f09002a;
     }
     public static final class layout {
         public static final int activity_add_new_ingredient_view=0x7f030000;
         public static final int activity_add_new_recipe_description_tab=0x7f030001;
         public static final int activity_add_new_recipe_instruction_tab=0x7f030002;
-        public static final int activity_create_new_instruction_view_three=0x7f030003;
-        public static final int activity_create_new_instrution_view_two=0x7f030004;
-        public static final int activity_main_menu_view=0x7f030005;
-        public static final int activity_my_pantry_view=0x7f030006;
-        public static final int activity_my_recipes_view=0x7f030007;
-        public static final int recipe_list_row=0x7f030008;
-        public static final int recipe_view=0x7f030009;
-        public static final int view_recipe_description_tab=0x7f03000a;
-        public static final int view_recipe_instruction_or_ingredient_tab=0x7f03000b;
+        public static final int activity_add_new_recipe_picture_tab=0x7f030003;
+        public static final int activity_create_new_instruction_view_three=0x7f030004;
+        public static final int activity_create_new_instrution_view_two=0x7f030005;
+        public static final int activity_main_menu_view=0x7f030006;
+        public static final int activity_my_pantry_view=0x7f030007;
+        public static final int activity_my_recipes_view=0x7f030008;
+        public static final int activity_my_sharing_view=0x7f030009;
+        public static final int activity_publish_recipe_view=0x7f03000a;
+        public static final int activity_recipes_on_web_view=0x7f03000b;
+        public static final int recipe_list_row=0x7f03000c;
+        public static final int recipe_view=0x7f03000d;
+        public static final int view_recipe_description_tab=0x7f03000e;
+        public static final int view_recipe_instruction_or_ingredient_tab=0x7f03000f;
     }
     public static final class menu {
-        public static final int create_new_recipe_view_menu=0x7f080000;
-        public static final int edit_recipe_view_menu=0x7f080001;
-        public static final int view_recipe_view_menu=0x7f080002;
+        public static final int activity_my_sharing_view=0x7f080000;
+        public static final int activity_publish_recipe_view=0x7f080001;
+        public static final int activity_recipes_on_web_view=0x7f080002;
+        public static final int create_new_recipe_view_menu=0x7f080003;
+        public static final int edit_recipe_view_menu=0x7f080004;
+        public static final int view_recipe_view_menu=0x7f080005;
     }
     public static final class string {
         public static final int CreateNewRecipe_Desc=0x7f060011;
@@ -111,12 +128,15 @@ public final class R {
         public static final int createNewRecipe_title_section2=0x7f060017;
         public static final int createNewRecipe_title_section3=0x7f060016;
         public static final int create_recipe=0x7f060008;
+        public static final int hello_world=0x7f060028;
         public static final int in_pantry_search_check=0x7f060003;
         public static final int local_search_text=0x7f060004;
         public static final int menu_settings=0x7f060001;
         public static final int modify=0x7f060020;
+        public static final int mySharing=0x7f060023;
         public static final int my_pantry_add_button=0x7f060007;
         public static final int pantry=0x7f060006;
+        public static final int publishRecipe=0x7f060024;
         public static final int recipes=0x7f060005;
         public static final int search_text=0x7f060002;
         public static final int set=0x7f06001f;
@@ -125,7 +145,11 @@ public final class R {
         public static final int title_activity_create_new_recipe_view=0x7f060019;
         public static final int title_activity_create_recipe_view=0x7f060009;
         public static final int title_activity_edit_recipe_view=0x7f060022;
+        public static final int title_activity_my_sharing_view=0x7f060025;
+        public static final int title_activity_publish_recipe_view=0x7f060026;
+        public static final int title_activity_recipes_on_web_view=0x7f060029;
         public static final int title_activity_view_recipe_view=0x7f060021;
+        public static final int viewRecipesOnWeb=0x7f060027;
     }
     public static final class style {
         /** 
