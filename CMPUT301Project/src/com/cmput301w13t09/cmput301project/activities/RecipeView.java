@@ -135,11 +135,11 @@ public class RecipeView extends FragmentActivity implements
 	public void onTabReselected(ActionBar.Tab tab,
 			FragmentTransaction fragmentTransaction) {
 	}
-	protected void onResumeFragment(){
+	protected void onResume(){
 		rController.loadFromFile();
 		rAssitant.setRecipe(rController.getRecipe(recipePosition));
 		rAssitant.saveToFile();
-		this.onResume();
+		super.onResume();
 	}
 
 	/**
