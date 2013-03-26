@@ -1,7 +1,6 @@
 package com.cmput301w13t09.cmput301project.activities;
 
 import java.io.File;
-import java.net.URI;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;

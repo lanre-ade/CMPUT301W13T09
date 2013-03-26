@@ -1,15 +1,12 @@
 package com.cmput301w13t09.cmput301project.activities;
 
 import java.io.IOException;
-import org.apache.http.client.ClientProtocolException;
-import org.json.JSONException;
 
-import com.cmput301w13t09.cmput301project.R;
-import com.cmput301w13t09.cmput301project.RecipeModel;
-import com.cmput301w13t09.cmput301project.UploadController;
+import org.apache.http.client.ClientProtocolException;
+
+import android.app.Activity;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.app.Activity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,7 +14,10 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
+
+import com.cmput301w13t09.cmput301project.R;
+import com.cmput301w13t09.cmput301project.RecipeModel;
+import com.cmput301w13t09.cmput301project.UploadController;
 
 public class RecipesOnWebView extends Activity {
 	private ListView recipeListView;

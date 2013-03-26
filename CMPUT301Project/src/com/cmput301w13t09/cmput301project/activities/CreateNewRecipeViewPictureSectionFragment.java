@@ -1,19 +1,10 @@
 package com.cmput301w13t09.cmput301project.activities;
 
-import java.io.File;
-
-import com.cmput301w13t09.cmput301project.BogoPicGen;
-import com.cmput301w13t09.cmput301project.PhotoAdapter;
-import com.cmput301w13t09.cmput301project.PhotoModel;
-import com.cmput301w13t09.cmput301project.R;
-import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
-
-import android.app.Activity;
-
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,11 +13,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.provider.MediaStore;
+import com.cmput301w13t09.cmput301project.BogoPicGen;
+import com.cmput301w13t09.cmput301project.PhotoAdapter;
+import com.cmput301w13t09.cmput301project.PhotoModel;
+import com.cmput301w13t09.cmput301project.R;
+import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
 
 public class CreateNewRecipeViewPictureSectionFragment extends Fragment {
 	private static final int PICK_IMAGE = 1;
