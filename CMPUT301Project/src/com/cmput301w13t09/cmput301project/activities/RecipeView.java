@@ -1,10 +1,12 @@
 package com.cmput301w13t09.cmput301project.activities;
 
 import java.io.File;
+import java.net.URI;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -15,11 +17,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.cmput301w13t09.cmput301project.EmailBuilder;
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
 import com.cmput301w13t09.cmput301project.RecipeModel;
 import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
-import com.cmput301w13t09.cmput301project.EmailBuilder;
 
 /**
  * @author Kyle, Marcus, and Landre Class:
@@ -118,21 +120,24 @@ public class RecipeView extends FragmentActivity implements
 			finish();
 			return super.onOptionsItemSelected(item);
 		case R.id.ViewRecipeViewEmail:
-//			try{
-//				File outFile = new File(); 
-//			}catch(Exception e){
-//				e.printStackTrace();
-//			}
+			
+			String shareURI = rAssitant.saveToShareFile();
+			
 			Intent email = new Intent(Intent.ACTION_SEND);
 			email.setType("message/");
-			
+
 			email.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name)+" Recipe: "+rAssitant.getName());
 			email.putExtra(Intent.EXTRA_TEXT   , new EmailBuilder(rAssitant.getRecipe()).getMessage());
+			email.putExtra(Intent.EXTRA_STREAM, Uri.parse("file:"+shareURI));
 			try {
 			    Toast.makeText(this, "Openning email application...", Toast.LENGTH_SHORT).show();
 			    startActivity(Intent.createChooser(email, "Send mail..."));
+			    new File(shareURI).delete();
 			} catch (android.content.ActivityNotFoundException ex) {
+			    new File(shareURI).delete();
 			    Toast.makeText(this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+			} catch (NullPointerException nPE){
+				nPE.printStackTrace();
 			}
 		default:
 			return super.onOptionsItemSelected(item);

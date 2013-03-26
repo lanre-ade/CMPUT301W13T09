@@ -190,8 +190,23 @@ public class RecipeViewAssistant {
 			e.printStackTrace();
 		}
 	}
-
+	public String saveToShareFile() {
+		try {
+			new File(name.replace(" ", "_")+".jpg").delete();
+			FileOutputStream fileOut = ctx.openFileOutput(name.replace(" ", "_")+".jpg",
+					Context.MODE_PRIVATE);
+			ObjectOutputStream objectOutStream = new ObjectOutputStream(fileOut);
+			objectOutStream.writeObject(new RecipeModel("", "",
+					new IngredientListModel(), new InstructionListModel()));
+			objectOutStream.close();
+			return new File(name.replace(" ", "_")+".jpg").getAbsolutePath();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	public RecipeModel getRecipe() {
+		this.createRecipe();
 		return recipe;
 	}
 
