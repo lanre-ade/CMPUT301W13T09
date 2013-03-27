@@ -63,4 +63,14 @@
         android:layout_below="@+id/myPantry"
         android:text="@string/mySharing" />
 
+    <Button
+        android:id="@+id/queryRecipesLocallyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/inPantrySearch"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:text="@string/querytext2view"
+        android:textSize="16.5sp" />
+
 </RelativeLayout>

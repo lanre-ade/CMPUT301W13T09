@@ -238,4 +238,14 @@ public class RecipeController {
 			return -1;
 		}
 	}
+	public RecipeListModel getQueryRecipeList(
+			IngredientController ingredController) {
+		RecipeListModel temp = new RecipeListModel();
+		for (int i = 0; i < this.recipe_list.size(); i++) {
+			if (this.checkRecipeHasIngredients(i, ingredController) != -1) {
+				temp.add(recipe_list.get(i));
+			}
+		}
+		return temp;
+	}
 }

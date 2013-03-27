@@ -169,6 +169,26 @@
                     android:scheme="content" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.cmput301w13t09.cmput301project.activities.QueryRecipeView"
+            android:exported="false"
+            android:label="@string/title_activity_query_recipe_view" >
+            <intent-filter>
+                <action android:name="activities.QueryRecipes" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.cmput301w13t09.cmput301project.activities.QueryRecipeOfflineView"
+            android:exported="false"
+            android:label="@string/title_activity_query_recipe_offline_view" >
+            <intent-filter>
+                <action android:name="activities.QueryOfflineRecipes" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

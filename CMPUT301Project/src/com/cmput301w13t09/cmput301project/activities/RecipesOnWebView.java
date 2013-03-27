@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.cmput301w13t09.cmput301project.CacheController;
 import com.cmput301w13t09.cmput301project.IngredientController;
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
@@ -36,6 +37,7 @@ public class RecipesOnWebView extends Activity {
 	private CheckBox fromMyPantry;
 	private Button searchButton;
 	private IngredientController ingredController;
+	private CacheController cacheController;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,9 @@ public class RecipesOnWebView extends Activity {
 			recipeController = new RecipeController(this);
 			ingredController = new IngredientController(this);
 			webController = new UploadController();
+			cacheController = new CacheController(this);
+			cacheController.setRecipeListModel(webController.getRecipeList());
+			cacheController.saveToFile();
 			recipeListView = (ListView) findViewById(R.id.webserviceRecipelistView);
 			recipeListAdapter = new ArrayAdapter<RecipeModel>(this,
 					android.R.layout.simple_list_item_1,
