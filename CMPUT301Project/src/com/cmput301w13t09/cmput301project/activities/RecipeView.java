@@ -7,6 +7,7 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -45,6 +46,8 @@ public class RecipeView extends FragmentActivity implements
 	private int recipePosition;
 	private RecipeController rController;
 	private RecipeViewAssistant rAssitant;
+	private boolean fileWipe = false;
+	private String fileWipeName;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -126,15 +129,16 @@ public class RecipeView extends FragmentActivity implements
 			email.setType("message/rfc822");
 			email.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name)
 					+ " Recipe: " + rAssitant.getName());
-			email.putExtra(Intent.EXTRA_EMAIL, new String[] {"mkarpoff@ualberta.ca"});
+			email.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(shareURI)));
+			email.putExtra(Intent.EXTRA_EMAIL, new String[] {"marcuskarpoff@gmail.com"});
 			email.putExtra(Intent.EXTRA_TEXT,
 					new EmailBuilder(rAssitant.getRecipe()).getMessage());
-			email.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(shareURI)));
 			try {
 				Toast.makeText(this, "Openning email application...",
 						Toast.LENGTH_SHORT).show();
 				startActivity(Intent.createChooser(email, "Send mail..."));
-				new File(shareURI).delete();
+				fileWipeName = (shareURI);
+				fileWipe= true;
 			} catch (android.content.ActivityNotFoundException ex) {
 				new File(shareURI).delete();
 				Toast.makeText(this, "There are no email clients installed.",
@@ -142,6 +146,7 @@ public class RecipeView extends FragmentActivity implements
 			} catch (NullPointerException nPE) {
 				nPE.printStackTrace();
 			}
+			return super.onOptionsItemSelected(item);
 		default:
 			return super.onOptionsItemSelected(item);
 		}
@@ -169,6 +174,10 @@ public class RecipeView extends FragmentActivity implements
 		rController.loadFromFile();
 		rAssitant.setRecipe(rController.getRecipe(recipePosition));
 		rAssitant.saveToFile();
+		if (fileWipe){
+			fileWipe = false;
+			new File(fileWipeName).delete();
+		}
 		super.onResume();
 	}
 

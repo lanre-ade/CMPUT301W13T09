@@ -194,13 +194,15 @@ public class RecipeViewAssistant {
 	public String saveToShareFile() {
 		try {
 			new File(name.replace(" ", "_")+".recipe").delete();
-//			File shareFile = new File(Environment.getDataDirectory()+"/"+name.replace(" ", "_")+".recipe");
-			FileOutputStream fileOut = ctx.openFileOutput(name.replace(" ", "_")+".recipe",
-					Context.MODE_WORLD_READABLE);
+			File shareFile = new File(Environment.getExternalStorageDirectory(), "/"+name.replace(" ", "_")+".recipe");
+			FileOutputStream fileOut = new FileOutputStream(shareFile); 
+//					ctx.openFileOutput(name.replace(" ", "_")+".recipe",
+//					Context.MODE_WORLD_READABLE);
 			ObjectOutputStream objectOutStream = new ObjectOutputStream(fileOut);
 			objectOutStream.writeObject(recipe);
 			objectOutStream.close();
-			return new File(name.replace(" ", "_")+".recipe").getAbsolutePath();
+			return shareFile.getAbsolutePath();
+//			return new File(name.replace(" ", "_")+".recipe").getAbsolutePath();
 		} catch (IOException e) {
 			e.printStackTrace();
 			return e.toString();
