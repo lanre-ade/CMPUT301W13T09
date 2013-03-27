@@ -14,12 +14,12 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.renderscript.Type;
+import android.annotation.SuppressLint;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+@SuppressLint("DefaultLocale")
 public class UploadController {
 	private RecipeListModel recipe_list;
 	private Gson gson = new Gson();
@@ -29,6 +29,17 @@ public class UploadController {
 		recipe_list = new RecipeListModel();
 		this.loadFromWeb();
 	}
+	/**
+	 * Returns name of recipe (RecipeListModel) based on its position in list
+	 * 
+	 * @param i
+	 *            : Position of recipe in the list
+	 * @return Name of recipe
+	 */
+	public String getRecipeListName(int i) {
+		return recipe_list.get(i).getRecipeName();
+	}
+
 
 	public int getLength() {
 		return recipe_list.size();
@@ -129,6 +140,7 @@ public class UploadController {
 		}
 
 	}
+	
 
 	public String getEntityContent(HttpResponse response) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -150,6 +162,65 @@ public class UploadController {
 	 */
 	public RecipeListModel getRecipeList() {
 		return this.recipe_list;
+	}
+	
+	/**
+	 * Searches for fname in RecipeList and returns the position in list.
+	 * 
+	 * @param fname
+	 * @return Returns position of name found in RecipeList if not found returns
+	 *         -1
+	 */
+	
+	@SuppressLint("DefaultLocale")
+	public int findRecipe(String fname) {
+		int position = -1;
+		for (int i = 0; i < this.recipe_list.size(); i++) {
+			if (fname
+					.trim()
+					.toLowerCase()
+					.equals(this.recipe_list.get(i).getRecipeName().trim()
+							.toLowerCase())) {
+				position = i;
+			}
+		}
+		return position;
+	}
+	/**
+	 * Returns position of name found in RecipeList if ingredients are in MyPantry otherwise return -1
+	 * @param position
+	 * @param ingredController
+	 * @return returns position of name found in RecipeList if ingredients are in MyPantry otherwise return -1
+	 */
+	@SuppressLint("DefaultLocale")
+	public int checkRecipeHasIngredients(int position,
+			IngredientController ingredController) {
+		// If no recipe is found
+		if (position == -1) {
+			return position;
+		}
+		int count = 0;
+		for (int i = 0; i < this.recipe_list.get(position).getIngredList()
+				.size(); i++) {
+			for (int j = 0; j < ingredController.getIngredientList().size(); j++) {
+				if (recipe_list
+						.get(position)
+						.getIngredList()
+						.get(i)
+						.getIngredientName()
+						.trim()
+						.toLowerCase()
+						.equals(ingredController.getIngredient(j)
+								.getIngredientName().trim().toLowerCase())) {
+					count++;
+				}
+			}
+		}
+		if (count == this.recipe_list.get(position).getIngredList().size()) {
+			return position;
+		} else {
+			return -1;
+		}
 	}
 
 }
