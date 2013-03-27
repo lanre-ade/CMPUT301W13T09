@@ -143,17 +143,17 @@ public class CreateNewRecipeView extends FragmentActivity implements
 			// below) with the page number as its lone argument.
 			switch (position) {
 			case 0:
-				Fragment descriptionFragment = new CreateNewRecipeViewDescriptionSectionFragment();
+				Fragment descriptionFragment = new ModifiableRecipeViewDescriptionSectionFragment();
 				return descriptionFragment;
 			case 1:
-				Fragment ingredientFragment = new CreateNewRecipeViewIngredientSectionFragment();
+				Fragment ingredientFragment = new ModifiableRecipeViewIngredientSectionFragment();
 				return ingredientFragment;
 			case 2:
-				Fragment instructionFragment = new CreateNewRecipeViewInstructionSectionFragment();
+				Fragment instructionFragment = new ModifiableRecipeViewInstructionSectionFragment();
 				return instructionFragment;
 
 			case 3:
-				Fragment photoFragment = new CreateNewRecipeViewPictureSectionFragment();
+				Fragment photoFragment = new ModifiableRecipeViewPictureSectionFragment();
 				return photoFragment;
 			}
 			return new Fragment();

@@ -18,14 +18,14 @@ import com.cmput301w13t09.cmput301project.InstructionModel;
 import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
 import com.cmput301w13t09.cmput301project.R;
 
-public class CreateNewRecipeViewInstructionSectionFragment extends Fragment {
+public class ModifiableRecipeViewInstructionSectionFragment extends Fragment {
 	private ListView instructionListView;
 	private ListAdapter instructionListAdapter;
 	private RecipeViewAssistant builder;
 	private int dialogNumber;
 	private Button addInstructionButton;
 
-	public CreateNewRecipeViewInstructionSectionFragment() {
+	public ModifiableRecipeViewInstructionSectionFragment() {
 	}
 
 	@Override

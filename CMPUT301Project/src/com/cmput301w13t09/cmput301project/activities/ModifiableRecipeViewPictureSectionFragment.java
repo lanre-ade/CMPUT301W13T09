@@ -19,7 +19,7 @@ import com.cmput301w13t09.cmput301project.PhotoModel;
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
 
-public class CreateNewRecipeViewPictureSectionFragment extends Fragment {
+public class ModifiableRecipeViewPictureSectionFragment extends Fragment {
 	private static final int PICK_IMAGE = 1;
 	private static final int CAPUTRE_IMAGE_REQUEST_CODE = 10;
 	private String imagePath;
