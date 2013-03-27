@@ -29,6 +29,7 @@ public class UploadController {
 		recipe_list = new RecipeListModel();
 		this.loadFromWeb();
 	}
+
 	/**
 	 * Returns name of recipe (RecipeListModel) based on its position in list
 	 * 
@@ -39,7 +40,6 @@ public class UploadController {
 	public String getRecipeListName(int i) {
 		return recipe_list.get(i).getRecipeName();
 	}
-
 
 	public int getLength() {
 		return recipe_list.size();
@@ -140,7 +140,6 @@ public class UploadController {
 		}
 
 	}
-	
 
 	public String getEntityContent(HttpResponse response) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -163,7 +162,7 @@ public class UploadController {
 	public RecipeListModel getRecipeList() {
 		return this.recipe_list;
 	}
-	
+
 	/**
 	 * Searches for fname in RecipeList and returns the position in list.
 	 * 
@@ -171,7 +170,7 @@ public class UploadController {
 	 * @return Returns position of name found in RecipeList if not found returns
 	 *         -1
 	 */
-	
+
 	@SuppressLint("DefaultLocale")
 	public int findRecipe(String fname) {
 		int position = -1;
@@ -186,11 +185,15 @@ public class UploadController {
 		}
 		return position;
 	}
+
 	/**
-	 * Returns position of name found in RecipeList if ingredients are in MyPantry otherwise return -1
+	 * Returns position of name found in RecipeList if ingredients are in
+	 * MyPantry otherwise return -1
+	 * 
 	 * @param position
 	 * @param ingredController
-	 * @return returns position of name found in RecipeList if ingredients are in MyPantry otherwise return -1
+	 * @return returns position of name found in RecipeList if ingredients are
+	 *         in MyPantry otherwise return -1
 	 */
 	@SuppressLint("DefaultLocale")
 	public int checkRecipeHasIngredients(int position,
@@ -221,6 +224,17 @@ public class UploadController {
 		} else {
 			return -1;
 		}
+	}
+
+	public RecipeListModel getQueryRecipeList(
+			IngredientController ingredController) {
+		RecipeListModel temp = new RecipeListModel();
+		for (int i = 0; i < this.recipe_list.size(); i++) {
+			if (this.checkRecipeHasIngredients(i, ingredController) != -1) {
+				temp.add(recipe_list.get(i));
+			}
+		}
+		return temp;
 	}
 
 }

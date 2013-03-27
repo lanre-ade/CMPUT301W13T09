@@ -1,14 +1,20 @@
 package com.cmput301w13t09.cmput301project.activities;
 
-import com.cmput301w13t09.cmput301project.R;
-import android.os.Bundle;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListAdapter;
+
+import com.cmput301w13t09.cmput301project.R;
+import com.cmput301w13t09.cmput301project.UploadController;
 
 public class MySharingView extends Activity {
-	public Button publishRecipeButton, viewRecipeOnWebButton;
+	public Button publishRecipeButton, viewRecipeOnWebButton, queryRecipeButton;
+	private UploadController webController;
+	private ListAdapter recipeListAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -17,9 +23,9 @@ public class MySharingView extends Activity {
 
 		publishRecipeButton = (Button) findViewById(R.id.publishRecipe);
 		viewRecipeOnWebButton = (Button) findViewById(R.id.viewRecipesonWebButton);
-
+		queryRecipeButton = (Button) findViewById(R.id.QueryRecipebutton);
+		
 		publishRecipeButton.setOnClickListener(new View.OnClickListener() {
-
 			@Override
 			public void onClick(View v) {
 				try {
@@ -36,15 +42,38 @@ public class MySharingView extends Activity {
 
 			@Override
 			public void onClick(View v) {
+				if (true) {
+					try {
+						Intent viewOnWebRecipe = new Intent(
+								"activities.RecipesOnWeb");
+						startActivity(viewOnWebRecipe);
+					} catch (Throwable e) {
+						e.printStackTrace();
+					}
+				} else {
+					try {
+						Intent viewOnWebOffRecipe = new Intent(
+								"activities.RecipesOnWebOffline");
+						startActivity(viewOnWebOffRecipe);
+					} catch (Throwable e) {
+						e.printStackTrace();
+					}
+
+				}
+			}
+		});
+		queryRecipeButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
 				try {
-					Intent viewPublishRecipe = new Intent("activities.RecipesOnWeb");
-					startActivity(viewPublishRecipe);
+					Intent viewQueryRecipe = new Intent(
+							"activities.QueryRecipes");
+					startActivity(viewQueryRecipe);
 				} catch (Throwable e) {
 					e.printStackTrace();
 				}
-
 			}
 		});
 	}
-
 }
+

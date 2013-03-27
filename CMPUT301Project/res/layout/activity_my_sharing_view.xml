@@ -20,4 +20,13 @@
         android:layout_centerHorizontal="true"
         android:text="@string/viewRecipesOnWeb" />
 
+    <Button
+        android:id="@+id/QueryRecipebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/viewRecipesonWebButton"
+        android:layout_alignRight="@+id/viewRecipesonWebButton"
+        android:layout_below="@+id/viewRecipesonWebButton"
+        android:text="@string/QueryRecipeButton" />
+
 </RelativeLayout>
