@@ -47,6 +47,8 @@
     <string name="QueryRecipeButton">Query Recipes</string>
     <string name="title_activity_query_recipe_view">QueryRecipeView</string>
     <string name="email">Email</string>
-    <string name=""></string>
+    <string name="ReadRecipeExtensionViewDownload">Add to MyRecipe</string>
+    <string name="upload">Upload</string>
+    <string name="title_activity_read_recipe_extension_view">Recipe loader]</string>
 
 </resources>
