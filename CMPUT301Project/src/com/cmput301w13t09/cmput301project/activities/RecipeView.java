@@ -119,23 +119,29 @@ public class RecipeView extends FragmentActivity implements
 			finish();
 			return super.onOptionsItemSelected(item);
 		case R.id.ViewRecipeViewEmail:
-			
+
 			String shareURI = rAssitant.saveToShareFile();
-			
+
 			Intent email = new Intent(Intent.ACTION_SEND);
 			email.setType("message/");
+			email.putExtra(Intent.EXTRA_TITLE, value)
+			email.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name)
+					+ " Recipe: " + rAssitant.getName());
+			email.putExtra(Intent.EXTRA_TEXT,
+					new EmailBuilder(rAssitant.getRecipe()).getMessage());
+			email.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + shareURI));
+			 Toast.makeText(this, shareURI, Toast.LENGTH_SHORT).show();
 
-			email.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name)+" Recipe: "+rAssitant.getName());
-			email.putExtra(Intent.EXTRA_TEXT   , new EmailBuilder(rAssitant.getRecipe()).getMessage());
-			email.putExtra(Intent.EXTRA_STREAM, Uri.parse("file:"+shareURI));
 			try {
-			    Toast.makeText(this, "Openning email application...", Toast.LENGTH_SHORT).show();
-			    startActivity(Intent.createChooser(email, "Send mail..."));
-			    new File(shareURI).delete();
+				Toast.makeText(this, "Openning email application...",
+						Toast.LENGTH_SHORT).show();
+				startActivity(Intent.createChooser(email, "Send mail..."));
+				new File(shareURI).delete();
 			} catch (android.content.ActivityNotFoundException ex) {
-			    new File(shareURI).delete();
-			    Toast.makeText(this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
-			} catch (NullPointerException nPE){
+				new File(shareURI).delete();
+				Toast.makeText(this, "There are no email clients installed.",
+						Toast.LENGTH_SHORT).show();
+			} catch (NullPointerException nPE) {
 				nPE.printStackTrace();
 			}
 		default:
@@ -160,7 +166,8 @@ public class RecipeView extends FragmentActivity implements
 	public void onTabReselected(ActionBar.Tab tab,
 			FragmentTransaction fragmentTransaction) {
 	}
-	protected void onResume(){
+
+	protected void onResume() {
 		rController.loadFromFile();
 		rAssitant.setRecipe(rController.getRecipe(recipePosition));
 		rAssitant.saveToFile();

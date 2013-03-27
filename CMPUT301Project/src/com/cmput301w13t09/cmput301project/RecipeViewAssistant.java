@@ -9,6 +9,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 import android.content.Context;
+import android.os.Environment;
 
 public class RecipeViewAssistant {
 	private Context ctx;
@@ -192,18 +193,19 @@ public class RecipeViewAssistant {
 	}
 	public String saveToShareFile() {
 		try {
-			new File(name.replace(" ", "_")+".jpg").delete();
-			FileOutputStream fileOut = ctx.openFileOutput(name.replace(" ", "_")+".jpg",
-					Context.MODE_PRIVATE);
+			new File(Environment.getExternalStorageDirectory()+"/"+name.replace(" ", "_")+".recipe").delete();
+			File shareFile = new File(Environment.getExternalStorageDirectory()+"/"+name.replace(" ", "_")+".recipe");
+			FileOutputStream fileOut = new FileOutputStream(shareFile);
 			ObjectOutputStream objectOutStream = new ObjectOutputStream(fileOut);
 			objectOutStream.writeObject(new RecipeModel("", "",
 					new IngredientListModel(), new InstructionListModel()));
 			objectOutStream.close();
-			return new File(name.replace(" ", "_")+".jpg").getAbsolutePath();
+			return new File(Environment.getExternalStorageDirectory()+"/"+name.replace(" ", "_")+".recipe").getAbsolutePath();
 		} catch (IOException e) {
 			e.printStackTrace();
+			return e.toString();
 		}
-		return null;
+//		return "fails";
 	}
 	public RecipeModel getRecipe() {
 		this.createRecipe();
