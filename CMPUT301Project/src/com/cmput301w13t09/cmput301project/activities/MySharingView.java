@@ -2,7 +2,10 @@ package com.cmput301w13t09.cmput301project.activities;
 
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +27,7 @@ public class MySharingView extends Activity {
 		publishRecipeButton = (Button) findViewById(R.id.publishRecipe);
 		viewRecipeOnWebButton = (Button) findViewById(R.id.viewRecipesonWebButton);
 		queryRecipeButton = (Button) findViewById(R.id.QueryRecipebutton);
+
 		
 		publishRecipeButton.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -42,7 +46,7 @@ public class MySharingView extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				if (true) {
+				if (isNetworkAvailable()) {
 					try {
 						Intent viewOnWebRecipe = new Intent(
 								"activities.RecipesOnWeb");
@@ -74,6 +78,12 @@ public class MySharingView extends Activity {
 				}
 			}
 		});
+	}
+	private boolean isNetworkAvailable() {
+	    ConnectivityManager connectivityManager 
+	          = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+	    NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+	    return activeNetworkInfo != null && activeNetworkInfo.isConnected();
 	}
 }
 
