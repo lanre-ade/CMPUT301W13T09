@@ -123,15 +123,13 @@ public class RecipeView extends FragmentActivity implements
 			String shareURI = rAssitant.saveToShareFile();
 
 			Intent email = new Intent(Intent.ACTION_SEND);
-			email.setType("message/");
-			email.putExtra(Intent.EXTRA_TITLE, value)
+			email.setType("message/rfc822");
 			email.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name)
 					+ " Recipe: " + rAssitant.getName());
+			email.putExtra(Intent.EXTRA_EMAIL, new String[] {"mkarpoff@ualberta.ca"});
 			email.putExtra(Intent.EXTRA_TEXT,
 					new EmailBuilder(rAssitant.getRecipe()).getMessage());
-			email.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + shareURI));
-			 Toast.makeText(this, shareURI, Toast.LENGTH_SHORT).show();
-
+			email.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(shareURI)));
 			try {
 				Toast.makeText(this, "Openning email application...",
 						Toast.LENGTH_SHORT).show();
