@@ -116,54 +116,78 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.cmput301w13t09.cmput301project.activities.RecipesOnWebViewOffline"
+            android:exported="false"
+            android:label="@string/title_activity_recipes_on_web_view_offline" >
+            <intent-filter>
+                <action android:name="activities.RecipesOnWebOffline" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.cmput301w13t09.cmput301project.activities.QueryRecipeView"
+            android:exported="false"
+            android:label="@string/title_activity_query_recipe_view" >
+            <intent-filter>
+                <action android:name="activities.QueryRecipes" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="com.cmput301w13t09.cmput301project.activities.ReadRecipeExtensionView"
             android:label="@string/title_activity_read_recipe_extension_view" >
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data 
-                    android:scheme="content"
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
                     android:host="*"
-                    android:pathPattern=".*\\.recipe" />
-            </intent-filter>
-            
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data 
-                    android:scheme="content"
-                    android:host="*"
-                    android:mimeType="*/*.recipe"/>
-                
-                
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data 
-                    android:scheme="http"
-                    android:host="*"
-                    android:pathPattern=".*\\.recipe" />
-            </intent-filter>
-            
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data 
-                    android:scheme="http"
-                    android:host="*"
-                    android:mimeType="*/*.recipe"/>
-                
-                
+                    android:pathPattern=".*\\.recipe"
+                    android:scheme="content" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="*"
+                    android:mimeType="*/*.recipe"
+                    android:scheme="content" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="*"
+                    android:pathPattern=".*\\.recipe"
+                    android:scheme="http" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="*"
+                    android:mimeType="*/*.recipe"
+                    android:scheme="http" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="file" />
                 <data android:host="*" />
                 <data android:pathPattern=".*\\.recipe" />

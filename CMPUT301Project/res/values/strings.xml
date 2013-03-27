@@ -43,6 +43,9 @@
     <string name="viewRecipesOnWeb">View Recipes On Web</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_recipes_on_web_view">Recipes On Web</string>
+    <string name="title_activity_recipes_on_web_view_offline">Recipes On Web (Offline)</string>
+    <string name="QueryRecipeButton">Query Recipes</string>
+    <string name="title_activity_query_recipe_view">QueryRecipeView</string>
     <string name="email">Email</string>
     <string name="upload">Upload</string>
     <string name="share">Share</string>
