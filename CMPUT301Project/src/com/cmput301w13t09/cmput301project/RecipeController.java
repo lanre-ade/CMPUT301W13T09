@@ -16,7 +16,7 @@ import android.content.Context;
  *         stores a list of recipes. These recipes are from RecipeModel and are
  *         stored in ArrayList class. The constructor takes in a single recipe
  *         (RecipeModel)and appends it to a blank recipe list. RecipeLists
- *         methods are getLength, getRecipeListName, getRecipeListDesc7
+ *         methods are getLength, getRecipeListName, getRecipeListDesc
  *         getRecipeingredientList, and getRecipePhotoList.
  */
 

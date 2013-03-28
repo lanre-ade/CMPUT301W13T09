@@ -23,9 +23,9 @@ import com.cmput301w13t09.cmput301project.RecipeController;
  *         return the correct Recipe from the RecipeList.
  */
 public class MainMenuView extends Activity {
-	public Button myPantryButton, myRecipesButton, searchButton,
+	private Button myPantryButton, myRecipesButton, searchButton,
 			mySharingButton, queryButton;
-	public CheckBox fromMyPantry;
+	private CheckBox fromMyPantry;
 	private RecipeController recipeController;
 	private DataChecker checker;
 	private EditText searchText;
