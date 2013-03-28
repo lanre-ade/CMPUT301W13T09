@@ -47,9 +47,11 @@ public class RecipeController {
 		recipe_list.add(recipe);
 		return this;
 	}
-	public void replaceRecipe(int i, RecipeModel recipe){
+
+	public void replaceRecipe(int i, RecipeModel recipe) {
 		recipe_list.set(i, recipe);
 	}
+
 	/**
 	 * Returns length of recipe list (RecipeListModel)
 	 * 
@@ -203,11 +205,15 @@ public class RecipeController {
 		}
 		return position;
 	}
+
 	/**
-	 * Returns position of name found in RecipeList if ingredients are in MyPantry otherwise return -1
+	 * Returns position of name found in RecipeList if ingredients are in
+	 * MyPantry otherwise return -1
+	 * 
 	 * @param position
 	 * @param ingredController
-	 * @return returns position of name found in RecipeList if ingredients are in MyPantry otherwise return -1
+	 * @return returns position of name found in RecipeList if ingredients are
+	 *         in MyPantry otherwise return -1
 	 */
 	public int checkRecipeHasIngredients(int position,
 			IngredientController ingredController) {
@@ -238,6 +244,14 @@ public class RecipeController {
 			return -1;
 		}
 	}
+
+	/**
+	 * Returns a RecipeList that is all the recipes that have all ingredients in
+	 * IngredientController
+	 * 
+	 * @param ingredController
+	 * @return
+	 */
 	public RecipeListModel getQueryRecipeList(
 			IngredientController ingredController) {
 		RecipeListModel temp = new RecipeListModel();
