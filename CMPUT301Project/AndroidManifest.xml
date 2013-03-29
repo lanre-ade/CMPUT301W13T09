@@ -12,11 +12,9 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<<<<<<< HEAD
     <uses-permission android:name="com.android.email.permission.ACCESS_PROVIDER"/>
     <uses-permission android:name="com.android.email.permission.READ_ATTACHMENT"/>
-=======
->>>>>>> branch 'master' of https://github.com/kylejamesross/CMPUT301W13T09.git
+
 
     <application
         android:allowBackup="true"
@@ -189,26 +187,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.cmput301w13t09.cmput301project.activities.QueryRecipeView"
-            android:exported="false"
-            android:label="@string/title_activity_query_recipe_view" >
-            <intent-filter>
-                <action android:name="activities.QueryRecipes" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.cmput301w13t09.cmput301project.activities.QueryRecipeOfflineView"
-            android:exported="false"
-            android:label="@string/title_activity_query_recipe_offline_view" >
-            <intent-filter>
-                <action android:name="activities.QueryOfflineRecipes" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

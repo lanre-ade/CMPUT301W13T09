@@ -7,7 +7,6 @@ import java.io.InputStream;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.ContentResolver;
-import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -113,7 +112,6 @@ public class ReadRecipeExtensionView extends FragmentActivity implements
 		switch (item.getItemId()) {
 		case R.id.ReadRecipeExtensionViewDownload:
 			rController.addRecipe(rAssitant.getRecipe());
-			if (Intent.)
 			return super.onOptionsItemSelected(item);
 		default:
 			return super.onOptionsItemSelected(item);

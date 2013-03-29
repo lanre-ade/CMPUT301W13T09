@@ -10,9 +10,9 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.DataChecker;
 import com.cmput301w13t09.cmput301project.IngredientController;
-import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
 
 /**
