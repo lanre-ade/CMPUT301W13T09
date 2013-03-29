@@ -19,7 +19,6 @@ import android.widget.Toast;
 import com.cmput301w13t09.cmput301project.EmailBuilder;
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
-import com.cmput301w13t09.cmput301project.RecipeModel;
 import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
 
 /**
@@ -41,7 +40,6 @@ public class RecipeView extends FragmentActivity implements
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
-	private RecipeModel recipe;
 	private int recipePosition;
 	private RecipeController rController;
 	private RecipeViewAssistant rAssitant;
@@ -91,9 +89,8 @@ public class RecipeView extends FragmentActivity implements
 		rController = new RecipeController(this);
 		Bundle bundle = getIntent().getExtras();
 		recipePosition = bundle.getInt("RECIPE_POSITION");
-		recipe = rController.getRecipe(recipePosition);
 		rAssitant.saveNewToFile();
-		rAssitant.setRecipe(recipe);
+		rAssitant.setRecipe(rController.getRecipe(recipePosition));
 		rAssitant.saveToFile();
 	}
 
