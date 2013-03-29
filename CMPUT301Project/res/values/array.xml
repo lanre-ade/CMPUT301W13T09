@@ -7,8 +7,7 @@
         <item>L</item>
         <item>mL</item>
         <item>Cup</item>
-        <item>TeaSpoon</item>
-        <item>TableSpoon</item>
-        <item>Custom</item>
+        <item>tsp</item>
+        <item>tbsp</item>
     </string-array>
 </resources>

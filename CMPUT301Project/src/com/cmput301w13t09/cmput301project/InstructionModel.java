@@ -15,7 +15,10 @@ public class InstructionModel implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String instruction;
-
+	/**
+	 * 	Constructor
+	 * @param instruc: What the instruction is supposed to say
+	 */
 	public InstructionModel(String instruc) {
 		this.instruction = instruc;
 	}
@@ -23,7 +26,10 @@ public class InstructionModel implements Serializable {
 	public String toString() {
 		return this.instruction;
 	}
-
+	/**
+	 * 	For changing what the instruction is supposed to say
+	 * @param instruc: What the instruction is supposed to say
+	 */
 	public void setInstruction(String instruc) {
 		this.instruction = instruc;
 	}

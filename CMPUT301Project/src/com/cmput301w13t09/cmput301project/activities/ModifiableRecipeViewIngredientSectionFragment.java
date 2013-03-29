@@ -189,7 +189,7 @@ public class ModifiableRecipeViewIngredientSectionFragment extends Fragment {
 
 											@Override
 											public void onClick(View v) {
-												builder.editIngredient(
+												builder.setIngredient(
 														dialogNumber,
 														dialognameText
 																.getText()
