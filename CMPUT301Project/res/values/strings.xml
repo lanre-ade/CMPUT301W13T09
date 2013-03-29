@@ -44,11 +44,14 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_recipes_on_web_view">Recipes On Web</string>
     <string name="title_activity_recipes_on_web_view_offline">Recipes On Web (Offline)</string>
-    <string name="QueryRecipeButton">Query Recipes</string>
-    <string name="title_activity_query_recipe_view">QueryRecipeView</string>
+    <string name="QueryRecipeButton">Find</string>
+    <string name="title_activity_query_recipe_view">Query Recipes</string>
     <string name="email">Email</string>
     <string name="ReadRecipeExtensionViewDownload">Add to MyRecipe</string>
     <string name="upload">Upload</string>
-    <string name="title_activity_read_recipe_extension_view">Recipe loader]</string>
-   
+    <string name="title_activity_read_recipe_extension_view">Recipe Loader</string>
+    <string name="querytextview">Query Recipes (Web)</string>
+    <string name="title_activity_query_recipe_offline_view">Query Recipes</string>
+    <string name="querytext2view">Query Recipes (Locally)</string>
+
 </resources>

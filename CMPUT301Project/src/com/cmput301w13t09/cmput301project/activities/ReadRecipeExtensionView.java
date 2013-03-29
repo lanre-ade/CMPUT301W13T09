@@ -1,8 +1,17 @@
 package com.cmput301w13t09.cmput301project.activities;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
+import android.content.ContentResolver;
+import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -33,7 +42,17 @@ public class ReadRecipeExtensionView extends FragmentActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.recipe_view);
-
+		rAssitant = new RecipeViewAssistant(this);
+		// rController = new RecipeController(this);
+		try {
+			InputStream dataPath = getContentResolver().openInputStream(
+					getIntent().getData());
+			rAssitant.loadFromFile(dataPath);
+			rAssitant.updateRecipe();
+			rAssitant.saveToFile();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 		// Set up the action bar.
 		final ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -68,9 +87,19 @@ public class ReadRecipeExtensionView extends FragmentActivity implements
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
-		rAssitant = new RecipeViewAssistant(this);
-		rController = new RecipeController(this);
-		rAssitant.setRecipe(rController.getRecipe(0));
+	}
+
+	public static File getContentName(ContentResolver resolver, Uri uri) {
+		Cursor cursor = resolver.query(uri,
+				new String[] { MediaStore.MediaColumns.DISPLAY_NAME }, null,
+				null, null);
+		cursor.moveToFirst();
+		int nameIndex = cursor.getColumnIndex(cursor.getColumnNames()[0]);
+		if (nameIndex >= 0) {
+			return new File(cursor.getString(nameIndex));
+		} else {
+			return null;
+		}
 	}
 
 	@Override
@@ -83,7 +112,8 @@ public class ReadRecipeExtensionView extends FragmentActivity implements
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.ReadRecipeExtensionViewDownload:
-			
+			rController.addRecipe(rAssitant.getRecipe());
+			if (Intent.)
 			return super.onOptionsItemSelected(item);
 		default:
 			return super.onOptionsItemSelected(item);

@@ -130,7 +130,7 @@ public class RecipeView extends FragmentActivity implements
 			email.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name)
 					+ " Recipe: " + rAssitant.getName());
 			email.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(shareURI)));
-			email.putExtra(Intent.EXTRA_EMAIL, new String[] {"marcuskarpoff@gmail.com"});
+			email.putExtra(Intent.EXTRA_EMAIL, new String[] {"marcuskarpoff@gmail.com"});//TODO remove this line
 			email.putExtra(Intent.EXTRA_TEXT,
 					new EmailBuilder(rAssitant.getRecipe()).getMessage());
 			try {

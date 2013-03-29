@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
@@ -161,6 +162,26 @@ public class RecipeViewAssistant {
 		}
 
 	}
+	public void loadFromFile(InputStream fileIn) {
+		try {
+			ObjectInputStream objectInStream = new ObjectInputStream(fileIn);
+			recipe = (RecipeModel) objectInStream.readObject();
+			objectInStream.close();
+			name = recipe.getRecipeName();
+			description = recipe.getRecipeDesc();
+			ingr_list = recipe.getIngredList();
+			inst_list = recipe.getInstucuctionListModel();
+		} catch (FileNotFoundException FNE) {
+			FNE.printStackTrace();
+		} catch (NullPointerException NPE) {
+			NPE.printStackTrace();
+		} catch (ClassNotFoundException cnfe) {
+			cnfe.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
 
 	/**
 	 * Saves RecipeListModel ingred_list to file Recipe.data
@@ -195,19 +216,15 @@ public class RecipeViewAssistant {
 		try {
 			new File(name.replace(" ", "_")+".recipe").delete();
 			File shareFile = new File(Environment.getExternalStorageDirectory(), "/"+name.replace(" ", "_")+".recipe");
-			FileOutputStream fileOut = new FileOutputStream(shareFile); 
-//					ctx.openFileOutput(name.replace(" ", "_")+".recipe",
-//					Context.MODE_WORLD_READABLE);
+			FileOutputStream fileOut = new FileOutputStream(shareFile);
 			ObjectOutputStream objectOutStream = new ObjectOutputStream(fileOut);
 			objectOutStream.writeObject(recipe);
 			objectOutStream.close();
 			return shareFile.getAbsolutePath();
-//			return new File(name.replace(" ", "_")+".recipe").getAbsolutePath();
 		} catch (IOException e) {
 			e.printStackTrace();
 			return e.toString();
 		}
-//		return "fails";
 	}
 	public RecipeModel getRecipe() {
 		this.createRecipe();
