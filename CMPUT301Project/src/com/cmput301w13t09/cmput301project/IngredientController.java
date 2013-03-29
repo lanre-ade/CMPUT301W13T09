@@ -11,17 +11,18 @@ import java.io.ObjectOutputStream;
 import android.content.Context;
 
 /**
- * @author Kyle, Marcus, and Landre
- * Class: ingredientListController is a class that stores a list
- * of ingredients. These ingredients are from ingredientModel class and stored
- * in a ArrayList class. The constructor takes in a single ingredient and
- * appends it to a blank ingredient List (ingred_list). The ingredientListModel
- * has methods getLength, getingredientListDesc, getingredientListName, add, remove,
- * saveToFile, and LoadFromFile.
+ * @author Kyle, Marcus, and Landre Class: ingredientListController is a class
+ *         that stores a list of ingredients. These ingredients are from
+ *         ingredientModel class and stored in a ArrayList class. The
+ *         constructor takes in a single ingredient and appends it to a blank
+ *         ingredient List (ingred_list). The ingredientListModel has methods
+ *         getLength, getingredientListDesc, getingredientListName, add, remove,
+ *         saveToFile, and LoadFromFile.
  */
 public class IngredientController {
 	private IngredientListModel ingred_list;
 	private Context ctx;
+
 	/**
 	 * Constructor
 	 * 
@@ -31,23 +32,26 @@ public class IngredientController {
 		this.ctx = tcxt;
 		this.loadFromFile();
 	}
+
 	/**
 	 * 
-	 * @param newIngredient : The Ingredient to be added to the list
+	 * @param newIngredient
+	 *            : The Ingredient to be added to the list
 	 * @return this so that chain adding can happen.
 	 */
 	public IngredientController add(IngredientModel newIngredient) {
 		ingred_list.add(newIngredient);
 		return this;
 	}
-	
+
 	/**
 	 * 
 	 * @return the ingredient list
 	 */
-	public IngredientListModel getIngredientList(){
+	public IngredientListModel getIngredientList() {
 		return this.ingred_list;
 	}
+
 	/**
 	 * Returns the length of ingred_list (ingredient List)
 	 * 
@@ -83,38 +87,48 @@ public class IngredientController {
 
 	/**
 	 * 
-	 * @param i : The position in the list of the ingredient desired
+	 * @param i
+	 *            : The position in the list of the ingredient desired
 	 * @return The ingredient desired
 	 */
 	public IngredientModel getIngredient(int i) {
 		return ingred_list.get(i);
 	}
+
 	/**
-	 * Edits the ingredient based on the position give and sets new value of ingredient
+	 * Edits the ingredient based on the position give and sets new value of
+	 * ingredient
+	 * 
 	 * @param i
 	 * @param tname
 	 * @param tDescription
 	 * @param tQuantity
 	 * @param tUnit
 	 */
-	public void editIngredient(int i, String tname, String tDescription,float tQuantity, String tUnit){
-		ingred_list.set(i, new IngredientModel(tname, tDescription, tQuantity, tUnit));
+	public void editIngredient(int i, String tname, String tDescription,
+			float tQuantity, String tUnit) {
+		ingred_list.set(i, new IngredientModel(tname, tDescription, tQuantity,
+				tUnit));
 	}
+
 	/**
 	 * Removes item from the list at index i
-	 * @param i : index of item to be removed
+	 * 
+	 * @param i
+	 *            : index of item to be removed
 	 */
 	public void remove(int i) {
 		this.ingred_list.remove(i);
 	}
-	
+
 	/**
 	 * 
-	 * @param ctx Context of call location. Usually use 'this'
+	 * @param ctx
+	 *            Context of call location. Usually use 'this'
 	 */
 	public void loadFromFile() {
 		try {
-			
+
 			FileInputStream fileIn = ctx.openFileInput("Pantry.data");
 			ObjectInputStream objectInStream = new ObjectInputStream(fileIn);
 			ingred_list = (IngredientListModel) objectInStream.readObject();
@@ -149,8 +163,9 @@ public class IngredientController {
 			e.printStackTrace();
 		}
 	}
+
 	/**
-	 *  Saves IngredientListModel ingred_list to file Pantry.data
+	 * Saves IngredientListModel ingred_list to file Pantry.data
 	 */
 	public void saveToFile() {
 		try {

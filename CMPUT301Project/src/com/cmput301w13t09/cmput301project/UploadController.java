@@ -19,12 +19,28 @@ import android.annotation.SuppressLint;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+/**
+ * Class: Upload Controller is used to post and get recipes on web service
+ * elasticsearch. The Controller initially loads all the recipes in a
+ * RecipeListModel which allows for easy manipulation of data. The Controller
+ * also enables users to post recipes on the web service and update them as
+ * well.
+ * 
+ * @author Kyle,Marcus, Lanre
+ * 
+ */
 @SuppressLint("DefaultLocale")
 public class UploadController {
 	private RecipeListModel recipe_list;
 	private Gson gson = new Gson();
 	private HttpClient httpclient = new DefaultHttpClient();
 
+	/**
+	 * Constructor
+	 * 
+	 * @throws ClientProtocolException
+	 * @throws IOException
+	 */
 	public UploadController() throws ClientProtocolException, IOException {
 		recipe_list = new RecipeListModel();
 		this.loadFromWeb();
@@ -41,15 +57,71 @@ public class UploadController {
 		return recipe_list.get(i).getRecipeName();
 	}
 
+	/**
+	 * Gets length of recipelist
+	 * 
+	 * @return int length of recipelist
+	 */
 	public int getLength() {
 		return recipe_list.size();
 	}
 
+	/**
+	 * Adds a recipe to recipe_list
+	 * 
+	 * @param recipe
+	 * @return UploadController
+	 */
 	public UploadController addRecipe(RecipeModel recipe) {
 		recipe_list.add(recipe);
 		return this;
 	}
 
+	/**
+	 * Updates a recipe on the web service
+	 * 
+	 * @param recipe
+	 * @param i
+	 * @throws IllegalStateException
+	 * @throws IOException
+	 * @throws JSONException
+	 */
+	public void updateRecipe(RecipeModel recipe, int i)
+			throws IllegalStateException, IOException, JSONException {
+		HttpPost httpPost = new HttpPost(
+				"http://cmput301.softwareprocess.es:8080/cmput301w13t09/recipelist/"
+						+ String.valueOf(i));
+		httpPost.setHeader("Content-type", "application/json");
+		StringEntity stringentity = null;
+		try {
+			stringentity = new StringEntity(gson.toJson(recipe));
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch blockS
+			e.printStackTrace();
+		}
+		httpPost.setEntity(stringentity);
+		HttpResponse response = null;
+		try {
+			response = httpclient.execute(httpPost);
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String status = response.getStatusLine().toString();
+		System.out.println(status);
+	}
+
+	/**
+	 * Posts a recipe on the web service
+	 * 
+	 * @param recipe
+	 * @throws IllegalStateException
+	 * @throws IOException
+	 * @throws JSONException
+	 */
 	public void insertRecipe(RecipeModel recipe) throws IllegalStateException,
 			IOException, JSONException {
 		HttpPost httpPost = new HttpPost(
@@ -80,6 +152,13 @@ public class UploadController {
 
 	}
 
+	/**
+	 * Sets the RecipeListLength a value stored on web service used to track
+	 * amount of recipes on web service
+	 * 
+	 * @param i
+	 * @throws JSONException
+	 */
 	public void setRecipeListLength(int i) throws JSONException {
 		HttpPost httpPost = new HttpPost(
 				"http://cmput301.softwareprocess.es:8080/cmput301w13t09/recipelistlength/value");
@@ -107,6 +186,13 @@ public class UploadController {
 		System.out.println(status);
 	}
 
+	/**
+	 * Gets the RecipeListLength a value stored on web service used to track
+	 * amount of recipes on webservice
+	 * 
+	 * @return
+	 * @throws IOException
+	 */
 	public int getRecipeListLength() throws IOException {
 		HttpGet getRequest = new HttpGet(
 				"http://cmput301.softwareprocess.es:8080/cmput301w13t09/recipelistlength/value");
@@ -118,6 +204,12 @@ public class UploadController {
 
 	}
 
+	/**
+	 * Loads all recipes on web service into recipe_list used in constructor
+	 * 
+	 * @throws ClientProtocolException
+	 * @throws IOException
+	 */
 	public void loadFromWeb() throws ClientProtocolException, IOException {
 		if (getRecipeListLength() > 0) {
 			HttpGet searchRequest = new HttpGet(
@@ -141,6 +233,14 @@ public class UploadController {
 
 	}
 
+	/**
+	 * Used to gets values from response from HttpResponse and put in string
+	 * format
+	 * 
+	 * @param response
+	 * @return
+	 * @throws IOException
+	 */
 	public String getEntityContent(HttpResponse response) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(
 				(response.getEntity().getContent())));
@@ -226,6 +326,13 @@ public class UploadController {
 		}
 	}
 
+	/**
+	 * Returns a RecipeList that is all the recipes that have all ingredients in
+	 * IngredientController
+	 * 
+	 * @param ingredController
+	 * @return
+	 */
 	public RecipeListModel getQueryRecipeList(
 			IngredientController ingredController) {
 		RecipeListModel temp = new RecipeListModel();

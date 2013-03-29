@@ -1,4 +1,5 @@
 package com.cmput301w13t09.cmput301project;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -11,12 +12,14 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 
 /**
- * @author Kyle,Marcus,Landre Class: RecipeListModel RecipeList is a class that
+ * @author Kyle,Marcus,Landre Class: CacheController RecipeList is a class that
  *         stores a list of recipes. These recipes are from RecipeModel and are
  *         stored in ArrayList class. The constructor takes in a single recipe
  *         (RecipeModel)and appends it to a blank recipe list. RecipeLists
  *         methods are getLength, getRecipeListName, getRecipeListDesc7
- *         getRecipeingredientList, and getRecipePhotoList.
+ *         getRecipeingredientList, and getRecipePhotoList. CacheController is
+ *         used to store recipes from webservice and is used when the
+ *         application is unable to connect to the internet.
  */
 
 @SuppressLint("DefaultLocale")
@@ -46,9 +49,11 @@ public class CacheController {
 		recipe_list.add(recipe);
 		return this;
 	}
-	public void replaceRecipe(int i, RecipeModel recipe){
+
+	public void replaceRecipe(int i, RecipeModel recipe) {
 		recipe_list.set(i, recipe);
 	}
+
 	/**
 	 * Returns length of recipe list (RecipeListModel)
 	 * 
@@ -109,9 +114,10 @@ public class CacheController {
 	 * 
 	 * @return the List of recipes
 	 */
-	public void setRecipeListModel(RecipeListModel a){
+	public void setRecipeListModel(RecipeListModel a) {
 		this.recipe_list = a;
 	}
+
 	public RecipeListModel getRecipeList() {
 		return this.recipe_list;
 	}
@@ -125,6 +131,10 @@ public class CacheController {
 		this.recipe_list.remove(i);
 	}
 
+	/**
+	 * Used to load the recipelist from Cache.data or create a new Cache.data
+	 * file
+	 */
 	public void loadFromFile() {
 		try {
 			FileInputStream fileIn = ctx.openFileInput("Cache.data");
@@ -205,11 +215,15 @@ public class CacheController {
 		}
 		return position;
 	}
+
 	/**
-	 * Returns position of name found in RecipeList if ingredients are in MyPantry otherwise return -1
+	 * Returns position of name found in RecipeList if ingredients are in
+	 * MyPantry otherwise return -1
+	 * 
 	 * @param position
 	 * @param ingredController
-	 * @return returns position of name found in RecipeList if ingredients are in MyPantry otherwise return -1
+	 * @return returns position of name found in RecipeList if ingredients are
+	 *         in MyPantry otherwise return -1
 	 */
 	public int checkRecipeHasIngredients(int position,
 			IngredientController ingredController) {

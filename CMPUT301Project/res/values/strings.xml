@@ -49,7 +49,11 @@
     <string name="email">Email</string>
     <string name="ReadRecipeExtensionViewDownload">Add to MyRecipe</string>
     <string name="upload">Upload</string>
+<<<<<<< HEAD
     <string name="title_activity_read_recipe_extension_view">Recipe Loader</string>
+=======
+    <string name="title_activity_read_recipe_extension_view">Recipe loader]</string>
+>>>>>>> branch 'master' of https://github.com/kylejamesross/CMPUT301W13T09.git
     <string name="querytextview">Query Recipes (Web)</string>
     <string name="title_activity_query_recipe_offline_view">Query Recipes</string>
     <string name="querytext2view">Query Recipes (Locally)</string>
