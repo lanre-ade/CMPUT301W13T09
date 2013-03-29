@@ -10,6 +10,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Environment;
 
 public class RecipeViewAssistant {
@@ -162,11 +163,13 @@ public class RecipeViewAssistant {
 		}
 
 	}
-	public void loadFromFile(InputStream fileIn) {
+	public void loadFromFile(Uri uriIn) {
 		try {
+			InputStream fileIn = ctx.getContentResolver().openInputStream(uriIn);
 			ObjectInputStream objectInStream = new ObjectInputStream(fileIn);
 			recipe = (RecipeModel) objectInStream.readObject();
 			objectInStream.close();
+			fileIn.close();
 			name = recipe.getRecipeName();
 			description = recipe.getRecipeDesc();
 			ingr_list = recipe.getIngredList();

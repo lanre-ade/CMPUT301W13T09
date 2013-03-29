@@ -2,6 +2,7 @@ package com.cmput301w13t09.cmput301project.activities;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 
 import android.app.ActionBar;
@@ -42,16 +43,14 @@ public class ReadRecipeExtensionView extends FragmentActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.recipe_view);
 		rAssitant = new RecipeViewAssistant(this);
-		// rController = new RecipeController(this);
-		try {
-			InputStream dataPath = getContentResolver().openInputStream(
-					getIntent().getData());
-			rAssitant.loadFromFile(dataPath);
-			rAssitant.updateRecipe();
-			rAssitant.saveToFile();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+		rController = new RecipeController(this);
+		
+		Uri data = getIntent().getData();
+		rAssitant.loadFromFile(data);
+		rAssitant.updateRecipe();
+		rAssitant.saveToFile();
+		
+		
 		// Set up the action bar.
 		final ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -112,6 +111,8 @@ public class ReadRecipeExtensionView extends FragmentActivity implements
 		switch (item.getItemId()) {
 		case R.id.ReadRecipeExtensionViewDownload:
 			rController.addRecipe(rAssitant.getRecipe());
+			rController.saveToFile();
+			finish();
 			return super.onOptionsItemSelected(item);
 		default:
 			return super.onOptionsItemSelected(item);
