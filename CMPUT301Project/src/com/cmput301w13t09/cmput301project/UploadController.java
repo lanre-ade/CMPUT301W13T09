@@ -20,7 +20,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 /**
- * Class: Upload Controller is used to post and get recipes on webservice
+ * Class: Upload Controller is used to post and get recipes on web service
  * elasticsearch. The Controller initially loads all the recipes in a
  * RecipeListModel which allows for easy manipulation of data. The Controller
  * also enables users to post recipes on the web service and update them as
@@ -78,7 +78,44 @@ public class UploadController {
 	}
 
 	/**
-	 * Posts a recipe on the webservice
+	 * Updates a recipe on the web service
+	 * 
+	 * @param recipe
+	 * @param i
+	 * @throws IllegalStateException
+	 * @throws IOException
+	 * @throws JSONException
+	 */
+	public void updateRecipe(RecipeModel recipe, int i)
+			throws IllegalStateException, IOException, JSONException {
+		HttpPost httpPost = new HttpPost(
+				"http://cmput301.softwareprocess.es:8080/cmput301w13t09/recipelist/"
+						+ String.valueOf(i));
+		httpPost.setHeader("Content-type", "application/json");
+		StringEntity stringentity = null;
+		try {
+			stringentity = new StringEntity(gson.toJson(recipe));
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch blockS
+			e.printStackTrace();
+		}
+		httpPost.setEntity(stringentity);
+		HttpResponse response = null;
+		try {
+			response = httpclient.execute(httpPost);
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String status = response.getStatusLine().toString();
+		System.out.println(status);
+	}
+
+	/**
+	 * Posts a recipe on the web service
 	 * 
 	 * @param recipe
 	 * @throws IllegalStateException
