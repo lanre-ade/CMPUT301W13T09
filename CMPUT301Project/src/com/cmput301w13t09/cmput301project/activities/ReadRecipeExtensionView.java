@@ -1,13 +1,11 @@
 package com.cmput301w13t09.cmput301project.activities;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
