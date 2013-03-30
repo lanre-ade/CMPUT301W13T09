@@ -1,20 +1,8 @@
 package com.cmput301w13t09.cmput301project.activities;
 
-import java.io.File;
-import java.io.IOException;
-
-import org.apache.http.client.ClientProtocolException;
-import org.json.JSONException;
-
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
-import android.content.Context;
-import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -22,14 +10,11 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-import com.cmput301w13t09.cmput301project.EmailBuilder;
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
 import com.cmput301w13t09.cmput301project.RecipeModel;
 import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
-import com.cmput301w13t09.cmput301project.UploadController;
 
 /**
  * @author Kyle, Marcus, and Landre Class:
@@ -52,9 +37,6 @@ public class RecipeOnlineView extends FragmentActivity implements
 	ViewPager mViewPager;
 	private RecipeController rController;
 	private RecipeViewAssistant rAssitant;
-	private boolean fileWipe = false;
-	private String fileWipeName;
-	private UploadController webController;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

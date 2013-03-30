@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:text="Take a Picture" />
+            android:text="@string/takeNewPicButton" />
 
         <Button
             android:id="@+id/selectNewPicButton"
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:text="Select From Library" />
+            android:text="@string/selectNewPicButton" />
     </RelativeLayout>
 
     <ListView

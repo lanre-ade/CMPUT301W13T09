@@ -52,5 +52,7 @@
     <string name="querytextview">Query Recipes (Web)</string>
     <string name="title_activity_query_recipe_offline_view">Query Recipes</string>
     <string name="querytext2view">Query Recipes (Locally)</string>
+    <string name="selectNewPicButton"> Select From Library</string>
+    <string name="takeNewPicButton">Take a Picture</string>
 
 </resources>
