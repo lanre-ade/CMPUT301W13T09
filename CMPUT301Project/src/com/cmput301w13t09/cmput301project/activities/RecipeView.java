@@ -1,12 +1,20 @@
 package com.cmput301w13t09.cmput301project.activities;
 
 import java.io.File;
+import java.io.IOException;
+
+import org.apache.http.client.ClientProtocolException;
+import org.json.JSONException;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -20,6 +28,7 @@ import com.cmput301w13t09.cmput301project.EmailBuilder;
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
 import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
+import com.cmput301w13t09.cmput301project.UploadController;
 
 /**
  * @author Kyle, Marcus, and Landre Class:
@@ -45,6 +54,7 @@ public class RecipeView extends FragmentActivity implements
 	private RecipeViewAssistant rAssitant;
 	private boolean fileWipe = false;
 	private String fileWipeName;
+	private UploadController webController;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -125,8 +135,11 @@ public class RecipeView extends FragmentActivity implements
 			email.setType("message/rfc822");
 			email.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name)
 					+ " Recipe: " + rAssitant.getName());
-			email.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(shareURI)));
-			email.putExtra(Intent.EXTRA_EMAIL, new String[] {"marcuskarpoff@gmail.com"});//TODO remove this line
+			email.putExtra(Intent.EXTRA_STREAM,
+					Uri.fromFile(new File(shareURI)));
+			email.putExtra(Intent.EXTRA_EMAIL,
+					new String[] { "marcuskarpoff@gmail.com" });// TODO remove
+																// this line
 			email.putExtra(Intent.EXTRA_TEXT,
 					new EmailBuilder(rAssitant.getRecipe()).getMessage());
 			try {
@@ -134,7 +147,7 @@ public class RecipeView extends FragmentActivity implements
 						Toast.LENGTH_SHORT).show();
 				startActivity(Intent.createChooser(email, "Send mail..."));
 				fileWipeName = (shareURI);
-				fileWipe= true;
+				fileWipe = true;
 			} catch (android.content.ActivityNotFoundException ex) {
 				new File(shareURI).delete();
 				Toast.makeText(this, "There are no email clients installed.",
@@ -143,9 +156,40 @@ public class RecipeView extends FragmentActivity implements
 				nPE.printStackTrace();
 			}
 			return super.onOptionsItemSelected(item);
+		case R.id.ViewRecipeViewUpload:
+			if (android.os.Build.VERSION.SDK_INT > 9) {
+				StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+						.permitAll().build();
+				StrictMode.setThreadPolicy(policy);
+			}
+			if (this.isNetworkAvailable()) {
+				try {
+					webController = new UploadController();
+					webController.insertRecipe(rAssitant.getRecipe());
+				} catch (ClientProtocolException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IllegalStateException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		default:
 			return super.onOptionsItemSelected(item);
 		}
+	}
+
+	public boolean isNetworkAvailable() {
+		ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo activeNetworkInfo = connectivityManager
+				.getActiveNetworkInfo();
+		return activeNetworkInfo != null && activeNetworkInfo.isConnected();
 	}
 
 	@Override
@@ -170,7 +214,7 @@ public class RecipeView extends FragmentActivity implements
 		rController.loadFromFile();
 		rAssitant.setRecipe(rController.getRecipe(recipePosition));
 		rAssitant.saveToFile();
-		if (fileWipe){
+		if (fileWipe) {
 			fileWipe = false;
 			new File(fileWipeName).delete();
 		}
@@ -229,5 +273,6 @@ public class RecipeView extends FragmentActivity implements
 			}
 			return null;
 		}
+
 	}
 }

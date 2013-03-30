@@ -58,7 +58,7 @@ public class AddNewIngredientView extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				if(!nameText.getText().toString().isEmpty() && !descriptionText.getText().toString().isEmpty()){
+				if(!nameText.getText().toString().isEmpty() && !quantityText.getText().toString().isEmpty()){
 					IngredientModel ingred = new IngredientModel(nameText.getText()
 							.toString(), descriptionText.getText().toString(),
 							Float.parseFloat(quantityText.getText().toString()),

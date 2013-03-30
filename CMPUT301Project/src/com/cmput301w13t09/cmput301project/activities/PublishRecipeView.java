@@ -8,7 +8,6 @@ import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
 import com.cmput301w13t09.cmput301project.RecipeModel;
 import com.cmput301w13t09.cmput301project.UploadController;
-
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
@@ -19,7 +18,9 @@ import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 
 
 
@@ -69,7 +70,27 @@ public class PublishRecipeView extends Activity {
 
 							}
 						});
-				builder.setNeutralButton("Publish",
+				builder.setNeutralButton("View",
+						new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog,
+							int which) {
+						try {
+							Intent viewRecipe = new Intent(
+									"activities.ViewRecipe");
+							viewRecipe.putExtra(
+									"RECIPE_POSITION",
+									dialogNumber);
+							startActivity(viewRecipe);
+						} catch (Throwable throwable) {
+							throwable.printStackTrace();
+						}
+						dialog.dismiss();
+
+							}
+						});
+				builder.setPositiveButton("Publish",
 						new DialogInterface.OnClickListener() {
 
 							@Override
@@ -97,6 +118,5 @@ public class PublishRecipeView extends Activity {
 			}
 		});
 	}
-
 }
  

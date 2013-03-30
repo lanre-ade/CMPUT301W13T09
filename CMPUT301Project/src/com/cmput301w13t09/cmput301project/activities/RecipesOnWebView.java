@@ -7,6 +7,7 @@ import org.apache.http.client.ClientProtocolException;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
@@ -99,7 +100,17 @@ public class RecipesOnWebView extends Activity {
 							@Override
 							public void onClick(DialogInterface dialog,
 									int which) {
-								;
+								try {
+									Intent viewRecipe = new Intent(
+											"activities.ViewRecipe");
+									viewRecipe.putExtra("RECIPE_POSITION",
+											dialogNumber);
+									startActivity(viewRecipe);
+								} catch (Throwable throwable) {
+									throwable.printStackTrace();
+								}
+								dialog.dismiss();
+
 							}
 						});
 				builder.setPositiveButton("Import Recipe",
@@ -136,8 +147,8 @@ public class RecipesOnWebView extends Activity {
 						String message = "Recipe Found: "
 								+ webController.getRecipeListName(position)
 								+ "\n"
-								+ webController.getRecipeList()
-										.get(position).getRecipeDesc();
+								+ webController.getRecipeList().get(position)
+										.getRecipeDesc();
 						builder.setMessage(message);
 						builder.setTitle(title);
 
@@ -157,7 +168,18 @@ public class RecipesOnWebView extends Activity {
 									@Override
 									public void onClick(DialogInterface dialog,
 											int which) {
-										;
+										try {
+											Intent viewRecipe = new Intent(
+													"activities.ViewRecipe");
+											viewRecipe.putExtra(
+													"RECIPE_POSITION",
+													dialogNumber);
+											startActivity(viewRecipe);
+										} catch (Throwable throwable) {
+											throwable.printStackTrace();
+										}
+										dialog.dismiss();
+
 									}
 								});
 						builder.setPositiveButton("Import Recipe",
@@ -166,7 +188,10 @@ public class RecipesOnWebView extends Activity {
 									@Override
 									public void onClick(DialogInterface dialog,
 											int which) {
-										recipeController.addRecipe(webController.getRecipeList().get(dialogNumber));
+										recipeController
+												.addRecipe(webController
+														.getRecipeList().get(
+																dialogNumber));
 										recipeController.saveToFile();
 										dialog.dismiss();
 
@@ -182,16 +207,16 @@ public class RecipesOnWebView extends Activity {
 						String message = "Recipe does not exist";
 						builder.setMessage(message);
 						builder.setTitle(title);
-//						builder.setPositiveButton("Ok",
-//								new DialogInterface.OnClickListener() {
-//
-//									@Override
-//									public void onClick(DialogInterface dialog,
-//											int which) {
-//										dialog.dismiss();
-//
-//									}
-//								});
+						// builder.setPositiveButton("Ok",
+						// new DialogInterface.OnClickListener() {
+						//
+						// @Override
+						// public void onClick(DialogInterface dialog,
+						// int which) {
+						// dialog.dismiss();
+						//
+						// }
+						// });
 
 						AlertDialog dialog = builder.create();
 						dialog.show();
@@ -208,8 +233,8 @@ public class RecipesOnWebView extends Activity {
 						String message = "Recipe Found: "
 								+ webController.getRecipeListName(position)
 								+ "\n"
-								+ webController.getRecipeList()
-										.get(position).getRecipeDesc();
+								+ webController.getRecipeList().get(position)
+										.getRecipeDesc();
 						builder.setMessage(message);
 						builder.setTitle(title);
 
@@ -229,7 +254,18 @@ public class RecipesOnWebView extends Activity {
 									@Override
 									public void onClick(DialogInterface dialog,
 											int which) {
-										;
+										try {
+											Intent viewRecipe = new Intent(
+													"activities.ViewRecipe");
+											viewRecipe.putExtra(
+													"RECIPE_POSITION",
+													dialogNumber);
+											startActivity(viewRecipe);
+										} catch (Throwable throwable) {
+											throwable.printStackTrace();
+										}
+										dialog.dismiss();
+
 									}
 								});
 						builder.setPositiveButton("Import Recipe",
@@ -238,7 +274,10 @@ public class RecipesOnWebView extends Activity {
 									@Override
 									public void onClick(DialogInterface dialog,
 											int which) {
-										recipeController.addRecipe(webController.getRecipeList().get(dialogNumber));
+										recipeController
+												.addRecipe(webController
+														.getRecipeList().get(
+																dialogNumber));
 										recipeController.saveToFile();
 										dialog.dismiss();
 
