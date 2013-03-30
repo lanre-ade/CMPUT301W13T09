@@ -21,8 +21,5 @@
         android:layout_above="@+id/addNewRecipeInstructionAddButton"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_centerHorizontal="true" >
-
-    </ListView>
-
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
