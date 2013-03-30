@@ -202,14 +202,17 @@ public class RecipeView extends FragmentActivity implements
 			case 2:
 				Fragment instructionFragment = new RecipeViewInstructionSectionFragment();
 				return instructionFragment;
+			case 3:
+				Fragment photoFragment = new RecipeViewPictureSectionFragment();
+				return photoFragment;
 			}
 			return new Fragment();
 		}
 
 		@Override
 		public int getCount() {
-			// Show 3 total pages.
-			return 3;
+			// Show 4 total pages.
+			return 4;
 		}
 
 		@Override
@@ -221,6 +224,8 @@ public class RecipeView extends FragmentActivity implements
 				return getString(R.string.createNewRecipe_title_section2);
 			case 2:
 				return getString(R.string.createNewRecipe_title_section3);
+			case 3:
+				return "Pictures";
 			}
 			return null;
 		}

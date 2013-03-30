@@ -40,4 +40,10 @@
         android:layout_height="wrap_content"
         android:text="GeneratePic" />
 
+    <ListView
+        android:id="@+id/photoListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
 </LinearLayout>

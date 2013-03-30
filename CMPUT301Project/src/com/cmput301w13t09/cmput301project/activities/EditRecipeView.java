@@ -16,12 +16,11 @@ import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
 
 /**
- * @author Kyle, Marcus, and Landre Class: EditRecipeView
- *         is that extends FragmentActivity and acts a way to gather input data
- *         for Recipes. CreateNewRecipe provides a top menu used for inputing
- *         different types of data. CreateNewRecipe will then use
- *         RecipeController in order to add the recipe to a recipelist and save
- *         that to recipe.data.
+ * @author Kyle, Marcus, and Landre Class: EditRecipeView is that extends
+ *         FragmentActivity and acts a way to gather input data for Recipes.
+ *         CreateNewRecipe provides a top menu used for inputing different types
+ *         of data. CreateNewRecipe will then use RecipeController in order to
+ *         add the recipe to a recipelist and save that to recipe.data.
  */
 public class EditRecipeView extends FragmentActivity implements
 		ActionBar.TabListener {
@@ -48,8 +47,7 @@ public class EditRecipeView extends FragmentActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.recipe_view);
-		
-		
+
 		Bundle bundle = getIntent().getExtras();
 		recipePosition = bundle.getInt("RECIPE_POSITION");
 		rAssistant = new RecipeViewAssistant(this);
@@ -92,7 +90,7 @@ public class EditRecipeView extends FragmentActivity implements
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
-		
+
 	}
 
 	@Override
@@ -133,7 +131,6 @@ public class EditRecipeView extends FragmentActivity implements
 	public void onTabReselected(ActionBar.Tab tab,
 			FragmentTransaction fragmentTransaction) {
 	}
-	
 
 	/**
 	 * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -160,14 +157,18 @@ public class EditRecipeView extends FragmentActivity implements
 			case 2:
 				Fragment instructionFragment = new ModifiableRecipeViewInstructionSectionFragment();
 				return instructionFragment;
+
+			case 3:
+				Fragment photoFragment = new ModifiableRecipeViewPictureSectionFragment();
+				return photoFragment;
 			}
 			return new Fragment();
 		}
 
 		@Override
 		public int getCount() {
-			// Show 3 total pages.
-			return 3;
+			// Show 4 total pages.
+			return 4;
 		}
 
 		@Override
@@ -179,6 +180,8 @@ public class EditRecipeView extends FragmentActivity implements
 				return getString(R.string.createNewRecipe_title_section2);
 			case 2:
 				return getString(R.string.createNewRecipe_title_section3);
+			case 3:
+				return "Pictures";
 			}
 			return null;
 		}

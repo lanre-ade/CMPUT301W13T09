@@ -38,6 +38,7 @@ public class RecipeViewAssistant {
 	public RecipeViewAssistant(Context ctx) {
 		this.setIngredientList(new IngredientListModel());
 		this.setInstructionList(new InstructionListModel());
+		this.setPhotoList(new PhotoListModel());
 		this.ctx = ctx;
 		// photo_list = new PhotoListModel();
 	}
@@ -197,7 +198,7 @@ public class RecipeViewAssistant {
 	 */
 	public RecipeModel createRecipe() {
 		return new RecipeModel(this.name, this.description, this.ingr_list,
-				this.inst_list);
+				this.inst_list, this.photo_list);
 	}
 
 	/**
@@ -249,6 +250,7 @@ public class RecipeViewAssistant {
 			description = recipe.getRecipeDesc();
 			ingr_list = recipe.getIngredList();
 			inst_list = recipe.getInstucuctionListModel();
+			photo_list = recipe.getPhotoList();
 			return;
 		} catch (FileNotFoundException FNE) {
 			try {
@@ -298,6 +300,7 @@ public class RecipeViewAssistant {
 			description = recipe.getRecipeDesc();
 			ingr_list = recipe.getIngredList();
 			inst_list = recipe.getInstucuctionListModel();
+			photo_list = recipe.getPhotoList();
 		} catch (FileNotFoundException FNE) {
 			FNE.printStackTrace();
 		} catch (NullPointerException NPE) {
@@ -392,6 +395,7 @@ public class RecipeViewAssistant {
 		this.description = recipe.getRecipeDesc();
 		this.ingr_list = recipe.getIngredList();
 		this.inst_list = recipe.getInstucuctionListModel();
+		this.photo_list = recipe.getPhotoList();
 	}
 	
 	/**

@@ -12,20 +12,22 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 
 import com.cmput301w13t09.cmput301project.BogoPicGen;
 import com.cmput301w13t09.cmput301project.PhotoAdapter;
+import com.cmput301w13t09.cmput301project.PhotoListModel;
 import com.cmput301w13t09.cmput301project.PhotoModel;
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
 
 public class ModifiableRecipeViewPictureSectionFragment extends Fragment {
 	private static final int PICK_IMAGE = 1;
-	private static final int CAPUTRE_IMAGE_REQUEST_CODE = 10;
+	private static final int CAPUTRE_IMAGE = 10;
+	private static final int RESULT_OK = -1;
 	private String imagePath;
 	private Button selectPicButton, takePicButton, test;
-	private ImageView img;
-	private ImageButton imgB;
+	private ListView photoListView;
 	private PhotoAdapter pAdapter;
 	private RecipeViewAssistant builder;
 	Uri imageFileUri;
@@ -33,9 +35,16 @@ public class ModifiableRecipeViewPictureSectionFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		builder = new RecipeViewAssistant(getActivity());
+		builder.loadFromFile();
+
 		View tabView = inflater.inflate(
 				R.layout.activity_add_new_recipe_picture_tab, container, false);
-		img = (ImageView) tabView.findViewById(R.id.recipeImage);
+
+		photoListView = (ListView) tabView.findViewById(R.id.photoListView);
+		pAdapter = new PhotoAdapter(getActivity(), builder.getPhotoListModel());
+		photoListView.setAdapter(pAdapter);
+
 		selectPicButton = (Button) tabView
 				.findViewById(R.id.selectNewPicButton);
 		takePicButton = (Button) tabView.findViewById(R.id.takeNewPicButton);
@@ -44,11 +53,12 @@ public class ModifiableRecipeViewPictureSectionFragment extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+				builder.loadFromFile();
 				Bitmap testPhoto = BogoPicGen.generateBitmap(400, 400);
-				 //builder.addPhoto(new PhotoModel(testPhoto));
+				builder.addPhoto(new PhotoModel(testPhoto));
+				updateList();
 				if (testPhoto != null) {
-					img.setImageBitmap(testPhoto);
+
 				}
 			}
 		});
@@ -75,7 +85,7 @@ public class ModifiableRecipeViewPictureSectionFragment extends Fragment {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 				getActivity().startActivityForResult(intent,
-						CAPUTRE_IMAGE_REQUEST_CODE);
+						CAPUTRE_IMAGE);
 
 			}
 		});
@@ -84,30 +94,33 @@ public class ModifiableRecipeViewPictureSectionFragment extends Fragment {
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-		// builder.loadFromFile();
-
 		super.onActivityResult(requestCode, resultCode, data);
+		builder.loadFromFile();
 		Bitmap photo;
-		Bitmap testPhoto = BogoPicGen.generateBitmap(400, 400);
 		if (requestCode == PICK_IMAGE) {
-			photo = (Bitmap) data.getExtras().get("data");
-
-			img.setImageBitmap(photo);
-			builder.addPhoto(new PhotoModel(photo));
+			if (resultCode == RESULT_OK) {
+				photo = (Bitmap) data.getExtras().get("data");
+				builder.addPhoto(new PhotoModel(photo));
+				updateList();
+			}
 		}
 
-		if (requestCode == CAPUTRE_IMAGE_REQUEST_CODE) {
-			// TextView tv = (TextView) find
-			// if (resultCode == RESULT_OK){
+		if (requestCode == CAPUTRE_IMAGE) {
 
-			photo = (Bitmap) data.getExtras().get("data");
-			img.setImageBitmap(photo);
-			// }else if (resultCode == RESULT_CANCELED){
-			// tv.setText("Photocancled");
-			// }else {
-			// tv.setText("Not sure what happened!" + resultCode);
-			builder.addPhoto(new PhotoModel(photo));
+			if (resultCode == RESULT_OK) {
+
+				photo = (Bitmap) data.getExtras().get("data");
+				builder.addPhoto(new PhotoModel(photo));
+				updateList();
+			}
+
 		}
+	}
+
+	private void updateList() {
+		builder.updateRecipe();
+		pAdapter = new PhotoAdapter(getActivity(), builder.getPhotoListModel());
+		photoListView.setAdapter(pAdapter);
 
 	}
 
