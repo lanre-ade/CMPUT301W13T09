@@ -2,7 +2,6 @@ package com.cmput301w13t09.cmput301project;
 
 import java.io.ByteArrayOutputStream;
 import java.io.Serializable;
-import java.util.ArrayList;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
