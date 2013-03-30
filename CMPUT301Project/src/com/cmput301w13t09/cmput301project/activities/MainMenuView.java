@@ -52,7 +52,7 @@ public class MainMenuView extends Activity {
 		mySharingButton = (Button) findViewById(R.id.mySharingButton);
 		queryButton = (Button) findViewById(R.id.queryRecipesLocallyButton);
 
-		fromMyPantry = (CheckBox) findViewById(R.id.inPantrySearch);
+		fromMyPantry = (CheckBox) findViewById(R.id.inPantrySearchCheckBox);
 
 		mySharingButton.setOnClickListener(new View.OnClickListener() {
 
@@ -109,7 +109,6 @@ public class MainMenuView extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 
 				if (!fromMyPantry.isChecked()) {
 					int position = recipeController.findRecipe(searchText

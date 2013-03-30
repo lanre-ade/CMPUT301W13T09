@@ -54,5 +54,6 @@
     <string name="querytext2view">Query Recipes (Locally)</string>
     <string name="selectNewPicButton"> Select From Library</string>
     <string name="takeNewPicButton">Take a Picture</string>
+    <string name="image">image</string>
 
 </resources>

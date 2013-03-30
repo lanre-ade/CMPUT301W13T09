@@ -33,7 +33,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/addNewRecipeNameString"
-        android:layout_toLeftOf="@+id/addNewRecipeDescriptionButtonSet"
         android:layout_toRightOf="@+id/addNewRecipeDescriptionString"
         android:ems="10"
         android:inputType="textCapWords" />
@@ -42,22 +41,23 @@
         android:id="@+id/addNewRecipeDescriptionEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/addNewRecipeDescriptionButtonSet"
         android:layout_alignLeft="@+id/addNewRecipeNameEditText"
         android:layout_alignTop="@+id/addNewRecipeDescriptionString"
         android:ems="10"
         android:gravity="top"
         android:inputType="textMultiLine|textCapSentences"
-        android:lines="12"
         android:singleLine="false" >
 
     </EditText>
 
     <Button
         android:id="@+id/addNewRecipeDescriptionButtonSet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/addNewRecipeNameEditText"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_t"
         android:text="@string/set" />
 
 </RelativeLayout>
