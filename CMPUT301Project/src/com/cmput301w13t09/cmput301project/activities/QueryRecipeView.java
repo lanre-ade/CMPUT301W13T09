@@ -19,6 +19,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView.OnItemClickListener;
@@ -94,7 +95,28 @@ public class QueryRecipeView extends Activity {
 
 							}
 						});
-				builder.setNeutralButton("Import Recipe",
+				builder.setNeutralButton("View",
+						new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog,
+							int which) {
+						try {
+							Intent viewRecipe = new Intent(
+									"activities.ViewRecipe");
+							viewRecipe.putExtra(
+									"RECIPE_POSITION",
+									dialogNumber);
+							startActivity(viewRecipe);
+						} catch (Throwable throwable) {
+							throwable.printStackTrace();
+						}
+						dialog.dismiss();
+
+							}
+						});
+				
+				builder.setPositiveButton("Import Recipe",
 						new DialogInterface.OnClickListener() {
 
 							@Override

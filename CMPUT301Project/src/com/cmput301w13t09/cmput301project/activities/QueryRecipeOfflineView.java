@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -63,7 +64,17 @@ public class QueryRecipeOfflineView extends Activity {
 							@Override
 							public void onClick(DialogInterface dialog,
 									int which) {
-								;
+								try {
+									Intent viewRecipe = new Intent(
+											"activities.ViewRecipe");
+									viewRecipe.putExtra("RECIPE_POSITION",
+											dialogNumber);
+									startActivity(viewRecipe);
+								} catch (Throwable throwable) {
+									throwable.printStackTrace();
+								}
+								dialog.dismiss();
+
 							}
 						});
 				builder.setPositiveButton("Delete",
@@ -72,7 +83,9 @@ public class QueryRecipeOfflineView extends Activity {
 							@Override
 							public void onClick(DialogInterface dialog,
 									int which) {
-								recipeController.remove(recipeController.findRecipe(queryrecipelist.get(dialogNumber).getRecipeName()));
+								recipeController.remove(recipeController
+										.findRecipe(queryrecipelist.get(
+												dialogNumber).getRecipeName()));
 								recipeController.saveToFile();
 								dialog.dismiss();
 								updateList();
@@ -84,7 +97,6 @@ public class QueryRecipeOfflineView extends Activity {
 			}
 		});
 	}
-
 
 	protected void updateList() {
 		recipeController.loadFromFile();
