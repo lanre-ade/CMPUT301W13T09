@@ -1,8 +1,11 @@
 package com.cmput301w13t09.cmput301project;
 
+import java.io.ByteArrayOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 /**
  * Class: PhotoModel
@@ -18,8 +21,9 @@ public class PhotoModel implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	private Bitmap photo;
+	private static final long serialVersionUID = 4315977930836593716L;
+
+	private byte[] photo;
 
 	/**
 	 * Constructor
@@ -30,7 +34,11 @@ public class PhotoModel implements Serializable {
 	 *            : Description attached to the photo
 	 */
 	public PhotoModel(Bitmap p) {
-		photo = p;
+		ByteArrayOutputStream stream = new ByteArrayOutputStream();
+		
+		Bitmap image = p;
+		image.compress(Bitmap.CompressFormat.PNG, 100, stream);
+		photo = stream.toByteArray();
 	}
 
 	/**
@@ -39,6 +47,7 @@ public class PhotoModel implements Serializable {
 	 * @return Name of the photo
 	 */
 	public Bitmap getPhoto() {
-		return photo;
+		Bitmap p = BitmapFactory.decodeByteArray(photo, 0, photo.length);
+		return p;
 	}
 }

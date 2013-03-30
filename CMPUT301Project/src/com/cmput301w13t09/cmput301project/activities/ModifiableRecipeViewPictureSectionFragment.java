@@ -85,42 +85,22 @@ public class ModifiableRecipeViewPictureSectionFragment extends Fragment {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-				getActivity().startActivityForResult(intent,
-						CAPUTRE_IMAGE);
+				getActivity().startActivityForResult(intent, CAPUTRE_IMAGE);
 
 			}
 		});
 		return tabView;
 	}
 
-
-	public void onGalleryResult(int requestCode, int resultCode, Intent data) {
-
-		Bitmap photo;
-
-				photo = (Bitmap) data.getExtras().get("data");
-				builder.addPhoto(new PhotoModel(photo));
-				updateList();
-				Toast.makeText(getActivity(), "Saved From Gallery", Toast.LENGTH_LONG).show();
-
+	public void onResume(){
+		super.onResume();
+		updateList();
 	}
-		public void onCameraResult(int requestCode, int resultCode, Intent data) {
-
-			Bitmap photo;
-
-				photo = (Bitmap) data.getExtras().get("data");
-				builder.addPhoto(new PhotoModel(photo));
-				updateList();
-				Toast.makeText(getActivity(), "Saved From Camera", Toast.LENGTH_LONG).show();
-
-	}
-
 	private void updateList() {
-		builder.updateRecipe();
+		builder.loadFromFile();
 		pAdapter = new PhotoAdapter(getActivity(), builder.getPhotoListModel());
 		photoListView.setAdapter(pAdapter);
 
 	}
-	
 
 }

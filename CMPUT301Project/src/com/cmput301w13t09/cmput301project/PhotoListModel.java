@@ -13,8 +13,10 @@ import java.util.ArrayList;
  */
 public class PhotoListModel extends ArrayList<PhotoModel> implements
 		Serializable {
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 54836788084735961L;
+
 }

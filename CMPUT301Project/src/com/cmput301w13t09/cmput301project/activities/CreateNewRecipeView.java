@@ -13,6 +13,7 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.cmput301w13t09.cmput301project.PhotoAdapter;
 import com.cmput301w13t09.cmput301project.PhotoModel;
@@ -92,6 +93,7 @@ public class CreateNewRecipeView extends FragmentActivity implements
 		rBuilder = new RecipeViewAssistant(this);
 		rBuilder.saveNewToFile();
 		rController = new RecipeController(this);
+		
 	}
 
 	@Override
@@ -100,14 +102,24 @@ public class CreateNewRecipeView extends FragmentActivity implements
 		if (resultCode == RESULT_OK) {
 
 			if (requestCode == CAPTURE_IMAGE) {
-				((ModifiableRecipeViewPictureSectionFragment) mSectionsPagerAdapter.getItem(3))
-						.onCameraResult(requestCode, resultCode, data);
+				Bitmap photo;
+
+				photo = (Bitmap) data.getExtras().get("data");
+				rBuilder.addPhoto(new PhotoModel( Bitmap.createScaledBitmap(photo, 400, 400, true)));
+				rBuilder.updateRecipe();
+				rBuilder.saveToFile();
+				super.onResumeFragments();
 			}
 
 			if (requestCode == PICK_IMAGE) {
 
-				((ModifiableRecipeViewPictureSectionFragment) mSectionsPagerAdapter.getItem(3))
-						.onGalleryResult(requestCode, resultCode, data);
+				Bitmap photo;
+
+				photo = (Bitmap) data.getExtras().get("data");
+				rBuilder.addPhoto(new PhotoModel(Bitmap.createScaledBitmap(photo, 400, 400, true)));
+				rBuilder.updateRecipe();
+				rBuilder.saveToFile();
+				super.onResumeFragments();
 			}
 		}
 
