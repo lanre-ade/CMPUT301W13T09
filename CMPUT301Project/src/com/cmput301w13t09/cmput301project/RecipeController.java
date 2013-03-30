@@ -215,6 +215,7 @@ public class RecipeController {
 	 * @return returns position of name found in RecipeList if ingredients are
 	 *         in MyPantry otherwise return -1
 	 */
+	@SuppressLint("DefaultLocale")
 	public int checkRecipeHasIngredients(int position,
 			IngredientController ingredController) {
 		// If no recipe is found
@@ -224,6 +225,7 @@ public class RecipeController {
 		int count = 0;
 		for (int i = 0; i < this.recipe_list.get(position).getIngredList()
 				.size(); i++) {
+			int z = 1;
 			for (int j = 0; j < ingredController.getIngredientList().size(); j++) {
 				if (recipe_list
 						.get(position)
@@ -233,7 +235,9 @@ public class RecipeController {
 						.trim()
 						.toLowerCase()
 						.equals(ingredController.getIngredient(j)
-								.getIngredientName().trim().toLowerCase())) {
+								.getIngredientName().trim().toLowerCase())
+						&& z == 1) {
+					z = 0;
 					count++;
 				}
 			}
