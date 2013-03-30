@@ -73,6 +73,10 @@ public class MySharingView extends Activity {
 			}
 		});
 	}
+	/**
+	 * Checks if network is available
+	 * @return boolean
+	 */
 	private boolean isNetworkAvailable() {
 	    ConnectivityManager connectivityManager 
 	          = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);

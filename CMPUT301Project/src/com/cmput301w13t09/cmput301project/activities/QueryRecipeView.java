@@ -2,16 +2,22 @@ package com.cmput301w13t09.cmput301project.activities;
 
 import java.io.IOException;
 import org.apache.http.client.ClientProtocolException;
+
+import com.cmput301w13t09.cmput301project.CacheController;
 import com.cmput301w13t09.cmput301project.IngredientController;
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
 import com.cmput301w13t09.cmput301project.RecipeListModel;
 import com.cmput301w13t09.cmput301project.RecipeModel;
 import com.cmput301w13t09.cmput301project.UploadController;
+
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.view.Menu;
 import android.view.View;
@@ -29,6 +35,7 @@ public class QueryRecipeView extends Activity {
 	private int dialogNumber;
 	private RecipeListModel queryrecipelist;
 	private RecipeController recipeController;
+	private CacheController cacheController;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,21 +43,30 @@ public class QueryRecipeView extends Activity {
 		recipeController = new RecipeController(this);
 		ingredController = new IngredientController(this);
 		setContentView(R.layout.activity_query_recipe_view);
+		
 		if (android.os.Build.VERSION.SDK_INT > 9) {
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
 					.permitAll().build();
 			StrictMode.setThreadPolicy(policy);
 		}
-		try {
-			webController = new UploadController();
-		} catch (ClientProtocolException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if(isNetworkAvailable()){
+			try {
+				webController = new UploadController();
+			} catch (ClientProtocolException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			queryrecipelist = webController.getQueryRecipeList(ingredController);
 		}
-		queryrecipelist = webController.getQueryRecipeList(ingredController);
+		else{
+			cacheController = new CacheController(this);
+			queryrecipelist = cacheController.getQueryRecipeList(ingredController);
+		}
+		
+		
 		recipeListView = (ListView) findViewById(R.id.queryRecipelistView);
 		recipeListAdapter = new ArrayAdapter<RecipeModel>(this,
 				android.R.layout.simple_list_item_1,
@@ -101,6 +117,16 @@ public class QueryRecipeView extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_query_recipe_view, menu);
 		return true;
+	}
+	/**
+	 * Checks if networks is available
+	 * @return boolean
+	 */
+	private boolean isNetworkAvailable() {
+	    ConnectivityManager connectivityManager 
+	          = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+	    NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+	    return activeNetworkInfo != null && activeNetworkInfo.isConnected();
 	}
 
 }
