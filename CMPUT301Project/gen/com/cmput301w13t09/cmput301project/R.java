@@ -64,8 +64,8 @@ public final class R {
         public static final int WebOfflineSearchButton=0x7f090035;
         public static final int WebOfflineinPantrySearch=0x7f090036;
         public static final int WebOfflinesearchEditText=0x7f090034;
-        public static final int WebSearchButton=0x7f090033;
-        public static final int WebinPantrySearch=0x7f090032;
+        public static final int WebSearchButton=0x7f090032;
+        public static final int WebinPantrySearch=0x7f090033;
         public static final int WebsearchEditText=0x7f090030;
         public static final int addNewIngredient=0x7f090007;
         public static final int addNewIngredientEditTextDescription=0x7f090006;
