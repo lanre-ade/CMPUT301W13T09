@@ -2,6 +2,8 @@ package com.cmput301w13t09.cmput301project.activities;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -11,6 +13,7 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.cmput301w13t09.cmput301project.PhotoModel;
 import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
@@ -38,6 +41,9 @@ public class EditRecipeView extends FragmentActivity implements
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
+	
+	private static final int CAPTURE_IMAGE = 10;
+	private static final int PICK_IMAGE = 1;
 
 	private RecipeViewAssistant rAssistant;
 	private RecipeController rController;
@@ -92,7 +98,33 @@ public class EditRecipeView extends FragmentActivity implements
 		}
 
 	}
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+		if (resultCode == RESULT_OK) {
+
+			if (requestCode == CAPTURE_IMAGE) {
+				Bitmap photo;
+
+				photo = (Bitmap) data.getExtras().get("data");
+				rAssistant.addPhoto(new PhotoModel( Bitmap.createScaledBitmap(photo, 400, 400, true)));
+				rAssistant.updateRecipe();
+				rAssistant.saveToFile();
+				super.onResumeFragments();
+			}
+
+			if (requestCode == PICK_IMAGE) {
+
+				Bitmap photo;
+
+				photo = (Bitmap) data.getExtras().get("data");
+				rAssistant.addPhoto(new PhotoModel(Bitmap.createScaledBitmap(photo, 400, 400, true)));
+				rAssistant.updateRecipe();
+				rAssistant.saveToFile();
+				super.onResumeFragments();
+			}
+		}
+
+	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
