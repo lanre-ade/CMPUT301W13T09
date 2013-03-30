@@ -99,7 +99,7 @@ public class EditRecipeView extends FragmentActivity implements
 
 	}
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-
+		rAssistant.loadFromFile();
 		if (resultCode == RESULT_OK) {
 
 			if (requestCode == CAPTURE_IMAGE) {

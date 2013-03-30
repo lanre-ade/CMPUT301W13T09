@@ -94,7 +94,7 @@ public class CreateNewRecipeView extends FragmentActivity implements
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-
+		rBuilder.loadFromFile();
 		if (resultCode == RESULT_OK) {
 
 			if (requestCode == CAPTURE_IMAGE) {
