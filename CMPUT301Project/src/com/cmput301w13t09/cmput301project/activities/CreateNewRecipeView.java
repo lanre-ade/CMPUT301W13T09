@@ -2,6 +2,8 @@ package com.cmput301w13t09.cmput301project.activities;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -10,7 +12,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
+import com.cmput301w13t09.cmput301project.PhotoAdapter;
+import com.cmput301w13t09.cmput301project.PhotoModel;
 import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
@@ -26,6 +31,8 @@ import com.cmput301w13t09.cmput301project.RecipeController;
 public class CreateNewRecipeView extends FragmentActivity implements
 		ActionBar.TabListener {
 
+	private static final int CAPTURE_IMAGE = 10;
+	private static final int PICK_IMAGE = 1;
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
 	 * fragments for each of the sections. We use a
@@ -39,7 +46,7 @@ public class CreateNewRecipeView extends FragmentActivity implements
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
-
+	private Fragment photoFragment;
 	private RecipeViewAssistant rBuilder;
 	private RecipeController rController;
 
@@ -85,6 +92,25 @@ public class CreateNewRecipeView extends FragmentActivity implements
 		rBuilder = new RecipeViewAssistant(this);
 		rBuilder.saveNewToFile();
 		rController = new RecipeController(this);
+	}
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+		if (resultCode == RESULT_OK) {
+
+			if (requestCode == CAPTURE_IMAGE) {
+				((ModifiableRecipeViewPictureSectionFragment) mSectionsPagerAdapter.getItem(3))
+						.onCameraResult(requestCode, resultCode, data);
+			}
+
+			if (requestCode == PICK_IMAGE) {
+
+				((ModifiableRecipeViewPictureSectionFragment) mSectionsPagerAdapter.getItem(3))
+						.onGalleryResult(requestCode, resultCode, data);
+			}
+		}
+
 	}
 
 	@Override

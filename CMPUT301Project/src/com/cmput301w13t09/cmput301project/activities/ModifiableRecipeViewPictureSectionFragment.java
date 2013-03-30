@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.cmput301w13t09.cmput301project.BogoPicGen;
 import com.cmput301w13t09.cmput301project.PhotoAdapter;
@@ -92,29 +93,26 @@ public class ModifiableRecipeViewPictureSectionFragment extends Fragment {
 		return tabView;
 	}
 
-	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
-		builder.loadFromFile();
+
+	public void onGalleryResult(int requestCode, int resultCode, Intent data) {
+
 		Bitmap photo;
-		if (requestCode == PICK_IMAGE) {
-			if (resultCode == RESULT_OK) {
-				photo = (Bitmap) data.getExtras().get("data");
-				builder.addPhoto(new PhotoModel(photo));
-				updateList();
-			}
-		}
-
-		if (requestCode == CAPUTRE_IMAGE) {
-
-			if (resultCode == RESULT_OK) {
 
 				photo = (Bitmap) data.getExtras().get("data");
 				builder.addPhoto(new PhotoModel(photo));
 				updateList();
-			}
+				Toast.makeText(getActivity(), "Saved From Gallery", Toast.LENGTH_LONG).show();
 
-		}
+	}
+		public void onCameraResult(int requestCode, int resultCode, Intent data) {
+
+			Bitmap photo;
+
+				photo = (Bitmap) data.getExtras().get("data");
+				builder.addPhoto(new PhotoModel(photo));
+				updateList();
+				Toast.makeText(getActivity(), "Saved From Camera", Toast.LENGTH_LONG).show();
+
 	}
 
 	private void updateList() {
@@ -123,5 +121,6 @@ public class ModifiableRecipeViewPictureSectionFragment extends Fragment {
 		photoListView.setAdapter(pAdapter);
 
 	}
+	
 
 }
