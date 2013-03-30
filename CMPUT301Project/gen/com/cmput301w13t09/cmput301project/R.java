@@ -170,7 +170,9 @@ public final class R {
         public static final int querytextview=0x7f060030;
         public static final int recipes=0x7f060004;
         public static final int search_text=0x7f060002;
+        public static final int selectNewPicButton=0x7f060033;
         public static final int set=0x7f06001e;
+        public static final int takeNewPicButton=0x7f060034;
         public static final int title_activity_add_new_ingredient=0x7f060009;
         public static final int title_activity_add_new_recipe_view=0x7f06000e;
         public static final int title_activity_create_new_recipe_view=0x7f060018;
