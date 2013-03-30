@@ -1,6 +1,9 @@
 package com.cmput301w13t09.cmput301project.activities;
 
 import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+
 import org.apache.http.client.ClientProtocolException;
 
 import com.cmput301w13t09.cmput301project.CacheController;
@@ -105,8 +108,7 @@ public class QueryRecipeView extends Activity {
 							Intent viewRecipe = new Intent(
 									"activities.ViewRecipe");
 							viewRecipe.putExtra(
-									"RECIPE_POSITION",
-									dialogNumber);
+									"Recipe", queryrecipelist.get(dialogNumber));
 							startActivity(viewRecipe);
 						} catch (Throwable throwable) {
 							throwable.printStackTrace();
@@ -140,15 +142,17 @@ public class QueryRecipeView extends Activity {
 		getMenuInflater().inflate(R.menu.activity_query_recipe_view, menu);
 		return true;
 	}
+
 	/**
 	 * Checks if networks is available
+	 * 
 	 * @return boolean
 	 */
 	private boolean isNetworkAvailable() {
-	    ConnectivityManager connectivityManager 
-	          = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-	    NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-	    return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+		ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo activeNetworkInfo = connectivityManager
+				.getActiveNetworkInfo();
+		return activeNetworkInfo != null && activeNetworkInfo.isConnected();
 	}
 
 }

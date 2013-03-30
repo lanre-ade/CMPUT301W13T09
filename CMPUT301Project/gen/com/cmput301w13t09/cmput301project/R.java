@@ -27,12 +27,13 @@ public final class R {
         public static final int QueryRecipebutton=0x7f09002b;
         public static final int R_layout_activity_create_new_instruction_view_two=0x7f09001a;
         public static final int ReadRecipeExtensionViewDownload=0x7f090043;
+        public static final int RecipeOnlineViewImportMenuButton=0x7f090044;
         public static final int RecipeViewList=0x7f09003d;
         public static final int RelativeLayout1=0x7f090010;
-        public static final int ViewRecipeViewDelete=0x7f090048;
-        public static final int ViewRecipeViewEdit=0x7f090047;
-        public static final int ViewRecipeViewEmail=0x7f090045;
-        public static final int ViewRecipeViewUpload=0x7f090046;
+        public static final int ViewRecipeViewDelete=0x7f090049;
+        public static final int ViewRecipeViewEdit=0x7f090048;
+        public static final int ViewRecipeViewEmail=0x7f090046;
+        public static final int ViewRecipeViewUpload=0x7f090047;
         public static final int WebOfflineSearchButton=0x7f090034;
         public static final int WebOfflineinPantrySearch=0x7f090035;
         public static final int WebOfflinesearchEditText=0x7f090033;
@@ -78,7 +79,7 @@ public final class R {
         public static final int myRecipes=0x7f090020;
         public static final int myRecipesList=0x7f090028;
         public static final int mySharingButton=0x7f090023;
-        public static final int options=0x7f090044;
+        public static final int options=0x7f090045;
         public static final int pager=0x7f09003a;
         public static final int photoListView=0x7f090015;
         public static final int publishRecipe=0x7f090029;
@@ -130,7 +131,8 @@ public final class R {
         public static final int create_new_recipe_view_menu=0x7f080006;
         public static final int edit_recipe_view_menu=0x7f080007;
         public static final int read_recipe_extension_view_menu=0x7f080008;
-        public static final int view_recipe_view_menu=0x7f080009;
+        public static final int view_recipe_online_view=0x7f080009;
+        public static final int view_recipe_view_menu=0x7f08000a;
     }
     public static final class string {
         public static final int CreateNewRecipe_Desc=0x7f060011;
