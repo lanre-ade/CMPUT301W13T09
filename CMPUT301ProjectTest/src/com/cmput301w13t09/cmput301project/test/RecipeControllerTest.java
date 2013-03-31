@@ -1,19 +1,16 @@
 package com.cmput301w13t09.cmput301project.test;
 
-import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import com.cmput301w13t09.cmput301project.IngredientListModel;
-import com.cmput301w13t09.cmput301project.IngredientModel;
-import com.cmput301w13t09.cmput301project.InstructionListModel;
-import com.cmput301w13t09.cmput301project.RecipeController;
-import com.cmput301w13t09.cmput301project.RecipeModel;
-import com.cmput301w13t09.cmput301project.activities.CreateNewRecipeView;
-
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.TextView;
+
+import com.cmput301w13t09.cmput301project.activities.CreateNewRecipeView;
+import com.cmput301w13t09.cmput301project.controllers.RecipeController;
+import com.cmput301w13t09.cmput301project.models.IngredientListModel;
+import com.cmput301w13t09.cmput301project.models.InstructionListModel;
+import com.cmput301w13t09.cmput301project.models.RecipeModel;
 
 public class RecipeControllerTest extends
 		ActivityInstrumentationTestCase2<CreateNewRecipeView> {

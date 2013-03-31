@@ -1,14 +1,11 @@
 package com.cmput301w13t09.cmput301project.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.cmput301w13t09.cmput301project.IngredientListModel;
-import com.cmput301w13t09.cmput301project.IngredientModel;
-import com.cmput301w13t09.cmput301project.InstructionListModel;
-import com.cmput301w13t09.cmput301project.PhotoListModel;
-import com.cmput301w13t09.cmput301project.RecipeModel;
+import com.cmput301w13t09.cmput301project.models.IngredientModel;
 
 public class IngredientModelTest {
 

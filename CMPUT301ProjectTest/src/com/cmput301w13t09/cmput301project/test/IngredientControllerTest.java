@@ -1,15 +1,13 @@
 package com.cmput301w13t09.cmput301project.test;
 
-import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import com.cmput301w13t09.cmput301project.IngredientController;
-import com.cmput301w13t09.cmput301project.IngredientModel;
-import com.cmput301w13t09.cmput301project.activities.MyPantryView;
-
 import android.test.ActivityInstrumentationTestCase2;
+
+import com.cmput301w13t09.cmput301project.activities.MyPantryView;
+import com.cmput301w13t09.cmput301project.controllers.IngredientController;
+import com.cmput301w13t09.cmput301project.models.IngredientModel;
 
 public class IngredientControllerTest extends
 		ActivityInstrumentationTestCase2<MyPantryView> {
