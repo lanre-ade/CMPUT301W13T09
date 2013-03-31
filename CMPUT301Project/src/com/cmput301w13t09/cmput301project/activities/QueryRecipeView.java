@@ -25,8 +25,8 @@ import com.cmput301w13t09.cmput301project.IngredientController;
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
 import com.cmput301w13t09.cmput301project.UploadController;
-import com.cmput301w13t09.cmput301project.Models.RecipeListModel;
-import com.cmput301w13t09.cmput301project.Models.RecipeModel;
+import com.cmput301w13t09.cmput301project.models.RecipeListModel;
+import com.cmput301w13t09.cmput301project.models.RecipeModel;
 
 public class QueryRecipeView extends Activity {
 	private ListAdapter recipeListAdapter;

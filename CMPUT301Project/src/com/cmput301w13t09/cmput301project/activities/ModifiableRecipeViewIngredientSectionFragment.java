@@ -20,7 +20,7 @@ import android.widget.Spinner;
 
 import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
 import com.cmput301w13t09.cmput301project.R;
-import com.cmput301w13t09.cmput301project.Models.IngredientModel;
+import com.cmput301w13t09.cmput301project.models.IngredientModel;
 
 public class ModifiableRecipeViewIngredientSectionFragment extends Fragment {
 

@@ -1,8 +1,8 @@
 package com.cmput301w13t09.cmput301project;
 
-import com.cmput301w13t09.cmput301project.Models.IngredientModel;
-import com.cmput301w13t09.cmput301project.Models.InstructionModel;
-import com.cmput301w13t09.cmput301project.Models.RecipeModel;
+import com.cmput301w13t09.cmput301project.models.IngredientModel;
+import com.cmput301w13t09.cmput301project.models.InstructionModel;
+import com.cmput301w13t09.cmput301project.models.RecipeModel;
 
 /**
  * 

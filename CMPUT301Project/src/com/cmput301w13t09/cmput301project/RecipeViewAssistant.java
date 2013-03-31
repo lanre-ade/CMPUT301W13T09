@@ -9,13 +9,13 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import com.cmput301w13t09.cmput301project.Models.IngredientListModel;
-import com.cmput301w13t09.cmput301project.Models.IngredientModel;
-import com.cmput301w13t09.cmput301project.Models.InstructionListModel;
-import com.cmput301w13t09.cmput301project.Models.InstructionModel;
-import com.cmput301w13t09.cmput301project.Models.PhotoListModel;
-import com.cmput301w13t09.cmput301project.Models.PhotoModel;
-import com.cmput301w13t09.cmput301project.Models.RecipeModel;
+import com.cmput301w13t09.cmput301project.models.IngredientListModel;
+import com.cmput301w13t09.cmput301project.models.IngredientModel;
+import com.cmput301w13t09.cmput301project.models.InstructionListModel;
+import com.cmput301w13t09.cmput301project.models.InstructionModel;
+import com.cmput301w13t09.cmput301project.models.PhotoListModel;
+import com.cmput301w13t09.cmput301project.models.PhotoModel;
+import com.cmput301w13t09.cmput301project.models.RecipeModel;
 
 import android.content.Context;
 import android.net.Uri;

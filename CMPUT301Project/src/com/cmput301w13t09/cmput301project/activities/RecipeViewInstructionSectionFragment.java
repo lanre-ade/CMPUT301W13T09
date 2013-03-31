@@ -17,7 +17,7 @@ import android.widget.ListView;
 
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
-import com.cmput301w13t09.cmput301project.Models.InstructionModel;
+import com.cmput301w13t09.cmput301project.models.InstructionModel;
 
 public class RecipeViewInstructionSectionFragment extends Fragment {
 	private ListView instructionListView;

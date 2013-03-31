@@ -16,7 +16,7 @@ import android.view.MenuItem;
 import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
-import com.cmput301w13t09.cmput301project.Models.PhotoModel;
+import com.cmput301w13t09.cmput301project.models.PhotoModel;
 
 /**
  * @author Kyle, Marcus, and Landre Class: EditRecipeView is that extends

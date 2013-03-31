@@ -7,10 +7,10 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import com.cmput301w13t09.cmput301project.Models.IngredientListModel;
-import com.cmput301w13t09.cmput301project.Models.InstructionListModel;
-import com.cmput301w13t09.cmput301project.Models.PhotoListModel;
-import com.cmput301w13t09.cmput301project.Models.RecipeModel;
+import com.cmput301w13t09.cmput301project.models.IngredientListModel;
+import com.cmput301w13t09.cmput301project.models.InstructionListModel;
+import com.cmput301w13t09.cmput301project.models.PhotoListModel;
+import com.cmput301w13t09.cmput301project.models.RecipeModel;
 
 public class RecipeModelTest {
 
