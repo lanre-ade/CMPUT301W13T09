@@ -102,9 +102,9 @@ public class RecipesOnWebView extends Activity {
 									int which) {
 								try {
 									Intent viewRecipe = new Intent(
-											"activities.ViewRecipe");
-									viewRecipe.putExtra("RECIPE_POSITION",
-											dialogNumber);
+											"activities.RecipeOnlineView");
+									viewRecipe.putExtra("Recipe",
+											webController.getRecipe(dialogNumber));
 									startActivity(viewRecipe);
 								} catch (Throwable throwable) {
 									throwable.printStackTrace();

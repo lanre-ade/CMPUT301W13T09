@@ -346,5 +346,13 @@ public class UploadController {
 		}
 		return temp;
 	}
+	/**
+	 * Returns the recipe at position i in the load recipe list
+	 * @param i: position of the recipe in the list
+	 * @return recipe at position i
+	 */
+	public RecipeModel getRecipe(int i) {
+		return recipe_list.get(i);
+	}
 
 }

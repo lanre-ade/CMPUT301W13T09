@@ -42,6 +42,13 @@ public class RecipeOnlineView extends FragmentActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.recipe_view);
+		
+		rAssitant = new RecipeViewAssistant(this);
+		rController = new RecipeController(this);
+		Bundle bundle = getIntent().getExtras();
+		rAssitant.saveNewToFile();
+		rAssitant.setRecipe((RecipeModel) bundle.getSerializable("Recipe"));
+		rAssitant.saveToFile();
 
 		// Set up the action bar.
 		final ActionBar actionBar = getActionBar();
@@ -77,12 +84,7 @@ public class RecipeOnlineView extends FragmentActivity implements
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
-		rAssitant = new RecipeViewAssistant(this);
-		rController = new RecipeController(this);
-		Bundle bundle = getIntent().getExtras();
-		rAssitant.saveNewToFile();
-		rAssitant.setRecipe((RecipeModel) bundle.getSerializable("Recipe"));
-		rAssitant.saveToFile();
+
 	}
 
 	@Override
