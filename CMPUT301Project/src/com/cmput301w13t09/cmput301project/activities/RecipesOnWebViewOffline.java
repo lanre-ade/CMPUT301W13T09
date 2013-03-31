@@ -78,9 +78,9 @@ public class RecipesOnWebViewOffline extends Activity {
 									int which) {
 								try {
 									Intent viewRecipe = new Intent(
-											"activities.ViewRecipe");
-									viewRecipe.putExtra("RECIPE_POSITION",
-											dialogNumber);
+											"activities.RecipeOnlineView");
+									viewRecipe.putExtra("Recipe",
+											cacheController.getRecipe(dialogNumber));
 									startActivity(viewRecipe);
 								} catch (Throwable throwable) {
 									throwable.printStackTrace();

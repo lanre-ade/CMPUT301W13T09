@@ -190,8 +190,13 @@ public class CacheController {
 		}
 	}
 
-	public RecipeModel getRecipe(int position) {
-		return recipe_list.get(position);
+	/**
+	 * Gets the recipe at postion i in the list
+	 * @param i: Position of the recipe in the list
+	 * @return recipe at postion i
+	 */
+	public RecipeModel getRecipe(int i) {
+		return recipe_list.get(i);
 	}
 
 	/**

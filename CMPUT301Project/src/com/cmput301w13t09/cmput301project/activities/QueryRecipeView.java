@@ -101,7 +101,7 @@ public class QueryRecipeView extends Activity {
 							int which) {
 						try {
 							Intent viewRecipe = new Intent(
-									"activities.ViewRecipe");
+									"activities.RecipeOnlineView");
 							viewRecipe.putExtra(
 									"Recipe", queryrecipelist.get(dialogNumber));
 							startActivity(viewRecipe);
