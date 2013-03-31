@@ -1,76 +1,67 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background"
-    tools:context=".MainMenuView" >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background" >
 
-    <EditText
-        android:id="@+id/searchEditText"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="28dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:hint="@string/search_text"
-        android:textColor="@color/textColour" >
+        android:orientation="vertical"
+        tools:context=".MainMenuView" >
 
-        <requestFocus />
-    </EditText>
+        <EditText
+            android:id="@+id/searchEditText"
+            android:layout_width="fill_parent"
+            android:layout_height="58dp"
+            android:ems="16"
+            android:hint="@string/search_text"
+            android:inputType="textMultiLine"
+            android:textColor="@color/textColour" >
+        </EditText>
 
-    <Button
-        android:id="@+id/myPantry"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/myRecipes"
-        android:layout_centerHorizontal="true"
-        android:text="@string/pantry" />
+        <CheckBox
+            android:id="@+id/inPantrySearchCheckBox"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/in_pantry_search_check"
+            android:textColor="@color/textColour" />
 
-    <Button
-        android:id="@+id/myRecipes"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/myPantry"
-        android:layout_below="@+id/inPantrySearch"
-        android:layout_marginTop="65dp"
-        android:text="@string/recipes" />
+        <Button
+            android:id="@+id/mainMenuSearchButton"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/button_tb"
+            android:text="@string/MainMenuSearchButtonString" />
 
-    <CheckBox
-        android:id="@+id/inPantrySearch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mainMenuSearchButton"
-        android:layout_centerHorizontal="true"
-        android:text="@string/in_pantry_search_check"
-        android:textColor="@color/textColour" />
+        <Button
+            android:id="@+id/queryRecipesLocallyButton"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/button_tb"
+            android:text="@string/querytext2view" />
 
-    <Button
-        android:id="@+id/mainMenuSearchButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/searchEditText"
-        android:layout_centerHorizontal="true"
-        android:text="@string/MainMenuSearchButtonString" />
+        <Button
+            android:id="@+id/myRecipes"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/button_tb"
+            android:text="@string/recipes" />
 
-    <Button
-        android:id="@+id/mySharingButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/myPantry"
-        android:layout_alignRight="@+id/myPantry"
-        android:layout_below="@+id/myPantry"
-        android:text="@string/mySharing" />
+        <Button
+            android:id="@+id/myPantry"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/button_tb"
+            android:text="@string/pantry" />
 
-    <Button
-        android:id="@+id/queryRecipesLocallyButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/inPantrySearch"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="17dp"
-        android:text="@string/querytext2view"
-        android:textSize="16.5sp" />
+        <Button
+            android:id="@+id/mySharingButton"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/button_tb"
+            android:text="@string/mySharing" />
+    </LinearLayout>
 
-</RelativeLayout>
+</ScrollView>

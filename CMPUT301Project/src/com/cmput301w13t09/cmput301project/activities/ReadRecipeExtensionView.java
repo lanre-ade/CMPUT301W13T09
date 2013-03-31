@@ -5,7 +5,6 @@ import java.io.File;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.ContentResolver;
-import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,8 +18,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.cmput301w13t09.cmput301project.R;
-import com.cmput301w13t09.cmput301project.RecipeController;
-import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
+import com.cmput301w13t09.cmput301project.controllers.RecipeController;
+import com.cmput301w13t09.cmput301project.helpers.RecipeViewAssistant;
 
 /**
  * @author Kyle, Marcus, and Landre Class:

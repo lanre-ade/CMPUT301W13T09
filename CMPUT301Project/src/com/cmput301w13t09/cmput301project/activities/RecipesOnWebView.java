@@ -20,12 +20,12 @@ import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import com.cmput301w13t09.cmput301project.CacheController;
-import com.cmput301w13t09.cmput301project.IngredientController;
 import com.cmput301w13t09.cmput301project.R;
-import com.cmput301w13t09.cmput301project.RecipeController;
-import com.cmput301w13t09.cmput301project.RecipeModel;
-import com.cmput301w13t09.cmput301project.UploadController;
+import com.cmput301w13t09.cmput301project.controllers.CacheController;
+import com.cmput301w13t09.cmput301project.controllers.IngredientController;
+import com.cmput301w13t09.cmput301project.controllers.RecipeController;
+import com.cmput301w13t09.cmput301project.controllers.UploadController;
+import com.cmput301w13t09.cmput301project.models.RecipeModel;
 
 public class RecipesOnWebView extends Activity {
 	private ListView recipeListView;
@@ -102,9 +102,9 @@ public class RecipesOnWebView extends Activity {
 									int which) {
 								try {
 									Intent viewRecipe = new Intent(
-											"activities.ViewRecipe");
-									viewRecipe.putExtra("RECIPE_POSITION",
-											dialogNumber);
+											"activities.RecipeOnlineView");
+									viewRecipe.putExtra("Recipe",
+											webController.getRecipe(dialogNumber));
 									startActivity(viewRecipe);
 								} catch (Throwable throwable) {
 									throwable.printStackTrace();

@@ -11,9 +11,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.cmput301w13t09.cmput301project.R;
-import com.cmput301w13t09.cmput301project.DataChecker;
-import com.cmput301w13t09.cmput301project.IngredientController;
-import com.cmput301w13t09.cmput301project.RecipeController;
+import com.cmput301w13t09.cmput301project.controllers.IngredientController;
+import com.cmput301w13t09.cmput301project.controllers.RecipeController;
+import com.cmput301w13t09.cmput301project.helpers.DataChecker;
 
 /**
  * @author Kyle, Marcus, and Landre Class: MainMenuView MainMenuView is a class
@@ -52,7 +52,7 @@ public class MainMenuView extends Activity {
 		mySharingButton = (Button) findViewById(R.id.mySharingButton);
 		queryButton = (Button) findViewById(R.id.queryRecipesLocallyButton);
 
-		fromMyPantry = (CheckBox) findViewById(R.id.inPantrySearch);
+		fromMyPantry = (CheckBox) findViewById(R.id.inPantrySearchCheckBox);
 
 		mySharingButton.setOnClickListener(new View.OnClickListener() {
 
@@ -109,7 +109,6 @@ public class MainMenuView extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 
 				if (!fromMyPantry.isChecked()) {
 					int position = recipeController.findRecipe(searchText

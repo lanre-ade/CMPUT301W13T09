@@ -3,9 +3,8 @@
 
     <string name="app_name">My Cookbook</string>
     <string name="menu_settings">Settings</string>
-    <string name="search_text">Quick search recipes (NI)</string>
-    <string name="in_pantry_search_check">Only use available ingrediants (NI)</string>
-    <string name="local_search_text">Only search in My Recipes (NI)</string>
+    <string name="search_text">Quick search recipes</string>
+    <string name="in_pantry_search_check">Only use available ingrediants</string>
     <string name="recipes">My Recipes</string>
     <string name="pantry">My Pantry</string>
     <string name="my_pantry_add_button">Add Ingredient</string>
@@ -53,5 +52,10 @@
     <string name="querytextview">Query Recipes (Web)</string>
     <string name="title_activity_query_recipe_offline_view">Query Recipes</string>
     <string name="querytext2view">Query Recipes (Locally)</string>
+    <string name="selectNewPicButton"> Select From Library</string>
+    <string name="takeNewPicButton">Take a Picture</string>
+    <string name="image">image</string>
+    <string name="Error:">Error: Blank quantity value or name</string>
+    <string name="Ok">Ok</string>
 
 </resources>

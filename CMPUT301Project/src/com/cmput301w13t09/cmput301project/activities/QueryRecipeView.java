@@ -1,32 +1,32 @@
 package com.cmput301w13t09.cmput301project.activities;
 
 import java.io.IOException;
+
 import org.apache.http.client.ClientProtocolException;
 
-import com.cmput301w13t09.cmput301project.CacheController;
-import com.cmput301w13t09.cmput301project.IngredientController;
-import com.cmput301w13t09.cmput301project.R;
-import com.cmput301w13t09.cmput301project.RecipeController;
-import com.cmput301w13t09.cmput301project.RecipeListModel;
-import com.cmput301w13t09.cmput301project.RecipeModel;
-import com.cmput301w13t09.cmput301project.UploadController;
-
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Bundle;
-import android.os.StrictMode;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.view.Menu;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+
+import com.cmput301w13t09.cmput301project.R;
+import com.cmput301w13t09.cmput301project.controllers.CacheController;
+import com.cmput301w13t09.cmput301project.controllers.IngredientController;
+import com.cmput301w13t09.cmput301project.controllers.RecipeController;
+import com.cmput301w13t09.cmput301project.controllers.UploadController;
+import com.cmput301w13t09.cmput301project.models.RecipeListModel;
+import com.cmput301w13t09.cmput301project.models.RecipeModel;
 
 public class QueryRecipeView extends Activity {
 	private ListAdapter recipeListAdapter;
@@ -54,10 +54,8 @@ public class QueryRecipeView extends Activity {
 			try {
 				webController = new UploadController();
 			} catch (ClientProtocolException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			queryrecipelist = webController.getQueryRecipeList(ingredController);
@@ -103,10 +101,9 @@ public class QueryRecipeView extends Activity {
 							int which) {
 						try {
 							Intent viewRecipe = new Intent(
-									"activities.ViewRecipe");
+									"activities.RecipeOnlineView");
 							viewRecipe.putExtra(
-									"RECIPE_POSITION",
-									dialogNumber);
+									"Recipe", queryrecipelist.get(dialogNumber));
 							startActivity(viewRecipe);
 						} catch (Throwable throwable) {
 							throwable.printStackTrace();
@@ -134,21 +131,16 @@ public class QueryRecipeView extends Activity {
 		});
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_query_recipe_view, menu);
-		return true;
-	}
 	/**
 	 * Checks if networks is available
+	 * 
 	 * @return boolean
 	 */
 	private boolean isNetworkAvailable() {
-	    ConnectivityManager connectivityManager 
-	          = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-	    NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-	    return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+		ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo activeNetworkInfo = connectivityManager
+				.getActiveNetworkInfo();
+		return activeNetworkInfo != null && activeNetworkInfo.isConnected();
 	}
 
 }

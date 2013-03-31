@@ -6,43 +6,43 @@
 
     <MultiAutoCompleteTextView
         android:id="@+id/addNewRecipeInstructionDialogEditText"
-        android:layout_width="fill_parent"
+       	android:layout_width="fill_parent"
         android:layout_height="75dp"
-        android:layout_above="@+id/addNewRecipeInstructionDialogCancel"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="5dp"
         android:ems="10"
         android:gravity="top"
-        android:inputType="textMultiLine|textCapSentences" >
+        android:inputType="textMultiLine|textCapSentences">
 
     </MultiAutoCompleteTextView>
-
+	<LinearLayout 
+	    android:id="@+id/buttonLayout"
+	    android:layout_height="48dp"
+	    android:layout_width="fill_parent"
+	    android:layout_alignParentBottom="true">
     <Button
         android:id="@+id/addNewRecipeInstructionDialogDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="138dp"
+        android:layout_width="0dip"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.25"
+        android:background="@drawable/button_tr"
         android:text="@string/buttonDelete" />
 
     <Button
         android:id="@+id/addNewRecipeInstructionDialogCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/addNewRecipeInstructionDialogDelete"
-        android:layout_alignBottom="@+id/addNewRecipeInstructionDialogDelete"
-        android:layout_toRightOf="@+id/addNewRecipeInstructionDialogDelete"
+        android:layout_width="0dip"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.25"
+        android:background="@drawable/button_trl"
         android:text="@string/cancelButton" />
 
     <Button
         android:id="@+id/addNewRecipeInstructionDialogConfirm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/addNewRecipeInstructionDialogCancel"
-        android:layout_alignBottom="@+id/addNewRecipeInstructionDialogCancel"
-        android:layout_toRightOf="@+id/addNewRecipeInstructionDialogCancel"
+        android:layout_width="0dip"
+        android:layout_height="fill_parent"
+		android:layout_weight="0.5"
+		android:background="@drawable/button_tl"
         android:text="@string/addNewInstructionButtonString" />
-
+</LinearLayout>
 </RelativeLayout>

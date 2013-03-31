@@ -16,9 +16,9 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-import com.cmput301w13t09.cmput301project.IngredientController;
-import com.cmput301w13t09.cmput301project.IngredientModel;
 import com.cmput301w13t09.cmput301project.R;
+import com.cmput301w13t09.cmput301project.controllers.IngredientController;
+import com.cmput301w13t09.cmput301project.models.IngredientModel;
 
 /**
  * @author Kyle, Marcus, and Landre Class: MyPantryView MyPantryView is class

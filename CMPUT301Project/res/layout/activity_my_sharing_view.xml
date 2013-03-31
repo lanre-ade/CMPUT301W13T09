@@ -6,26 +6,26 @@
 
     <Button
         android:id="@+id/publishRecipe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+		android:background="@drawable/button_tb"
         android:text="@string/publishRecipe" />
 
     <Button
         android:id="@+id/viewRecipesonWebButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/button_tb"
         android:layout_below="@+id/publishRecipe"
-        android:layout_centerHorizontal="true"
         android:text="@string/viewRecipesOnWeb" />
 
     <Button
         android:id="@+id/QueryRecipebutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/button_tb"
         android:layout_below="@+id/viewRecipesonWebButton"
-        android:layout_centerHorizontal="true"
         android:text="@string/querytextview" />
 
 </RelativeLayout>

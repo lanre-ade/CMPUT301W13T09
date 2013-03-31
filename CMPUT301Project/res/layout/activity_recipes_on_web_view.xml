@@ -6,7 +6,7 @@
 
     <EditText
         android:id="@+id/WebsearchEditText"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -19,24 +19,23 @@
         android:id="@+id/webserviceRecipelistView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/WebinPantrySearch" >
+        android:layout_below="@+id/WebSearchButton" >
 
     </ListView>
 
     <Button
         android:id="@+id/WebSearchButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/WebsearchEditText"
-        android:layout_centerHorizontal="true"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_below="@+id/WebinPantrySearch"
+        android:background="@drawable/button_tb"
         android:text="@string/MainMenuSearchButtonString" />
 
     <CheckBox
         android:id="@+id/WebinPantrySearch"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/WebSearchButton"
-        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/WebsearchEditText"
         android:text="@string/in_pantry_search_check"
         android:textColor="@color/textColour" />
 

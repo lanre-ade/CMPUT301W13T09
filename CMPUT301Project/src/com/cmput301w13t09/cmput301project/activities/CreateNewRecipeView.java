@@ -12,14 +12,11 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
-import android.widget.Toast;
 
-import com.cmput301w13t09.cmput301project.PhotoAdapter;
-import com.cmput301w13t09.cmput301project.PhotoModel;
-import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
 import com.cmput301w13t09.cmput301project.R;
-import com.cmput301w13t09.cmput301project.RecipeController;
+import com.cmput301w13t09.cmput301project.controllers.RecipeController;
+import com.cmput301w13t09.cmput301project.helpers.RecipeViewAssistant;
+import com.cmput301w13t09.cmput301project.models.PhotoModel;
 
 /**
  * @author Kyle, Marcus, and Landre Class: CreateNewRecipeView CreateNewRecipe
@@ -47,7 +44,6 @@ public class CreateNewRecipeView extends FragmentActivity implements
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
-	private Fragment photoFragment;
 	private RecipeViewAssistant rBuilder;
 	private RecipeController rController;
 
@@ -98,7 +94,7 @@ public class CreateNewRecipeView extends FragmentActivity implements
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-
+		rBuilder.loadFromFile();
 		if (resultCode == RESULT_OK) {
 
 			if (requestCode == CAPTURE_IMAGE) {

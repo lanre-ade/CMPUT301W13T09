@@ -4,23 +4,23 @@ import java.io.IOException;
 
 import org.json.JSONException;
 
-import com.cmput301w13t09.cmput301project.R;
-import com.cmput301w13t09.cmput301project.RecipeController;
-import com.cmput301w13t09.cmput301project.RecipeModel;
-import com.cmput301w13t09.cmput301project.UploadController;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
+
+import com.cmput301w13t09.cmput301project.R;
+import com.cmput301w13t09.cmput301project.controllers.RecipeController;
+import com.cmput301w13t09.cmput301project.controllers.UploadController;
+import com.cmput301w13t09.cmput301project.models.RecipeModel;
 
 
 
@@ -100,13 +100,10 @@ public class PublishRecipeView extends Activity {
 									webController = new UploadController();
 									webController.insertRecipe(recipeController.getRecipeList().get(dialogNumber));
 								} catch (IllegalStateException e) {
-									// TODO Auto-generated catch block
 									e.printStackTrace();
 								} catch (IOException e) {
-									// TODO Auto-generated catch block
 									e.printStackTrace();
 								} catch (JSONException e) {
-									// TODO Auto-generated catch block
 									e.printStackTrace();
 								}
 								dialog.dismiss();

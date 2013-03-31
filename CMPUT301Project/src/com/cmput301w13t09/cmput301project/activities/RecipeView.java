@@ -24,11 +24,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.cmput301w13t09.cmput301project.EmailBuilder;
 import com.cmput301w13t09.cmput301project.R;
-import com.cmput301w13t09.cmput301project.RecipeController;
-import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
-import com.cmput301w13t09.cmput301project.UploadController;
+import com.cmput301w13t09.cmput301project.controllers.RecipeController;
+import com.cmput301w13t09.cmput301project.controllers.UploadController;
+import com.cmput301w13t09.cmput301project.helpers.EmailBuilder;
+import com.cmput301w13t09.cmput301project.helpers.RecipeViewAssistant;
 
 /**
  * @author Kyle, Marcus, and Landre Class:
@@ -137,9 +137,6 @@ public class RecipeView extends FragmentActivity implements
 					+ " Recipe: " + rAssitant.getName());
 			email.putExtra(Intent.EXTRA_STREAM,
 					Uri.fromFile(new File(shareURI)));
-			email.putExtra(Intent.EXTRA_EMAIL,
-					new String[] { "marcuskarpoff@gmail.com" });// TODO remove
-																// this line
 			email.putExtra(Intent.EXTRA_TEXT,
 					new EmailBuilder(rAssitant.getRecipe()).getMessage());
 			try {
@@ -167,16 +164,12 @@ public class RecipeView extends FragmentActivity implements
 					webController = new UploadController();
 					webController.insertRecipe(rAssitant.getRecipe());
 				} catch (ClientProtocolException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IllegalStateException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
