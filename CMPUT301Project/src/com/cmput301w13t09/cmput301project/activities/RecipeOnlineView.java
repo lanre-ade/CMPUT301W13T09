@@ -14,7 +14,7 @@ import android.view.MenuItem;
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
 import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
-import com.cmput301w13t09.cmput301project.models.RecipeModel;
+import com.cmput301w13t09.cmput301project.Models.RecipeModel;
 
 /**
  * @author Kyle, Marcus, and Landre Class:

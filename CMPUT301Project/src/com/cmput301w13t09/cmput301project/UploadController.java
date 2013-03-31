@@ -16,8 +16,8 @@ import org.json.JSONObject;
 
 import android.annotation.SuppressLint;
 
-import com.cmput301w13t09.cmput301project.models.RecipeListModel;
-import com.cmput301w13t09.cmput301project.models.RecipeModel;
+import com.cmput301w13t09.cmput301project.Models.RecipeListModel;
+import com.cmput301w13t09.cmput301project.Models.RecipeModel;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

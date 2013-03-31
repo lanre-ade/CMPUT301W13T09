@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.cmput301w13t09.cmput301project.models.IngredientModel;
+import com.cmput301w13t09.cmput301project.Models.IngredientModel;
 
 public class IngredientModelTest {
 

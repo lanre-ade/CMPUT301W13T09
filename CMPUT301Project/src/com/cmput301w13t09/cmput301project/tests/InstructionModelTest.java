@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.cmput301w13t09.cmput301project.models.InstructionModel;
+import com.cmput301w13t09.cmput301project.Models.InstructionModel;
 
 public class InstructionModelTest {
 
