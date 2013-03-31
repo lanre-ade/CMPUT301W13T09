@@ -7,11 +7,11 @@ import org.junit.Test;
 
 import android.content.Context;
 
-import com.cmput301w13t09.cmput301project.IngredientListModel;
-import com.cmput301w13t09.cmput301project.InstructionListModel;
-import com.cmput301w13t09.cmput301project.PhotoListModel;
 import com.cmput301w13t09.cmput301project.RecipeController;
-import com.cmput301w13t09.cmput301project.RecipeModel;
+import com.cmput301w13t09.cmput301project.models.IngredientListModel;
+import com.cmput301w13t09.cmput301project.models.InstructionListModel;
+import com.cmput301w13t09.cmput301project.models.PhotoListModel;
+import com.cmput301w13t09.cmput301project.models.RecipeModel;
 
 public class RecipeControllerTest {
 	RecipeController recipe_controller;

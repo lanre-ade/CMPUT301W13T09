@@ -5,8 +5,8 @@ import org.junit.Test;
 import android.test.ActivityInstrumentationTestCase2;
 
 import com.cmput301w13t09.cmput301project.IngredientController;
-import com.cmput301w13t09.cmput301project.IngredientModel;
 import com.cmput301w13t09.cmput301project.activities.CreateNewRecipeView;
+import com.cmput301w13t09.cmput301project.models.IngredientModel;
 
 public class IngredientControllerTest extends ActivityInstrumentationTestCase2<CreateNewRecipeView>{
 

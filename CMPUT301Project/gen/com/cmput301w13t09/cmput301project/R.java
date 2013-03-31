@@ -46,15 +46,16 @@ public final class R {
         public static final int button_tr_gradient=0x7f020018;
         public static final int button_trl=0x7f020019;
         public static final int button_trl_gradient=0x7f02001a;
-        public static final int ic_action_delete=0x7f02001b;
-        public static final int ic_action_done=0x7f02001c;
-        public static final int ic_action_edit=0x7f02001d;
-        public static final int ic_action_locate=0x7f02001e;
-        public static final int ic_action_mail=0x7f02001f;
-        public static final int ic_action_overflow=0x7f020020;
-        public static final int ic_action_share=0x7f020021;
-        public static final int ic_launcher=0x7f020022;
-        public static final int logodesign=0x7f020023;
+        public static final int download=0x7f02001b;
+        public static final int ic_action_delete=0x7f02001c;
+        public static final int ic_action_done=0x7f02001d;
+        public static final int ic_action_edit=0x7f02001e;
+        public static final int ic_action_locate=0x7f02001f;
+        public static final int ic_action_mail=0x7f020020;
+        public static final int ic_action_overflow=0x7f020021;
+        public static final int ic_action_share=0x7f020022;
+        public static final int ic_launcher=0x7f020023;
+        public static final int logodesign=0x7f020024;
     }
     public static final class id {
         public static final int CreateNewRecipeDescriptionTab=0x7f09000b;
@@ -166,7 +167,9 @@ public final class R {
         public static final int CreateRecipeViewAddNewIngredient=0x7f060012;
         public static final int CreateRecipeViewDeleteIngredient=0x7f060013;
         public static final int CreateRecipeViewSubmit=0x7f060014;
+        public static final int Error_=0x7f060036;
         public static final int MainMenuSearchButtonString=0x7f06001d;
+        public static final int Ok=0x7f060037;
         public static final int QueryRecipeButton=0x7f06002a;
         public static final int ReadRecipeExtensionViewDownload=0x7f06002d;
         public static final int addNewIngredientButtonString=0x7f06000d;

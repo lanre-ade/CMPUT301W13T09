@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import com.cmput301w13t09.cmput301project.models.IngredientListModel;
+import com.cmput301w13t09.cmput301project.models.IngredientModel;
+
 import android.content.Context;
 
 /**

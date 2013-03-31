@@ -2,6 +2,9 @@ package com.cmput301w13t09.cmput301project;
 //All Credits go to @author Katherine Jasniewski. Wherever you are, thank you :)
 //Now i can finally go to bed (>.<)
 
+import com.cmput301w13t09.cmput301project.models.PhotoListModel;
+import com.cmput301w13t09.cmput301project.models.PhotoModel;
+
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;

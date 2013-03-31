@@ -1,6 +1,7 @@
-package com.cmput301w13t09.cmput301project;
+package com.cmput301w13t09.cmput301project.models;
 
 import java.io.Serializable;
+
 
 /**
  * @author Kyle, Marcus, and Lanre Class: RecipeModel RecipeModel is a class

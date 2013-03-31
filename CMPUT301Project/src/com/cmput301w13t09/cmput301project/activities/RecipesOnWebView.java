@@ -24,8 +24,8 @@ import com.cmput301w13t09.cmput301project.CacheController;
 import com.cmput301w13t09.cmput301project.IngredientController;
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.RecipeController;
-import com.cmput301w13t09.cmput301project.RecipeModel;
 import com.cmput301w13t09.cmput301project.UploadController;
+import com.cmput301w13t09.cmput301project.models.RecipeModel;
 
 public class RecipesOnWebView extends Activity {
 	private ListView recipeListView;
