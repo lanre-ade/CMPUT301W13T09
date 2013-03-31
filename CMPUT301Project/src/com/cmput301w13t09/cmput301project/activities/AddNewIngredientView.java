@@ -1,7 +1,8 @@
 package com.cmput301w13t09.cmput301project.activities;
 
 import android.app.Activity;
-import android.graphics.Color;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -50,7 +51,6 @@ public class AddNewIngredientView extends Activity {
 		doneButton = (Button) findViewById(R.id.addNewIngredient);
 		cancelButton = (Button) findViewById(R.id.andNewIngredientCancelButton);
 		
-		message = (TextView) findViewById(R.id.addNewIngredientMessage);
 		ingredController = new IngredientController(this);
 		
 		doneButton.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +58,7 @@ public class AddNewIngredientView extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				if(!nameText.getText().toString().isEmpty() && !quantityText.getText().toString().isEmpty()){
+				if(!quantityText.getText().toString().isEmpty() && !nameText.getText().toString().isEmpty()){
 					IngredientModel ingred = new IngredientModel(nameText.getText()
 							.toString(), descriptionText.getText().toString(),
 							Float.parseFloat(quantityText.getText().toString()),
@@ -68,8 +68,15 @@ public class AddNewIngredientView extends Activity {
 					end();
 				}
 				else{
-					message.setTextColor(Color.RED);
-					message.setText("Invalid Input Cannot have blank fields for Name and Quantity");
+			        AlertDialog.Builder builder = new AlertDialog.Builder(AddNewIngredientView.this);
+			        builder.setMessage(R.string.Error_)
+			               .setPositiveButton(R.string.Ok, new DialogInterface.OnClickListener() {
+			                   public void onClick(DialogInterface dialog, int id) {
+			                       dialog.dismiss();
+			                   }
+			               });
+			        AlertDialog dialog = builder.create();
+					dialog.show();
 				}
 				
 			}

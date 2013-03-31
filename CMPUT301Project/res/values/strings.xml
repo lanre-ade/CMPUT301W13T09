@@ -55,5 +55,7 @@
     <string name="selectNewPicButton"> Select From Library</string>
     <string name="takeNewPicButton">Take a Picture</string>
     <string name="image">image</string>
+    <string name="Error:">Error: Blank quantity value or name</string>
+    <string name="Ok">Ok</string>
 
 </resources>

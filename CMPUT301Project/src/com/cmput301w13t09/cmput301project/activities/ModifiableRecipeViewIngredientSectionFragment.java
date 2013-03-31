@@ -79,6 +79,7 @@ public class ModifiableRecipeViewIngredientSectionFragment extends Fragment {
 							.setOnClickListener(new OnClickListener() {
 								@Override
 								public void onClick(View v) {
+									if(!addIngredientDialodEditTextQuantity.getText().toString().isEmpty() && !addIngredientDialodEditTextName.getText().toString().isEmpty()){
 									builder.addIngredient(new IngredientModel(
 											addIngredientDialodEditTextName
 													.getText().toString(),
@@ -91,6 +92,18 @@ public class ModifiableRecipeViewIngredientSectionFragment extends Fragment {
 													.toString()));
 									updateList();
 									addIngredientDialog.dismiss();
+									}
+									else{
+										  AlertDialog.Builder builder3 = new AlertDialog.Builder(getActivity());
+									        builder3.setMessage(R.string.Error_)
+									               .setPositiveButton(R.string.Ok, new DialogInterface.OnClickListener() {
+									                   public void onClick(DialogInterface dialog3, int id) {
+									                       dialog3.dismiss();
+									                   }
+									               });
+									        AlertDialog dialog3 = builder3.create();
+											dialog3.show();
+									}
 
 								}
 							});
@@ -189,6 +202,7 @@ public class ModifiableRecipeViewIngredientSectionFragment extends Fragment {
 
 											@Override
 											public void onClick(View v) {
+												if(!dialogquantityText.getText().toString().isEmpty() && !dialognameText.getText().toString().isEmpty()){
 												builder.setIngredient(
 														dialogNumber,
 														dialognameText
@@ -205,6 +219,18 @@ public class ModifiableRecipeViewIngredientSectionFragment extends Fragment {
 																.toString());
 												dialog2.dismiss();
 												updateList();
+												}
+												else{
+													 AlertDialog.Builder builder3 = new AlertDialog.Builder(getActivity());
+												        builder3.setMessage(R.string.Error_)
+												               .setPositiveButton(R.string.Ok, new DialogInterface.OnClickListener() {
+												                   public void onClick(DialogInterface dialog3, int id) {
+												                       dialog3.dismiss();
+												                   }
+												               });
+												        AlertDialog dialog3 = builder3.create();
+														dialog3.show();
+												}
 											}
 										});
 
