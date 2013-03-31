@@ -10,8 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
 import com.cmput301w13t09.cmput301project.R;
+import com.cmput301w13t09.cmput301project.helpers.RecipeViewAssistant;
 
 /**
  * A fragment representing the display section of the create new recipe.

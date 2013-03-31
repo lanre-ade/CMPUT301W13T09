@@ -11,9 +11,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.cmput301w13t09.cmput301project.R;
-import com.cmput301w13t09.cmput301project.DataChecker;
-import com.cmput301w13t09.cmput301project.IngredientController;
-import com.cmput301w13t09.cmput301project.RecipeController;
+import com.cmput301w13t09.cmput301project.controllers.IngredientController;
+import com.cmput301w13t09.cmput301project.controllers.RecipeController;
+import com.cmput301w13t09.cmput301project.helpers.DataChecker;
 
 /**
  * @author Kyle, Marcus, and Landre Class: MainMenuView MainMenuView is a class

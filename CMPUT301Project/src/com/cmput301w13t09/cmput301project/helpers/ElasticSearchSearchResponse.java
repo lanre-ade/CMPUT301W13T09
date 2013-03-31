@@ -1,8 +1,9 @@
-package com.cmput301w13t09.cmput301project;
+package com.cmput301w13t09.cmput301project.helpers;
 import java.util.ArrayList;
 import java.util.Collection;
-import com.cmput301w13t09.cmput301project.ElasticSearchResponse;
-import com.cmput301w13t09.cmput301project.Hits;
+
+import com.cmput301w13t09.cmput301project.helpers.ElasticSearchResponse;
+import com.cmput301w13t09.cmput301project.helpers.Hits;
 
 /**
  * 

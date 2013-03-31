@@ -1,7 +1,8 @@
-package com.cmput301w13t09.cmput301project;
+package com.cmput301w13t09.cmput301project.helpers;
 //All Credits go to @author Katherine Jasniewski. Wherever you are, thank you :)
 //Now i can finally go to bed (>.<)
 
+import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.models.PhotoListModel;
 import com.cmput301w13t09.cmput301project.models.PhotoModel;
 

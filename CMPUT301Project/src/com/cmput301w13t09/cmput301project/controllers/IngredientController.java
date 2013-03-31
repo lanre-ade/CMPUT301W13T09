@@ -1,4 +1,4 @@
-package com.cmput301w13t09.cmput301project;
+package com.cmput301w13t09.cmput301project.controllers;
 
 import java.io.File;
 import java.io.FileInputStream;

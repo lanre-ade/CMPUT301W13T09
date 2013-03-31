@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import android.content.Context;
 
-import com.cmput301w13t09.cmput301project.RecipeController;
+import com.cmput301w13t09.cmput301project.controllers.RecipeController;
 import com.cmput301w13t09.cmput301project.models.IngredientListModel;
 import com.cmput301w13t09.cmput301project.models.InstructionListModel;
 import com.cmput301w13t09.cmput301project.models.PhotoListModel;

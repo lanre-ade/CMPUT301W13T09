@@ -1,4 +1,4 @@
-package com.cmput301w13t09.cmput301project;
+package com.cmput301w13t09.cmput301project.controllers;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,6 +16,8 @@ import org.json.JSONObject;
 
 import android.annotation.SuppressLint;
 
+import com.cmput301w13t09.cmput301project.helpers.ElasticSearchResponse;
+import com.cmput301w13t09.cmput301project.helpers.ElasticSearchSearchResponse;
 import com.cmput301w13t09.cmput301project.models.RecipeListModel;
 import com.cmput301w13t09.cmput301project.models.RecipeModel;
 import com.google.gson.Gson;

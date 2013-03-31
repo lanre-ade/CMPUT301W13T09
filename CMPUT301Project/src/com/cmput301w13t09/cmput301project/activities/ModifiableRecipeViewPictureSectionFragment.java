@@ -17,9 +17,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.cmput301w13t09.cmput301project.PhotoAdapter;
 import com.cmput301w13t09.cmput301project.R;
-import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
+import com.cmput301w13t09.cmput301project.helpers.PhotoAdapter;
+import com.cmput301w13t09.cmput301project.helpers.RecipeViewAssistant;
 
 public class ModifiableRecipeViewPictureSectionFragment extends Fragment {
 	private static final int PICK_IMAGE = 1;

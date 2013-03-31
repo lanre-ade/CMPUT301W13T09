@@ -1,4 +1,4 @@
-package com.cmput301w13t09.cmput301project;
+package com.cmput301w13t09.cmput301project.controllers;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,16 +17,18 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 
 /**
- * @author Kyle,Marcus,Landre Class: RecipeListModel RecipeList is a class that
+ * @author Kyle,Marcus,Landre Class: CacheController RecipeList is a class that
  *         stores a list of recipes. These recipes are from RecipeModel and are
  *         stored in ArrayList class. The constructor takes in a single recipe
  *         (RecipeModel)and appends it to a blank recipe list. RecipeLists
- *         methods are getLength, getRecipeListName, getRecipeListDesc
- *         getRecipeingredientList, and getRecipePhotoList.
+ *         methods are getLength, getRecipeListName, getRecipeListDesc7
+ *         getRecipeingredientList, and getRecipePhotoList. CacheController is
+ *         used to store recipes from webservice and is used when the
+ *         application is unable to connect to the internet.
  */
 
 @SuppressLint("DefaultLocale")
-public class RecipeController {
+public class CacheController {
 	private RecipeListModel recipe_list;
 	private Context ctx;
 
@@ -35,7 +37,7 @@ public class RecipeController {
 	 * @param tctx
 	 *            Context of the activity running the controller
 	 */
-	public RecipeController(Context tctx) {
+	public CacheController(Context tctx) {
 		recipe_list = new RecipeListModel();
 		ctx = tctx;
 		this.loadFromFile();
@@ -48,7 +50,7 @@ public class RecipeController {
 	 *            : The Recipe to be appended to the list
 	 * @return this so that chain adding can happen.
 	 */
-	public RecipeController addRecipe(RecipeModel recipe) {
+	public CacheController addRecipe(RecipeModel recipe) {
 		recipe_list.add(recipe);
 		return this;
 	}
@@ -117,6 +119,10 @@ public class RecipeController {
 	 * 
 	 * @return the List of recipes
 	 */
+	public void setRecipeListModel(RecipeListModel a) {
+		this.recipe_list = a;
+	}
+
 	public RecipeListModel getRecipeList() {
 		return this.recipe_list;
 	}
@@ -130,16 +136,20 @@ public class RecipeController {
 		this.recipe_list.remove(i);
 	}
 
+	/**
+	 * Used to load the recipelist from Cache.data or create a new Cache.data
+	 * file
+	 */
 	public void loadFromFile() {
 		try {
-			FileInputStream fileIn = ctx.openFileInput("Recipe.data");
+			FileInputStream fileIn = ctx.openFileInput("Cache.data");
 			ObjectInputStream objectInStream = new ObjectInputStream(fileIn);
 			recipe_list = (RecipeListModel) objectInStream.readObject();
 			objectInStream.close();
 			return;
 		} catch (FileNotFoundException FNE) {
 			try {
-				FileOutputStream temp = ctx.openFileOutput("Recipe.data",
+				FileOutputStream temp = ctx.openFileOutput("Cache.data",
 						Context.MODE_PRIVATE);
 				ObjectOutputStream objectOutStream = new ObjectOutputStream(
 						temp);
@@ -151,7 +161,7 @@ public class RecipeController {
 			}
 		} catch (NullPointerException NPE) {
 			try {
-				FileOutputStream temp = ctx.openFileOutput("Recipe.data",
+				FileOutputStream temp = ctx.openFileOutput("Cache.data",
 						Context.MODE_PRIVATE);
 				ObjectOutputStream objectOutStream = new ObjectOutputStream(
 						temp);
@@ -170,12 +180,12 @@ public class RecipeController {
 	}
 
 	/**
-	 * Saves RecipeListModel ingred_list to file Recipe.data
+	 * Saves RecipeListModel ingred_list to file Cache.data
 	 */
 	public void saveToFile() {
 		try {
-			new File("Recipe.data").delete();
-			FileOutputStream fileOut = ctx.openFileOutput("Recipe.data",
+			new File("Cache.data").delete();
+			FileOutputStream fileOut = ctx.openFileOutput("Cache.data",
 					Context.MODE_PRIVATE);
 			ObjectOutputStream objectOutStream = new ObjectOutputStream(fileOut);
 			objectOutStream.writeObject(recipe_list);
@@ -185,8 +195,13 @@ public class RecipeController {
 		}
 	}
 
-	public RecipeModel getRecipe(int position) {
-		return recipe_list.get(position);
+	/**
+	 * Gets the recipe at postion i in the list
+	 * @param i: Position of the recipe in the list
+	 * @return recipe at postion i
+	 */
+	public RecipeModel getRecipe(int i) {
+		return recipe_list.get(i);
 	}
 
 	/**
@@ -240,8 +255,7 @@ public class RecipeController {
 						.trim()
 						.toLowerCase()
 						.equals(ingredController.getIngredient(j)
-								.getIngredientName().trim().toLowerCase())
-						&& z == 1) {
+								.getIngredientName().trim().toLowerCase()) && z == 1) {
 					z = 0;
 					count++;
 				}
@@ -253,14 +267,6 @@ public class RecipeController {
 			return -1;
 		}
 	}
-
-	/**
-	 * Returns a RecipeList that is all the recipes that have all ingredients in
-	 * IngredientController
-	 * 
-	 * @param ingredController
-	 * @return
-	 */
 	public RecipeListModel getQueryRecipeList(
 			IngredientController ingredController) {
 		RecipeListModel temp = new RecipeListModel();

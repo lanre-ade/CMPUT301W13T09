@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.cmput301w13t09.cmput301project.R;
-import com.cmput301w13t09.cmput301project.RecipeViewAssistant;
+import com.cmput301w13t09.cmput301project.helpers.RecipeViewAssistant;
 
 /**
  * A fragment representing the display section of the create new recipe.

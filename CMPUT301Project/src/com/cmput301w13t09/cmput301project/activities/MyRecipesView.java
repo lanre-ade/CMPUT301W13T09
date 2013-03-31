@@ -14,7 +14,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.cmput301w13t09.cmput301project.R;
-import com.cmput301w13t09.cmput301project.RecipeController;
+import com.cmput301w13t09.cmput301project.controllers.RecipeController;
 import com.cmput301w13t09.cmput301project.models.RecipeModel;
 
 /**
