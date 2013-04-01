@@ -5,6 +5,9 @@ import java.io.IOException;
 import org.apache.http.client.ClientProtocolException;
 import org.json.JSONException;
 
+import android.test.ActivityInstrumentationTestCase2;
+
+import com.cmput301w13t09.cmput301project.activities.RecipeView;
 import com.cmput301w13t09.cmput301project.controllers.UploadController;
 import com.cmput301w13t09.cmput301project.models.IngredientListModel;
 import com.cmput301w13t09.cmput301project.models.InstructionListModel;
@@ -12,7 +15,12 @@ import com.cmput301w13t09.cmput301project.models.RecipeModel;
 
 import junit.framework.TestCase;
 
-public class UpdateAddRecipeToWebTest extends TestCase{
+public class UpdateAddRecipeToWebTest extends ActivityInstrumentationTestCase2<RecipeView>{
+
+	public UpdateAddRecipeToWebTest() {
+		super("com.cmput301w13t09.cmput301project.activities", RecipeView.class);
+		// TODO Auto-generated constructor stub
+	}
 
 	public void addRecipeToWebTest(){
 		

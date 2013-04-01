@@ -6,11 +6,22 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
+import android.test.ActivityInstrumentationTestCase2;
+
+import com.cmput301w13t09.cmput301project.activities.AddNewIngredientView;
 import com.cmput301w13t09.cmput301project.models.IngredientModel;
 
-public class IngredientModelTest extends TestCase{
+public class IngredientModelTest extends ActivityInstrumentationTestCase2<AddNewIngredientView>{
 
+
+	
 	public IngredientModelTest() {
+		super("com.cmput301w13t09.cmput301project.activities", AddNewIngredientView.class);
+		// TODO Auto-generated constructor stub
+	}
+
+	public void setUp(){
+		
 	}
 	
 	@Test

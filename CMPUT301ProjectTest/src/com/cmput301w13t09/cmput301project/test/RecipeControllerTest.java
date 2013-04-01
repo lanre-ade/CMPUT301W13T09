@@ -18,7 +18,7 @@ public class RecipeControllerTest extends
 	private TextView result;
 
 	public RecipeControllerTest() {
-		super("com.cmput301w13t09.cmput301project", CreateNewRecipeView.class);
+		super("com.cmput301w13t09.cmput301project.activities", CreateNewRecipeView.class);
 
 	}
 

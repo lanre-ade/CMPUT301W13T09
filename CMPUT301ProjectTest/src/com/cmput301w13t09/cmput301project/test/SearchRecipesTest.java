@@ -5,9 +5,16 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-public class SearchRecipesTest extends TestCase{
+import com.cmput301w13t09.cmput301project.activities.QueryRecipeView;
+
+import android.test.ActivityInstrumentationTestCase2;
+
+public class SearchRecipesTest extends ActivityInstrumentationTestCase2<QueryRecipeView>{
+
 
 	public SearchRecipesTest() {
+		super("com.cmput301w13t09.cmput301project.activities", QueryRecipeView.class);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Test

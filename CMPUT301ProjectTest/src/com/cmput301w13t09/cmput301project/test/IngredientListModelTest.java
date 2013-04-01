@@ -5,10 +5,21 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
+import android.test.ActivityInstrumentationTestCase2;
+
+import com.cmput301w13t09.cmput301project.activities.AddNewIngredientView;
 import com.cmput301w13t09.cmput301project.models.IngredientListModel;
 import com.cmput301w13t09.cmput301project.models.IngredientModel;
 
-public class IngredientListModelTest extends TestCase{
+public class IngredientListModelTest extends ActivityInstrumentationTestCase2<AddNewIngredientView>{
+
+
+
+public IngredientListModelTest() {
+		super("com.cmput301w13t09.cmput301project.activities", AddNewIngredientView.class);
+		// TODO Auto-generated constructor stub
+	}
+
 private IngredientListModel iList;
 
 public void setup() throws Exception{

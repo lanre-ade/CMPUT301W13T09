@@ -5,11 +5,21 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
+import android.test.ActivityInstrumentationTestCase2;
+
+import com.cmput301w13t09.cmput301project.activities.CreateNewRecipeView;
 import com.cmput301w13t09.cmput301project.models.IngredientModel;
 import com.cmput301w13t09.cmput301project.models.RecipeListModel;
 import com.cmput301w13t09.cmput301project.models.RecipeModel;
 
-public class RecipeListModelTest extends TestCase{
+public class RecipeListModelTest extends ActivityInstrumentationTestCase2<CreateNewRecipeView>{
+	
+	
+	public RecipeListModelTest() {
+		super("com.cmput301w13t09.cmput301project.activities", CreateNewRecipeView.class);
+		// TODO Auto-generated constructor stub
+	}
+
 	RecipeListModel rList;
 	
 	public void setUp() {

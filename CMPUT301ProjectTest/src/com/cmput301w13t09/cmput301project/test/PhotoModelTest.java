@@ -6,12 +6,17 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import android.graphics.Bitmap;
+import android.test.ActivityInstrumentationTestCase2;
 
+import com.cmput301w13t09.cmput301project.activities.CreateNewRecipeView;
 import com.cmput301w13t09.cmput301project.models.PhotoModel;
 
-public class PhotoModelTest extends TestCase{
+public class PhotoModelTest extends ActivityInstrumentationTestCase2<CreateNewRecipeView>{
+
 
 	public PhotoModelTest() {
+		super("com.cmput301w13t09.cmput301project.activities", CreateNewRecipeView.class);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Test

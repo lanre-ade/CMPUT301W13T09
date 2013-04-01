@@ -10,11 +10,11 @@ import com.cmput301w13t09.cmput301project.controllers.IngredientController;
 import com.cmput301w13t09.cmput301project.models.IngredientModel;
 
 public class IngredientControllerTest extends
-		ActivityInstrumentationTestCase2 {
+		ActivityInstrumentationTestCase2 <MyPantryView>{
 	private IngredientController iContr;
 
 	public IngredientControllerTest() {
-		super("com.cmput301w13t09.cmput301project.test", MyPantryView.class);
+		super("com.cmput301w13t09.cmput301project.activities", MyPantryView.class);
 
 	}
 

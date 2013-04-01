@@ -7,14 +7,24 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
+import android.test.ActivityInstrumentationTestCase2;
+
+import com.cmput301w13t09.cmput301project.activities.CreateNewRecipeView;
+import com.cmput301w13t09.cmput301project.activities.ModifiableRecipeViewInstructionSectionFragment;
 import com.cmput301w13t09.cmput301project.models.InstructionModel;
 
-public class InstructionModelTest extends TestCase{
+public class InstructionModelTest extends ActivityInstrumentationTestCase2<CreateNewRecipeView>{
 
 
 	public InstructionModelTest() {
+		super("com.cmput301w13t09.cmput301project.activities", CreateNewRecipeView.class);
+		// TODO Auto-generated constructor stub
 	}
 
+	public void setUp(){
+		
+	}
+	
 	@Test
 	public void testInstructionModel() {
 		Object a = null;

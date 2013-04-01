@@ -7,17 +7,27 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
+import android.test.ActivityInstrumentationTestCase2;
+
+import com.cmput301w13t09.cmput301project.activities.CreateNewRecipeView;
 import com.cmput301w13t09.cmput301project.models.IngredientListModel;
 import com.cmput301w13t09.cmput301project.models.InstructionListModel;
 import com.cmput301w13t09.cmput301project.models.PhotoListModel;
 import com.cmput301w13t09.cmput301project.models.RecipeModel;
 
-public class RecipeModelTest extends TestCase{
+public class RecipeModelTest extends ActivityInstrumentationTestCase2<CreateNewRecipeView>{
+	public RecipeModelTest() {
+		super("com.cmput301w13t09.cmput301project.activities", CreateNewRecipeView.class);
+		// TODO Auto-generated constructor stub
+	}
+
 	String recipe_name = null;
 	String recipe_desc = null;
 	IngredientListModel ingred_list = null;
 	RecipeModel recipe = null;
 	InstructionListModel instr_list = null;
+	
+	
 	public void setUp(){
 		recipe_name = null;
 		recipe_desc = null;
