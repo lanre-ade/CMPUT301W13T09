@@ -5,9 +5,12 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ IngredientControllerTest.class, IngredientModelTest.class,
-		InstructionModelTest.class, RecipeControllerTest.class,
-		RecipeListModelTest.class, RecipeModelTest.class })
+@SuiteClasses({ DataCheckerTest.class, IngredientControllerTest.class,
+		IngredientListModelTest.class, SearchRecipesTest.class,
+		IngredientModelTest.class, InstructionModelTest.class,
+		PhotoModelTest.class, RecipeControllerTest.class,
+		RecipeListModelTest.class, RecipeModelTest.class,
+		UpdateAddRecipeToWebTest.class })
 public class AllTests {
 
 }

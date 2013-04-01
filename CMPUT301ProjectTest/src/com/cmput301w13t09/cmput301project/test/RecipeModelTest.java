@@ -13,15 +13,22 @@ import com.cmput301w13t09.cmput301project.models.PhotoListModel;
 import com.cmput301w13t09.cmput301project.models.RecipeModel;
 
 public class RecipeModelTest extends TestCase{
-
+	String recipe_name = null;
+	String recipe_desc = null;
+	IngredientListModel ingred_list = null;
+	RecipeModel recipe = null;
+	InstructionListModel instr_list = null;
+	public void setUp(){
+		recipe_name = null;
+		recipe_desc = null;
+		ingred_list = null;
+		recipe = null;
+		instr_list = null;
+		
+	}
 	@Test
 	public void testRecipeModelStringStringIngredientListModel() {
-		String recipe_name = null;
-		String recipe_desc = null;
-		IngredientListModel ingred_list = null;
-		RecipeModel recipe = null;
-		InstructionListModel instr_list = null;
-		
+
 		recipe = new RecipeModel(recipe_name, recipe_desc, ingred_list, instr_list);
 		//If a recipe is constructed using null, null, null it should be null
 		assertTrue(recipe == null);
@@ -40,13 +47,10 @@ public class RecipeModelTest extends TestCase{
 
 	@Test
 	public void testRecipeModelStringStringIngredientListModelPhotoListModel() {
-		String recipe_name = null;
-		String recipe_desc = null;
-		IngredientListModel ingred_list = null;
+
 		RecipeModel recipe = null;
 		PhotoListModel photo_list = null;
-		InstructionListModel instr_list = null;
-		
+
 		recipe = new RecipeModel(recipe_name, recipe_desc, ingred_list, instr_list, photo_list);
 		//If a recipe is constructed using null, null, null, null it should be null
 		assertTrue(recipe == null);

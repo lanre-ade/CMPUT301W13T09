@@ -5,9 +5,9 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-public class IngredientListModelTestTest extends TestCase{
+public class SearchRecipesTest extends TestCase{
 
-	public IngredientListModelTestTest() {
+	public SearchRecipesTest() {
 	}
 
 	@Test
