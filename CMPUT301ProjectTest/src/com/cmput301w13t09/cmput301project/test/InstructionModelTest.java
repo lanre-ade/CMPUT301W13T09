@@ -3,12 +3,13 @@ package com.cmput301w13t09.cmput301project.test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import junit.framework.TestCase;
 
 import org.junit.Test;
 
 import com.cmput301w13t09.cmput301project.models.InstructionModel;
 
-public class InstructionModelTest {
+public class InstructionModelTest extends TestCase{
 
 	// private static final long serialVersionUID = 1L;
 	private String ingredient_desc;

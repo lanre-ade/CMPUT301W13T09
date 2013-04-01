@@ -2,12 +2,13 @@ package com.cmput301w13t09.cmput301project.test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import junit.framework.TestCase;
 
 import org.junit.Test;
 
 import com.cmput301w13t09.cmput301project.models.IngredientModel;
 
-public class IngredientModelTest {
+public class IngredientModelTest extends TestCase{
 
 	public IngredientModelTest() {
 	}

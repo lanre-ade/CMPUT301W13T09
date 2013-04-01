@@ -1,13 +1,14 @@
 package com.cmput301w13t09.cmput301project.test;
 
 import static org.junit.Assert.*;
+import junit.framework.TestCase;
 
 import org.junit.Test;
 
 import com.cmput301w13t09.cmput301project.models.IngredientListModel;
 import com.cmput301w13t09.cmput301project.models.IngredientModel;
 
-public class IngredientListModelTest {
+public class IngredientListModelTest extends TestCase{
 private IngredientListModel iList;
 
 public void setup() throws Exception{

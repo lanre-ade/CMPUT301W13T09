@@ -10,7 +10,7 @@ import com.cmput301w13t09.cmput301project.controllers.IngredientController;
 import com.cmput301w13t09.cmput301project.models.IngredientModel;
 
 public class IngredientControllerTest extends
-		ActivityInstrumentationTestCase2<MyPantryView> {
+		ActivityInstrumentationTestCase2 {
 	private IngredientController iContr;
 
 	public IngredientControllerTest() {
@@ -24,20 +24,14 @@ public class IngredientControllerTest extends
 		iContr = new IngredientController(getActivity());
 	}
 
-	@Test
-	public void testIngredientController() {
-		fail("Not yet implemented"); // TODO
-	}
-
+	
 	@Test
 	public void testAdd() {
-		int oldLength = iContr.getLength();
-		IngredientModel i = new IngredientModel("Flour", "Made from rice",
-				(float) 2.4, "cups");
+		assertTrue(iContr.getLength() == 0);
+		IngredientModel i = new IngredientModel("Flour", "Made from rice", (float) 2.4, "cups");
 		iContr.add(i);
-		int newLength = iContr.getLength();
-		assertTrue(newLength == oldLength + 1);
-
+		assertNotNull( iContr.getIngredient(0));
+		
 	}
 
 	@Test
@@ -45,47 +39,54 @@ public class IngredientControllerTest extends
 		fail("Not yet implemented"); // TODO
 	}
 
+	@Test
+	public void testGetLength() {
+		IngredientModel i = new IngredientModel("Flour1", "Made from rice", (float) 2.4, "cups");
+		iContr.add(i);
+		assertTrue(iContr.getLength() == 1);
+	}
 
 	@Test
 	public void testGetIngredientListDesc() {
-		fail("Not yet implemented"); // TODO
+		IngredientModel i = new IngredientModel("Flour1", "Made from rice", (float) 2.4, "cups");
+		iContr.add(i);
+		String desc = iContr.getIngredientListDesc(0);
+		assertEquals(desc, i.getIngredientDesc());
 	}
 
 	@Test
 	public void testGetIngredientListName() {
-		fail("Not yet implemented"); // TODO
+		IngredientModel i = new IngredientModel("Flour1", "Made from rice", (float) 2.4, "cups");
+		iContr.add(i);
+		String name = iContr.getIngredientListName(0);
+		assertEquals(name, i.getIngredientName());
 	}
 
 	@Test
 	public void testGetIngredient() {
-		fail("Not yet implemented"); // TODO
+		IngredientModel i = new IngredientModel("Flour1", "Made from rice", (float) 2.4, "cups");
+		iContr.add(i);
+		IngredientModel ingredient = iContr.getIngredient(0);
+		assertEquals(i, ingredient);
 	}
 
 	@Test
 	public void testEditIngredient() {
-		IngredientModel i = new IngredientModel("Flour1", "Made from rice",
-				(float) 2.4, "cups");
+		IngredientModel i = new IngredientModel("Flour1", "Made from rice", (float) 2.4, "cups");
 		iContr.add(i);
-		String a = iContr.getIngredientListDesc(iContr.getLength() - 1);
-		iContr.editIngredient(iContr.getLength() - 1, "Flour1",
-				"Made from corn", (float) 2.4, "cups");
-		String b = iContr.getIngredientListDesc(iContr.getLength() - 1);
-		assertTrue(a.compareTo(b) != 0);
+		String a = iContr.getIngredientListDesc(iContr.getLength()-1);
+		iContr.editIngredient(iContr.getLength()-1, "Flour1", "Made from corn", (float) 2.4, "cups");
+		String b = iContr.getIngredientListDesc(iContr.getLength()-1);
+		assertTrue( a.compareTo(b) != 0 );
 	}
 
 	@Test
 	public void testRemove() {
-		IngredientModel a = new IngredientModel("Potatoes",
-				"Healthy and cheap", 3, "units");
-		IngredientModel b = new IngredientModel("Bacon", "Its canadian eh", 1,
-				"unit");
-		iContr.add(a);
-		iContr.add(b);
-		int oldLength = iContr.getLength();
-		iContr.remove(iContr.getLength() - 1);
-		int newLength = iContr.getLength();
-		assertTrue(newLength == oldLength - 1);
-
+		IngredientModel i = new IngredientModel("Flour1", "Made from rice", (float) 2.4, "cups");
+		iContr.add(i);
+		assertTrue(iContr.getLength() == 1);
+		iContr.remove(0);
+		assertTrue(iContr.getLength() == 0);
 	}
 
 	@Test
