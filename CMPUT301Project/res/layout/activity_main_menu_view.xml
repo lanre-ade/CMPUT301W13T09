@@ -1,7 +1,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/background" >
+    android:layout_height="wrap_content" >
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -9,15 +8,16 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:context=".MainMenuView" >
+        tools:context=".MainMenuView"
+        android:background="@color/background" >
 
         <EditText
             android:id="@+id/searchEditText"
+            android:layout_marginTop="15dp"
             android:layout_width="fill_parent"
             android:layout_height="58dp"
-            android:ems="16"
             android:hint="@string/search_text"
-            android:inputType="textMultiLine"
+            android:inputType="textAutoCorrect|textAutoComplete"
             android:textColor="@color/textColour" >
         </EditText>
 

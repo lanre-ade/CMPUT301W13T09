@@ -5,23 +5,22 @@
     android:layout_height="match_parent"
     android:background="@color/background" >
 
-    <MultiAutoCompleteTextView
+	<EditText
         android:id="@+id/addNewRecipeInstructionDialogTwoEditText"
         android:layout_width="fill_parent"
         android:layout_height="75dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="5dp"
-        android:ems="10"
         android:gravity="top"
         android:inputType="textMultiLine|textCapSentences" >
-    </MultiAutoCompleteTextView>
+    </EditText>
 
     <LinearLayout
         android:id="@+id/buttonLayout"
         android:layout_width="fill_parent"
         android:layout_height="48dp"
-        android:layout_alignParentBottom="true" >
+        android:layout_below="@+id/addNewRecipeInstructionDialogTwoEditText" >
 
         <Button
             android:id="@+id/addNewRecipeInstructionDialogLeft"
