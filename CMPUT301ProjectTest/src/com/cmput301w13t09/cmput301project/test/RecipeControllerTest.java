@@ -13,7 +13,7 @@ import com.cmput301w13t09.cmput301project.models.InstructionListModel;
 import com.cmput301w13t09.cmput301project.models.RecipeModel;
 
 public class RecipeControllerTest extends
-		ActivityInstrumentationTestCase2<CreateNewRecipeView> {
+		ActivityInstrumentationTestCase2 {
 	RecipeController rContr;
 	private TextView result;
 
@@ -25,7 +25,7 @@ public class RecipeControllerTest extends
 	@Before
 	protected void setUp() throws Exception {
 		super.setUp();
-		CreateNewRecipeView createNewRV = getActivity();
+		//CreateNewRecipeView createNewRV = getActivity();
 		rContr = new RecipeController(getActivity());
 	}
 
