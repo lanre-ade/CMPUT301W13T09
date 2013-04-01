@@ -267,6 +267,11 @@ public class CacheController {
 			return -1;
 		}
 	}
+	/**
+	 * Returns a list of recipes that are included in Ingredient Controller
+	 * @param ingredController
+	 * @return
+	 */
 	public RecipeListModel getQueryRecipeList(
 			IngredientController ingredController) {
 		RecipeListModel temp = new RecipeListModel();
