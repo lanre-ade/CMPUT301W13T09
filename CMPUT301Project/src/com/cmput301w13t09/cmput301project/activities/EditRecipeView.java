@@ -1,7 +1,10 @@
 package com.cmput301w13t09.cmput301project.activities;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.FragmentTransaction;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -135,15 +138,45 @@ public class EditRecipeView extends FragmentActivity implements
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.addNewRecipeDoneButton:
-			rAssistant.loadFromFile();
-			rController.replaceRecipe(recipePosition, rAssistant.getRecipe());
-			rController.saveToFile();
-			finish();
+			onBackPressed();
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}
 
+	}
+	public void onBackPressed(){
+		AlertDialog.Builder backButtonBuilder = new Builder(this);
+		backButtonBuilder.setTitle("Save Recipe?");
+		backButtonBuilder.setMessage("Do you want to save the recipe?");
+		backButtonBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+			}
+		});
+		backButtonBuilder.setNeutralButton("No", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				backPress();
+			}
+		});
+		backButtonBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				rAssistant.loadFromFile();
+				rController.replaceRecipe(recipePosition, rAssistant.getRecipe());
+				rController.saveToFile();
+				backPress();
+			}
+		});
+		backButtonBuilder.create().show();
+	}
+	public void backPress(){
+		super.onBackPressed();
 	}
 
 	@Override
