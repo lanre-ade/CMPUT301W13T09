@@ -11,11 +11,6 @@ import com.cmput301w13t09.cmput301project.models.InstructionModel;
 
 public class InstructionModelTest extends TestCase{
 
-	// private static final long serialVersionUID = 1L;
-	private String ingredient_desc;
-	private String ingredient_name;
-	private float ingredient_quantity;
-	private String ingredient_quantity_unit;
 
 	public InstructionModelTest() {
 	}
@@ -50,6 +45,14 @@ public class InstructionModelTest extends TestCase{
 		String s = null;
 		InstructionModel Inst = new InstructionModel(s);
 		assertNotNull(Inst);
+	}
+	@Test
+	public void setInstructionModelTest(){
+		String newInst = "Add Seasoning";
+		InstructionModel inst = new InstructionModel("test");
+		inst.setInstruction(newInst);
+		assertTrue(inst.toString() == newInst);
+		
 	}
 	
 	@Test
