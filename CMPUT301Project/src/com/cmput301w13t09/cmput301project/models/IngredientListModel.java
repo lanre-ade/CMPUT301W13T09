@@ -16,5 +16,4 @@ public class IngredientListModel extends ArrayList<IngredientModel> implements S
 	 * 
 	 */
 	private static final long serialVersionUID = 1526671550325222246L;
-
 }

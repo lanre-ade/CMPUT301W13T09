@@ -1,26 +1,30 @@
 package com.cmput301w13t09.cmput301project.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import com.cmput301w13t09.cmput301project.IngredientListModel;
-import com.cmput301w13t09.cmput301project.InstructionListModel;
-import com.cmput301w13t09.cmput301project.InstructionModel;
-import com.cmput301w13t09.cmput301project.PhotoListModel;
-import com.cmput301w13t09.cmput301project.RecipeModel;
+import android.test.ActivityInstrumentationTestCase2;
 
-public class InstructionModelTest {
+import com.cmput301w13t09.cmput301project.activities.CreateNewRecipeView;
+import com.cmput301w13t09.cmput301project.activities.ModifiableRecipeViewInstructionSectionFragment;
+import com.cmput301w13t09.cmput301project.models.InstructionModel;
 
-	// private static final long serialVersionUID = 1L;
-	private String ingredient_desc;
-	private String ingredient_name;
-	private float ingredient_quantity;
-	private String ingredient_quantity_unit;
+public class InstructionModelTest extends ActivityInstrumentationTestCase2<CreateNewRecipeView>{
+
 
 	public InstructionModelTest() {
+		super("com.cmput301w13t09.cmput301project.activities", CreateNewRecipeView.class);
+		// TODO Auto-generated constructor stub
 	}
 
+	public void setUp(){
+		
+	}
+	
 	@Test
 	public void testInstructionModel() {
 		Object a = null;
@@ -51,6 +55,14 @@ public class InstructionModelTest {
 		String s = null;
 		InstructionModel Inst = new InstructionModel(s);
 		assertNotNull(Inst);
+	}
+	@Test
+	public void setInstructionModelTest(){
+		String newInst = "Add Seasoning";
+		InstructionModel inst = new InstructionModel("test");
+		inst.setInstruction(newInst);
+		assertTrue(inst.toString() == newInst);
+		
 	}
 	
 	@Test

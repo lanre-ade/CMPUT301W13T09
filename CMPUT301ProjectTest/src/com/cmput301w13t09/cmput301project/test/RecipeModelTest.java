@@ -3,25 +3,42 @@ package com.cmput301w13t09.cmput301project.test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-import junit.framework.Assert;
+import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import com.cmput301w13t09.cmput301project.IngredientListModel;
-import com.cmput301w13t09.cmput301project.InstructionListModel;
-import com.cmput301w13t09.cmput301project.PhotoListModel;
-import com.cmput301w13t09.cmput301project.RecipeModel;
+import android.test.ActivityInstrumentationTestCase2;
 
-public class RecipeModelTest {
+import com.cmput301w13t09.cmput301project.activities.CreateNewRecipeView;
+import com.cmput301w13t09.cmput301project.models.IngredientListModel;
+import com.cmput301w13t09.cmput301project.models.InstructionListModel;
+import com.cmput301w13t09.cmput301project.models.PhotoListModel;
+import com.cmput301w13t09.cmput301project.models.RecipeModel;
 
+public class RecipeModelTest extends ActivityInstrumentationTestCase2<CreateNewRecipeView>{
+	public RecipeModelTest() {
+		super("com.cmput301w13t09.cmput301project.activities", CreateNewRecipeView.class);
+		// TODO Auto-generated constructor stub
+	}
+
+	String recipe_name = null;
+	String recipe_desc = null;
+	IngredientListModel ingred_list = null;
+	RecipeModel recipe = null;
+	InstructionListModel instr_list = null;
+	
+	
+	public void setUp(){
+		recipe_name = null;
+		recipe_desc = null;
+		ingred_list = null;
+		recipe = null;
+		instr_list = null;
+		
+	}
 	@Test
 	public void testRecipeModelStringStringIngredientListModel() {
-		String recipe_name = null;
-		String recipe_desc = null;
-		IngredientListModel ingred_list = null;
-		RecipeModel recipe = null;
-		InstructionListModel instr_list = null;
-		
+
 		recipe = new RecipeModel(recipe_name, recipe_desc, ingred_list, instr_list);
 		//If a recipe is constructed using null, null, null it should be null
 		assertTrue(recipe == null);
@@ -40,13 +57,10 @@ public class RecipeModelTest {
 
 	@Test
 	public void testRecipeModelStringStringIngredientListModelPhotoListModel() {
-		String recipe_name = null;
-		String recipe_desc = null;
-		IngredientListModel ingred_list = null;
+
 		RecipeModel recipe = null;
 		PhotoListModel photo_list = null;
-		InstructionListModel instr_list = null;
-		
+
 		recipe = new RecipeModel(recipe_name, recipe_desc, ingred_list, instr_list, photo_list);
 		//If a recipe is constructed using null, null, null, null it should be null
 		assertTrue(recipe == null);

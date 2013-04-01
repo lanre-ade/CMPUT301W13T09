@@ -1,7 +1,10 @@
 package com.cmput301w13t09.cmput301project.activities;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -131,11 +134,7 @@ public class CreateNewRecipeView extends FragmentActivity implements
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.addNewRecipeDoneButton:
-			rBuilder.loadFromFile();
-			rController.addRecipe(rBuilder.getRecipe());
-			rController.saveToFile();
-			finish();
-			return true;
+			onBackPressed();
 		default:
 			return super.onOptionsItemSelected(item);
 		}
@@ -159,7 +158,39 @@ public class CreateNewRecipeView extends FragmentActivity implements
 	public void onTabReselected(ActionBar.Tab tab,
 			FragmentTransaction fragmentTransaction) {
 	}
-
+	public void onBackPressed(){
+		AlertDialog.Builder backButtonBuilder = new Builder(this);
+		backButtonBuilder.setTitle("Save Recipe?");
+		backButtonBuilder.setMessage("Do you want to save the recipe?");
+		backButtonBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+			}
+		});
+		backButtonBuilder.setNeutralButton("No", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				backPress();
+			}
+		});
+		backButtonBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				rBuilder.loadFromFile();
+				rController.addRecipe(rBuilder.getRecipe());
+				rController.saveToFile();
+				backPress();
+			}
+		});
+		backButtonBuilder.create().show();
+	}
+	public void backPress(){
+		super.onBackPressed();
+	}
 	/**
 	 * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
 	 * one of the sections/tabs/pages.

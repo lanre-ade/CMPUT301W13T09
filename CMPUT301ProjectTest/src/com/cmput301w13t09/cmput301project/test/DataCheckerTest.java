@@ -4,58 +4,68 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class PhotoAdapterTest {
+public class DataCheckerTest {
 
-	public PhotoAdapterTest() {
+	public DataCheckerTest() {
 	}
 
 	@Test
-	public void testPhotoAdapter() {
+	public void testObject() {
 		fail("Not yet implemented"); // TODO
 	}
 
 	@Test
-	public void testAddPhoto() {
+	public void testClone() {
 		fail("Not yet implemented"); // TODO
 	}
 
 	@Test
-	public void testGetCount() {
+	public void testEquals() {
 		fail("Not yet implemented"); // TODO
 	}
 
 	@Test
-	public void testGetItem() {
+	public void testFinalize() {
 		fail("Not yet implemented"); // TODO
 	}
 
 	@Test
-	public void testGetItemId() {
+	public void testGetClass() {
 		fail("Not yet implemented"); // TODO
 	}
 
 	@Test
-	public void testGetView() {
+	public void testHashCode() {
 		fail("Not yet implemented"); // TODO
 	}
 
 	@Test
-	public void testGetCompressedPhotos() {
+	public void testNotify() {
 		fail("Not yet implemented"); // TODO
 	}
 
 	@Test
-	public void testDecompressPhotos() {
+	public void testNotifyAll() {
 		fail("Not yet implemented"); // TODO
 	}
 
 	@Test
-	public void testGetPhotos() {
+	public void testToString() {
 		fail("Not yet implemented"); // TODO
 	}
 
 	@Test
-	public void testGetPhotoList() {
+	public void testWait() {
+		fail("Not yet implemented"); // TODO
+	}
+
+	@Test
+	public void testWaitLong() {
+		fail("Not yet implemented"); // TODO
+	}
+
+	@Test
+	public void testWaitLongInt() {
 		fail("Not yet implemented"); // TODO
 	}
 
