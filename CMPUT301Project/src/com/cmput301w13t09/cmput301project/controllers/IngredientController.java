@@ -23,7 +23,7 @@ import android.content.Context;
  *         saveToFile, and LoadFromFile.
  */
 public class IngredientController {
-	private IngredientListModel ingred_list;
+	private IngredientListModel ingred_List;
 	private Context ctx;
 
 	/**
@@ -31,7 +31,7 @@ public class IngredientController {
 	 * 
 	 */
 	public IngredientController(Context tcxt) {
-		ingred_list = new IngredientListModel();
+		ingred_List = new IngredientListModel();
 		this.ctx = tcxt;
 		this.loadFromFile();
 	}
@@ -43,7 +43,7 @@ public class IngredientController {
 	 * @return this so that chain adding can happen.
 	 */
 	public IngredientController add(IngredientModel newIngredient) {
-		ingred_list.add(newIngredient);
+		ingred_List.add(newIngredient);
 		return this;
 	}
 
@@ -52,7 +52,7 @@ public class IngredientController {
 	 * @return the ingredient list
 	 */
 	public IngredientListModel getIngredientList() {
-		return this.ingred_list;
+		return this.ingred_List;
 	}
 
 	/**
@@ -61,7 +61,7 @@ public class IngredientController {
 	 * @return length of the ingredient list
 	 */
 	public int getLength() {
-		return ingred_list.size();
+		return ingred_List.size();
 	}
 
 	/**
@@ -73,7 +73,7 @@ public class IngredientController {
 	 * @return Description of ingredient
 	 */
 	public String getIngredientListDesc(int i) {
-		return ingred_list.get(i).getIngredientDesc();
+		return ingred_List.get(i).getIngredientDesc();
 	}
 
 	/**
@@ -85,7 +85,7 @@ public class IngredientController {
 	 * @return Name of the ingredient
 	 */
 	public String getIngredientListName(int i) {
-		return ingred_list.get(i).getIngredientName();
+		return ingred_List.get(i).getIngredientName();
 	}
 
 	/**
@@ -95,7 +95,7 @@ public class IngredientController {
 	 * @return The ingredient desired
 	 */
 	public IngredientModel getIngredient(int i) {
-		return ingred_list.get(i);
+		return ingred_List.get(i);
 	}
 
 	/**
@@ -110,7 +110,7 @@ public class IngredientController {
 	 */
 	public void editIngredient(int i, String tname, String tDescription,
 			float tQuantity, String tUnit) {
-		ingred_list.set(i, new IngredientModel(tname, tDescription, tQuantity,
+		ingred_List.set(i, new IngredientModel(tname, tDescription, tQuantity,
 				tUnit));
 	}
 
@@ -121,7 +121,7 @@ public class IngredientController {
 	 *            : index of item to be removed
 	 */
 	public void remove(int i) {
-		this.ingred_list.remove(i);
+		this.ingred_List.remove(i);
 	}
 
 	/**
@@ -134,7 +134,7 @@ public class IngredientController {
 
 			FileInputStream fileIn = ctx.openFileInput("Pantry.data");
 			ObjectInputStream objectInStream = new ObjectInputStream(fileIn);
-			ingred_list = (IngredientListModel) objectInStream.readObject();
+			ingred_List = (IngredientListModel) objectInStream.readObject();
 			objectInStream.close();
 		} catch (FileNotFoundException FNE) {
 			try {
@@ -176,7 +176,7 @@ public class IngredientController {
 			FileOutputStream fileOut = ctx.openFileOutput("Pantry.data",
 					Context.MODE_PRIVATE);
 			ObjectOutputStream objectOutStream = new ObjectOutputStream(fileOut);
-			objectOutStream.writeObject(ingred_list);
+			objectOutStream.writeObject(ingred_List);
 			objectOutStream.close();
 		} catch (IOException e) {
 			e.printStackTrace();

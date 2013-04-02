@@ -34,8 +34,8 @@ import com.google.gson.reflect.TypeToken;
  * 
  */
 @SuppressLint("DefaultLocale")
-public class UploadController {
-	private RecipeListModel recipe_list;
+public class WebController {
+	private RecipeListModel recipe_List;
 	private Gson gson = new Gson();
 	private HttpClient httpclient = new DefaultHttpClient();
 
@@ -45,8 +45,8 @@ public class UploadController {
 	 * @throws ClientProtocolException
 	 * @throws IOException
 	 */
-	public UploadController() throws ClientProtocolException, IOException {
-		recipe_list = new RecipeListModel();
+	public WebController() throws ClientProtocolException, IOException {
+		recipe_List = new RecipeListModel();
 		this.loadFromWeb();
 	}
 
@@ -58,7 +58,7 @@ public class UploadController {
 	 * @return Name of recipe
 	 */
 	public String getRecipeListName(int i) {
-		return recipe_list.get(i).getRecipeName();
+		return recipe_List.get(i).getRecipeName();
 	}
 
 	/**
@@ -67,7 +67,7 @@ public class UploadController {
 	 * @return int length of recipelist
 	 */
 	public int getLength() {
-		return recipe_list.size();
+		return recipe_List.size();
 	}
 
 	/**
@@ -76,8 +76,8 @@ public class UploadController {
 	 * @param recipe
 	 * @return UploadController
 	 */
-	public UploadController addRecipe(RecipeModel recipe) {
-		recipe_list.add(recipe);
+	public WebController addRecipe(RecipeModel recipe) {
+		recipe_List.add(recipe);
 		return this;
 	}
 
@@ -90,8 +90,7 @@ public class UploadController {
 	 * @throws IOException
 	 * @throws JSONException
 	 */
-	public void updateRecipe(RecipeModel recipe, int i)
-			throws IllegalStateException, IOException, JSONException {
+	public void updateRecipe(RecipeModel recipe, int i) {
 		HttpPost httpPost = new HttpPost(
 				"http://cmput301.softwareprocess.es:8080/cmput301w13t09/recipelist/"
 						+ String.valueOf(i));
@@ -163,14 +162,19 @@ public class UploadController {
 	 * @param i
 	 * @throws JSONException
 	 */
-	public void setRecipeListLength(int i) throws JSONException {
+	public void setRecipeListLength(int i) {
 		HttpPost httpPost = new HttpPost(
 				"http://cmput301.softwareprocess.es:8080/cmput301w13t09/recipelistlength/value");
 		httpPost.setHeader("Content-type", "application/json");
 		StringEntity stringentity = null;
 		try {
-			stringentity = new StringEntity(new JSONObject().put("Number", i)
-					.toString());
+			try {
+				stringentity = new StringEntity(new JSONObject().put("Number",
+						i).toString());
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch blockS
 			e.printStackTrace();
@@ -197,12 +201,27 @@ public class UploadController {
 	 * @return
 	 * @throws IOException
 	 */
-	public int getRecipeListLength() throws IOException {
+	public int getRecipeListLength() {
 		HttpGet getRequest = new HttpGet(
 				"http://cmput301.softwareprocess.es:8080/cmput301w13t09/recipelistlength/value");
 		getRequest.addHeader("Content-type", "application/json");
-		HttpResponse response = httpclient.execute(getRequest);
-		String json = getEntityContent(response);
+		HttpResponse response = null;
+		try {
+			response = httpclient.execute(getRequest);
+		} catch (ClientProtocolException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		String json = null;
+		try {
+			json = getEntityContent(response);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return Integer.parseInt(json.split("Number")[1].replace("\"", "")
 				.replace(":", "").replace("}", ""));
 
@@ -214,15 +233,30 @@ public class UploadController {
 	 * @throws ClientProtocolException
 	 * @throws IOException
 	 */
-	public void loadFromWeb() throws ClientProtocolException, IOException {
+	public void loadFromWeb() {
 		if (getRecipeListLength() > 0) {
 			HttpGet searchRequest = new HttpGet(
 					"http://cmput301.softwareprocess.es:8080/cmput301w13t09/recipelist/_search");
 			searchRequest.setHeader("Content-type", "application/json");
-			HttpResponse response = httpclient.execute(searchRequest);
+			HttpResponse response = null;
+			try {
+				response = httpclient.execute(searchRequest);
+			} catch (ClientProtocolException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			String status = response.getStatusLine().toString();
 			System.out.println(status);
-			String json = getEntityContent(response);
+			String json = null;
+			try {
+				json = getEntityContent(response);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			java.lang.reflect.Type elasticSearchSearchResponseType = new TypeToken<ElasticSearchSearchResponse<RecipeModel>>() {
 			}.getType();
 			ElasticSearchSearchResponse<RecipeModel> esResponse = gson
@@ -264,7 +298,7 @@ public class UploadController {
 	 * @return the List of recipes
 	 */
 	public RecipeListModel getRecipeList() {
-		return this.recipe_list;
+		return this.recipe_List;
 	}
 
 	/**
@@ -278,16 +312,20 @@ public class UploadController {
 	@SuppressLint("DefaultLocale")
 	public int findRecipe(String fname) {
 		int position = -1;
-		for (int i = 0; i < this.recipe_list.size(); i++) {
-			if (fname
-					.trim()
-					.toLowerCase()
-					.equals(this.recipe_list.get(i).getRecipeName().trim()
-							.toLowerCase())) {
+		for (int i = 0; i < this.recipe_List.size(); i++) {
+			if (checkIfRecipeFound(fname, i)) {
 				position = i;
 			}
 		}
 		return position;
+	}
+
+	private boolean checkIfRecipeFound(String fname, int i) {
+		return fname
+				.trim()
+				.toLowerCase()
+				.equals(this.recipe_List.get(i).getRecipeName().trim()
+						.toLowerCase());
 	}
 
 	/**
@@ -307,30 +345,39 @@ public class UploadController {
 			return position;
 		}
 		int count = 0;
-		for (int i = 0; i < this.recipe_list.get(position).getIngredList()
+		for (int i = 0; i < this.recipe_List.get(position).getIngredList()
 				.size(); i++) {
 			int z = 1;
 			for (int j = 0; j < ingredController.getIngredientList().size(); j++) {
-				if (recipe_list
-						.get(position)
-						.getIngredList()
-						.get(i)
-						.getIngredientName()
-						.trim()
-						.toLowerCase()
-						.equals(ingredController.getIngredient(j)
-								.getIngredientName().trim().toLowerCase())
+				if (processRecipeListString(position, i)
+						.equals(processIngredientControllerString(ingredController, j))
 						&& z == 1) {
 					z = 0;
 					count++;
 				}
 			}
 		}
-		if (count == this.recipe_list.get(position).getIngredList().size()) {
+		if (count == this.recipe_List.get(position).getIngredList().size()) {
 			return position;
 		} else {
 			return -1;
 		}
+	}
+
+	private String processIngredientControllerString(
+			IngredientController ingredController, int j) {
+		return ingredController.getIngredient(j)
+				.getIngredientName().trim().toLowerCase();
+	}
+
+	private String processRecipeListString(int position, int i) {
+		return recipe_List
+				.get(position)
+				.getIngredList()
+				.get(i)
+				.getIngredientName()
+				.trim()
+				.toLowerCase();
 	}
 
 	/**
@@ -343,20 +390,23 @@ public class UploadController {
 	public RecipeListModel getQueryRecipeList(
 			IngredientController ingredController) {
 		RecipeListModel temp = new RecipeListModel();
-		for (int i = 0; i < this.recipe_list.size(); i++) {
+		for (int i = 0; i < this.recipe_List.size(); i++) {
 			if (this.checkRecipeHasIngredients(i, ingredController) != -1) {
-				temp.add(recipe_list.get(i));
+				temp.add(recipe_List.get(i));
 			}
 		}
 		return temp;
 	}
+
 	/**
 	 * Returns the recipe at position i in the load recipe list
-	 * @param i: position of the recipe in the list
+	 * 
+	 * @param i
+	 *            : position of the recipe in the list
 	 * @return recipe at position i
 	 */
 	public RecipeModel getRecipe(int i) {
-		return recipe_list.get(i);
+		return recipe_List.get(i);
 	}
 
 }

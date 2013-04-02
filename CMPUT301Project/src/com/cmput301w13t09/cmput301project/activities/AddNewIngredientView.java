@@ -58,7 +58,7 @@ public class AddNewIngredientView extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				if(!quantityText.getText().toString().isEmpty() && !nameText.getText().toString().isEmpty()){
+				if(checkIsBlank()){
 					IngredientModel ingred = new IngredientModel(nameText.getText()
 							.toString(), descriptionText.getText().toString(),
 							Float.parseFloat(quantityText.getText().toString()),
@@ -79,6 +79,10 @@ public class AddNewIngredientView extends Activity {
 					dialog.show();
 				}
 				
+			}
+
+			private boolean checkIsBlank() {
+				return !quantityText.getText().toString().isEmpty() && !nameText.getText().toString().isEmpty();
 			}
 		});
 		cancelButton.setOnClickListener(new View.OnClickListener() {

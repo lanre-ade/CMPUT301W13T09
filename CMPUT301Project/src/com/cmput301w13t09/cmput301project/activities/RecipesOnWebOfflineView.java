@@ -21,7 +21,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class RecipesOnWebViewOffline extends Activity {
+public class RecipesOnWebOfflineView extends Activity {
 	private ListView recipeListView;
 	private ListAdapter recipeListAdapter;
 	private int dialogNumber;
@@ -53,7 +53,7 @@ public class RecipesOnWebViewOffline extends Activity {
 					int position, long id) {
 				dialogNumber = position;
 				AlertDialog.Builder builder = new AlertDialog.Builder(
-						RecipesOnWebViewOffline.this);
+						RecipesOnWebOfflineView.this);
 				String title = cacheController.getRecipeListName(position);
 				String message = cacheController.getRecipeList().get(position)
 						.getRecipeDesc();
@@ -118,7 +118,7 @@ public class RecipesOnWebViewOffline extends Activity {
 					if (position != -1) {
 						dialogNumber = position;
 						AlertDialog.Builder builder = new AlertDialog.Builder(
-								RecipesOnWebViewOffline.this);
+								RecipesOnWebOfflineView.this);
 						String title = "Search Successful";
 						String message = "Recipe Found: "
 								+ cacheController.getRecipeListName(position)
@@ -178,7 +178,7 @@ public class RecipesOnWebViewOffline extends Activity {
 						dialog.show();
 					} else {
 						AlertDialog.Builder builder = new AlertDialog.Builder(
-								RecipesOnWebViewOffline.this);
+								RecipesOnWebOfflineView.this);
 						String title = "Search Unsuccessful";
 						String message = "Recipe does not exist";
 						builder.setMessage(message);
@@ -204,7 +204,7 @@ public class RecipesOnWebViewOffline extends Activity {
 					if (position != -1) {
 						dialogNumber = position;
 						AlertDialog.Builder builder = new AlertDialog.Builder(
-								RecipesOnWebViewOffline.this);
+								RecipesOnWebOfflineView.this);
 						String title = "Search Successful";
 						String message = "Recipe Found: "
 								+ cacheController.getRecipeListName(position)
@@ -264,7 +264,7 @@ public class RecipesOnWebViewOffline extends Activity {
 						dialog.show();
 					} else {
 						AlertDialog.Builder builder = new AlertDialog.Builder(
-								RecipesOnWebViewOffline.this);
+								RecipesOnWebOfflineView.this);
 						String title = "Search Unsuccessful";
 						String message = "Recipe does not exist or Ingredient from Recipe is not in MyPantry";
 						builder.setMessage(message);

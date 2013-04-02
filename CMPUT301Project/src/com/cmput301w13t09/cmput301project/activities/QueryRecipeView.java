@@ -24,17 +24,17 @@ import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.controllers.CacheController;
 import com.cmput301w13t09.cmput301project.controllers.IngredientController;
 import com.cmput301w13t09.cmput301project.controllers.RecipeController;
-import com.cmput301w13t09.cmput301project.controllers.UploadController;
+import com.cmput301w13t09.cmput301project.controllers.WebController;
 import com.cmput301w13t09.cmput301project.models.RecipeListModel;
 import com.cmput301w13t09.cmput301project.models.RecipeModel;
 
 public class QueryRecipeView extends Activity {
 	private ListAdapter recipeListAdapter;
 	private ListView recipeListView;
-	private UploadController webController;
+	private WebController webController;
 	private IngredientController ingredController;
 	private int dialogNumber;
-	private RecipeListModel queryrecipelist;
+	private RecipeListModel queryRecipeList;
 	private RecipeController recipeController;
 	private CacheController cacheController;
 
@@ -52,24 +52,24 @@ public class QueryRecipeView extends Activity {
 		}
 		if(isNetworkAvailable()){
 			try {
-				webController = new UploadController();
+				webController = new WebController();
 			} catch (ClientProtocolException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			queryrecipelist = webController.getQueryRecipeList(ingredController);
+			queryRecipeList = webController.getQueryRecipeList(ingredController);
 		}
 		else{
 			cacheController = new CacheController(this);
-			queryrecipelist = cacheController.getQueryRecipeList(ingredController);
+			queryRecipeList = cacheController.getQueryRecipeList(ingredController);
 		}
 		
 		
 		recipeListView = (ListView) findViewById(R.id.queryRecipelistView);
 		recipeListAdapter = new ArrayAdapter<RecipeModel>(this,
 				android.R.layout.simple_list_item_1,
-				queryrecipelist);
+				queryRecipeList);
 
 		recipeListView.setAdapter(recipeListAdapter);
 		recipeListView.setOnItemClickListener(new OnItemClickListener() {
@@ -78,8 +78,8 @@ public class QueryRecipeView extends Activity {
 				dialogNumber = position;
 				AlertDialog.Builder builder = new AlertDialog.Builder(
 						QueryRecipeView.this);
-				String title = queryrecipelist.get(position).getRecipeName();
-				String message = queryrecipelist.get(position).getRecipeDesc();
+				String title = queryRecipeList.get(position).getRecipeName();
+				String message = queryRecipeList.get(position).getRecipeDesc();
 				builder.setMessage(message);
 				builder.setTitle(title);
 
@@ -103,7 +103,7 @@ public class QueryRecipeView extends Activity {
 							Intent viewRecipe = new Intent(
 									"activities.RecipeOnlineView");
 							viewRecipe.putExtra(
-									"Recipe", queryrecipelist.get(dialogNumber));
+									"Recipe", queryRecipeList.get(dialogNumber));
 							startActivity(viewRecipe);
 						} catch (Throwable throwable) {
 							throwable.printStackTrace();
@@ -119,7 +119,7 @@ public class QueryRecipeView extends Activity {
 							@Override
 							public void onClick(DialogInterface dialog,
 									int which) {
-								recipeController.addRecipe(queryrecipelist.get(dialogNumber));
+								recipeController.addRecipe(queryRecipeList.get(dialogNumber));
 								recipeController.saveToFile();
 								dialog.dismiss();
 

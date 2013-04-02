@@ -125,7 +125,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.cmput301w13t09.cmput301project.activities.RecipesOnWebViewOffline"
+            android:name="com.cmput301w13t09.cmput301project.activities.RecipesOnWebOfflineView"
             android:exported="false"
             android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_recipes_on_web_view_offline" >

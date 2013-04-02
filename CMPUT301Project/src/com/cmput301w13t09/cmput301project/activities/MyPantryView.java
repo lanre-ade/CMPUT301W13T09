@@ -127,7 +127,8 @@ public class MyPantryView extends Activity {
 										ingredientController.saveToFile();
 										dialog2.dismiss();
 										updateList();
-										if(!dialognameText.getText().toString().isEmpty() && !dialogquantityText.getText().toString().isEmpty()){
+										if(checkIsBlank(dialognameText,
+												dialogquantityText)){
 										ingredientController.editIngredient(dialogNumber,dialognameText.getText()
 												.toString(), dialogdescriptionText.getText().toString(),
 												Float.parseFloat(dialogquantityText.getText().toString()),
@@ -136,6 +137,12 @@ public class MyPantryView extends Activity {
 										dialog2.dismiss();
 										updateList();
 										}
+									}
+
+									private boolean checkIsBlank(
+											final EditText dialognameText,
+											final EditText dialogquantityText) {
+										return !dialognameText.getText().toString().isEmpty() && !dialogquantityText.getText().toString().isEmpty();
 									}
 								});
 								

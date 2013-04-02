@@ -37,7 +37,7 @@
     <string name="title_activity_edit_recipe_view">Edit Recipe</string>
     <string name="mySharing">My Sharing</string>
     <string name="publishRecipe">Publish Recipe</string>
-    <string name="title_activity_my_sharing_view">MySharing</string>
+    <string name="title_activity_my_sharing_view">My Sharing</string>
     <string name="title_activity_publish_recipe_view">Publish Recipe</string>
     <string name="viewRecipesOnWeb">View Recipes On Web</string>
     <string name="hello_world">Hello world!</string>
