@@ -19,14 +19,14 @@ import android.widget.ListView;
 
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.controllers.RecipeController;
-import com.cmput301w13t09.cmput301project.controllers.UploadController;
+import com.cmput301w13t09.cmput301project.controllers.WebController;
 import com.cmput301w13t09.cmput301project.models.RecipeModel;
 
 
 
 public class PublishRecipeView extends Activity {
 	private RecipeController recipeController;
-	private UploadController webController;
+	private WebController webController;
 	private ListView recipeListView;
 	private ListAdapter recipeListAdapter;
 	private int dialogNumber;
@@ -97,7 +97,7 @@ public class PublishRecipeView extends Activity {
 							public void onClick(DialogInterface dialog,
 									int which) {
 								try {
-									webController = new UploadController();
+									webController = new WebController();
 									webController.insertRecipe(recipeController.getRecipeList().get(dialogNumber));
 								} catch (IllegalStateException e) {
 									e.printStackTrace();

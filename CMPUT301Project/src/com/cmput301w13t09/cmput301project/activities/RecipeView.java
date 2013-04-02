@@ -26,7 +26,7 @@ import android.widget.Toast;
 
 import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.controllers.RecipeController;
-import com.cmput301w13t09.cmput301project.controllers.UploadController;
+import com.cmput301w13t09.cmput301project.controllers.WebController;
 import com.cmput301w13t09.cmput301project.helpers.EmailBuilder;
 import com.cmput301w13t09.cmput301project.helpers.RecipeViewAssistant;
 
@@ -54,7 +54,7 @@ public class RecipeView extends FragmentActivity implements
 	private RecipeViewAssistant rAssitant;
 	private boolean fileWipe = false;
 	private String fileWipeName;
-	private UploadController webController;
+	private WebController webController;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -161,7 +161,7 @@ public class RecipeView extends FragmentActivity implements
 			}
 			if (this.isNetworkAvailable()) {
 				try {
-					webController = new UploadController();
+					webController = new WebController();
 					webController.insertRecipe(rAssitant.getRecipe());
 				} catch (ClientProtocolException e) {
 					e.printStackTrace();

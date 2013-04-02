@@ -247,15 +247,8 @@ public class CacheController {
 				.size(); i++) {
 			int z = 1;
 			for (int j = 0; j < ingredController.getIngredientList().size(); j++) {
-				if (recipe_list
-						.get(position)
-						.getIngredList()
-						.get(i)
-						.getIngredientName()
-						.trim()
-						.toLowerCase()
-						.equals(ingredController.getIngredient(j)
-								.getIngredientName().trim().toLowerCase()) && z == 1) {
+				if (processRecipeListString(position, i)
+						.equals(processIngredientString(ingredController, j)) && z == 1) {
 					z = 0;
 					count++;
 				}
@@ -266,6 +259,22 @@ public class CacheController {
 		} else {
 			return -1;
 		}
+	}
+
+	private String processIngredientString(
+			IngredientController ingredController, int j) {
+		return ingredController.getIngredient(j)
+				.getIngredientName().trim().toLowerCase();
+	}
+
+	private String processRecipeListString(int position, int i) {
+		return recipe_list
+				.get(position)
+				.getIngredList()
+				.get(i)
+				.getIngredientName()
+				.trim()
+				.toLowerCase();
 	}
 	/**
 	 * Returns a list of recipes that are included in Ingredient Controller

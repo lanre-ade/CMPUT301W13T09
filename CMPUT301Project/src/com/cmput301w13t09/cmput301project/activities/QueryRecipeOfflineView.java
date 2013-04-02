@@ -23,7 +23,7 @@ public class QueryRecipeOfflineView extends Activity {
 	private ListView recipeListView;
 	private IngredientController ingredController;
 	private int dialogNumber;
-	private RecipeListModel queryrecipelist;
+	private RecipeListModel QuertRecipeList;
 	private RecipeController recipeController;
 
 	@Override
@@ -32,10 +32,10 @@ public class QueryRecipeOfflineView extends Activity {
 		setContentView(R.layout.activity_query_recipe_offline_view);
 		recipeController = new RecipeController(this);
 		ingredController = new IngredientController(this);
-		queryrecipelist = recipeController.getQueryRecipeList(ingredController);
+		QuertRecipeList = recipeController.getQueryRecipeList(ingredController);
 		recipeListView = (ListView) findViewById(R.id.queryRecipeOfflinelistView);
 		recipeListAdapter = new ArrayAdapter<RecipeModel>(this,
-				android.R.layout.simple_list_item_1, queryrecipelist);
+				android.R.layout.simple_list_item_1, QuertRecipeList);
 
 		recipeListView.setAdapter(recipeListAdapter);
 		recipeListView.setOnItemClickListener(new OnItemClickListener() {
@@ -44,8 +44,8 @@ public class QueryRecipeOfflineView extends Activity {
 				dialogNumber = position;
 				AlertDialog.Builder builder = new AlertDialog.Builder(
 						QueryRecipeOfflineView.this);
-				String title = queryrecipelist.get(position).getRecipeName();
-				String message = queryrecipelist.get(position).getRecipeDesc();
+				String title = QuertRecipeList.get(position).getRecipeName();
+				String message = QuertRecipeList.get(position).getRecipeDesc();
 				builder.setMessage(message);
 				builder.setTitle(title);
 
@@ -69,7 +69,7 @@ public class QueryRecipeOfflineView extends Activity {
 									Intent viewRecipe = new Intent(
 											"activities.RecipeOnlineView");
 									viewRecipe.putExtra("Recipe",
-											queryrecipelist.get(dialogNumber));
+											QuertRecipeList.get(dialogNumber));
 									startActivity(viewRecipe);
 								} catch (Throwable throwable) {
 									throwable.printStackTrace();
@@ -85,7 +85,7 @@ public class QueryRecipeOfflineView extends Activity {
 							public void onClick(DialogInterface dialog,
 									int which) {
 								recipeController.remove(recipeController
-										.findRecipe(queryrecipelist.get(
+										.findRecipe(QuertRecipeList.get(
 												dialogNumber).getRecipeName()));
 								recipeController.saveToFile();
 								dialog.dismiss();
@@ -101,9 +101,9 @@ public class QueryRecipeOfflineView extends Activity {
 
 	protected void updateList() {
 		recipeController.loadFromFile();
-		queryrecipelist = recipeController.getQueryRecipeList(ingredController);
+		QuertRecipeList = recipeController.getQueryRecipeList(ingredController);
 		recipeListAdapter = new ArrayAdapter<RecipeModel>(this,
-				android.R.layout.simple_list_item_1, queryrecipelist);
+				android.R.layout.simple_list_item_1, QuertRecipeList);
 		recipeListView.setAdapter(recipeListAdapter);
 	}
 

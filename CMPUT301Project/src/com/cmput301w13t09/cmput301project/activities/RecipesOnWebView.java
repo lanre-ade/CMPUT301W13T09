@@ -24,13 +24,13 @@ import com.cmput301w13t09.cmput301project.R;
 import com.cmput301w13t09.cmput301project.controllers.CacheController;
 import com.cmput301w13t09.cmput301project.controllers.IngredientController;
 import com.cmput301w13t09.cmput301project.controllers.RecipeController;
-import com.cmput301w13t09.cmput301project.controllers.UploadController;
+import com.cmput301w13t09.cmput301project.controllers.WebController;
 import com.cmput301w13t09.cmput301project.models.RecipeModel;
 
 public class RecipesOnWebView extends Activity {
 	private ListView recipeListView;
 	private ListAdapter recipeListAdapter;
-	private UploadController webController;
+	private WebController webController;
 	private int dialogNumber;
 	private RecipeController recipeController;
 	private EditText searchText;
@@ -55,7 +55,7 @@ public class RecipesOnWebView extends Activity {
 		try {
 			recipeController = new RecipeController(this);
 			ingredController = new IngredientController(this);
-			webController = new UploadController();
+			webController = new WebController();
 			cacheController = new CacheController(this);
 			cacheController.setRecipeListModel(webController.getRecipeList());
 			cacheController.saveToFile();

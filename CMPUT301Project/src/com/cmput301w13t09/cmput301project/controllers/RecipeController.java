@@ -232,15 +232,8 @@ public class RecipeController {
 				.size(); i++) {
 			int z = 1;
 			for (int j = 0; j < ingredController.getIngredientList().size(); j++) {
-				if (recipe_list
-						.get(position)
-						.getIngredList()
-						.get(i)
-						.getIngredientName()
-						.trim()
-						.toLowerCase()
-						.equals(ingredController.getIngredient(j)
-								.getIngredientName().trim().toLowerCase())
+				if (processRecipeListString(position, i).equals(
+						processIngredientString(ingredController, j))
 						&& z == 1) {
 					z = 0;
 					count++;
@@ -252,6 +245,17 @@ public class RecipeController {
 		} else {
 			return -1;
 		}
+	}
+
+	private String processIngredientString(
+			IngredientController ingredController, int j) {
+		return ingredController.getIngredient(j).getIngredientName().trim()
+				.toLowerCase();
+	}
+
+	private String processRecipeListString(int position, int i) {
+		return recipe_list.get(position).getIngredList().get(i)
+				.getIngredientName().trim().toLowerCase();
 	}
 
 	/**
