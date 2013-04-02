@@ -1,11 +1,5 @@
 package com.cmput301w13t09.cmput301project.test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import android.test.ActivityInstrumentationTestCase2;
 
 import com.cmput301w13t09.cmput301project.activities.AddNewIngredientView;
@@ -24,25 +18,25 @@ public class IngredientModelTest extends ActivityInstrumentationTestCase2<AddNew
 		
 	}
 	
-	@Test
+	
 	public void testgetIngredientDesc(){
 		IngredientModel i = new IngredientModel("Flour", "powder", 10, "g");
 		assertTrue(i.getIngredientDesc().equals("powder"));
 	}
 		
-	@Test
+	
 	public void testgetIngredientName(){
 		IngredientModel i = new IngredientModel("Rice", "powder", 10, "g");
-		assertTrue(i.getIngredientName().equals("Flour"));
+		assertTrue(i.getIngredientName().equals("Rice"));
 	}
 	
-	@Test
+	
 	public void testgetIngredientQuantity(){
 		IngredientModel i = new IngredientModel("Bread", "French Bread", 10, "g");
 		assertTrue(i.getIngredientquantity() == 10);
 	}
 	
-	@Test
+	
 	public void testEquals() {
 		IngredientModel i1 = new IngredientModel ("Tomatoes", "half ripe");
 		IngredientModel i2 = new IngredientModel ("Pepper", "ground pepper");

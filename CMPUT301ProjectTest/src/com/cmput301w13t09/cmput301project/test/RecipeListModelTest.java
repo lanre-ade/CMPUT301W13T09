@@ -1,14 +1,8 @@
 package com.cmput301w13t09.cmput301project.test;
 
-import static org.junit.Assert.*;
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import android.test.ActivityInstrumentationTestCase2;
 
 import com.cmput301w13t09.cmput301project.activities.CreateNewRecipeView;
-import com.cmput301w13t09.cmput301project.models.IngredientModel;
 import com.cmput301w13t09.cmput301project.models.RecipeListModel;
 import com.cmput301w13t09.cmput301project.models.RecipeModel;
 
@@ -27,8 +21,8 @@ public class RecipeListModelTest extends ActivityInstrumentationTestCase2<Create
 		
 	}
 
-	@Test
-	public void AddRecipeTest() {
+	
+	public void testAddRecipe() {
 		RecipeModel r = new RecipeModel("Cake", "Sweet dessert", null, null);
 		assertEquals(0, rList.size());
 		boolean res = rList.add(r);
@@ -37,8 +31,8 @@ public class RecipeListModelTest extends ActivityInstrumentationTestCase2<Create
 		assertEquals(r, rList.get(0));
 	}
 	
-	@Test
-	public void DeleteRecipeTest(){
+	
+	public void testDeleteRecipe(){
 		RecipeModel r = new RecipeModel("Cake", "Sweet dessert", null, null);
 		assertEquals(0, rList.size());
 		boolean res = rList.add(r);

@@ -1,12 +1,10 @@
 package com.cmput301w13t09.cmput301project.test;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import android.test.ActivityInstrumentationTestCase2;
 
 import com.cmput301w13t09.cmput301project.activities.MyPantryView;
 import com.cmput301w13t09.cmput301project.controllers.IngredientController;
+import com.cmput301w13t09.cmput301project.models.IngredientListModel;
 import com.cmput301w13t09.cmput301project.models.IngredientModel;
 
 public class IngredientControllerTest extends
@@ -18,14 +16,14 @@ public class IngredientControllerTest extends
 
 	}
 
-	@Before
+
 	protected void setUp() throws Exception {
 		super.setUp();
 		iContr = new IngredientController(getActivity());
 	}
 
 	
-	@Test
+
 	public void testAdd() {
 		assertTrue(iContr.getLength() == 0);
 		IngredientModel i = new IngredientModel("Flour", "Made from rice", (float) 2.4, "cups");
@@ -34,19 +32,25 @@ public class IngredientControllerTest extends
 		
 	}
 
-	@Test
+
 	public void testGetIngredientList() {
-		fail("Not yet implemented"); // TODO
+		IngredientListModel list = iContr.getIngredientList();
+		assertTrue(list.size() == 0);
+		IngredientModel i = new IngredientModel("Flour1", "Made from rice", (float) 2.4, "cups");
+		iContr.add(i);
+		list = iContr.getIngredientList();
+		assertTrue(list.size() == 1);
+		
 	}
 
-	@Test
+
 	public void testGetLength() {
 		IngredientModel i = new IngredientModel("Flour1", "Made from rice", (float) 2.4, "cups");
 		iContr.add(i);
 		assertTrue(iContr.getLength() == 1);
 	}
 
-	@Test
+
 	public void testGetIngredientListDesc() {
 		IngredientModel i = new IngredientModel("Flour1", "Made from rice", (float) 2.4, "cups");
 		iContr.add(i);
@@ -54,7 +58,7 @@ public class IngredientControllerTest extends
 		assertEquals(desc, i.getIngredientDesc());
 	}
 
-	@Test
+
 	public void testGetIngredientListName() {
 		IngredientModel i = new IngredientModel("Flour1", "Made from rice", (float) 2.4, "cups");
 		iContr.add(i);
@@ -62,7 +66,7 @@ public class IngredientControllerTest extends
 		assertEquals(name, i.getIngredientName());
 	}
 
-	@Test
+
 	public void testGetIngredient() {
 		IngredientModel i = new IngredientModel("Flour1", "Made from rice", (float) 2.4, "cups");
 		iContr.add(i);
@@ -70,7 +74,7 @@ public class IngredientControllerTest extends
 		assertEquals(i, ingredient);
 	}
 
-	@Test
+
 	public void testEditIngredient() {
 		IngredientModel i = new IngredientModel("Flour1", "Made from rice", (float) 2.4, "cups");
 		iContr.add(i);
@@ -80,7 +84,7 @@ public class IngredientControllerTest extends
 		assertTrue( a.compareTo(b) != 0 );
 	}
 
-	@Test
+
 	public void testRemove() {
 		IngredientModel i = new IngredientModel("Flour1", "Made from rice", (float) 2.4, "cups");
 		iContr.add(i);
@@ -89,12 +93,12 @@ public class IngredientControllerTest extends
 		assertTrue(iContr.getLength() == 0);
 	}
 
-	@Test
+
 	public void testLoadFromFile() {
 		fail("Not yet implemented"); // TODO
 	}
 
-	@Test
+
 	public void testSaveToFile() {
 		fail("Not yet implemented"); // TODO
 	}

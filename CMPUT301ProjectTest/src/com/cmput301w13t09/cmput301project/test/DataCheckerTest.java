@@ -1,71 +1,18 @@
 package com.cmput301w13t09.cmput301project.test;
 
-import static org.junit.Assert.*;
+import android.test.ActivityInstrumentationTestCase2;
 
-import org.junit.Test;
+import com.cmput301w13t09.cmput301project.activities.MainMenuView;
 
-public class DataCheckerTest {
+public class DataCheckerTest extends ActivityInstrumentationTestCase2<MainMenuView>{
+
 
 	public DataCheckerTest() {
+		super("com.cmput301w13t09.cmput301project.activities", MainMenuView.class);
+		// TODO Auto-generated constructor stub
 	}
 
-	@Test
-	public void testObject() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public void testClone() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public void testEquals() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public void testFinalize() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public void testGetClass() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public void testHashCode() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public void testNotify() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public void testNotifyAll() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public void testToString() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public void testWait() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public void testWaitLong() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public void testWaitLongInt() {
+	public void test() {
 		fail("Not yet implemented"); // TODO
 	}
 

@@ -1,14 +1,12 @@
 package com.cmput301w13t09.cmput301project.test;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.TextView;
 
 import com.cmput301w13t09.cmput301project.activities.CreateNewRecipeView;
 import com.cmput301w13t09.cmput301project.controllers.RecipeController;
 import com.cmput301w13t09.cmput301project.models.IngredientListModel;
+import com.cmput301w13t09.cmput301project.models.IngredientModel;
 import com.cmput301w13t09.cmput301project.models.InstructionListModel;
 import com.cmput301w13t09.cmput301project.models.RecipeModel;
 
@@ -22,19 +20,12 @@ public class RecipeControllerTest extends
 
 	}
 
-	@Before
 	protected void setUp() throws Exception {
 		super.setUp();
 		//CreateNewRecipeView createNewRV = getActivity();
 		rContr = new RecipeController(getActivity());
 	}
-
-	@Test
-	public void testRecipeController() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
+	
 	public void testAddRecipe() {
 
 		// no photos or ingredients
@@ -47,51 +38,16 @@ public class RecipeControllerTest extends
 		RecipeModel recipe1b = new RecipeModel("Italian Food",
 				"Use fancy sounding ingredients", null, null);
 
-		// cannot add a recipe without recipe name
-		int oldLength = rContr.getLength();
-		rContr.addRecipe(recipe2);
-		int newLength = rContr.getLength();
-		assertTrue(newLength == oldLength);
-
+		
 		// RecipeList should contain the recipe
-		oldLength = rContr.getLength();
+		int oldLength = rContr.getLength();
 		rContr.addRecipe(recipe1);
-		newLength = rContr.getLength();
+		int newLength = rContr.getLength();
 		assertTrue(newLength == oldLength + 1);
 
-		// Two recipes cannot have the same name
-		int l = rContr.getLength();
-		rContr.addRecipe(recipe1b);
-		assertTrue(rContr.getLength() == l);
-
 	}
 
-	@Test
-	public void testGetRecipeListName() {
-		fail("Not yet implemented"); // TODO
-	}
 
-	@Test
-	public void testGetRecipeListDesc() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public void testGetRecipeingredientList() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public void testGetRecipePhotoList() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public void testGetRecipeList() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
 	public void testRemove() {
 		RecipeModel a = new RecipeModel("Italian Food",
 				"Use fancy sounding ingredients", null, null);
@@ -106,14 +62,5 @@ public class RecipeControllerTest extends
 
 	}
 
-	@Test
-	public void testLoadFromFile() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	@Test
-	public void testSaveToFile() {
-		fail("Not yet implemented"); // TODO
-	}
-
+	
 }

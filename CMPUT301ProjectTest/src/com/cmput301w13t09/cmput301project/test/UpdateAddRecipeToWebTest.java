@@ -13,19 +13,18 @@ import com.cmput301w13t09.cmput301project.models.IngredientListModel;
 import com.cmput301w13t09.cmput301project.models.InstructionListModel;
 import com.cmput301w13t09.cmput301project.models.RecipeModel;
 
-import junit.framework.TestCase;
-
-public class UpdateAddRecipeToWebTest extends ActivityInstrumentationTestCase2<RecipeView>{
+public class UpdateAddRecipeToWebTest extends
+		ActivityInstrumentationTestCase2<RecipeView> {
 
 	public UpdateAddRecipeToWebTest() {
 		super("com.cmput301w13t09.cmput301project.activities", RecipeView.class);
 		// TODO Auto-generated constructor stub
 	}
 
-	public void addRecipeToWebTest(){
-		
-		RecipeModel r = new RecipeModel("testRecipe", "test", new IngredientListModel (),
-				new InstructionListModel());
+	public void testAddRecipeToWeb() {
+
+		RecipeModel r = new RecipeModel("testRecipe", "test",
+				new IngredientListModel(), new InstructionListModel());
 		UploadController u = null;
 		boolean b = true;
 		try {
@@ -33,8 +32,7 @@ public class UpdateAddRecipeToWebTest extends ActivityInstrumentationTestCase2<R
 			u = new UploadController();
 			assertTrue(u.getLength() == 0);
 			u.insertRecipe(r);
-			
-			
+
 		} catch (ClientProtocolException e) {
 			b = false;
 			e.printStackTrace();
@@ -51,11 +49,11 @@ public class UpdateAddRecipeToWebTest extends ActivityInstrumentationTestCase2<R
 		assertTrue("exceptions encountered", b == true);
 		assertTrue(u.getLength() == 1);
 	}
-	
-public void updateRecipeOnWebTest(){
-		
-		RecipeModel r = new RecipeModel("testRecipe", "test", new IngredientListModel (),
-				new InstructionListModel());
+
+	public void testUpdateRecipeOnWeb() {
+
+		RecipeModel r = new RecipeModel("testRecipe", "test",
+				new IngredientListModel(), new InstructionListModel());
 		UploadController u = null;
 		boolean b = true;
 		try {
@@ -63,8 +61,7 @@ public void updateRecipeOnWebTest(){
 			u = new UploadController();
 			assertTrue(u.getLength() == 0);
 			u.insertRecipe(r);
-			
-			
+
 		} catch (ClientProtocolException e) {
 			b = false;
 			e.printStackTrace();
@@ -80,15 +77,13 @@ public void updateRecipeOnWebTest(){
 		}
 		assertTrue("exceptions encountered", b == true);
 		assertTrue(u.getLength() == 1);
-		
-		
-		RecipeModel r_update = new RecipeModel("testRecipe2", "test2", new IngredientListModel (),
-				new InstructionListModel());
+
+		RecipeModel r_update = new RecipeModel("testRecipe2", "test2",
+				new IngredientListModel(), new InstructionListModel());
 
 		try {
 			u.updateRecipe(r_update, 0);
-			
-			
+
 		} catch (ClientProtocolException e) {
 			b = false;
 			e.printStackTrace();
@@ -105,6 +100,5 @@ public void updateRecipeOnWebTest(){
 		assertTrue("exceptions encountered", b == true);
 		assertTrue(u.getRecipe(0).getRecipeName() == "testRecipe2");
 	}
-
 
 }
