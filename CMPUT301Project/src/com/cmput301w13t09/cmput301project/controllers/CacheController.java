@@ -29,7 +29,7 @@ import android.content.Context;
 
 @SuppressLint("DefaultLocale")
 public class CacheController {
-	private RecipeListModel recipe_list;
+	private RecipeListModel recipe_List;
 	private Context ctx;
 
 	/**
@@ -38,7 +38,7 @@ public class CacheController {
 	 *            Context of the activity running the controller
 	 */
 	public CacheController(Context tctx) {
-		recipe_list = new RecipeListModel();
+		recipe_List = new RecipeListModel();
 		ctx = tctx;
 		this.loadFromFile();
 
@@ -51,12 +51,12 @@ public class CacheController {
 	 * @return this so that chain adding can happen.
 	 */
 	public CacheController addRecipe(RecipeModel recipe) {
-		recipe_list.add(recipe);
+		recipe_List.add(recipe);
 		return this;
 	}
 
 	public void replaceRecipe(int i, RecipeModel recipe) {
-		recipe_list.set(i, recipe);
+		recipe_List.set(i, recipe);
 	}
 
 	/**
@@ -65,7 +65,7 @@ public class CacheController {
 	 * @return size : The size of the list of recipes
 	 */
 	public int getLength() {
-		return recipe_list.size();
+		return recipe_List.size();
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class CacheController {
 	 * @return Name of recipe
 	 */
 	public String getRecipeListName(int i) {
-		return recipe_list.get(i).getRecipeName();
+		return recipe_List.get(i).getRecipeName();
 	}
 
 	/**
@@ -88,7 +88,7 @@ public class CacheController {
 	 * @return Description of recipe
 	 */
 	public String getRecipeListDesc(int i) {
-		return recipe_list.get(i).getRecipeDesc();
+		return recipe_List.get(i).getRecipeDesc();
 	}
 
 	/**
@@ -100,7 +100,7 @@ public class CacheController {
 	 * @return List of ingredient that go into this recipe
 	 */
 	public IngredientListModel getRecipeingredientList(int i) {
-		return recipe_list.get(i).getIngredList();
+		return recipe_List.get(i).getIngredList();
 	}
 
 	/**
@@ -112,7 +112,7 @@ public class CacheController {
 	 * @return List of photos attached to a recipe item
 	 */
 	public PhotoListModel getRecipePhotoList(int i) {
-		return recipe_list.get(i).getPhotoList();
+		return recipe_List.get(i).getPhotoList();
 	}
 
 	/**
@@ -120,11 +120,11 @@ public class CacheController {
 	 * @return the List of recipes
 	 */
 	public void setRecipeListModel(RecipeListModel a) {
-		this.recipe_list = a;
+		this.recipe_List = a;
 	}
 
 	public RecipeListModel getRecipeList() {
-		return this.recipe_list;
+		return this.recipe_List;
 	}
 
 	/**
@@ -133,7 +133,7 @@ public class CacheController {
 	 *            The index of the recipe to be removed
 	 */
 	public void remove(int i) {
-		this.recipe_list.remove(i);
+		this.recipe_List.remove(i);
 	}
 
 	/**
@@ -144,7 +144,7 @@ public class CacheController {
 		try {
 			FileInputStream fileIn = ctx.openFileInput("Cache.data");
 			ObjectInputStream objectInStream = new ObjectInputStream(fileIn);
-			recipe_list = (RecipeListModel) objectInStream.readObject();
+			recipe_List = (RecipeListModel) objectInStream.readObject();
 			objectInStream.close();
 			return;
 		} catch (FileNotFoundException FNE) {
@@ -188,7 +188,7 @@ public class CacheController {
 			FileOutputStream fileOut = ctx.openFileOutput("Cache.data",
 					Context.MODE_PRIVATE);
 			ObjectOutputStream objectOutStream = new ObjectOutputStream(fileOut);
-			objectOutStream.writeObject(recipe_list);
+			objectOutStream.writeObject(recipe_List);
 			objectOutStream.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -201,7 +201,7 @@ public class CacheController {
 	 * @return recipe at postion i
 	 */
 	public RecipeModel getRecipe(int i) {
-		return recipe_list.get(i);
+		return recipe_List.get(i);
 	}
 
 	/**
@@ -214,11 +214,11 @@ public class CacheController {
 	@SuppressLint("DefaultLocale")
 	public int findRecipe(String fname) {
 		int position = -1;
-		for (int i = 0; i < this.recipe_list.size(); i++) {
+		for (int i = 0; i < this.recipe_List.size(); i++) {
 			if (fname
 					.trim()
 					.toLowerCase()
-					.equals(this.recipe_list.get(i).getRecipeName().trim()
+					.equals(this.recipe_List.get(i).getRecipeName().trim()
 							.toLowerCase())) {
 				position = i;
 			}
@@ -243,7 +243,7 @@ public class CacheController {
 			return position;
 		}
 		int count = 0;
-		for (int i = 0; i < this.recipe_list.get(position).getIngredList()
+		for (int i = 0; i < this.recipe_List.get(position).getIngredList()
 				.size(); i++) {
 			int z = 1;
 			for (int j = 0; j < ingredController.getIngredientList().size(); j++) {
@@ -254,7 +254,7 @@ public class CacheController {
 				}
 			}
 		}
-		if (count == this.recipe_list.get(position).getIngredList().size()) {
+		if (count == this.recipe_List.get(position).getIngredList().size()) {
 			return position;
 		} else {
 			return -1;
@@ -268,7 +268,7 @@ public class CacheController {
 	}
 
 	private String processRecipeListString(int position, int i) {
-		return recipe_list
+		return recipe_List
 				.get(position)
 				.getIngredList()
 				.get(i)
@@ -284,9 +284,9 @@ public class CacheController {
 	public RecipeListModel getQueryRecipeList(
 			IngredientController ingredController) {
 		RecipeListModel temp = new RecipeListModel();
-		for (int i = 0; i < this.recipe_list.size(); i++) {
+		for (int i = 0; i < this.recipe_List.size(); i++) {
 			if (this.checkRecipeHasIngredients(i, ingredController) != -1) {
-				temp.add(recipe_list.get(i));
+				temp.add(recipe_List.get(i));
 			}
 		}
 		return temp;

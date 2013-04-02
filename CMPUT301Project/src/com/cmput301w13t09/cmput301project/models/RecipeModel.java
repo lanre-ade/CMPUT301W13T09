@@ -21,11 +21,11 @@ public class RecipeModel implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String recipe_name;
-	private String recipe_desc;
-	private IngredientListModel ingred_list;
-	private InstructionListModel instuc_list;
-	private PhotoListModel photo_list;
+	private String recipe_Name;
+	private String recipe_Desc;
+	private IngredientListModel ingred_List;
+	private InstructionListModel instuc_List;
+	private PhotoListModel photo_List;
 
 	/**
 	 * Constructor
@@ -41,20 +41,20 @@ public class RecipeModel implements Serializable {
 	 */
 	public RecipeModel(String name, String desc, IngredientListModel Ilist,
 			InstructionListModel InsList) {
-		recipe_desc = desc;
-		recipe_name = name;
-		ingred_list = Ilist;
-		instuc_list = InsList;
-		photo_list = new PhotoListModel();
+		recipe_Desc = desc;
+		recipe_Name = name;
+		ingred_List = Ilist;
+		instuc_List = InsList;
+		photo_List = new PhotoListModel();
 	}
 
 	public RecipeModel(String name, String desc, IngredientListModel Ilist,
 			InstructionListModel InsList, PhotoListModel Plist) {
-		recipe_desc = desc;
-		recipe_name = name;
-		ingred_list = Ilist;
-		instuc_list = InsList;
-		photo_list = Plist;
+		recipe_Desc = desc;
+		recipe_Name = name;
+		ingred_List = Ilist;
+		instuc_List = InsList;
+		photo_List = Plist;
 	}
 
 	/**
@@ -63,7 +63,7 @@ public class RecipeModel implements Serializable {
 	 * @return Description of a recipe
 	 */
 	public String getRecipeDesc() {
-		return recipe_desc;
+		return recipe_Desc;
 	}
 
 	/**
@@ -72,7 +72,7 @@ public class RecipeModel implements Serializable {
 	 * @return Name of the recipe
 	 */
 	public String getRecipeName() {
-		return recipe_name;
+		return recipe_Name;
 	}
 
 	/**
@@ -81,7 +81,7 @@ public class RecipeModel implements Serializable {
 	 * @return A list of required ingredients
 	 */
 	public IngredientListModel getIngredList() {
-		return ingred_list;
+		return ingred_List;
 	}
 
 	/**
@@ -90,27 +90,27 @@ public class RecipeModel implements Serializable {
 	 * @return list of photos attached to recipe
 	 */
 	public PhotoListModel getPhotoList() {
-		return photo_list;
+		return photo_List;
 	}
 
 	/**
 	 * 
 	 */
 	public String toString() {
-		return recipe_name;
+		return recipe_Name;
 	}
 	/**
 	 * Returns InstructionListModel contained in RecipeModel
 	 * @return
 	 */
 	public InstructionListModel getInstucuctionListModel() {
-		return instuc_list;
+		return instuc_List;
 	}
 	/**
 	 * Sets In InstructionListModel contained in RecipeModel
 	 * @param instuc_list
 	 */
 	public void setInstucuctionListModel(InstructionListModel instuc_list) {
-		this.instuc_list = instuc_list;
+		this.instuc_List = instuc_list;
 	}
 }

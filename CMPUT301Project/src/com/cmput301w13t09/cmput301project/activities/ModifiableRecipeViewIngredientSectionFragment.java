@@ -79,32 +79,48 @@ public class ModifiableRecipeViewIngredientSectionFragment extends Fragment {
 							.setOnClickListener(new OnClickListener() {
 								@Override
 								public void onClick(View v) {
-									if(!addIngredientDialodEditTextQuantity.getText().toString().isEmpty() && !addIngredientDialodEditTextName.getText().toString().isEmpty()){
-									builder.addIngredient(new IngredientModel(
-											addIngredientDialodEditTextName
-													.getText().toString(),
-											addIngredientDialodEditTextDescription
-													.getText().toString(),
-											Float.parseFloat(addIngredientDialodEditTextQuantity
-													.getText().toString()),
-											addIngredientDialodSpinnerQuantity
-													.getSelectedItem()
-													.toString()));
-									updateList();
-									addIngredientDialog.dismiss();
-									}
-									else{
-										  AlertDialog.Builder builder3 = new AlertDialog.Builder(getActivity());
-									        builder3.setMessage(R.string.Error_)
-									               .setPositiveButton(R.string.Ok, new DialogInterface.OnClickListener() {
-									                   public void onClick(DialogInterface dialog3, int id) {
-									                       dialog3.dismiss();
-									                   }
-									               });
-									        AlertDialog dialog3 = builder3.create();
-											dialog3.show();
+									if (checkIsBlank(
+											addIngredientDialodEditTextName,
+											addIngredientDialodEditTextQuantity)) {
+										builder.addIngredient(new IngredientModel(
+												addIngredientDialodEditTextName
+														.getText().toString(),
+												addIngredientDialodEditTextDescription
+														.getText().toString(),
+												Float.parseFloat(addIngredientDialodEditTextQuantity
+														.getText().toString()),
+												addIngredientDialodSpinnerQuantity
+														.getSelectedItem()
+														.toString()));
+										updateList();
+										addIngredientDialog.dismiss();
+									} else {
+										AlertDialog.Builder builder3 = new AlertDialog.Builder(
+												getActivity());
+										builder3.setMessage(R.string.Error_)
+												.setPositiveButton(
+														R.string.Ok,
+														new DialogInterface.OnClickListener() {
+															public void onClick(
+																	DialogInterface dialog3,
+																	int id) {
+																dialog3.dismiss();
+															}
+														});
+										AlertDialog dialog3 = builder3.create();
+										dialog3.show();
 									}
 
+								}
+
+								private boolean checkIsBlank(
+										final EditText addIngredientDialodEditTextName,
+										final EditText addIngredientDialodEditTextQuantity) {
+									return !addIngredientDialodEditTextQuantity
+											.getText().toString().isEmpty()
+											&& !addIngredientDialodEditTextName
+													.getText().toString()
+													.isEmpty();
 								}
 							});
 					addIngredientDialogButtonCancel
@@ -202,35 +218,54 @@ public class ModifiableRecipeViewIngredientSectionFragment extends Fragment {
 
 											@Override
 											public void onClick(View v) {
-												if(!dialogquantityText.getText().toString().isEmpty() && !dialognameText.getText().toString().isEmpty()){
-												builder.setIngredient(
-														dialogNumber,
-														dialognameText
-																.getText()
-																.toString(),
-														dialogdescriptionText
-																.getText()
-																.toString(),
-														Float.parseFloat(dialogquantityText
-																.getText()
-																.toString()),
-														unitSelectorSpinner
-																.getSelectedItem()
-																.toString());
-												dialog2.dismiss();
-												updateList();
+												if (isBlank(dialognameText,
+														dialogquantityText)) {
+													builder.setIngredient(
+															dialogNumber,
+															dialognameText
+																	.getText()
+																	.toString(),
+															dialogdescriptionText
+																	.getText()
+																	.toString(),
+															Float.parseFloat(dialogquantityText
+																	.getText()
+																	.toString()),
+															unitSelectorSpinner
+																	.getSelectedItem()
+																	.toString());
+													dialog2.dismiss();
+													updateList();
+												} else {
+													AlertDialog.Builder builder3 = new AlertDialog.Builder(
+															getActivity());
+													builder3.setMessage(
+															R.string.Error_)
+															.setPositiveButton(
+																	R.string.Ok,
+																	new DialogInterface.OnClickListener() {
+																		public void onClick(
+																				DialogInterface dialog3,
+																				int id) {
+																			dialog3.dismiss();
+																		}
+																	});
+													AlertDialog dialog3 = builder3
+															.create();
+													dialog3.show();
 												}
-												else{
-													 AlertDialog.Builder builder3 = new AlertDialog.Builder(getActivity());
-												        builder3.setMessage(R.string.Error_)
-												               .setPositiveButton(R.string.Ok, new DialogInterface.OnClickListener() {
-												                   public void onClick(DialogInterface dialog3, int id) {
-												                       dialog3.dismiss();
-												                   }
-												               });
-												        AlertDialog dialog3 = builder3.create();
-														dialog3.show();
-												}
+											}
+
+											private boolean isBlank(
+													final EditText dialognameText,
+													final EditText dialogquantityText) {
+												return !dialogquantityText
+														.getText().toString()
+														.isEmpty()
+														&& !dialognameText
+																.getText()
+																.toString()
+																.isEmpty();
 											}
 										});
 
@@ -256,7 +291,6 @@ public class ModifiableRecipeViewIngredientSectionFragment extends Fragment {
 		});
 		return tabView;
 	}
-	
 
 	protected void updateList() {
 		builder.updateRecipe();

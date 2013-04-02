@@ -35,7 +35,7 @@ import com.google.gson.reflect.TypeToken;
  */
 @SuppressLint("DefaultLocale")
 public class WebController {
-	private RecipeListModel recipe_list;
+	private RecipeListModel recipe_List;
 	private Gson gson = new Gson();
 	private HttpClient httpclient = new DefaultHttpClient();
 
@@ -46,7 +46,7 @@ public class WebController {
 	 * @throws IOException
 	 */
 	public WebController() throws ClientProtocolException, IOException {
-		recipe_list = new RecipeListModel();
+		recipe_List = new RecipeListModel();
 		this.loadFromWeb();
 	}
 
@@ -58,7 +58,7 @@ public class WebController {
 	 * @return Name of recipe
 	 */
 	public String getRecipeListName(int i) {
-		return recipe_list.get(i).getRecipeName();
+		return recipe_List.get(i).getRecipeName();
 	}
 
 	/**
@@ -67,7 +67,7 @@ public class WebController {
 	 * @return int length of recipelist
 	 */
 	public int getLength() {
-		return recipe_list.size();
+		return recipe_List.size();
 	}
 
 	/**
@@ -77,7 +77,7 @@ public class WebController {
 	 * @return UploadController
 	 */
 	public WebController addRecipe(RecipeModel recipe) {
-		recipe_list.add(recipe);
+		recipe_List.add(recipe);
 		return this;
 	}
 
@@ -298,7 +298,7 @@ public class WebController {
 	 * @return the List of recipes
 	 */
 	public RecipeListModel getRecipeList() {
-		return this.recipe_list;
+		return this.recipe_List;
 	}
 
 	/**
@@ -312,7 +312,7 @@ public class WebController {
 	@SuppressLint("DefaultLocale")
 	public int findRecipe(String fname) {
 		int position = -1;
-		for (int i = 0; i < this.recipe_list.size(); i++) {
+		for (int i = 0; i < this.recipe_List.size(); i++) {
 			if (checkIfRecipeFound(fname, i)) {
 				position = i;
 			}
@@ -324,7 +324,7 @@ public class WebController {
 		return fname
 				.trim()
 				.toLowerCase()
-				.equals(this.recipe_list.get(i).getRecipeName().trim()
+				.equals(this.recipe_List.get(i).getRecipeName().trim()
 						.toLowerCase());
 	}
 
@@ -345,7 +345,7 @@ public class WebController {
 			return position;
 		}
 		int count = 0;
-		for (int i = 0; i < this.recipe_list.get(position).getIngredList()
+		for (int i = 0; i < this.recipe_List.get(position).getIngredList()
 				.size(); i++) {
 			int z = 1;
 			for (int j = 0; j < ingredController.getIngredientList().size(); j++) {
@@ -357,7 +357,7 @@ public class WebController {
 				}
 			}
 		}
-		if (count == this.recipe_list.get(position).getIngredList().size()) {
+		if (count == this.recipe_List.get(position).getIngredList().size()) {
 			return position;
 		} else {
 			return -1;
@@ -371,7 +371,7 @@ public class WebController {
 	}
 
 	private String processRecipeListString(int position, int i) {
-		return recipe_list
+		return recipe_List
 				.get(position)
 				.getIngredList()
 				.get(i)
@@ -390,9 +390,9 @@ public class WebController {
 	public RecipeListModel getQueryRecipeList(
 			IngredientController ingredController) {
 		RecipeListModel temp = new RecipeListModel();
-		for (int i = 0; i < this.recipe_list.size(); i++) {
+		for (int i = 0; i < this.recipe_List.size(); i++) {
 			if (this.checkRecipeHasIngredients(i, ingredController) != -1) {
-				temp.add(recipe_list.get(i));
+				temp.add(recipe_List.get(i));
 			}
 		}
 		return temp;
@@ -406,7 +406,7 @@ public class WebController {
 	 * @return recipe at position i
 	 */
 	public RecipeModel getRecipe(int i) {
-		return recipe_list.get(i);
+		return recipe_List.get(i);
 	}
 
 }
