@@ -67,7 +67,7 @@ public class QueryRecipeOfflineView extends Activity {
 									int which) {
 								try {
 									Intent viewRecipe = new Intent(
-											"activities.RecipeOnlineView");
+											"activities.ViewRecipe");
 									viewRecipe.putExtra("Recipe",
 											QuertRecipeList.get(dialogNumber));
 									startActivity(viewRecipe);
