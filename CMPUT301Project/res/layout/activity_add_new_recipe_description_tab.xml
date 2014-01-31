@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/CreateNewRecipeDescriptionTab"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/addNewRecipeDescriptionString"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/addNewRecipeNameEditText"
+        android:layout_marginTop="36dp"
+        android:text="@string/addNewIngredientStringDescription"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/textColour" />
+
+    <TextView
+        android:id="@+id/addNewRecipeNameString"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="35dp"
+        android:text="@string/addNewIngredientStringName"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/textColour" />
+
+    <AutoCompleteTextView
+        android:id="@+id/addNewRecipeNameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/addNewRecipeNameString"
+        android:layout_toRightOf="@+id/addNewRecipeDescriptionString"
+        android:ems="10"
+        android:inputType="textCapWords" />
+
+    <EditText
+        android:id="@+id/addNewRecipeDescriptionEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/addNewRecipeDescriptionButtonSet"
+        android:layout_alignLeft="@+id/addNewRecipeNameEditText"
+        android:layout_alignTop="@+id/addNewRecipeDescriptionString"
+        android:ems="10"
+        android:gravity="top"
+        android:inputType="textMultiLine|textCapSentences"
+        android:singleLine="false" >
+
+    </EditText>
+
+    <Button
+        android:id="@+id/addNewRecipeDescriptionButtonSet"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_t"
+        android:text="@string/set" />
+
+</RelativeLayout>

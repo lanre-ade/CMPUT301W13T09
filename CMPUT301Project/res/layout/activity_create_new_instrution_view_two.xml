@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/R.layout.activity_create_new_instruction_view_two"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background" >
+
+	<EditText
+        android:id="@+id/addNewRecipeInstructionDialogTwoEditText"
+        android:layout_width="fill_parent"
+        android:layout_height="75dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"
+        android:gravity="top"
+        android:inputType="textMultiLine|textCapSentences" >
+    </EditText>
+
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_below="@+id/addNewRecipeInstructionDialogTwoEditText" >
+
+        <Button
+            android:id="@+id/addNewRecipeInstructionDialogLeft"
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.5"
+            android:background="@drawable/button_tr" />
+
+        <Button
+            android:id="@+id/addNewRecipeInstructionDialogRight"
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.5"
+            android:background="@drawable/button_tl" />
+    </LinearLayout>
+
+</RelativeLayout>

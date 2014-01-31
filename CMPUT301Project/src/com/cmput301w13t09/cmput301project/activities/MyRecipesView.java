@@ -1,73 +1,143 @@
 package com.cmput301w13t09.cmput301project.activities;
 
-
 import android.app.Activity;
-import android.app.LoaderManager;
-import android.database.Cursor;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
-import android.content.CursorLoader;
-import com.cmput301w13t09.cmput301project.R;
-import com.cmput301w13t09.cmput301project.RecipeDBAdapter;
 
+import com.cmput301w13t09.cmput301project.R;
+import com.cmput301w13t09.cmput301project.controllers.RecipeController;
+import com.cmput301w13t09.cmput301project.models.RecipeModel;
+
+/**
+ * @author Kyle, Marcus, and Landre
+ * 
+ * Class: MyRecipesView
+ * MyRecipesView is class that extends an Activity. This class shows all the recipes stored in the
+ * Recipe.data file and loads this with the RecipeController and displays it in a ListView. Also, My
+ * RecipesView provides a button of getting into CreateNewRecipeView where you can add recipes to RecipeList
+ * 
+ */
 public class MyRecipesView extends Activity {
 
-	
+	private ListAdapter recipeListAdapter;
 	private ListView recipeListView;
-	
-	private RecipeDBAdapter _dbHelper;
-	private Cursor _cursor;
-	private SimpleCursorAdapter adapter;
-	//private CursorLoader adaptr;
-	//private LoaderManager managr;
-	
+	private int dialogNumber;
+	private RecipeController recipeController;
+	private Button addRecipeButton;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_recipes_view);
-		
-		_dbHelper = new RecipeDBAdapter(this);
+
+		recipeController = new RecipeController(this);
+		recipeListView = (ListView) findViewById(R.id.myRecipesList);
+		recipeListAdapter = new ArrayAdapter<RecipeModel>(this,
+				android.R.layout.simple_list_item_1,
+				recipeController.getRecipeList());
+
+		recipeListView.setAdapter(recipeListAdapter);
+
+		addRecipeButton = (Button) findViewById(R.id.createRecipeButton);
+
+		recipeListView.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				dialogNumber = position;
+				AlertDialog.Builder builder = new AlertDialog.Builder(
+						MyRecipesView.this);
+				String title = recipeController.getRecipeListName(position);
+				String message = recipeController.getRecipeList().get(position).getRecipeDesc();
+				builder.setMessage(message);
+				builder.setTitle(title);
+
+				builder.setNegativeButton("Cancel",
+						new DialogInterface.OnClickListener() {
+
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								dialog.dismiss();
+
+							}
+						});
+				builder.setNeutralButton("View",
+						new DialogInterface.OnClickListener() {
+
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								try{
+									Intent viewRecipe = new Intent("activities.ViewRecipe");
+									viewRecipe.putExtra("RECIPE_POSITION", dialogNumber);
+									startActivity(viewRecipe);
+								} catch (Throwable throwable){
+									throwable.printStackTrace();
+								}
+								dialog.dismiss();
+
+							}
+						});
+				builder.setPositiveButton("Delete",
+						new DialogInterface.OnClickListener() {
+
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								recipeController.remove(dialogNumber);
+								recipeController.saveToFile();
+								dialog.dismiss();
+								updateList();
+
+							}
+						});
+
+				AlertDialog dialog = builder.create();
+				dialog.show();
+			}
+		});
+
+		addRecipeButton.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				try {
+					Intent addNewRecipe = new Intent(
+							"activities.CreateNewRecipe");
+					startActivity(addNewRecipe);
+				} catch (Throwable e) {
+					e.printStackTrace();
+				}
+
+			}
+		});
+
 	}
 
-	protected void onStart() {
-		super.onStart();
-		
-		_dbHelper.open();
-		fillData();
+	protected void updateList() {
+		recipeController.loadFromFile();
+		recipeListAdapter = new ArrayAdapter<RecipeModel>(this,
+				android.R.layout.simple_list_item_1,
+				recipeController.getRecipeList());
+		recipeListView.setAdapter(recipeListAdapter);
+	}
+	protected void onPause() {
+		super.onPause();
+		recipeController.saveToFile();
 	}
 
-	protected void onStop() {
-		super.onStop();
-		_dbHelper.close();
-		_cursor.close();
-	}
-	/**
-	 * Fill the recipe list view with recipes
-	 */
-	@SuppressWarnings("deprecation")
-	private void fillData() {
-
-		_cursor = _dbHelper.fetchAllRecipes();
-		startManagingCursor(_cursor);
-
-		String[] from = new String[] { RecipeDBAdapter.ID,
-				RecipeDBAdapter.RECIPE, RecipeDBAdapter.USER,
-				RecipeDBAdapter.DATE, RecipeDBAdapter.PROCEDURE };
-		int[] to = new int[] { R.id.recipe_name, R.id.recipe_name};
-
-		adapter = new SimpleCursorAdapter(this, R.layout.recipe_list_row, _cursor,
-				from, to);
-		
-		adapter = new SimpleCursorAdapter(this,
-	            R.layout.recipe_list_row, _cursor,
-	            from, to, 0);
-	    recipeListView.setAdapter(adapter);
-
-
-		stopManagingCursor(_cursor);
-
+	protected void onResume() {
+		super.onResume();
+		updateList();
 	}
 
 }
-

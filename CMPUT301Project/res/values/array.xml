@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="UnitsArrayList">
+        <item>Units</item>
+        <item>Kg</item>
+        <item>g</item>
+        <item>L</item>
+        <item>mL</item>
+        <item>Cup</item>
+        <item>tsp</item>
+        <item>tbsp</item>
+    </string-array>
+</resources>

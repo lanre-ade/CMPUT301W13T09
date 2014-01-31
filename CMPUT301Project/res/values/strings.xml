@@ -1,16 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">CMPUT301Project</string>
+    <string name="app_name">My Cookbook</string>
     <string name="menu_settings">Settings</string>
-    <string name="search_text">Quick search recipes (NI)</string>
-    <string name="in_pantry_search_check">Only use available ingrediants (NI)</string>
-    <string name="local_search_text">Only search in My Recipes (NI)</string>
+    <string name="search_text">Quick search recipes</string>
+    <string name="in_pantry_search_check">Only use available ingrediants</string>
     <string name="recipes">My Recipes</string>
     <string name="pantry">My Pantry</string>
-    <string name="title_activity_my_pantry_view">My Pantry</string>
-    <string name="title_activity_my_recipes_view">My Recipes</string>
     <string name="my_pantry_add_button">Add Ingredient</string>
     <string name="create_recipe">Create New Recipe</string>
+    <string name="title_activity_create_recipe_view">Create Recipe</string>
+    <string name="title_activity_add_new_ingredient">AddNewIngredient</string>
+    <string name="addNewIngredientStringName">Name</string>
+    <string name="addNewIngredientStringQuantity">Quantity</string>
+    <string name="addNewIngredientStringDescription">Description</string>
+    <string name="addNewIngredientButtonString">Done</string>
+    <string name="title_activity_add_new_recipe_view">Add Recipe</string>
+    <string name="CreateNewRecipe_Name">Name:</string>
+    <string name="CreateNewRecipe_Desc">Description:</string>
+    <string name="CreateNewRecipe_IngList">Ingredients Added</string>
+    <string name="CreateRecipeViewAddNewIngredient">Add New Ingredient</string>
+    <string name="CreateRecipeViewDeleteIngredient">Delete Ingredient</string>
+    <string name="CreateRecipeViewSubmit">Submit</string>
+    <string name="createNewRecipe_title_section3">Instructions</string>
+    <string name="createNewRecipe_title_section2">Ingredients</string>
+    <string name="createNewRecipe_title_section1">Description</string>
+    <string name="title_activity_create_new_recipe_view">Create New Recipe</string>
+    <string name="cancelButton">Cancel</string>
+    <string name="addNewRecipeInstructionDialogString">Add New Instruction</string>
+    <string name="buttonDelete">Delete</string>
+    <string name="addNewInstructionButtonString">Add Instruction</string>
+    <string name="MainMenuSearchButtonString">Search Recipe</string>
+    <string name="set">Set</string>
+    <string name="modify">Edit</string>
+    <string name="title_activity_view_recipe_view">Recipe</string>
+    <string name="title_activity_edit_recipe_view">Edit Recipe</string>
+    <string name="mySharing">My Sharing</string>
+    <string name="publishRecipe">Publish Recipe</string>
+    <string name="title_activity_my_sharing_view">My Sharing</string>
+    <string name="title_activity_publish_recipe_view">Publish Recipe</string>
+    <string name="viewRecipesOnWeb">View Recipes On Web</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_recipes_on_web_view">Recipes On Web</string>
+    <string name="title_activity_recipes_on_web_view_offline">Recipes On Web (Offline)</string>
+    <string name="QueryRecipeButton">Find</string>
+    <string name="title_activity_query_recipe_view">Query Recipes</string>
+    <string name="email">Email</string>
+    <string name="ReadRecipeExtensionViewDownload">Add to MyRecipe</string>
+    <string name="upload">Upload</string>
+    <string name="title_activity_read_recipe_extension_view">Recipe Loader</string>
+    <string name="querytextview">Query Recipes (Web)</string>
+    <string name="title_activity_query_recipe_offline_view">Query Recipes</string>
+    <string name="querytext2view">Query Recipes (Locally)</string>
+    <string name="selectNewPicButton"> Select From Library</string>
+    <string name="takeNewPicButton">Take a Picture</string>
+    <string name="image">image</string>
+    <string name="Error:">Error: Blank quantity value or name</string>
+    <string name="Ok">Ok</string>
 
 </resources>

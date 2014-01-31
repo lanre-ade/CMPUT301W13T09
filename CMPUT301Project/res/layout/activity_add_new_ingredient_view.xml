@@ -1,0 +1,113 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddNewIngredient"
+    android:background="@color/background" >
+
+    <EditText
+        android:id="@+id/addNewIngredientEditTextName"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/addNewIngredientStringName"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:inputType="textCapWords" />
+
+    <Spinner
+        android:id="@+id/addNewIngredientSpinnerQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/addNewIngredientStringQuantity"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/addNewIngredientEditTextQuantity" />
+
+    <EditText
+        android:id="@+id/addNewIngredientEditTextQuantity"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/addNewIngredientEditTextName"
+        android:layout_alignTop="@+id/addNewIngredientStringQuantity"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/addNewIngredientStringQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/addNewIngredientEditTextName"
+        android:layout_marginTop="29dp"
+        android:text="@string/addNewIngredientStringQuantity"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/textColour" />
+
+    <TextView
+        android:id="@+id/addNewIngredientStringName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
+        android:text="@string/addNewIngredientStringName"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/textColour" />
+
+    <TextView
+        android:id="@+id/addNewIngredientStringDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/addNewIngredientSpinnerQuantity"
+        android:layout_marginTop="22dp"
+        android:text="@string/addNewIngredientStringDescription"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/textColour" />
+
+    <EditText
+        android:id="@+id/addNewIngredientEditTextDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/addNewIngredient"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/addNewIngredientStringDescription"
+        android:layout_marginBottom="46dp"
+        android:ems="10"
+        android:gravity="top"
+        android:inputType="textMultiLine|textCapSentences" />
+
+    <TextView
+        android:id="@+id/addNewIngredientMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:layout_above="@+id/buttonLayout"
+        android:text="" />
+
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true" >
+
+        <Button
+            android:id="@+id/andNewIngredientCancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:background="@drawable/button_tr"
+            android:text="@string/cancelButton" />
+
+        <Button
+            android:id="@+id/addNewIngredient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:background="@drawable/button_tl"
+            android:text="@string/addNewIngredientButtonString" />
+    </LinearLayout>
+
+</RelativeLayout>

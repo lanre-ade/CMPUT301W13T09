@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MySharingView" 
+    android:background="@color/background">
+
+    <Button
+        android:id="@+id/publishRecipe"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+		android:background="@drawable/button_tb"
+        android:text="@string/publishRecipe" />
+
+    <Button
+        android:id="@+id/viewRecipesonWebButton"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/button_tb"
+        android:layout_below="@+id/publishRecipe"
+        android:text="@string/viewRecipesOnWeb" />
+
+    <Button
+        android:id="@+id/QueryRecipebutton"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/button_tb"
+        android:layout_below="@+id/viewRecipesonWebButton"
+        android:text="@string/querytextview" />
+
+</RelativeLayout>
